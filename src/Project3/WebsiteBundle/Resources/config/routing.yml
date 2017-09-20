@@ -1,0 +1,9 @@
+project3_security:
+    resource: 'routing_security.yml'
+
+project3_website:
+    resource: 'routing_website.yml'
+
+project3_ajax:
+    resource: 'routing_ajax.yml'
+    prefix: "/ajax"

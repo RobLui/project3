@@ -1,0 +1,23 @@
+services:
+
+    project3_website.service.database:
+        class:     Project3\WebsiteBundle\Service\Database
+        arguments: ["@service_container"]
+
+    project3_website.twig.extensions:
+        class:     Project3\WebsiteBundle\Twig\Extensions
+        arguments: ["@project3_website.service.database"]
+        tags:
+            - { name: twig.extension }
+
+    project3_website.admin.group:
+        class: Project3\WebsiteBundle\Admin\GroupAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\Group, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Users, label: Group }
+
+    project3_website.admin.user:
+        class: Project3\WebsiteBundle\Admin\UserAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Users, label: User }

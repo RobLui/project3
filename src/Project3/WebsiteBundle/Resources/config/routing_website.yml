@@ -1,0 +1,7 @@
+project3_website_home:
+    path:     /
+    defaults: { _controller: Project3WebsiteBundle:Default:index }
+
+project3_website_group:
+    path:     /group/{slug}
+    defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }

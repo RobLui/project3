@@ -1,0 +1,7 @@
+project3_security_login:
+    path:     /login
+    defaults: { _controller: Project3WebsiteBundle:Security:login }
+
+project3_security_logout:
+    path:     /logout
+    defaults: { _controller: Project3WebsiteBundle:Security:logout }
