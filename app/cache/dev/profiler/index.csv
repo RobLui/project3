@@ -46,3 +46,7 @@ adfbc9,127.0.0.1,GET,http://projectsam.local/_fragment?_path=_format%3Dhtml%26_l
 33ce31,127.0.0.1,GET,http://projectsam.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1505946812,f2e6ee,200
 e2b151,127.0.0.1,GET,http://projectsam.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1505946812,f2e6ee,200
 f2e6ee,127.0.0.1,GET,http://projectsam.local/login,1505946812,,200
+071338,127.0.0.1,GET,http://project3.local/,1505947645,,302
+a455e7,127.0.0.1,GET,http://project3.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1505947645,ad0fa3,200
+a70d9a,127.0.0.1,GET,http://project3.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1505947645,ad0fa3,200
+ad0fa3,127.0.0.1,GET,http://project3.local/login,1505947645,,200
