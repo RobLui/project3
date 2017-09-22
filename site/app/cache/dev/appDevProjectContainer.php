@@ -8,18 +8,18 @@ use Symfony\Component\DependencyInjection\Exception\LogicException;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 use Symfony\Component\DependencyInjection\ParameterBag\FrozenParameterBag;
 
-/**
- * appDevDebugProjectContainer.
+/*
+ * appDevProjectContainer.
  *
  * This class has been auto-generated
  * by the Symfony Dependency Injection Component.
  */
-class appDevDebugProjectContainer extends Container
+class appDevProjectContainer extends Container
 {
     private $parameters;
     private $targetDirs = array();
 
-    /**
+    /*
      * Constructor.
      */
     public function __construct()
@@ -49,15 +49,12 @@ class appDevDebugProjectContainer extends Container
             'data_collector.request' => 'getDataCollector_RequestService',
             'data_collector.router' => 'getDataCollector_RouterService',
             'data_collector.translation' => 'getDataCollector_TranslationService',
-            'debug.controller_resolver' => 'getDebug_ControllerResolverService',
             'debug.debug_handlers_listener' => 'getDebug_DebugHandlersListenerService',
             'debug.dump_listener' => 'getDebug_DumpListenerService',
-            'debug.event_dispatcher' => 'getDebug_EventDispatcherService',
             'debug.stopwatch' => 'getDebug_StopwatchService',
             'doctrine' => 'getDoctrineService',
             'doctrine.dbal.connection_factory' => 'getDoctrine_Dbal_ConnectionFactoryService',
             'doctrine.dbal.default_connection' => 'getDoctrine_Dbal_DefaultConnectionService',
-            'doctrine.dbal.logger.profiling.default' => 'getDoctrine_Dbal_Logger_Profiling_DefaultService',
             'doctrine.orm.default_entity_listener_resolver' => 'getDoctrine_Orm_DefaultEntityListenerResolverService',
             'doctrine.orm.default_entity_manager' => 'getDoctrine_Orm_DefaultEntityManagerService',
             'doctrine.orm.default_entity_manager.property_info_extractor' => 'getDoctrine_Orm_DefaultEntityManager_PropertyInfoExtractorService',
@@ -68,6 +65,7 @@ class appDevDebugProjectContainer extends Container
             'doctrine_cache.providers.doctrine.orm.default_metadata_cache' => 'getDoctrineCache_Providers_Doctrine_Orm_DefaultMetadataCacheService',
             'doctrine_cache.providers.doctrine.orm.default_query_cache' => 'getDoctrineCache_Providers_Doctrine_Orm_DefaultQueryCacheService',
             'doctrine_cache.providers.doctrine.orm.default_result_cache' => 'getDoctrineCache_Providers_Doctrine_Orm_DefaultResultCacheService',
+            'event_dispatcher' => 'getEventDispatcherService',
             'file_locator' => 'getFileLocatorService',
             'filesystem' => 'getFilesystemService',
             'form.csrf_provider' => 'getForm_CsrfProviderService',
@@ -164,18 +162,15 @@ class appDevDebugProjectContainer extends Container
             'logger' => 'getLoggerService',
             'monolog.activation_strategy.not_found' => 'getMonolog_ActivationStrategy_NotFoundService',
             'monolog.handler.console' => 'getMonolog_Handler_ConsoleService',
-            'monolog.handler.debug' => 'getMonolog_Handler_DebugService',
             'monolog.handler.fingers_crossed.error_level_activation_strategy' => 'getMonolog_Handler_FingersCrossed_ErrorLevelActivationStrategyService',
             'monolog.handler.main' => 'getMonolog_Handler_MainService',
             'monolog.handler.null_internal' => 'getMonolog_Handler_NullInternalService',
             'monolog.logger.doctrine' => 'getMonolog_Logger_DoctrineService',
-            'monolog.logger.event' => 'getMonolog_Logger_EventService',
             'monolog.logger.php' => 'getMonolog_Logger_PhpService',
             'monolog.logger.profiler' => 'getMonolog_Logger_ProfilerService',
             'monolog.logger.request' => 'getMonolog_Logger_RequestService',
             'monolog.logger.router' => 'getMonolog_Logger_RouterService',
             'monolog.logger.security' => 'getMonolog_Logger_SecurityService',
-            'monolog.logger.templating' => 'getMonolog_Logger_TemplatingService',
             'monolog.logger.translation' => 'getMonolog_Logger_TranslationService',
             'monolog.processor.psr_log_message' => 'getMonolog_Processor_PsrLogMessageService',
             'profiler' => 'getProfilerService',
@@ -430,7 +425,6 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.default_query_cache' => 'doctrine_cache.providers.doctrine.orm.default_query_cache',
             'doctrine.orm.default_result_cache' => 'doctrine_cache.providers.doctrine.orm.default_result_cache',
             'doctrine.orm.entity_manager' => 'doctrine.orm.default_entity_manager',
-            'event_dispatcher' => 'debug.event_dispatcher',
             'fos_user.util.username_canonicalizer' => 'fos_user.util.email_canonicalizer',
             'sensio.distribution.webconfigurator' => 'sensio_distribution.webconfigurator',
             'session.storage' => 'session.storage.native',
@@ -440,7 +434,7 @@ class appDevDebugProjectContainer extends Container
         );
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function compile()
@@ -448,7 +442,7 @@ class appDevDebugProjectContainer extends Container
         throw new LogicException('You cannot compile a dumped frozen container.');
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function isFrozen()
@@ -456,17 +450,17 @@ class appDevDebugProjectContainer extends Container
         return true;
     }
 
-    /**
+    /*
      * Gets the public 'annotation_reader' shared service.
      *
      * @return \Doctrine\Common\Annotations\CachedReader
      */
     protected function getAnnotationReaderService()
     {
-        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\CachedReader(new \Doctrine\Common\Annotations\AnnotationReader(), new \Doctrine\Common\Cache\FilesystemCache((__DIR__.'/annotations')), true);
+        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\CachedReader(new \Doctrine\Common\Annotations\AnnotationReader(), new \Doctrine\Common\Cache\FilesystemCache((__DIR__.'/annotations')), false);
     }
 
-    /**
+    /*
      * Gets the public 'assets.context' shared service.
      *
      * @return \Symfony\Component\Asset\Context\RequestStackContext
@@ -476,7 +470,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['assets.context'] = new \Symfony\Component\Asset\Context\RequestStackContext($this->get('request_stack'));
     }
 
-    /**
+    /*
      * Gets the public 'assets.packages' shared service.
      *
      * @return \Symfony\Component\Asset\Packages
@@ -486,7 +480,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['assets.packages'] = new \Symfony\Component\Asset\Packages(new \Symfony\Component\Asset\PathPackage('', new \Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy(), $this->get('assets.context')), array());
     }
 
-    /**
+    /*
      * Gets the public 'cache_clearer' shared service.
      *
      * @return \Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer
@@ -496,7 +490,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['cache_clearer'] = new \Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer(array());
     }
 
-    /**
+    /*
      * Gets the public 'cache_warmer' shared service.
      *
      * @return \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate
@@ -508,20 +502,20 @@ class appDevDebugProjectContainer extends Container
 
         $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, ($this->targetDirs[2].'/Resources'));
 
-        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this->get('translator.default')), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 4 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 5 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this, new \Symfony\Bundle\TwigBundle\TemplateIterator($a, $this->targetDirs[2], array())), 6 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine')), 7 => $this->get('sonata.admin.route.cache_warmup')));
+        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 4 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 5 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this, new \Symfony\Bundle\TwigBundle\TemplateIterator($a, $this->targetDirs[2], array())), 6 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine')), 7 => $this->get('sonata.admin.route.cache_warmup')));
     }
 
-    /**
+    /*
      * Gets the public 'config_cache_factory' shared service.
      *
      * @return \Symfony\Component\Config\ResourceCheckerConfigCacheFactory
      */
     protected function getConfigCacheFactoryService()
     {
-        return $this->services['config_cache_factory'] = new \Symfony\Component\Config\ResourceCheckerConfigCacheFactory(array(0 => new \Symfony\Component\Config\Resource\SelfCheckingResourceChecker(), 1 => new \Symfony\Component\Config\Resource\BCResourceInterfaceChecker()));
+        return $this->services['config_cache_factory'] = new \Symfony\Component\Config\ResourceCheckerConfigCacheFactory(array());
     }
 
-    /**
+    /*
      * Gets the public 'data_collector.dump' shared service.
      *
      * @return \Symfony\Component\HttpKernel\DataCollector\DumpDataCollector
@@ -531,7 +525,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['data_collector.dump'] = new \Symfony\Component\HttpKernel\DataCollector\DumpDataCollector($this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE), NULL, 'UTF-8', $this->get('request_stack'), NULL);
     }
 
-    /**
+    /*
      * Gets the public 'data_collector.form' shared service.
      *
      * @return \Symfony\Component\Form\Extension\DataCollector\FormDataCollector
@@ -541,7 +535,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['data_collector.form'] = new \Symfony\Component\Form\Extension\DataCollector\FormDataCollector($this->get('data_collector.form.extractor'));
     }
 
-    /**
+    /*
      * Gets the public 'data_collector.form.extractor' shared service.
      *
      * @return \Symfony\Component\Form\Extension\DataCollector\FormDataExtractor
@@ -551,7 +545,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['data_collector.form.extractor'] = new \Symfony\Component\Form\Extension\DataCollector\FormDataExtractor();
     }
 
-    /**
+    /*
      * Gets the public 'data_collector.request' shared service.
      *
      * @return \Symfony\Component\HttpKernel\DataCollector\RequestDataCollector
@@ -561,7 +555,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['data_collector.request'] = new \Symfony\Component\HttpKernel\DataCollector\RequestDataCollector();
     }
 
-    /**
+    /*
      * Gets the public 'data_collector.router' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\DataCollector\RouterDataCollector
@@ -571,7 +565,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['data_collector.router'] = new \Symfony\Bundle\FrameworkBundle\DataCollector\RouterDataCollector();
     }
 
-    /**
+    /*
      * Gets the public 'data_collector.translation' shared service.
      *
      * @return \Symfony\Component\Translation\DataCollector\TranslationDataCollector
@@ -581,27 +575,17 @@ class appDevDebugProjectContainer extends Container
         return $this->services['data_collector.translation'] = new \Symfony\Component\Translation\DataCollector\TranslationDataCollector($this->get('translator'));
     }
 
-    /**
-     * Gets the public 'debug.controller_resolver' shared service.
-     *
-     * @return \Symfony\Component\HttpKernel\Controller\TraceableControllerResolver
-     */
-    protected function getDebug_ControllerResolverService()
-    {
-        return $this->services['debug.controller_resolver'] = new \Symfony\Component\HttpKernel\Controller\TraceableControllerResolver(new \Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver($this, $this->get('controller_name_converter'), $this->get('monolog.logger.request', ContainerInterface::NULL_ON_INVALID_REFERENCE)), $this->get('debug.stopwatch'));
-    }
-
-    /**
+    /*
      * Gets the public 'debug.debug_handlers_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\DebugHandlersListener
      */
     protected function getDebug_DebugHandlersListenerService()
     {
-        return $this->services['debug.debug_handlers_listener'] = new \Symfony\Component\HttpKernel\EventListener\DebugHandlersListener(NULL, $this->get('monolog.logger.php', ContainerInterface::NULL_ON_INVALID_REFERENCE), -4182, NULL, true, NULL);
+        return $this->services['debug.debug_handlers_listener'] = new \Symfony\Component\HttpKernel\EventListener\DebugHandlersListener(NULL, NULL, NULL, NULL, true, NULL);
     }
 
-    /**
+    /*
      * Gets the public 'debug.dump_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\DumpListener
@@ -611,14 +595,193 @@ class appDevDebugProjectContainer extends Container
         return $this->services['debug.dump_listener'] = new \Symfony\Component\HttpKernel\EventListener\DumpListener($this->get('var_dumper.cloner'), $this->get('var_dumper.cli_dumper'));
     }
 
-    /**
-     * Gets the public 'debug.event_dispatcher' shared service.
+    /*
+     * Gets the public 'debug.stopwatch' shared service.
      *
-     * @return \Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher
+     * @return \Symfony\Component\Stopwatch\Stopwatch
      */
-    protected function getDebug_EventDispatcherService()
+    protected function getDebug_StopwatchService()
     {
-        $this->services['debug.event_dispatcher'] = $instance = new \Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher(new \Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher($this), $this->get('debug.stopwatch'), $this->get('monolog.logger.event', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch();
+    }
+
+    /*
+     * Gets the public 'doctrine' shared service.
+     *
+     * @return \Doctrine\Bundle\DoctrineBundle\Registry
+     */
+    protected function getDoctrineService()
+    {
+        return $this->services['doctrine'] = new \Doctrine\Bundle\DoctrineBundle\Registry($this, array('default' => 'doctrine.dbal.default_connection'), array('default' => 'doctrine.orm.default_entity_manager'), 'default', 'default');
+    }
+
+    /*
+     * Gets the public 'doctrine.dbal.connection_factory' shared service.
+     *
+     * @return \Doctrine\Bundle\DoctrineBundle\ConnectionFactory
+     */
+    protected function getDoctrine_Dbal_ConnectionFactoryService()
+    {
+        return $this->services['doctrine.dbal.connection_factory'] = new \Doctrine\Bundle\DoctrineBundle\ConnectionFactory(array());
+    }
+
+    /*
+     * Gets the public 'doctrine.dbal.default_connection' shared service.
+     *
+     * @return \Doctrine\DBAL\Connection
+     */
+    protected function getDoctrine_Dbal_DefaultConnectionService()
+    {
+        $a = new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this);
+        $a->addEventSubscriber(new \FOS\UserBundle\Doctrine\UserListener($this->get('fos_user.util.password_updater'), $this->get('fos_user.util.canonical_fields_updater')));
+        $a->addEventListener(array(0 => 'loadClassMetadata'), $this->get('doctrine.orm.default_listeners.attach_entity_listeners'));
+
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => NULL, 'dbname' => 'kdg_project3', 'user' => 'root', 'password' => 'mysql', 'charset' => 'UTF8', 'driverOptions' => array(), 'defaultTableOptions' => array()), new \Doctrine\DBAL\Configuration(), $a, array());
+    }
+
+    /*
+     * Gets the public 'doctrine.orm.default_entity_listener_resolver' shared service.
+     *
+     * @return \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver
+     */
+    protected function getDoctrine_Orm_DefaultEntityListenerResolverService()
+    {
+        return $this->services['doctrine.orm.default_entity_listener_resolver'] = new \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver($this);
+    }
+
+    /*
+     * Gets the public 'doctrine.orm.default_entity_manager' shared service.
+     *
+     * @return \Doctrine\ORM\EntityManager
+     */
+    protected function getDoctrine_Orm_DefaultEntityManagerService($lazyLoad = true)
+    {
+        $a = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
+        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => ($this->targetDirs[3].'/src/Project3/WebsiteBundle/Entity'))), 'Project3\\WebsiteBundle\\Entity');
+        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping') => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
+
+        $b = new \Doctrine\ORM\Configuration();
+        $b->setEntityNamespaces(array('Project3WebsiteBundle' => 'Project3\\WebsiteBundle\\Entity'));
+        $b->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
+        $b->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
+        $b->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
+        $b->setMetadataDriverImpl($a);
+        $b->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
+        $b->setProxyNamespace('Proxies');
+        $b->setAutoGenerateProxyClasses(false);
+        $b->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $b->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $b->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy());
+        $b->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
+        $b->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
+
+        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $b);
+
+        $this->get('doctrine.orm.default_manager_configurator')->configure($instance);
+
+        return $instance;
+    }
+
+    /*
+     * Gets the public 'doctrine.orm.default_entity_manager.property_info_extractor' shared service.
+     *
+     * @return \Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor
+     */
+    protected function getDoctrine_Orm_DefaultEntityManager_PropertyInfoExtractorService()
+    {
+        return $this->services['doctrine.orm.default_entity_manager.property_info_extractor'] = new \Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor($this->get('doctrine.orm.default_entity_manager')->getMetadataFactory());
+    }
+
+    /*
+     * Gets the public 'doctrine.orm.default_listeners.attach_entity_listeners' shared service.
+     *
+     * @return \Doctrine\ORM\Tools\AttachEntityListenersListener
+     */
+    protected function getDoctrine_Orm_DefaultListeners_AttachEntityListenersService()
+    {
+        return $this->services['doctrine.orm.default_listeners.attach_entity_listeners'] = new \Doctrine\ORM\Tools\AttachEntityListenersListener();
+    }
+
+    /*
+     * Gets the public 'doctrine.orm.default_manager_configurator' shared service.
+     *
+     * @return \Doctrine\Bundle\DoctrineBundle\ManagerConfigurator
+     */
+    protected function getDoctrine_Orm_DefaultManagerConfiguratorService()
+    {
+        return $this->services['doctrine.orm.default_manager_configurator'] = new \Doctrine\Bundle\DoctrineBundle\ManagerConfigurator(array(), array());
+    }
+
+    /*
+     * Gets the public 'doctrine.orm.validator.unique' shared service.
+     *
+     * @return \Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator
+     */
+    protected function getDoctrine_Orm_Validator_UniqueService()
+    {
+        return $this->services['doctrine.orm.validator.unique'] = new \Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator($this->get('doctrine'));
+    }
+
+    /*
+     * Gets the public 'doctrine.orm.validator_initializer' shared service.
+     *
+     * @return \Symfony\Bridge\Doctrine\Validator\DoctrineInitializer
+     */
+    protected function getDoctrine_Orm_ValidatorInitializerService()
+    {
+        return $this->services['doctrine.orm.validator_initializer'] = new \Symfony\Bridge\Doctrine\Validator\DoctrineInitializer($this->get('doctrine'));
+    }
+
+    /*
+     * Gets the public 'doctrine_cache.providers.doctrine.orm.default_metadata_cache' shared service.
+     *
+     * @return \Doctrine\Common\Cache\ArrayCache
+     */
+    protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultMetadataCacheService()
+    {
+        $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
+
+        $instance->setNamespace('sf2orm_default_a42c963f795725b78dbff64da46b111c52b9de85801ac401d45e3d43720ec5cd');
+
+        return $instance;
+    }
+
+    /*
+     * Gets the public 'doctrine_cache.providers.doctrine.orm.default_query_cache' shared service.
+     *
+     * @return \Doctrine\Common\Cache\ArrayCache
+     */
+    protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultQueryCacheService()
+    {
+        $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
+
+        $instance->setNamespace('sf2orm_default_a42c963f795725b78dbff64da46b111c52b9de85801ac401d45e3d43720ec5cd');
+
+        return $instance;
+    }
+
+    /*
+     * Gets the public 'doctrine_cache.providers.doctrine.orm.default_result_cache' shared service.
+     *
+     * @return \Doctrine\Common\Cache\ArrayCache
+     */
+    protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultResultCacheService()
+    {
+        $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
+
+        $instance->setNamespace('sf2orm_default_a42c963f795725b78dbff64da46b111c52b9de85801ac401d45e3d43720ec5cd');
+
+        return $instance;
+    }
+
+    /*
+     * Gets the public 'event_dispatcher' shared service.
+     *
+     * @return \Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher
+     */
+    protected function getEventDispatcherService()
+    {
+        $this->services['event_dispatcher'] = $instance = new \Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher($this);
 
         $instance->addListenerService('kernel.controller', array(0 => 'data_collector.router', 1 => 'onKernelController'), 0);
         $instance->addListenerService('kernel.response', array(0 => 'sonata.block.cache.handler.default', 1 => 'onKernelResponse'), 0);
@@ -654,193 +817,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
-     * Gets the public 'debug.stopwatch' shared service.
-     *
-     * @return \Symfony\Component\Stopwatch\Stopwatch
-     */
-    protected function getDebug_StopwatchService()
-    {
-        return $this->services['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch();
-    }
-
-    /**
-     * Gets the public 'doctrine' shared service.
-     *
-     * @return \Doctrine\Bundle\DoctrineBundle\Registry
-     */
-    protected function getDoctrineService()
-    {
-        return $this->services['doctrine'] = new \Doctrine\Bundle\DoctrineBundle\Registry($this, array('default' => 'doctrine.dbal.default_connection'), array('default' => 'doctrine.orm.default_entity_manager'), 'default', 'default');
-    }
-
-    /**
-     * Gets the public 'doctrine.dbal.connection_factory' shared service.
-     *
-     * @return \Doctrine\Bundle\DoctrineBundle\ConnectionFactory
-     */
-    protected function getDoctrine_Dbal_ConnectionFactoryService()
-    {
-        return $this->services['doctrine.dbal.connection_factory'] = new \Doctrine\Bundle\DoctrineBundle\ConnectionFactory(array());
-    }
-
-    /**
-     * Gets the public 'doctrine.dbal.default_connection' shared service.
-     *
-     * @return \Doctrine\DBAL\Connection
-     */
-    protected function getDoctrine_Dbal_DefaultConnectionService()
-    {
-        $a = new \Doctrine\DBAL\Logging\LoggerChain();
-        $a->addLogger(new \Symfony\Bridge\Doctrine\Logger\DbalLogger($this->get('monolog.logger.doctrine', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
-        $a->addLogger($this->get('doctrine.dbal.logger.profiling.default'));
-
-        $b = new \Doctrine\DBAL\Configuration();
-        $b->setSQLLogger($a);
-
-        $c = new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this);
-        $c->addEventSubscriber(new \FOS\UserBundle\Doctrine\UserListener($this->get('fos_user.util.password_updater'), $this->get('fos_user.util.canonical_fields_updater')));
-        $c->addEventListener(array(0 => 'loadClassMetadata'), $this->get('doctrine.orm.default_listeners.attach_entity_listeners'));
-
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => NULL, 'dbname' => 'kdg_project3', 'user' => 'root', 'password' => 'mysql', 'charset' => 'UTF8', 'driverOptions' => array(), 'defaultTableOptions' => array()), $b, $c, array());
-    }
-
-    /**
-     * Gets the public 'doctrine.orm.default_entity_listener_resolver' shared service.
-     *
-     * @return \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver
-     */
-    protected function getDoctrine_Orm_DefaultEntityListenerResolverService()
-    {
-        return $this->services['doctrine.orm.default_entity_listener_resolver'] = new \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver($this);
-    }
-
-    /**
-     * Gets the public 'doctrine.orm.default_entity_manager' shared service.
-     *
-     * @return \Doctrine\ORM\EntityManager
-     */
-    protected function getDoctrine_Orm_DefaultEntityManagerService($lazyLoad = true)
-    {
-        $a = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
-        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => ($this->targetDirs[3].'/src/Project3/WebsiteBundle/Entity'))), 'Project3\\WebsiteBundle\\Entity');
-        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array(($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping') => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
-
-        $b = new \Doctrine\ORM\Configuration();
-        $b->setEntityNamespaces(array('Project3WebsiteBundle' => 'Project3\\WebsiteBundle\\Entity'));
-        $b->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
-        $b->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
-        $b->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
-        $b->setMetadataDriverImpl($a);
-        $b->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
-        $b->setProxyNamespace('Proxies');
-        $b->setAutoGenerateProxyClasses(true);
-        $b->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
-        $b->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $b->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy());
-        $b->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
-        $b->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
-
-        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $b);
-
-        $this->get('doctrine.orm.default_manager_configurator')->configure($instance);
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'doctrine.orm.default_entity_manager.property_info_extractor' shared service.
-     *
-     * @return \Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor
-     */
-    protected function getDoctrine_Orm_DefaultEntityManager_PropertyInfoExtractorService()
-    {
-        return $this->services['doctrine.orm.default_entity_manager.property_info_extractor'] = new \Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor($this->get('doctrine.orm.default_entity_manager')->getMetadataFactory());
-    }
-
-    /**
-     * Gets the public 'doctrine.orm.default_listeners.attach_entity_listeners' shared service.
-     *
-     * @return \Doctrine\ORM\Tools\AttachEntityListenersListener
-     */
-    protected function getDoctrine_Orm_DefaultListeners_AttachEntityListenersService()
-    {
-        return $this->services['doctrine.orm.default_listeners.attach_entity_listeners'] = new \Doctrine\ORM\Tools\AttachEntityListenersListener();
-    }
-
-    /**
-     * Gets the public 'doctrine.orm.default_manager_configurator' shared service.
-     *
-     * @return \Doctrine\Bundle\DoctrineBundle\ManagerConfigurator
-     */
-    protected function getDoctrine_Orm_DefaultManagerConfiguratorService()
-    {
-        return $this->services['doctrine.orm.default_manager_configurator'] = new \Doctrine\Bundle\DoctrineBundle\ManagerConfigurator(array(), array());
-    }
-
-    /**
-     * Gets the public 'doctrine.orm.validator.unique' shared service.
-     *
-     * @return \Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator
-     */
-    protected function getDoctrine_Orm_Validator_UniqueService()
-    {
-        return $this->services['doctrine.orm.validator.unique'] = new \Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator($this->get('doctrine'));
-    }
-
-    /**
-     * Gets the public 'doctrine.orm.validator_initializer' shared service.
-     *
-     * @return \Symfony\Bridge\Doctrine\Validator\DoctrineInitializer
-     */
-    protected function getDoctrine_Orm_ValidatorInitializerService()
-    {
-        return $this->services['doctrine.orm.validator_initializer'] = new \Symfony\Bridge\Doctrine\Validator\DoctrineInitializer($this->get('doctrine'));
-    }
-
-    /**
-     * Gets the public 'doctrine_cache.providers.doctrine.orm.default_metadata_cache' shared service.
-     *
-     * @return \Doctrine\Common\Cache\ArrayCache
-     */
-    protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultMetadataCacheService()
-    {
-        $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
-
-        $instance->setNamespace('sf2orm_default_3ab828271b51f1b247dadea95de46ea338258f079c5e016a3415830658ebeecf');
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'doctrine_cache.providers.doctrine.orm.default_query_cache' shared service.
-     *
-     * @return \Doctrine\Common\Cache\ArrayCache
-     */
-    protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultQueryCacheService()
-    {
-        $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
-
-        $instance->setNamespace('sf2orm_default_3ab828271b51f1b247dadea95de46ea338258f079c5e016a3415830658ebeecf');
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'doctrine_cache.providers.doctrine.orm.default_result_cache' shared service.
-     *
-     * @return \Doctrine\Common\Cache\ArrayCache
-     */
-    protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultResultCacheService()
-    {
-        $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
-
-        $instance->setNamespace('sf2orm_default_3ab828271b51f1b247dadea95de46ea338258f079c5e016a3415830658ebeecf');
-
-        return $instance;
-    }
-
-    /**
+    /*
      * Gets the public 'file_locator' shared service.
      *
      * @return \Symfony\Component\HttpKernel\Config\FileLocator
@@ -850,7 +827,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), ($this->targetDirs[2].'/Resources'));
     }
 
-    /**
+    /*
      * Gets the public 'filesystem' shared service.
      *
      * @return \Symfony\Component\Filesystem\Filesystem
@@ -860,7 +837,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['filesystem'] = new \Symfony\Component\Filesystem\Filesystem();
     }
 
-    /**
+    /*
      * Gets the public 'form.csrf_provider' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfTokenManagerAdapter
@@ -874,7 +851,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.csrf_provider'] = new \Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfTokenManagerAdapter($this->get('security.csrf.token_manager'));
     }
 
-    /**
+    /*
      * Gets the public 'form.extension' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Extension\DependencyInjectionExtension
@@ -884,7 +861,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.extension'] = new \Sonata\CoreBundle\Form\Extension\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => 'form.type.form', 'birthday' => 'form.type.birthday', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\BirthdayType' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => 'form.type.choice', 'collection' => 'form.type.collection', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CollectionType' => 'form.type.collection', 'country' => 'form.type.country', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CountryType' => 'form.type.country', 'date' => 'form.type.date', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType' => 'form.type.date', 'datetime' => 'form.type.datetime', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType' => 'form.type.datetime', 'email' => 'form.type.email', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType' => 'form.type.email', 'file' => 'form.type.file', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType' => 'form.type.file', 'hidden' => 'form.type.hidden', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType' => 'form.type.hidden', 'integer' => 'form.type.integer', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\IntegerType' => 'form.type.integer', 'language' => 'form.type.language', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LanguageType' => 'form.type.language', 'locale' => 'form.type.locale', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LocaleType' => 'form.type.locale', 'money' => 'form.type.money', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType' => 'form.type.money', 'number' => 'form.type.number', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType' => 'form.type.number', 'password' => 'form.type.password', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType' => 'form.type.password', 'percent' => 'form.type.percent', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PercentType' => 'form.type.percent', 'radio' => 'form.type.radio', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RadioType' => 'form.type.radio', 'range' => 'form.type.range', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RangeType' => 'form.type.range', 'repeated' => 'form.type.repeated', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => 'form.type.repeated', 'search' => 'form.type.search', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SearchType' => 'form.type.search', 'textarea' => 'form.type.textarea', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType' => 'form.type.textarea', 'text' => 'form.type.text', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType' => 'form.type.text', 'time' => 'form.type.time', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimeType' => 'form.type.time', 'timezone' => 'form.type.timezone', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimezoneType' => 'form.type.timezone', 'url' => 'form.type.url', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\UrlType' => 'form.type.url', 'button' => 'form.type.button', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ButtonType' => 'form.type.button', 'submit' => 'form.type.submit', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => 'form.type.submit', 'reset' => 'form.type.reset', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ResetType' => 'form.type.reset', 'currency' => 'form.type.currency', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CurrencyType' => 'form.type.currency', 'entity' => 'form.type.entity', 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => 'form.type.entity', 'sonata_type_immutable_array' => 'sonata.core.form.type.array', 'Sonata\\CoreBundle\\Form\\Type\\ImmutableArrayType' => 'sonata.core.form.type.array', 'sonata_type_boolean' => 'sonata.core.form.type.boolean', 'Sonata\\CoreBundle\\Form\\Type\\BooleanType' => 'sonata.core.form.type.boolean', 'sonata_type_collection' => 'sonata.core.form.type.collection', 'Sonata\\CoreBundle\\Form\\Type\\CollectionType' => 'sonata.core.form.type.collection', 'sonata_type_translatable_choice' => 'sonata.core.form.type.translatable_choice', 'Sonata\\CoreBundle\\Form\\Type\\TranslatableChoiceType' => 'sonata.core.form.type.translatable_choice', 'sonata_type_date_range' => 'sonata.core.form.type.date_range', 'Sonata\\CoreBundle\\Form\\Type\\DateRangeType' => 'sonata.core.form.type.date_range', 'sonata_type_datetime_range' => 'sonata.core.form.type.datetime_range', 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangeType' => 'sonata.core.form.type.datetime_range', 'sonata_type_date_picker' => 'sonata.core.form.type.date_picker', 'Sonata\\CoreBundle\\Form\\Type\\DatePickerType' => 'sonata.core.form.type.date_picker', 'sonata_type_datetime_picker' => 'sonata.core.form.type.datetime_picker', 'Sonata\\CoreBundle\\Form\\Type\\DateTimePickerType' => 'sonata.core.form.type.datetime_picker', 'sonata_type_date_range_picker' => 'sonata.core.form.type.date_range_picker', 'Sonata\\CoreBundle\\Form\\Type\\DateRangePickerType' => 'sonata.core.form.type.date_range_picker', 'sonata_type_datetime_range_picker' => 'sonata.core.form.type.datetime_range_picker', 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangePickerType' => 'sonata.core.form.type.datetime_range_picker', 'sonata_type_equal' => 'sonata.core.form.type.equal', 'Sonata\\CoreBundle\\Form\\Type\\EqualType' => 'sonata.core.form.type.equal', 'sonata_type_color_selector' => 'sonata.core.form.type.color_selector', 'Sonata\\CoreBundle\\Form\\Type\\ColorSelectorType' => 'sonata.core.form.type.color_selector', 'sonata_type_color' => 'sonata.core.form.type.color', 'Sonata\\CoreBundle\\Form\\Type\\ColorType' => 'sonata.core.form.type.color', 'sonata_block_service_choice' => 'sonata.block.form.type.block', 'Sonata\\BlockBundle\\Form\\Type\\ServiceListType' => 'sonata.block.form.type.block', 'sonata_type_container_template_choice' => 'sonata.block.form.type.container_template', 'Sonata\\BlockBundle\\Form\\Type\\ContainerTemplateType' => 'sonata.block.form.type.container_template', 'sonata_type_admin' => 'sonata.admin.form.type.admin', 'Sonata\\AdminBundle\\Form\\Type\\AdminType' => 'sonata.admin.form.type.admin', 'sonata_type_model' => 'sonata.admin.form.type.model_choice', 'Sonata\\AdminBundle\\Form\\Type\\ModelType' => 'sonata.admin.form.type.model_choice', 'sonata_type_model_list' => 'sonata.admin.form.type.model_list', 'Sonata\\AdminBundle\\Form\\Type\\ModelListType' => 'sonata.admin.form.type.model_list', 'sonata_type_model_reference' => 'sonata.admin.form.type.model_reference', 'Sonata\\AdminBundle\\Form\\Type\\ModelReferenceType' => 'sonata.admin.form.type.model_reference', 'sonata_type_model_hidden' => 'sonata.admin.form.type.model_hidden', 'Sonata\\AdminBundle\\Form\\Type\\ModelHiddenType' => 'sonata.admin.form.type.model_hidden', 'sonata_type_model_autocomplete' => 'sonata.admin.form.type.model_autocomplete', 'Sonata\\AdminBundle\\Form\\Type\\ModelAutocompleteType' => 'sonata.admin.form.type.model_autocomplete', 'sonata_type_native_collection' => 'sonata.admin.form.type.collection', 'Sonata\\AdminBundle\\Form\\Type\\CollectionType' => 'sonata.admin.form.type.collection', 'sonata_type_choice_field_mask' => 'sonata.admin.doctrine_orm.form.type.choice_field_mask', 'Sonata\\AdminBundle\\Form\\Type\\ChoiceFieldMaskType' => 'sonata.admin.doctrine_orm.form.type.choice_field_mask', 'sonata_type_filter_number' => 'sonata.admin.form.filter.type.number', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\NumberType' => 'sonata.admin.form.filter.type.number', 'sonata_type_filter_choice' => 'sonata.admin.form.filter.type.choice', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\ChoiceType' => 'sonata.admin.form.filter.type.choice', 'sonata_type_filter_default' => 'sonata.admin.form.filter.type.default', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DefaultType' => 'sonata.admin.form.filter.type.default', 'sonata_type_filter_date' => 'sonata.admin.form.filter.type.date', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateType' => 'sonata.admin.form.filter.type.date', 'sonata_type_filter_date_range' => 'sonata.admin.form.filter.type.daterange', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateRangeType' => 'sonata.admin.form.filter.type.daterange', 'sonata_type_filter_datetime' => 'sonata.admin.form.filter.type.datetime', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeType' => 'sonata.admin.form.filter.type.datetime', 'sonata_type_filter_datetime_range' => 'sonata.admin.form.filter.type.datetime_range', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeRangeType' => 'sonata.admin.form.filter.type.datetime_range', 'fos_user_username' => 'fos_user.username_form_type', 'FOS\\UserBundle\\Form\\Type\\UsernameFormType' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'FOS\\UserBundle\\Form\\Type\\ProfileFormType' => 'fos_user.profile.form.type', 'fos_user_registration' => 'fos_user.registration.form.type', 'FOS\\UserBundle\\Form\\Type\\RegistrationFormType' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type', 'FOS\\UserBundle\\Form\\Type\\ResettingFormType' => 'fos_user.resetting.form.type', 'fos_user_group' => 'fos_user.group.form.type', 'FOS\\UserBundle\\Form\\Type\\GroupFormType' => 'fos_user.group.form.type', 'ckeditor' => 'trsteel_ckeditor.form.type', 'Trsteel\\CkeditorBundle\\Form\\Type\\CkeditorType' => 'trsteel_ckeditor.form.type'), array('Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.upload.validator', 3 => 'form.type_extension.csrf', 4 => 'form.type_extension.form.data_collector', 5 => 'sonata.admin.form.extension.field', 6 => 'sonata.admin.form.extension.field.mopa'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => array(0 => 'form.type_extension.repeated.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => array(0 => 'form.type_extension.submit.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => array(0 => 'sonata.admin.form.extension.choice')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'), array('form' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType', 'birthday' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\BirthdayType', 'checkbox' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType', 'choice' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType', 'collection' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CollectionType', 'country' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CountryType', 'date' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType', 'datetime' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType', 'email' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType', 'file' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType', 'hidden' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType', 'integer' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\IntegerType', 'language' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LanguageType', 'locale' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LocaleType', 'money' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType', 'number' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType', 'password' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType', 'percent' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PercentType', 'radio' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RadioType', 'repeated' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType', 'search' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SearchType', 'textarea' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType', 'text' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType', 'time' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimeType', 'timezone' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimezoneType', 'url' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\UrlType', 'button' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ButtonType', 'submit' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType', 'reset' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ResetType', 'currency' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CurrencyType', 'entity' => 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType', 'sonata_type_immutable_array' => 'Sonata\\CoreBundle\\Form\\Type\\ImmutableArrayType', 'sonata_type_boolean' => 'Sonata\\CoreBundle\\Form\\Type\\BooleanType', 'sonata_type_collection' => 'Sonata\\CoreBundle\\Form\\Type\\CollectionType', 'sonata_type_translatable_choice' => 'Sonata\\CoreBundle\\Form\\Type\\TranslatableChoiceType', 'sonata_type_date_range' => 'Sonata\\CoreBundle\\Form\\Type\\DateRangeType', 'sonata_type_datetime_range' => 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangeType', 'sonata_type_date_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DatePickerType', 'sonata_type_datetime_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DateTimePickerType', 'sonata_type_date_range_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DateRangePickerType', 'sonata_type_datetime_range_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangePickerType', 'sonata_type_equal' => 'Sonata\\CoreBundle\\Form\\Type\\EqualType', 'sonata_type_color_selector' => 'Sonata\\CoreBundle\\Form\\Type\\ColorSelectorType', 'sonata_block_service_choice' => 'Sonata\\BlockBundle\\Form\\Type\\ServiceListType', 'sonata_type_container_template_choice' => 'Sonata\\BlockBundle\\Form\\Type\\ContainerTemplateType', 'sonata_type_admin' => 'Sonata\\AdminBundle\\Form\\Type\\AdminType', 'sonata_type_model' => 'Sonata\\AdminBundle\\Form\\Type\\ModelType', 'sonata_type_model_list' => 'Sonata\\AdminBundle\\Form\\Type\\ModelListType', 'sonata_type_model_reference' => 'Sonata\\AdminBundle\\Form\\Type\\ModelReferenceType', 'sonata_type_model_hidden' => 'Sonata\\AdminBundle\\Form\\Type\\ModelHiddenType', 'sonata_type_model_autocomplete' => 'Sonata\\AdminBundle\\Form\\Type\\ModelAutocompleteType', 'sonata_type_native_collection' => 'Sonata\\AdminBundle\\Form\\Type\\CollectionType', 'sonata_type_choice_field_mask' => 'Sonata\\AdminBundle\\Form\\Type\\ChoiceFieldMaskType', 'sonata_type_filter_number' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\NumberType', 'sonata_type_filter_choice' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\ChoiceType', 'sonata_type_filter_default' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DefaultType', 'sonata_type_filter_date' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateType', 'sonata_type_filter_date_range' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateRangeType', 'sonata_type_filter_datetime' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeType', 'sonata_type_filter_datetime_range' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeRangeType', 'tab' => 'Mopa\\Bundle\\BootstrapBundle\\Form\\Type\\TabType'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'form.type_extension.form.data_collector', 4 => 'sonata.admin.form.extension.field', 5 => 'mopa_bootstrap.form.type_extension.help', 6 => 'mopa_bootstrap.form.type_extension.legend', 7 => 'mopa_bootstrap.form.type_extension.error', 8 => 'mopa_bootstrap.form.type_extension.widget', 9 => 'mopa_bootstrap.form.type_extension.horizontal', 10 => 'mopa_bootstrap.form.type_extension.widget_collection', 11 => 'mopa_bootstrap.form.type_extension.tabbed'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator'), 'choice' => array(0 => 'sonata.admin.form.extension.choice'), 'button' => array(0 => 'mopa_bootstrap.form.type_extension.button'), 'date' => array(0 => 'mopa_bootstrap.form.type_extension.date')), array());
     }
 
-    /**
+    /*
      * Gets the public 'form.factory' shared service.
      *
      * @return \Symfony\Component\Form\FormFactory
@@ -894,7 +871,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.factory'] = new \Symfony\Component\Form\FormFactory($this->get('form.registry'), $this->get('form.resolved_type_factory'));
     }
 
-    /**
+    /*
      * Gets the public 'form.registry' shared service.
      *
      * @return \Symfony\Component\Form\FormRegistry
@@ -904,7 +881,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => $this->get('form.extension')), $this->get('form.resolved_type_factory'));
     }
 
-    /**
+    /*
      * Gets the public 'form.resolved_type_factory' shared service.
      *
      * @return \Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy
@@ -914,7 +891,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.resolved_type_factory'] = new \Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy(new \Symfony\Component\Form\ResolvedFormTypeFactory(), $this->get('data_collector.form'));
     }
 
-    /**
+    /*
      * Gets the public 'form.type.birthday' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\BirthdayType
@@ -924,7 +901,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.birthday'] = new \Symfony\Component\Form\Extension\Core\Type\BirthdayType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.button' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\ButtonType
@@ -934,7 +911,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.button'] = new \Symfony\Component\Form\Extension\Core\Type\ButtonType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.checkbox' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\CheckboxType
@@ -944,7 +921,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.checkbox'] = new \Symfony\Component\Form\Extension\Core\Type\CheckboxType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.choice' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\ChoiceType
@@ -954,7 +931,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.choice'] = new \Symfony\Component\Form\Extension\Core\Type\ChoiceType(new \Symfony\Component\Form\ChoiceList\Factory\CachingFactoryDecorator(new \Symfony\Component\Form\ChoiceList\Factory\PropertyAccessDecorator(new \Symfony\Component\Form\ChoiceList\Factory\DefaultChoiceListFactory(), $this->get('property_accessor'))));
     }
 
-    /**
+    /*
      * Gets the public 'form.type.collection' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\CollectionType
@@ -964,7 +941,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.collection'] = new \Symfony\Component\Form\Extension\Core\Type\CollectionType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.country' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\CountryType
@@ -974,7 +951,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.country'] = new \Symfony\Component\Form\Extension\Core\Type\CountryType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.currency' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\CurrencyType
@@ -984,7 +961,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.currency'] = new \Symfony\Component\Form\Extension\Core\Type\CurrencyType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.date' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\DateType
@@ -994,7 +971,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.date'] = new \Symfony\Component\Form\Extension\Core\Type\DateType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.datetime' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\DateTimeType
@@ -1004,7 +981,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.datetime'] = new \Symfony\Component\Form\Extension\Core\Type\DateTimeType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.email' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\EmailType
@@ -1014,7 +991,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.email'] = new \Symfony\Component\Form\Extension\Core\Type\EmailType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.entity' shared service.
      *
      * @return \Symfony\Bridge\Doctrine\Form\Type\EntityType
@@ -1024,7 +1001,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.entity'] = new \Symfony\Bridge\Doctrine\Form\Type\EntityType($this->get('doctrine'));
     }
 
-    /**
+    /*
      * Gets the public 'form.type.file' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\FileType
@@ -1034,7 +1011,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.file'] = new \Symfony\Component\Form\Extension\Core\Type\FileType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.form' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\FormType
@@ -1044,7 +1021,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.form'] = new \Symfony\Component\Form\Extension\Core\Type\FormType($this->get('property_accessor'));
     }
 
-    /**
+    /*
      * Gets the public 'form.type.hidden' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\HiddenType
@@ -1054,7 +1031,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.hidden'] = new \Symfony\Component\Form\Extension\Core\Type\HiddenType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.integer' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\IntegerType
@@ -1064,7 +1041,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.integer'] = new \Symfony\Component\Form\Extension\Core\Type\IntegerType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.language' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\LanguageType
@@ -1074,7 +1051,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.language'] = new \Symfony\Component\Form\Extension\Core\Type\LanguageType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.locale' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\LocaleType
@@ -1084,7 +1061,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.locale'] = new \Symfony\Component\Form\Extension\Core\Type\LocaleType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.money' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\MoneyType
@@ -1094,7 +1071,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.money'] = new \Symfony\Component\Form\Extension\Core\Type\MoneyType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.number' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\NumberType
@@ -1104,7 +1081,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.number'] = new \Symfony\Component\Form\Extension\Core\Type\NumberType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.password' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\PasswordType
@@ -1114,7 +1091,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.password'] = new \Symfony\Component\Form\Extension\Core\Type\PasswordType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.percent' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\PercentType
@@ -1124,7 +1101,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.percent'] = new \Symfony\Component\Form\Extension\Core\Type\PercentType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.radio' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\RadioType
@@ -1134,7 +1111,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.radio'] = new \Symfony\Component\Form\Extension\Core\Type\RadioType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.range' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\RangeType
@@ -1144,7 +1121,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.range'] = new \Symfony\Component\Form\Extension\Core\Type\RangeType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.repeated' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\RepeatedType
@@ -1154,7 +1131,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.repeated'] = new \Symfony\Component\Form\Extension\Core\Type\RepeatedType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.reset' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\ResetType
@@ -1164,7 +1141,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.reset'] = new \Symfony\Component\Form\Extension\Core\Type\ResetType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.search' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\SearchType
@@ -1174,7 +1151,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.search'] = new \Symfony\Component\Form\Extension\Core\Type\SearchType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.submit' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\SubmitType
@@ -1184,7 +1161,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.submit'] = new \Symfony\Component\Form\Extension\Core\Type\SubmitType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.text' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\TextType
@@ -1194,7 +1171,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.text'] = new \Symfony\Component\Form\Extension\Core\Type\TextType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.textarea' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\TextareaType
@@ -1204,7 +1181,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.textarea'] = new \Symfony\Component\Form\Extension\Core\Type\TextareaType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.time' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\TimeType
@@ -1214,7 +1191,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.time'] = new \Symfony\Component\Form\Extension\Core\Type\TimeType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.timezone' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\TimezoneType
@@ -1224,7 +1201,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.timezone'] = new \Symfony\Component\Form\Extension\Core\Type\TimezoneType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type.url' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Core\Type\UrlType
@@ -1234,7 +1211,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type.url'] = new \Symfony\Component\Form\Extension\Core\Type\UrlType();
     }
 
-    /**
+    /*
      * Gets the public 'form.type_extension.csrf' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension
@@ -1244,7 +1221,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type_extension.csrf'] = new \Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension($this->get('security.csrf.token_manager'), true, '_token', $this->get('translator.default'), 'validators', $this->get('form.server_params'));
     }
 
-    /**
+    /*
      * Gets the public 'form.type_extension.form.data_collector' shared service.
      *
      * @return \Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension
@@ -1254,7 +1231,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type_extension.form.data_collector'] = new \Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension($this->get('data_collector.form'));
     }
 
-    /**
+    /*
      * Gets the public 'form.type_extension.form.http_foundation' shared service.
      *
      * @return \Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension
@@ -1264,7 +1241,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type_extension.form.http_foundation'] = new \Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension(new \Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationRequestHandler($this->get('form.server_params')));
     }
 
-    /**
+    /*
      * Gets the public 'form.type_extension.form.validator' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension
@@ -1274,7 +1251,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type_extension.form.validator'] = new \Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension($this->get('validator'));
     }
 
-    /**
+    /*
      * Gets the public 'form.type_extension.repeated.validator' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Validator\Type\RepeatedTypeValidatorExtension
@@ -1284,7 +1261,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type_extension.repeated.validator'] = new \Symfony\Component\Form\Extension\Validator\Type\RepeatedTypeValidatorExtension();
     }
 
-    /**
+    /*
      * Gets the public 'form.type_extension.submit.validator' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Validator\Type\SubmitTypeValidatorExtension
@@ -1294,7 +1271,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type_extension.submit.validator'] = new \Symfony\Component\Form\Extension\Validator\Type\SubmitTypeValidatorExtension();
     }
 
-    /**
+    /*
      * Gets the public 'form.type_extension.upload.validator' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension
@@ -1304,7 +1281,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type_extension.upload.validator'] = new \Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension($this->get('translator'), 'validators');
     }
 
-    /**
+    /*
      * Gets the public 'form.type_guesser.doctrine' shared service.
      *
      * @return \Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser
@@ -1314,7 +1291,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type_guesser.doctrine'] = new \Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser($this->get('doctrine'));
     }
 
-    /**
+    /*
      * Gets the public 'form.type_guesser.validator' shared service.
      *
      * @return \Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser
@@ -1324,7 +1301,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.type_guesser.validator'] = new \Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser($this->get('validator'));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.change_password.form.factory' shared service.
      *
      * @return \FOS\UserBundle\Form\Factory\FormFactory
@@ -1334,7 +1311,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.change_password.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_change_password_form', 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType', array(0 => 'ChangePassword', 1 => 'Default'));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.change_password.form.type' shared service.
      *
      * @return \FOS\UserBundle\Form\Type\ChangePasswordFormType
@@ -1344,7 +1321,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.change_password.form.type'] = new \FOS\UserBundle\Form\Type\ChangePasswordFormType('Project3\\WebsiteBundle\\Entity\\User');
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.group.form.factory' shared service.
      *
      * @return \FOS\UserBundle\Form\Factory\FormFactory
@@ -1354,7 +1331,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.group.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_group_form', 'FOS\\UserBundle\\Form\\Type\\GroupFormType', array(0 => 'Registration', 1 => 'Default'));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.group.form.type' shared service.
      *
      * @return \FOS\UserBundle\Form\Type\GroupFormType
@@ -1364,7 +1341,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.group.form.type'] = new \FOS\UserBundle\Form\Type\GroupFormType('Project3\\WebsiteBundle\\Entity\\Group');
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.group_manager' shared service.
      *
      * @return \FOS\UserBundle\Doctrine\GroupManager
@@ -1374,7 +1351,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.group_manager'] = new \FOS\UserBundle\Doctrine\GroupManager($this->get('fos_user.object_manager'), 'Project3\\WebsiteBundle\\Entity\\Group');
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.listener.authentication' shared service.
      *
      * @return \FOS\UserBundle\EventListener\AuthenticationListener
@@ -1384,7 +1361,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.listener.authentication'] = new \FOS\UserBundle\EventListener\AuthenticationListener($this->get('fos_user.security.login_manager'), 'main');
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.listener.flash' shared service.
      *
      * @return \FOS\UserBundle\EventListener\FlashListener
@@ -1394,7 +1371,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.listener.flash'] = new \FOS\UserBundle\EventListener\FlashListener($this->get('session'), $this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.listener.resetting' shared service.
      *
      * @return \FOS\UserBundle\EventListener\ResettingListener
@@ -1404,7 +1381,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.listener.resetting'] = new \FOS\UserBundle\EventListener\ResettingListener($this->get('router'), 86400);
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.mailer' shared service.
      *
      * @return \FOS\UserBundle\Mailer\NoopMailer
@@ -1414,7 +1391,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.mailer'] = new \FOS\UserBundle\Mailer\NoopMailer();
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.profile.form.factory' shared service.
      *
      * @return \FOS\UserBundle\Form\Factory\FormFactory
@@ -1424,7 +1401,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.profile.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_profile_form', 'FOS\\UserBundle\\Form\\Type\\ProfileFormType', array(0 => 'Profile', 1 => 'Default'));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.profile.form.type' shared service.
      *
      * @return \FOS\UserBundle\Form\Type\ProfileFormType
@@ -1434,7 +1411,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.profile.form.type'] = new \FOS\UserBundle\Form\Type\ProfileFormType('Project3\\WebsiteBundle\\Entity\\User');
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.registration.form.factory' shared service.
      *
      * @return \FOS\UserBundle\Form\Factory\FormFactory
@@ -1444,7 +1421,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.registration.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_registration_form', 'FOS\\UserBundle\\Form\\Type\\RegistrationFormType', array(0 => 'Registration', 1 => 'Default'));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.registration.form.type' shared service.
      *
      * @return \FOS\UserBundle\Form\Type\RegistrationFormType
@@ -1454,7 +1431,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.registration.form.type'] = new \FOS\UserBundle\Form\Type\RegistrationFormType('Project3\\WebsiteBundle\\Entity\\User');
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.resetting.form.factory' shared service.
      *
      * @return \FOS\UserBundle\Form\Factory\FormFactory
@@ -1464,7 +1441,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.resetting.form.factory'] = new \FOS\UserBundle\Form\Factory\FormFactory($this->get('form.factory'), 'fos_user_resetting_form', 'FOS\\UserBundle\\Form\\Type\\ResettingFormType', array(0 => 'ResetPassword', 1 => 'Default'));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.resetting.form.type' shared service.
      *
      * @return \FOS\UserBundle\Form\Type\ResettingFormType
@@ -1474,7 +1451,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.resetting.form.type'] = new \FOS\UserBundle\Form\Type\ResettingFormType('Project3\\WebsiteBundle\\Entity\\User');
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.security.interactive_login_listener' shared service.
      *
      * @return \FOS\UserBundle\EventListener\LastLoginListener
@@ -1484,7 +1461,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.security.interactive_login_listener'] = new \FOS\UserBundle\EventListener\LastLoginListener($this->get('fos_user.user_manager'));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.security.login_manager' shared service.
      *
      * @return \FOS\UserBundle\Security\LoginManager
@@ -1494,7 +1471,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.security.login_manager'] = new \FOS\UserBundle\Security\LoginManager($this->get('security.token_storage'), $this->get('security.user_checker.main'), $this->get('security.authentication.session_strategy'), $this->get('request_stack'), $this->get('security.authentication.rememberme.services.simplehash.main'));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.user_manager' shared service.
      *
      * @return \FOS\UserBundle\Doctrine\UserManager
@@ -1504,7 +1481,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.user_manager'] = new \FOS\UserBundle\Doctrine\UserManager($this->get('fos_user.util.password_updater'), $this->get('fos_user.util.canonical_fields_updater'), $this->get('fos_user.object_manager'), 'Project3\\WebsiteBundle\\Entity\\User');
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.username_form_type' shared service.
      *
      * @return \FOS\UserBundle\Form\Type\UsernameFormType
@@ -1514,7 +1491,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.username_form_type'] = new \FOS\UserBundle\Form\Type\UsernameFormType(new \FOS\UserBundle\Form\DataTransformer\UserToUsernameTransformer($this->get('fos_user.user_manager')));
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.util.email_canonicalizer' shared service.
      *
      * @return \FOS\UserBundle\Util\Canonicalizer
@@ -1524,7 +1501,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.util.email_canonicalizer'] = new \FOS\UserBundle\Util\Canonicalizer();
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.util.token_generator' shared service.
      *
      * @return \FOS\UserBundle\Util\TokenGenerator
@@ -1534,24 +1511,24 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.util.token_generator'] = new \FOS\UserBundle\Util\TokenGenerator();
     }
 
-    /**
+    /*
      * Gets the public 'fos_user.util.user_manipulator' shared service.
      *
      * @return \FOS\UserBundle\Util\UserManipulator
      */
     protected function getFosUser_Util_UserManipulatorService()
     {
-        return $this->services['fos_user.util.user_manipulator'] = new \FOS\UserBundle\Util\UserManipulator($this->get('fos_user.user_manager'), $this->get('debug.event_dispatcher'), $this->get('request_stack'));
+        return $this->services['fos_user.util.user_manipulator'] = new \FOS\UserBundle\Util\UserManipulator($this->get('fos_user.user_manager'), $this->get('event_dispatcher'), $this->get('request_stack'));
     }
 
-    /**
+    /*
      * Gets the public 'fragment.handler' shared service.
      *
      * @return \Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler
      */
     protected function getFragment_HandlerService()
     {
-        $this->services['fragment.handler'] = $instance = new \Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler($this, $this->get('request_stack'), true);
+        $this->services['fragment.handler'] = $instance = new \Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler($this, $this->get('request_stack'), false);
 
         $instance->addRendererService('inline', 'fragment.renderer.inline');
         $instance->addRendererService('hinclude', 'fragment.renderer.hinclude');
@@ -1562,7 +1539,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'fragment.listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\FragmentListener
@@ -1572,7 +1549,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fragment.listener'] = new \Symfony\Component\HttpKernel\EventListener\FragmentListener($this->get('uri_signer'), '/_fragment');
     }
 
-    /**
+    /*
      * Gets the public 'fragment.renderer.esi' shared service.
      *
      * @return \Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer
@@ -1586,7 +1563,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'fragment.renderer.hinclude' shared service.
      *
      * @return \Symfony\Component\HttpKernel\Fragment\HIncludeFragmentRenderer
@@ -1600,21 +1577,21 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'fragment.renderer.inline' shared service.
      *
      * @return \Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer
      */
     protected function getFragment_Renderer_InlineService()
     {
-        $this->services['fragment.renderer.inline'] = $instance = new \Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer($this->get('http_kernel'), $this->get('debug.event_dispatcher'));
+        $this->services['fragment.renderer.inline'] = $instance = new \Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer($this->get('http_kernel'), $this->get('event_dispatcher'));
 
         $instance->setFragmentPath('/_fragment');
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'fragment.renderer.ssi' shared service.
      *
      * @return \Symfony\Component\HttpKernel\Fragment\SsiFragmentRenderer
@@ -1628,17 +1605,17 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'http_kernel' shared service.
      *
      * @return \Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel
      */
     protected function getHttpKernelService()
     {
-        return $this->services['http_kernel'] = new \Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel($this->get('debug.event_dispatcher'), $this, $this->get('debug.controller_resolver'), $this->get('request_stack'), false);
+        return $this->services['http_kernel'] = new \Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel($this->get('event_dispatcher'), $this, new \Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver($this, $this->get('controller_name_converter'), $this->get('monolog.logger.request', ContainerInterface::NULL_ON_INVALID_REFERENCE)), $this->get('request_stack'), false);
     }
 
-    /**
+    /*
      * Gets the public 'kernel' shared service.
      *
      * @throws RuntimeException always since this service is expected to be injected dynamically
@@ -1648,7 +1625,7 @@ class appDevDebugProjectContainer extends Container
         throw new RuntimeException('You have requested a synthetic service ("kernel"). The DIC does not know how to construct this service.');
     }
 
-    /**
+    /*
      * Gets the public 'kernel.class_cache.cache_warmer' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\CacheWarmer\ClassCacheCacheWarmer
@@ -1658,7 +1635,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['kernel.class_cache.cache_warmer'] = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\ClassCacheCacheWarmer();
     }
 
-    /**
+    /*
      * Gets the public 'knp_menu.factory' shared service.
      *
      * @return \Knp\Menu\MenuFactory
@@ -1672,7 +1649,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'knp_menu.listener.voters' shared service.
      *
      * @return \Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener
@@ -1687,7 +1664,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'knp_menu.matcher' shared service.
      *
      * @return \Knp\Menu\Matcher\Matcher
@@ -1704,7 +1681,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'knp_menu.menu_provider' shared service.
      *
      * @return \Knp\Menu\Provider\ChainProvider
@@ -1716,7 +1693,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['knp_menu.menu_provider'] = new \Knp\Menu\Provider\ChainProvider(array(0 => new \Knp\Bundle\MenuBundle\Provider\ContainerAwareProvider($this, array('sonata_admin_sidebar' => 'sonata.admin.sidebar_menu')), 1 => new \Knp\Bundle\MenuBundle\Provider\BuilderServiceProvider($this, array()), 2 => new \Knp\Bundle\MenuBundle\Provider\BuilderAliasProvider($this->get('kernel'), $this, $a), 3 => new \Sonata\AdminBundle\Menu\Provider\GroupMenuProvider($a, $this->get('sonata.admin.pool'), $this->get('security.authorization_checker'))));
     }
 
-    /**
+    /*
      * Gets the public 'knp_menu.renderer.list' shared service.
      *
      * @return \Knp\Menu\Renderer\ListRenderer
@@ -1726,7 +1703,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['knp_menu.renderer.list'] = new \Knp\Menu\Renderer\ListRenderer($this->get('knp_menu.matcher'), array(), 'UTF-8');
     }
 
-    /**
+    /*
      * Gets the public 'knp_menu.renderer.twig' shared service.
      *
      * @return \Knp\Menu\Renderer\TwigRenderer
@@ -1736,7 +1713,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['knp_menu.renderer.twig'] = new \Knp\Menu\Renderer\TwigRenderer($this->get('twig'), 'KnpMenuBundle::menu.html.twig', $this->get('knp_menu.matcher'), array());
     }
 
-    /**
+    /*
      * Gets the public 'knp_menu.renderer_provider' shared service.
      *
      * @return \Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider
@@ -1746,7 +1723,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['knp_menu.renderer_provider'] = new \Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider($this, 'twig', array('list' => 'knp_menu.renderer.list', 'twig' => 'knp_menu.renderer.twig'));
     }
 
-    /**
+    /*
      * Gets the public 'knp_menu.voter.router' shared service.
      *
      * @return \Knp\Menu\Matcher\Voter\RouteVoter
@@ -1756,7 +1733,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['knp_menu.voter.router'] = new \Knp\Menu\Matcher\Voter\RouteVoter();
     }
 
-    /**
+    /*
      * Gets the public 'locale_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\LocaleListener
@@ -1766,7 +1743,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['locale_listener'] = new \Symfony\Component\HttpKernel\EventListener\LocaleListener($this->get('request_stack'), 'nl', $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'logger' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Logger
@@ -1778,12 +1755,11 @@ class appDevDebugProjectContainer extends Container
         $instance->useMicrosecondTimestamps(true);
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
-        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'monolog.activation_strategy.not_found' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Handler\FingersCrossed\NotFoundActivationStrategy
@@ -1793,7 +1769,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['monolog.activation_strategy.not_found'] = new \Symfony\Bridge\Monolog\Handler\FingersCrossed\NotFoundActivationStrategy();
     }
 
-    /**
+    /*
      * Gets the public 'monolog.handler.console' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Handler\ConsoleHandler
@@ -1807,17 +1783,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
-     * Gets the public 'monolog.handler.debug' shared service.
-     *
-     * @return \Symfony\Bridge\Monolog\Handler\DebugHandler
-     */
-    protected function getMonolog_Handler_DebugService()
-    {
-        return $this->services['monolog.handler.debug'] = new \Symfony\Bridge\Monolog\Handler\DebugHandler(100, true);
-    }
-
-    /**
+    /*
      * Gets the public 'monolog.handler.fingers_crossed.error_level_activation_strategy' shared service.
      *
      * @return \Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy
@@ -1827,7 +1793,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['monolog.handler.fingers_crossed.error_level_activation_strategy'] = new \Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy();
     }
 
-    /**
+    /*
      * Gets the public 'monolog.handler.main' shared service.
      *
      * @return \Monolog\Handler\StreamHandler
@@ -1841,7 +1807,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'monolog.handler.null_internal' shared service.
      *
      * @return \Monolog\Handler\NullHandler
@@ -1851,7 +1817,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['monolog.handler.null_internal'] = new \Monolog\Handler\NullHandler();
     }
 
-    /**
+    /*
      * Gets the public 'monolog.logger.doctrine' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Logger
@@ -1861,26 +1827,11 @@ class appDevDebugProjectContainer extends Container
         $this->services['monolog.logger.doctrine'] = $instance = new \Symfony\Bridge\Monolog\Logger('doctrine');
 
         $instance->pushHandler($this->get('monolog.handler.main'));
-        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
 
-    /**
-     * Gets the public 'monolog.logger.event' shared service.
-     *
-     * @return \Symfony\Bridge\Monolog\Logger
-     */
-    protected function getMonolog_Logger_EventService()
-    {
-        $this->services['monolog.logger.event'] = $instance = new \Symfony\Bridge\Monolog\Logger('event');
-
-        $instance->pushHandler($this->get('monolog.handler.debug'));
-
-        return $instance;
-    }
-
-    /**
+    /*
      * Gets the public 'monolog.logger.php' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Logger
@@ -1891,12 +1842,11 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
-        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'monolog.logger.profiler' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Logger
@@ -1907,12 +1857,11 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
-        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'monolog.logger.request' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Logger
@@ -1923,12 +1872,11 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
-        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'monolog.logger.router' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Logger
@@ -1939,12 +1887,11 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
-        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'monolog.logger.security' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Logger
@@ -1955,28 +1902,11 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
-        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
 
-    /**
-     * Gets the public 'monolog.logger.templating' shared service.
-     *
-     * @return \Symfony\Bridge\Monolog\Logger
-     */
-    protected function getMonolog_Logger_TemplatingService()
-    {
-        $this->services['monolog.logger.templating'] = $instance = new \Symfony\Bridge\Monolog\Logger('templating');
-
-        $instance->pushHandler($this->get('monolog.handler.console'));
-        $instance->pushHandler($this->get('monolog.handler.main'));
-        $instance->pushHandler($this->get('monolog.handler.debug'));
-
-        return $instance;
-    }
-
-    /**
+    /*
      * Gets the public 'monolog.logger.translation' shared service.
      *
      * @return \Symfony\Bridge\Monolog\Logger
@@ -1987,12 +1917,11 @@ class appDevDebugProjectContainer extends Container
 
         $instance->pushHandler($this->get('monolog.handler.console'));
         $instance->pushHandler($this->get('monolog.handler.main'));
-        $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'profiler' shared service.
      *
      * @return \Symfony\Component\HttpKernel\Profiler\Profiler
@@ -2002,12 +1931,9 @@ class appDevDebugProjectContainer extends Container
         $a = $this->get('monolog.logger.profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE);
         $b = $this->get('kernel', ContainerInterface::NULL_ON_INVALID_REFERENCE);
 
-        $c = new \Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector($this->get('doctrine'));
-        $c->addLogger('default', $this->get('doctrine.dbal.logger.profiling.default'));
-
-        $d = new \Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector();
+        $c = new \Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector();
         if ($this->has('kernel')) {
-            $d->setKernel($b);
+            $c->setKernel($b);
         }
 
         $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\FileProfilerStorage(('file:'.__DIR__.'/profiler'), '', '', 86400), $a);
@@ -2019,20 +1945,20 @@ class appDevDebugProjectContainer extends Container
         $instance->add($this->get('data_collector.form'));
         $instance->add(new \Symfony\Component\HttpKernel\DataCollector\ExceptionDataCollector());
         $instance->add(new \Symfony\Component\HttpKernel\DataCollector\LoggerDataCollector($a));
-        $instance->add(new \Symfony\Component\HttpKernel\DataCollector\EventDataCollector($this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
+        $instance->add(new \Symfony\Component\HttpKernel\DataCollector\EventDataCollector($this->get('event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->add($this->get('data_collector.router'));
         $instance->add($this->get('data_collector.translation'));
         $instance->add(new \Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector($this->get('security.token_storage', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('security.role_hierarchy'), $this->get('security.logout_url_generator')));
         $instance->add(new \Symfony\Bridge\Twig\DataCollector\TwigDataCollector($this->get('twig.profile')));
-        $instance->add($c);
+        $instance->add(new \Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector($this->get('doctrine')));
         $instance->add($this->get('data_collector.dump'));
         $instance->add(new \Sonata\BlockBundle\Profiler\DataCollector\BlockDataCollector($this->get('sonata.block.templating.helper'), array(0 => 'sonata.block.service.container', 1 => 'sonata.page.block.container', 2 => 'sonata.dashboard.block.container', 3 => 'cmf.block.container', 4 => 'cmf.block.slideshow')));
-        $instance->add($d);
+        $instance->add($c);
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'profiler_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\ProfilerListener
@@ -2042,7 +1968,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['profiler_listener'] = new \Symfony\Component\HttpKernel\EventListener\ProfilerListener($this->get('profiler'), $this->get('request_stack'), NULL, false, false);
     }
 
-    /**
+    /*
      * Gets the public 'project3_website.admin.group' service.
      *
      * @return \Project3\WebsiteBundle\Admin\GroupAdmin
@@ -2079,7 +2005,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'project3_website.admin.user' service.
      *
      * @return \Project3\WebsiteBundle\Admin\UserAdmin
@@ -2116,7 +2042,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'project3_website.service.database' shared service.
      *
      * @return \Project3\WebsiteBundle\Service\Database
@@ -2126,7 +2052,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['project3_website.service.database'] = new \Project3\WebsiteBundle\Service\Database($this);
     }
 
-    /**
+    /*
      * Gets the public 'project3_website.twig.extensions' shared service.
      *
      * @return \Project3\WebsiteBundle\Twig\Extensions
@@ -2136,7 +2062,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['project3_website.twig.extensions'] = new \Project3\WebsiteBundle\Twig\Extensions($this->get('project3_website.service.database'));
     }
 
-    /**
+    /*
      * Gets the public 'property_accessor' shared service.
      *
      * @return \Symfony\Component\PropertyAccess\PropertyAccessor
@@ -2146,7 +2072,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['property_accessor'] = new \Symfony\Component\PropertyAccess\PropertyAccessor(false, false);
     }
 
-    /**
+    /*
      * Gets the public 'request' shared service.
      *
      * @throws RuntimeException always since this service is expected to be injected dynamically
@@ -2162,7 +2088,7 @@ class appDevDebugProjectContainer extends Container
         throw new RuntimeException('You have requested a synthetic service ("request"). The DIC does not know how to construct this service.');
     }
 
-    /**
+    /*
      * Gets the public 'request_stack' shared service.
      *
      * @return \Symfony\Component\HttpFoundation\RequestStack
@@ -2172,7 +2098,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['request_stack'] = new \Symfony\Component\HttpFoundation\RequestStack();
     }
 
-    /**
+    /*
      * Gets the public 'response_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\ResponseListener
@@ -2182,21 +2108,21 @@ class appDevDebugProjectContainer extends Container
         return $this->services['response_listener'] = new \Symfony\Component\HttpKernel\EventListener\ResponseListener('UTF-8');
     }
 
-    /**
+    /*
      * Gets the public 'router' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Routing\Router
      */
     protected function getRouterService()
     {
-        $this->services['router'] = $instance = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, ($this->targetDirs[2].'/config/routing_dev.yml'), array('cache_dir' => __DIR__, 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appDevDebugProjectContainerUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appDevDebugProjectContainerUrlMatcher', 'strict_requirements' => true), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        $this->services['router'] = $instance = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, ($this->targetDirs[2].'/config/routing_dev.yml'), array('cache_dir' => __DIR__, 'debug' => false, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appDevProjectContainerUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appDevProjectContainerUrlMatcher', 'strict_requirements' => true), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
 
         $instance->setConfigCacheFactory($this->get('config_cache_factory'));
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'router_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\RouterListener
@@ -2206,7 +2132,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['router_listener'] = new \Symfony\Component\HttpKernel\EventListener\RouterListener($this->get('router'), $this->get('request_stack'), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.request', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'routing.loader' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader
@@ -2232,17 +2158,17 @@ class appDevDebugProjectContainer extends Container
         return $this->services['routing.loader'] = new \Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader($this->get('controller_name_converter'), $d);
     }
 
-    /**
+    /*
      * Gets the public 'security.authentication.guard_handler' shared service.
      *
      * @return \Symfony\Component\Security\Guard\GuardAuthenticatorHandler
      */
     protected function getSecurity_Authentication_GuardHandlerService()
     {
-        return $this->services['security.authentication.guard_handler'] = new \Symfony\Component\Security\Guard\GuardAuthenticatorHandler($this->get('security.token_storage'), $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['security.authentication.guard_handler'] = new \Symfony\Component\Security\Guard\GuardAuthenticatorHandler($this->get('security.token_storage'), $this->get('event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'security.authentication_utils' shared service.
      *
      * @return \Symfony\Component\Security\Http\Authentication\AuthenticationUtils
@@ -2252,7 +2178,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.authentication_utils'] = new \Symfony\Component\Security\Http\Authentication\AuthenticationUtils($this->get('request_stack'));
     }
 
-    /**
+    /*
      * Gets the public 'security.authorization_checker' shared service.
      *
      * @return \Symfony\Component\Security\Core\Authorization\AuthorizationChecker
@@ -2262,7 +2188,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.authorization_checker'] = new \Symfony\Component\Security\Core\Authorization\AuthorizationChecker($this->get('security.token_storage'), $this->get('security.authentication.manager'), $this->get('security.access.decision_manager'), false);
     }
 
-    /**
+    /*
      * Gets the public 'security.context' shared service.
      *
      * @return \Symfony\Component\Security\Core\SecurityContext
@@ -2276,7 +2202,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.context'] = new \Symfony\Component\Security\Core\SecurityContext($this->get('security.token_storage'), $this->get('security.authorization_checker'));
     }
 
-    /**
+    /*
      * Gets the public 'security.csrf.token_manager' shared service.
      *
      * @return \Symfony\Component\Security\Csrf\CsrfTokenManager
@@ -2286,7 +2212,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.csrf.token_manager'] = new \Symfony\Component\Security\Csrf\CsrfTokenManager(new \Symfony\Component\Security\Csrf\TokenGenerator\UriSafeTokenGenerator(), new \Symfony\Component\Security\Csrf\TokenStorage\SessionTokenStorage($this->get('session')));
     }
 
-    /**
+    /*
      * Gets the public 'security.encoder_factory' shared service.
      *
      * @return \Symfony\Component\Security\Core\Encoder\EncoderFactory
@@ -2296,17 +2222,17 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('FOS\\UserBundle\\Model\\UserInterface' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\MessageDigestPasswordEncoder', 'arguments' => array(0 => 'sha512', 1 => true, 2 => 5000)), 'Symfony\\Component\\Security\\Core\\User\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\PlaintextPasswordEncoder', 'arguments' => array(0 => false))));
     }
 
-    /**
+    /*
      * Gets the public 'security.firewall' shared service.
      *
      * @return \Symfony\Component\Security\Http\Firewall
      */
     protected function getSecurity_FirewallService()
     {
-        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.main' => NULL)), $this->get('debug.event_dispatcher'));
+        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'), 'security.firewall.map.context.main' => NULL)), $this->get('event_dispatcher'));
     }
 
-    /**
+    /*
      * Gets the public 'security.firewall.map.context.dev' shared service.
      *
      * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext
@@ -2316,7 +2242,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.firewall.map.context.dev'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(), NULL);
     }
 
-    /**
+    /*
      * Gets the public 'security.firewall.map.context.main' shared service.
      *
      * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext
@@ -2325,7 +2251,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE);
         $b = $this->get('security.token_storage');
-        $c = $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE);
+        $c = $this->get('event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE);
         $d = $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE);
         $e = $this->get('security.authentication.rememberme.services.simplehash.main');
         $f = $this->get('http_kernel');
@@ -2359,10 +2285,10 @@ class appDevDebugProjectContainer extends Container
         $q = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $h, $m, 'main', $o, $p, array('check_path' => 'project3_security_login', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $c, NULL);
         $q->setRememberMeServices($e);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($l, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.chain_provider'), 1 => $this->get('security.user.provider.concrete.hardcoded'), 2 => $this->get('fos_user.user_provider.username_email')), 'main', $a, $c), 2 => $n, 3 => $q, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $e, $g, $a, $c, true, $h), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '59c41f57f08902.55944150', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $l, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $m, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $m, 'project3_security_login', false), NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($l, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.chain_provider'), 1 => $this->get('security.user.provider.concrete.hardcoded'), 2 => $this->get('fos_user.user_provider.username_email')), 'main', $a, $c), 2 => $n, 3 => $q, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $e, $g, $a, $c, true, $h), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '59c420121a93d3.59203678', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $l, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $m, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $m, 'project3_security_login', false), NULL, NULL, $a, false));
     }
 
-    /**
+    /*
      * Gets the public 'security.password_encoder' shared service.
      *
      * @return \Symfony\Component\Security\Core\Encoder\UserPasswordEncoder
@@ -2372,7 +2298,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.password_encoder'] = new \Symfony\Component\Security\Core\Encoder\UserPasswordEncoder($this->get('security.encoder_factory'));
     }
 
-    /**
+    /*
      * Gets the public 'security.rememberme.response_listener' shared service.
      *
      * @return \Symfony\Component\Security\Http\RememberMe\ResponseListener
@@ -2382,7 +2308,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.rememberme.response_listener'] = new \Symfony\Component\Security\Http\RememberMe\ResponseListener();
     }
 
-    /**
+    /*
      * Gets the public 'security.secure_random' shared service.
      *
      * @return \Symfony\Component\Security\Core\Util\SecureRandom
@@ -2396,7 +2322,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom();
     }
 
-    /**
+    /*
      * Gets the public 'security.token_storage' shared service.
      *
      * @return \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage
@@ -2406,7 +2332,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.token_storage'] = new \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage();
     }
 
-    /**
+    /*
      * Gets the public 'security.user_checker.main' shared service.
      *
      * @return \Symfony\Component\Security\Core\User\UserChecker
@@ -2416,7 +2342,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.user_checker.main'] = new \Symfony\Component\Security\Core\User\UserChecker();
     }
 
-    /**
+    /*
      * Gets the public 'security.validator.user_password' shared service.
      *
      * @return \Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator
@@ -2426,7 +2352,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.validator.user_password'] = new \Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator($this->get('security.token_storage'), $this->get('security.encoder_factory'));
     }
 
-    /**
+    /*
      * Gets the public 'sensio_distribution.security_checker' shared service.
      *
      * @return \SensioLabs\Security\SecurityChecker
@@ -2436,7 +2362,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_distribution.security_checker'] = new \SensioLabs\Security\SecurityChecker();
     }
 
-    /**
+    /*
      * Gets the public 'sensio_distribution.security_checker.command' shared service.
      *
      * @return \SensioLabs\Security\Command\SecurityCheckerCommand
@@ -2446,7 +2372,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_distribution.security_checker.command'] = new \SensioLabs\Security\Command\SecurityCheckerCommand($this->get('sensio_distribution.security_checker'));
     }
 
-    /**
+    /*
      * Gets the public 'sensio_distribution.webconfigurator' shared service.
      *
      * @return \Sensio\Bundle\DistributionBundle\Configurator\Configurator
@@ -2461,7 +2387,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'sensio_framework_extra.cache.listener' shared service.
      *
      * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\HttpCacheListener
@@ -2471,7 +2397,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_framework_extra.cache.listener'] = new \Sensio\Bundle\FrameworkExtraBundle\EventListener\HttpCacheListener();
     }
 
-    /**
+    /*
      * Gets the public 'sensio_framework_extra.controller.listener' shared service.
      *
      * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener
@@ -2481,7 +2407,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_framework_extra.controller.listener'] = new \Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener($this->get('annotation_reader'));
     }
 
-    /**
+    /*
      * Gets the public 'sensio_framework_extra.converter.datetime' shared service.
      *
      * @return \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter
@@ -2491,7 +2417,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_framework_extra.converter.datetime'] = new \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter();
     }
 
-    /**
+    /*
      * Gets the public 'sensio_framework_extra.converter.doctrine.orm' shared service.
      *
      * @return \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter
@@ -2501,7 +2427,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_framework_extra.converter.doctrine.orm'] = new \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter($this->get('doctrine', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'sensio_framework_extra.converter.listener' shared service.
      *
      * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener
@@ -2511,7 +2437,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_framework_extra.converter.listener'] = new \Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener($this->get('sensio_framework_extra.converter.manager'), true);
     }
 
-    /**
+    /*
      * Gets the public 'sensio_framework_extra.converter.manager' shared service.
      *
      * @return \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterManager
@@ -2526,7 +2452,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'sensio_framework_extra.security.listener' shared service.
      *
      * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener
@@ -2536,7 +2462,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_framework_extra.security.listener'] = new \Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener(NULL, new \Sensio\Bundle\FrameworkExtraBundle\Security\ExpressionLanguage(), $this->get('security.authentication.trust_resolver', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('security.role_hierarchy', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('security.token_storage', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('security.authorization_checker', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'sensio_framework_extra.view.guesser' shared service.
      *
      * @return \Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser
@@ -2546,7 +2472,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_framework_extra.view.guesser'] = new \Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser($this->get('kernel'));
     }
 
-    /**
+    /*
      * Gets the public 'sensio_framework_extra.view.listener' shared service.
      *
      * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener
@@ -2556,7 +2482,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sensio_framework_extra.view.listener'] = new \Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener($this);
     }
 
-    /**
+    /*
      * Gets the public 'service_container' shared service.
      *
      * @throws RuntimeException always since this service is expected to be injected dynamically
@@ -2566,7 +2492,7 @@ class appDevDebugProjectContainer extends Container
         throw new RuntimeException('You have requested a synthetic service ("service_container"). The DIC does not know how to construct this service.');
     }
 
-    /**
+    /*
      * Gets the public 'session' shared service.
      *
      * @return \Symfony\Component\HttpFoundation\Session\Session
@@ -2576,7 +2502,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['session'] = new \Symfony\Component\HttpFoundation\Session\Session($this->get('session.storage.native'), new \Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag(), new \Symfony\Component\HttpFoundation\Session\Flash\FlashBag());
     }
 
-    /**
+    /*
      * Gets the public 'session.save_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\SaveSessionListener
@@ -2586,7 +2512,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['session.save_listener'] = new \Symfony\Component\HttpKernel\EventListener\SaveSessionListener();
     }
 
-    /**
+    /*
      * Gets the public 'session.storage.filesystem' shared service.
      *
      * @return \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage
@@ -2596,7 +2522,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage((__DIR__.'/sessions'), 'MOCKSESSID', $this->get('session.storage.metadata_bag'));
     }
 
-    /**
+    /*
      * Gets the public 'session.storage.native' shared service.
      *
      * @return \Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage
@@ -2606,7 +2532,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['session.storage.native'] = new \Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage(array('cookie_httponly' => true, 'gc_probability' => 1), NULL, $this->get('session.storage.metadata_bag'));
     }
 
-    /**
+    /*
      * Gets the public 'session.storage.php_bridge' shared service.
      *
      * @return \Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage
@@ -2616,7 +2542,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['session.storage.php_bridge'] = new \Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage(NULL, $this->get('session.storage.metadata_bag'));
     }
 
-    /**
+    /*
      * Gets the public 'session_listener' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\EventListener\SessionListener
@@ -2626,7 +2552,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['session_listener'] = new \Symfony\Bundle\FrameworkBundle\EventListener\SessionListener($this);
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.audit.manager' shared service.
      *
      * @return \Sonata\AdminBundle\Model\AuditManager
@@ -2636,7 +2562,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.audit.manager'] = new \Sonata\AdminBundle\Model\AuditManager($this);
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.block.admin_list' shared service.
      *
      * @return \Sonata\AdminBundle\Block\AdminListBlockService
@@ -2646,7 +2572,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.block.admin_list'] = new \Sonata\AdminBundle\Block\AdminListBlockService('sonata.admin.block.admin_list', $this->get('templating'), $this->get('sonata.admin.pool'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.block.search_result' shared service.
      *
      * @return \Sonata\AdminBundle\Block\AdminSearchBlockService
@@ -2656,7 +2582,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.block.search_result'] = new \Sonata\AdminBundle\Block\AdminSearchBlockService('sonata.admin.block.search_result', $this->get('templating'), $this->get('sonata.admin.pool'), $this->get('sonata.admin.search.handler'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.block.stats' shared service.
      *
      * @return \Sonata\AdminBundle\Block\AdminStatsBlockService
@@ -2666,7 +2592,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.block.stats'] = new \Sonata\AdminBundle\Block\AdminStatsBlockService('sonata.admin.block.stats', $this->get('templating'), $this->get('sonata.admin.pool'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.breadcrumbs_builder' shared service.
      *
      * @return \Sonata\AdminBundle\Admin\BreadcrumbsBuilder
@@ -2676,7 +2602,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.breadcrumbs_builder'] = new \Sonata\AdminBundle\Admin\BreadcrumbsBuilder(array('child_admin_route' => 'edit'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.builder.filter.factory' shared service.
      *
      * @return \Sonata\AdminBundle\Filter\FilterFactory
@@ -2686,7 +2612,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.builder.filter.factory'] = new \Sonata\AdminBundle\Filter\FilterFactory($this, array('Sonata\\DoctrineORMAdminBundle\\Filter\\BooleanFilter' => 'sonata.admin.orm.filter.type.boolean', 'doctrine_orm_boolean' => 'sonata.admin.orm.filter.type.boolean', 'Sonata\\DoctrineORMAdminBundle\\Filter\\CallbackFilter' => 'sonata.admin.orm.filter.type.callback', 'doctrine_orm_callback' => 'sonata.admin.orm.filter.type.callback', 'Sonata\\DoctrineORMAdminBundle\\Filter\\ChoiceFilter' => 'sonata.admin.orm.filter.type.choice', 'doctrine_orm_choice' => 'sonata.admin.orm.filter.type.choice', 'Sonata\\DoctrineORMAdminBundle\\Filter\\ModelFilter' => 'sonata.admin.orm.filter.type.model', 'doctrine_orm_model' => 'sonata.admin.orm.filter.type.model', 'Sonata\\DoctrineORMAdminBundle\\Filter\\ModelAutocompleteFilter' => 'sonata.admin.orm.filter.type.model_autocomplete', 'doctrine_orm_model_autocomplete' => 'sonata.admin.orm.filter.type.model_autocomplete', 'Sonata\\DoctrineORMAdminBundle\\Filter\\StringFilter' => 'sonata.admin.orm.filter.type.string', 'doctrine_orm_string' => 'sonata.admin.orm.filter.type.string', 'Sonata\\DoctrineORMAdminBundle\\Filter\\NumberFilter' => 'sonata.admin.orm.filter.type.number', 'doctrine_orm_number' => 'sonata.admin.orm.filter.type.number', 'Sonata\\DoctrineORMAdminBundle\\Filter\\DateFilter' => 'sonata.admin.orm.filter.type.date', 'doctrine_orm_date' => 'sonata.admin.orm.filter.type.date', 'Sonata\\DoctrineORMAdminBundle\\Filter\\DateRangeFilter' => 'sonata.admin.orm.filter.type.date_range', 'doctrine_orm_date_range' => 'sonata.admin.orm.filter.type.date_range', 'Sonata\\DoctrineORMAdminBundle\\Filter\\DateTimeFilter' => 'sonata.admin.orm.filter.type.datetime', 'doctrine_orm_datetime' => 'sonata.admin.orm.filter.type.datetime', 'Sonata\\DoctrineORMAdminBundle\\Filter\\TimeFilter' => 'sonata.admin.orm.filter.type.time', 'doctrine_orm_time' => 'sonata.admin.orm.filter.type.time', 'Sonata\\DoctrineORMAdminBundle\\Filter\\DateTimeRangeFilter' => 'sonata.admin.orm.filter.type.datetime_range', 'doctrine_orm_datetime_range' => 'sonata.admin.orm.filter.type.datetime_range', 'Sonata\\DoctrineORMAdminBundle\\Filter\\ClassFilter' => 'sonata.admin.orm.filter.type.class', 'doctrine_orm_class' => 'sonata.admin.orm.filter.type.class'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.builder.orm_datagrid' shared service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Builder\DatagridBuilder
@@ -2696,7 +2622,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.builder.orm_datagrid'] = new \Sonata\DoctrineORMAdminBundle\Builder\DatagridBuilder($this->get('form.factory'), $this->get('sonata.admin.builder.filter.factory'), $this->get('sonata.admin.guesser.orm_datagrid_chain'), true);
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.builder.orm_form' shared service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Builder\FormContractor
@@ -2706,7 +2632,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.builder.orm_form'] = new \Sonata\DoctrineORMAdminBundle\Builder\FormContractor($this->get('form.factory'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.builder.orm_list' shared service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Builder\ListBuilder
@@ -2716,7 +2642,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.builder.orm_list'] = new \Sonata\DoctrineORMAdminBundle\Builder\ListBuilder($this->get('sonata.admin.guesser.orm_list_chain'), array('array' => 'SonataAdminBundle:CRUD:list_array.html.twig', 'boolean' => 'SonataAdminBundle:CRUD:list_boolean.html.twig', 'date' => 'SonataAdminBundle:CRUD:list_date.html.twig', 'time' => 'SonataAdminBundle:CRUD:list_time.html.twig', 'datetime' => 'SonataAdminBundle:CRUD:list_datetime.html.twig', 'text' => 'SonataAdminBundle:CRUD:list_string.html.twig', 'textarea' => 'SonataAdminBundle:CRUD:list_string.html.twig', 'email' => 'SonataAdminBundle:CRUD:list_email.html.twig', 'trans' => 'SonataAdminBundle:CRUD:list_trans.html.twig', 'string' => 'SonataAdminBundle:CRUD:list_string.html.twig', 'smallint' => 'SonataAdminBundle:CRUD:list_string.html.twig', 'bigint' => 'SonataAdminBundle:CRUD:list_string.html.twig', 'integer' => 'SonataAdminBundle:CRUD:list_string.html.twig', 'decimal' => 'SonataAdminBundle:CRUD:list_string.html.twig', 'identifier' => 'SonataAdminBundle:CRUD:list_string.html.twig', 'currency' => 'SonataAdminBundle:CRUD:list_currency.html.twig', 'percent' => 'SonataAdminBundle:CRUD:list_percent.html.twig', 'choice' => 'SonataAdminBundle:CRUD:list_choice.html.twig', 'url' => 'SonataAdminBundle:CRUD:list_url.html.twig', 'html' => 'SonataAdminBundle:CRUD:list_html.html.twig'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.builder.orm_show' shared service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Builder\ShowBuilder
@@ -2726,7 +2652,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.builder.orm_show'] = new \Sonata\DoctrineORMAdminBundle\Builder\ShowBuilder($this->get('sonata.admin.guesser.orm_show_chain'), array('array' => 'SonataAdminBundle:CRUD:show_array.html.twig', 'boolean' => 'SonataAdminBundle:CRUD:show_boolean.html.twig', 'date' => 'SonataAdminBundle:CRUD:show_date.html.twig', 'time' => 'SonataAdminBundle:CRUD:show_time.html.twig', 'datetime' => 'SonataAdminBundle:CRUD:show_datetime.html.twig', 'text' => 'SonataAdminBundle:CRUD:base_show_field.html.twig', 'email' => 'SonataAdminBundle:CRUD:show_email.html.twig', 'trans' => 'SonataAdminBundle:CRUD:show_trans.html.twig', 'string' => 'SonataAdminBundle:CRUD:base_show_field.html.twig', 'smallint' => 'SonataAdminBundle:CRUD:base_show_field.html.twig', 'bigint' => 'SonataAdminBundle:CRUD:base_show_field.html.twig', 'integer' => 'SonataAdminBundle:CRUD:base_show_field.html.twig', 'decimal' => 'SonataAdminBundle:CRUD:base_show_field.html.twig', 'currency' => 'SonataAdminBundle:CRUD:show_currency.html.twig', 'percent' => 'SonataAdminBundle:CRUD:show_percent.html.twig', 'choice' => 'SonataAdminBundle:CRUD:show_choice.html.twig', 'url' => 'SonataAdminBundle:CRUD:show_url.html.twig', 'html' => 'SonataAdminBundle:CRUD:show_html.html.twig'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.controller.admin' shared service.
      *
      * @return \Sonata\AdminBundle\Controller\HelperController
@@ -2736,7 +2662,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.controller.admin'] = new \Sonata\AdminBundle\Controller\HelperController($this->get('twig'), $this->get('sonata.admin.pool'), $this->get('sonata.admin.helper'), $this->get('validator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.doctrine_orm.form.type.choice_field_mask' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType
@@ -2746,17 +2672,17 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.doctrine_orm.form.type.choice_field_mask'] = new \Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.event.extension' shared service.
      *
      * @return \Sonata\AdminBundle\Event\AdminEventExtension
      */
     protected function getSonata_Admin_Event_ExtensionService()
     {
-        return $this->services['sonata.admin.event.extension'] = new \Sonata\AdminBundle\Event\AdminEventExtension($this->get('debug.event_dispatcher'));
+        return $this->services['sonata.admin.event.extension'] = new \Sonata\AdminBundle\Event\AdminEventExtension($this->get('event_dispatcher'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.exporter' shared service.
      *
      * @return \Sonata\AdminBundle\Export\Exporter
@@ -2770,7 +2696,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.exporter'] = new \Sonata\AdminBundle\Export\Exporter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.extension.choice' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Extension\ChoiceTypeExtension
@@ -2780,7 +2706,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.extension.choice'] = new \Sonata\AdminBundle\Form\Extension\ChoiceTypeExtension();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.extension.field' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Extension\Field\Type\FormTypeFieldExtension
@@ -2790,7 +2716,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.extension.field'] = new \Sonata\AdminBundle\Form\Extension\Field\Type\FormTypeFieldExtension(array('email' => '', 'textarea' => '', 'text' => '', 'choice' => '', 'integer' => '', 'datetime' => 'sonata-medium-date', 'date' => 'sonata-medium-date', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => '', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType' => 'sonata-medium-date', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType' => 'sonata-medium-date', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType' => '', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\IntegerType' => '', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType' => '', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType' => ''), array('title_mode' => 'single_text', 'html5_validate' => true, 'sort_admins' => false, 'confirm_exit' => true, 'use_select2' => true, 'use_icheck' => true, 'use_bootlint' => false, 'use_stickyforms' => true, 'pager_links' => NULL, 'form_type' => 'standard', 'dropdown_number_groups_per_colums' => 2, 'lock_protection' => false, 'enable_jms_di_extra_autoregistration' => true, 'javascripts' => array(0 => 'bundles/sonatacore/vendor/jquery/dist/jquery.min.js', 1 => 'bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.min.js', 2 => 'bundles/sonatacore/vendor/moment/min/moment.min.js', 3 => 'bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js', 4 => 'bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js', 5 => 'bundles/sonatacore/vendor/bootstrap/dist/js/bootstrap.min.js', 6 => 'bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', 7 => 'bundles/sonataadmin/vendor/jquery-form/jquery.form.js', 8 => 'bundles/sonataadmin/jquery/jquery.confirmExit.js', 9 => 'bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js', 10 => 'bundles/sonatacore/vendor/select2/select2.min.js', 11 => 'bundles/sonataadmin/vendor/admin-lte/dist/js/app.min.js', 12 => 'bundles/sonataadmin/vendor/iCheck/icheck.min.js', 13 => 'bundles/sonataadmin/vendor/slimScroll/jquery.slimscroll.min.js', 14 => 'bundles/sonataadmin/vendor/waypoints/lib/jquery.waypoints.min.js', 15 => 'bundles/sonataadmin/vendor/waypoints/lib/shortcuts/sticky.min.js', 16 => 'bundles/sonataadmin/vendor/readmore-js/readmore.min.js', 17 => 'bundles/sonataadmin/vendor/masonry/dist/masonry.pkgd.min.js', 18 => 'bundles/sonataadmin/Admin.js', 19 => 'bundles/sonataadmin/treeview.js'), 'stylesheets' => array(0 => 'bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css', 1 => 'bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css', 2 => 'bundles/sonatacore/vendor/ionicons/css/ionicons.min.css', 3 => 'bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css', 4 => 'bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css', 5 => 'bundles/sonataadmin/vendor/iCheck/skins/square/blue.css', 6 => 'bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css', 7 => 'bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css', 8 => 'bundles/sonatacore/vendor/select2/select2.css', 9 => 'bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css', 10 => 'bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css', 11 => 'bundles/sonataadmin/css/styles.css', 12 => 'bundles/sonataadmin/css/layout.css', 13 => 'bundles/sonataadmin/css/tree.css')));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.extension.field.mopa' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Extension\Field\Type\MopaCompatibilityTypeFieldExtension
@@ -2800,7 +2726,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.extension.field.mopa'] = new \Sonata\AdminBundle\Form\Extension\Field\Type\MopaCompatibilityTypeFieldExtension();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.filter.type.choice' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\Filter\ChoiceType
@@ -2810,7 +2736,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.filter.type.choice'] = new \Sonata\AdminBundle\Form\Type\Filter\ChoiceType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.filter.type.date' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\Filter\DateType
@@ -2820,7 +2746,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.filter.type.date'] = new \Sonata\AdminBundle\Form\Type\Filter\DateType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.filter.type.daterange' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\Filter\DateRangeType
@@ -2830,7 +2756,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.filter.type.daterange'] = new \Sonata\AdminBundle\Form\Type\Filter\DateRangeType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.filter.type.datetime' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\Filter\DateTimeType
@@ -2840,7 +2766,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.filter.type.datetime'] = new \Sonata\AdminBundle\Form\Type\Filter\DateTimeType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.filter.type.datetime_range' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\Filter\DateTimeRangeType
@@ -2850,7 +2776,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.filter.type.datetime_range'] = new \Sonata\AdminBundle\Form\Type\Filter\DateTimeRangeType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.filter.type.default' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\Filter\DefaultType
@@ -2860,7 +2786,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.filter.type.default'] = new \Sonata\AdminBundle\Form\Type\Filter\DefaultType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.filter.type.number' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\Filter\NumberType
@@ -2870,7 +2796,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.filter.type.number'] = new \Sonata\AdminBundle\Form\Type\Filter\NumberType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.type.admin' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\AdminType
@@ -2880,7 +2806,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.type.admin'] = new \Sonata\AdminBundle\Form\Type\AdminType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.type.collection' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\CollectionType
@@ -2890,7 +2816,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.type.collection'] = new \Sonata\AdminBundle\Form\Type\CollectionType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.type.model_autocomplete' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\ModelAutocompleteType
@@ -2900,7 +2826,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.type.model_autocomplete'] = new \Sonata\AdminBundle\Form\Type\ModelAutocompleteType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.type.model_choice' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\ModelType
@@ -2910,7 +2836,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.type.model_choice'] = new \Sonata\AdminBundle\Form\Type\ModelType($this->get('property_accessor'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.type.model_hidden' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\ModelHiddenType
@@ -2920,7 +2846,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.type.model_hidden'] = new \Sonata\AdminBundle\Form\Type\ModelHiddenType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.type.model_list' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\ModelListType
@@ -2930,7 +2856,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.type.model_list'] = new \Sonata\AdminBundle\Form\Type\ModelListType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.form.type.model_reference' shared service.
      *
      * @return \Sonata\AdminBundle\Form\Type\ModelReferenceType
@@ -2940,7 +2866,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.form.type.model_reference'] = new \Sonata\AdminBundle\Form\Type\ModelReferenceType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.guesser.orm_datagrid' shared service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Guesser\FilterTypeGuesser
@@ -2950,7 +2876,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.guesser.orm_datagrid'] = new \Sonata\DoctrineORMAdminBundle\Guesser\FilterTypeGuesser();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.guesser.orm_datagrid_chain' shared service.
      *
      * @return \Sonata\AdminBundle\Guesser\TypeGuesserChain
@@ -2960,7 +2886,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.guesser.orm_datagrid_chain'] = new \Sonata\AdminBundle\Guesser\TypeGuesserChain(array(0 => $this->get('sonata.admin.guesser.orm_datagrid')));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.guesser.orm_list' shared service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser
@@ -2970,7 +2896,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.guesser.orm_list'] = new \Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.guesser.orm_list_chain' shared service.
      *
      * @return \Sonata\AdminBundle\Guesser\TypeGuesserChain
@@ -2980,7 +2906,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.guesser.orm_list_chain'] = new \Sonata\AdminBundle\Guesser\TypeGuesserChain(array(0 => $this->get('sonata.admin.guesser.orm_list')));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.guesser.orm_show' shared service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser
@@ -2990,7 +2916,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.guesser.orm_show'] = new \Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.guesser.orm_show_chain' shared service.
      *
      * @return \Sonata\AdminBundle\Guesser\TypeGuesserChain
@@ -3000,7 +2926,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.guesser.orm_show_chain'] = new \Sonata\AdminBundle\Guesser\TypeGuesserChain(array(0 => $this->get('sonata.admin.guesser.orm_show')));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.helper' shared service.
      *
      * @return \Sonata\AdminBundle\Admin\AdminHelper
@@ -3010,7 +2936,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.helper'] = new \Sonata\AdminBundle\Admin\AdminHelper($this->get('sonata.admin.pool'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.label.strategy.bc' shared service.
      *
      * @return \Sonata\AdminBundle\Translator\BCLabelTranslatorStrategy
@@ -3020,7 +2946,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.label.strategy.bc'] = new \Sonata\AdminBundle\Translator\BCLabelTranslatorStrategy();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.label.strategy.form_component' shared service.
      *
      * @return \Sonata\AdminBundle\Translator\FormLabelTranslatorStrategy
@@ -3030,7 +2956,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.label.strategy.form_component'] = new \Sonata\AdminBundle\Translator\FormLabelTranslatorStrategy();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.label.strategy.native' shared service.
      *
      * @return \Sonata\AdminBundle\Translator\NativeLabelTranslatorStrategy
@@ -3040,7 +2966,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.label.strategy.native'] = new \Sonata\AdminBundle\Translator\NativeLabelTranslatorStrategy();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.label.strategy.noop' shared service.
      *
      * @return \Sonata\AdminBundle\Translator\NoopLabelTranslatorStrategy
@@ -3050,7 +2976,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.label.strategy.noop'] = new \Sonata\AdminBundle\Translator\NoopLabelTranslatorStrategy();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.label.strategy.underscore' shared service.
      *
      * @return \Sonata\AdminBundle\Translator\UnderscoreLabelTranslatorStrategy
@@ -3060,7 +2986,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.label.strategy.underscore'] = new \Sonata\AdminBundle\Translator\UnderscoreLabelTranslatorStrategy();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.manager.orm' shared service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Model\ModelManager
@@ -3070,7 +2996,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.manager.orm'] = new \Sonata\DoctrineORMAdminBundle\Model\ModelManager($this->get('doctrine'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.manipulator.acl.admin' shared service.
      *
      * @return \Sonata\AdminBundle\Util\AdminAclManipulator
@@ -3080,7 +3006,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.manipulator.acl.admin'] = new \Sonata\AdminBundle\Util\AdminAclManipulator('Sonata\\AdminBundle\\Security\\Acl\\Permission\\MaskBuilder');
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.manipulator.acl.object.orm' shared service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Util\ObjectAclManipulator
@@ -3090,7 +3016,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.manipulator.acl.object.orm'] = new \Sonata\DoctrineORMAdminBundle\Util\ObjectAclManipulator();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.menu.matcher.voter.active' shared service.
      *
      * @return \Sonata\AdminBundle\Menu\Matcher\Voter\ActiveVoter
@@ -3100,7 +3026,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.menu.matcher.voter.active'] = new \Sonata\AdminBundle\Menu\Matcher\Voter\ActiveVoter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.menu.matcher.voter.admin' shared service.
      *
      * @return \Sonata\AdminBundle\Menu\Matcher\Voter\AdminVoter
@@ -3110,7 +3036,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.menu.matcher.voter.admin'] = new \Sonata\AdminBundle\Menu\Matcher\Voter\AdminVoter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.menu.matcher.voter.children' shared service.
      *
      * @return \Sonata\AdminBundle\Menu\Matcher\Voter\ChildrenVoter
@@ -3120,17 +3046,17 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.menu.matcher.voter.children'] = new \Sonata\AdminBundle\Menu\Matcher\Voter\ChildrenVoter($this->get('knp_menu.matcher'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.menu_builder' shared service.
      *
      * @return \Sonata\AdminBundle\Menu\MenuBuilder
      */
     protected function getSonata_Admin_MenuBuilderService()
     {
-        return $this->services['sonata.admin.menu_builder'] = new \Sonata\AdminBundle\Menu\MenuBuilder($this->get('sonata.admin.pool'), $this->get('knp_menu.factory'), $this->get('knp_menu.menu_provider'), $this->get('debug.event_dispatcher'));
+        return $this->services['sonata.admin.menu_builder'] = new \Sonata\AdminBundle\Menu\MenuBuilder($this->get('sonata.admin.pool'), $this->get('knp_menu.factory'), $this->get('knp_menu.menu_provider'), $this->get('event_dispatcher'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.object.manipulator.acl.admin' shared service.
      *
      * @return \Sonata\AdminBundle\Util\AdminObjectAclManipulator
@@ -3140,7 +3066,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.object.manipulator.acl.admin'] = new \Sonata\AdminBundle\Util\AdminObjectAclManipulator($this->get('form.factory'), 'Sonata\\AdminBundle\\Security\\Acl\\Permission\\MaskBuilder');
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.boolean' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\BooleanFilter
@@ -3150,7 +3076,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\BooleanFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.callback' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\CallbackFilter
@@ -3160,7 +3086,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\CallbackFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.choice' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\ChoiceFilter
@@ -3170,7 +3096,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\ChoiceFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.class' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\ClassFilter
@@ -3180,7 +3106,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\ClassFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.date' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\DateFilter
@@ -3190,7 +3116,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\DateFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.date_range' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\DateRangeFilter
@@ -3200,7 +3126,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\DateRangeFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.datetime' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\DateTimeFilter
@@ -3210,7 +3136,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\DateTimeFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.datetime_range' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\DateTimeRangeFilter
@@ -3220,7 +3146,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\DateTimeRangeFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.model' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\ModelFilter
@@ -3230,7 +3156,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\ModelFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.model_autocomplete' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\ModelAutocompleteFilter
@@ -3240,7 +3166,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\ModelAutocompleteFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.number' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\NumberFilter
@@ -3250,7 +3176,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\NumberFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.string' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\StringFilter
@@ -3260,7 +3186,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\StringFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.orm.filter.type.time' service.
      *
      * @return \Sonata\DoctrineORMAdminBundle\Filter\TimeFilter
@@ -3270,7 +3196,7 @@ class appDevDebugProjectContainer extends Container
         return new \Sonata\DoctrineORMAdminBundle\Filter\TimeFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.pool' shared service.
      *
      * @return \Sonata\AdminBundle\Admin\Pool
@@ -3287,17 +3213,17 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.route.cache' shared service.
      *
      * @return \Sonata\AdminBundle\Route\RoutesCache
      */
     protected function getSonata_Admin_Route_CacheService()
     {
-        return $this->services['sonata.admin.route.cache'] = new \Sonata\AdminBundle\Route\RoutesCache((__DIR__.'/sonata/admin'), true);
+        return $this->services['sonata.admin.route.cache'] = new \Sonata\AdminBundle\Route\RoutesCache((__DIR__.'/sonata/admin'), false);
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.route.cache_warmup' shared service.
      *
      * @return \Sonata\AdminBundle\Route\RoutesCacheWarmUp
@@ -3307,7 +3233,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.route.cache_warmup'] = new \Sonata\AdminBundle\Route\RoutesCacheWarmUp($this->get('sonata.admin.route.cache'), $this->get('sonata.admin.pool'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.route.default_generator' shared service.
      *
      * @return \Sonata\AdminBundle\Route\DefaultRouteGenerator
@@ -3317,7 +3243,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.route.default_generator'] = new \Sonata\AdminBundle\Route\DefaultRouteGenerator($this->get('router'), $this->get('sonata.admin.route.cache'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.route.path_info' shared service.
      *
      * @return \Sonata\AdminBundle\Route\PathInfoBuilder
@@ -3327,7 +3253,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.route.path_info'] = new \Sonata\AdminBundle\Route\PathInfoBuilder($this->get('sonata.admin.audit.manager'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.route.query_string' shared service.
      *
      * @return \Sonata\AdminBundle\Route\QueryStringBuilder
@@ -3337,7 +3263,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.route.query_string'] = new \Sonata\AdminBundle\Route\QueryStringBuilder($this->get('sonata.admin.audit.manager'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.route_loader' shared service.
      *
      * @return \Sonata\AdminBundle\Route\AdminPoolLoader
@@ -3347,7 +3273,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.route_loader'] = new \Sonata\AdminBundle\Route\AdminPoolLoader($this->get('sonata.admin.pool'), array(0 => 'project3_website.admin.group', 1 => 'project3_website.admin.user'), $this);
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.search.handler' shared service.
      *
      * @return \Sonata\AdminBundle\Search\SearchHandler
@@ -3357,7 +3283,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.search.handler'] = new \Sonata\AdminBundle\Search\SearchHandler($this->get('sonata.admin.pool'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.security.handler' shared service.
      *
      * @return \Sonata\AdminBundle\Security\Handler\NoopSecurityHandler
@@ -3367,7 +3293,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.security.handler'] = new \Sonata\AdminBundle\Security\Handler\NoopSecurityHandler();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.sidebar_menu' shared service.
      *
      * @return \Knp\Menu\MenuItem
@@ -3377,7 +3303,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.sidebar_menu'] = $this->get('sonata.admin.menu_builder')->createSidebarMenu();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.twig.extension' shared service.
      *
      * @return \Sonata\AdminBundle\Twig\Extension\SonataAdminExtension
@@ -3391,7 +3317,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.twig.global' shared service.
      *
      * @return \Sonata\AdminBundle\Twig\GlobalVariables
@@ -3401,7 +3327,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.twig.global'] = new \Sonata\AdminBundle\Twig\GlobalVariables($this->get('sonata.admin.pool'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.admin.validator.inline' shared service.
      *
      * @return \Sonata\CoreBundle\Validator\InlineValidator
@@ -3411,7 +3337,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.admin.validator.inline'] = new \Sonata\CoreBundle\Validator\InlineValidator($this, $this->get('validator.validator_factory'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.cache.handler.default' shared service.
      *
      * @return \Sonata\BlockBundle\Cache\HttpCacheHandler
@@ -3421,7 +3347,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.cache.handler.default'] = new \Sonata\BlockBundle\Cache\HttpCacheHandler();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.cache.handler.noop' shared service.
      *
      * @return \Sonata\BlockBundle\Cache\NoopHttpCacheHandler
@@ -3431,7 +3357,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.cache.handler.noop'] = new \Sonata\BlockBundle\Cache\NoopHttpCacheHandler();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.context_manager.default' shared service.
      *
      * @return \Sonata\BlockBundle\Block\BlockContextManager
@@ -3441,17 +3367,17 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.context_manager.default'] = new \Sonata\BlockBundle\Block\BlockContextManager($this->get('sonata.block.loader.chain'), $this->get('sonata.block.manager'), array('by_type' => array('sonata.admin.block.admin_list' => 'sonata.cache.noop', 'sonata.admin.block.search_result' => 'sonata.cache.noop')), $this->get('logger', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.exception.filter.debug_only' shared service.
      *
      * @return \Sonata\BlockBundle\Exception\Filter\DebugOnlyFilter
      */
     protected function getSonata_Block_Exception_Filter_DebugOnlyService()
     {
-        return $this->services['sonata.block.exception.filter.debug_only'] = new \Sonata\BlockBundle\Exception\Filter\DebugOnlyFilter(true);
+        return $this->services['sonata.block.exception.filter.debug_only'] = new \Sonata\BlockBundle\Exception\Filter\DebugOnlyFilter(false);
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.exception.filter.ignore_block_exception' shared service.
      *
      * @return \Sonata\BlockBundle\Exception\Filter\IgnoreClassFilter
@@ -3461,7 +3387,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.exception.filter.ignore_block_exception'] = new \Sonata\BlockBundle\Exception\Filter\IgnoreClassFilter('Sonata\\BlockBundle\\Exception\\BlockExceptionInterface');
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.exception.filter.keep_all' shared service.
      *
      * @return \Sonata\BlockBundle\Exception\Filter\KeepAllFilter
@@ -3471,7 +3397,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.exception.filter.keep_all'] = new \Sonata\BlockBundle\Exception\Filter\KeepAllFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.exception.filter.keep_none' shared service.
      *
      * @return \Sonata\BlockBundle\Exception\Filter\KeepNoneFilter
@@ -3481,7 +3407,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.exception.filter.keep_none'] = new \Sonata\BlockBundle\Exception\Filter\KeepNoneFilter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.exception.renderer.inline' shared service.
      *
      * @return \Sonata\BlockBundle\Exception\Renderer\InlineRenderer
@@ -3491,17 +3417,17 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.exception.renderer.inline'] = new \Sonata\BlockBundle\Exception\Renderer\InlineRenderer($this->get('templating'), 'SonataBlockBundle:Block:block_exception.html.twig');
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.exception.renderer.inline_debug' shared service.
      *
      * @return \Sonata\BlockBundle\Exception\Renderer\InlineDebugRenderer
      */
     protected function getSonata_Block_Exception_Renderer_InlineDebugService()
     {
-        return $this->services['sonata.block.exception.renderer.inline_debug'] = new \Sonata\BlockBundle\Exception\Renderer\InlineDebugRenderer($this->get('templating'), 'SonataBlockBundle:Block:block_exception_debug.html.twig', true, true);
+        return $this->services['sonata.block.exception.renderer.inline_debug'] = new \Sonata\BlockBundle\Exception\Renderer\InlineDebugRenderer($this->get('templating'), 'SonataBlockBundle:Block:block_exception_debug.html.twig', false, true);
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.exception.renderer.throw' shared service.
      *
      * @return \Sonata\BlockBundle\Exception\Renderer\MonkeyThrowRenderer
@@ -3511,7 +3437,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.exception.renderer.throw'] = new \Sonata\BlockBundle\Exception\Renderer\MonkeyThrowRenderer();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.exception.strategy.manager' shared service.
      *
      * @return \Sonata\BlockBundle\Exception\Strategy\StrategyManager
@@ -3526,7 +3452,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.form.type.block' shared service.
      *
      * @return \Sonata\BlockBundle\Form\Type\ServiceListType
@@ -3536,7 +3462,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.form.type.block'] = new \Sonata\BlockBundle\Form\Type\ServiceListType($this->get('sonata.block.manager'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.form.type.container_template' shared service.
      *
      * @return \Sonata\BlockBundle\Form\Type\ContainerTemplateType
@@ -3546,7 +3472,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.form.type.container_template'] = new \Sonata\BlockBundle\Form\Type\ContainerTemplateType(array('SonataBlockBundle:Block:block_container.html.twig' => 'SonataBlockBundle default template'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.loader.chain' shared service.
      *
      * @return \Sonata\BlockBundle\Block\BlockLoaderChain
@@ -3556,7 +3482,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.loader.chain'] = new \Sonata\BlockBundle\Block\BlockLoaderChain(array(0 => $this->get('sonata.block.loader.service')));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.loader.service' shared service.
      *
      * @return \Sonata\BlockBundle\Block\Loader\ServiceLoader
@@ -3566,7 +3492,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.loader.service'] = new \Sonata\BlockBundle\Block\Loader\ServiceLoader(array(0 => 'sonata.admin.block.admin_list', 1 => 'sonata.admin.block.search_result'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.menu.registry' shared service.
      *
      * @return \Sonata\BlockBundle\Menu\MenuRegistry
@@ -3576,17 +3502,17 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.menu.registry'] = new \Sonata\BlockBundle\Menu\MenuRegistry(array());
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.renderer.default' shared service.
      *
      * @return \Sonata\BlockBundle\Block\BlockRenderer
      */
     protected function getSonata_Block_Renderer_DefaultService()
     {
-        return $this->services['sonata.block.renderer.default'] = new \Sonata\BlockBundle\Block\BlockRenderer($this->get('sonata.block.manager'), $this->get('sonata.block.exception.strategy.manager'), $this->get('logger', ContainerInterface::NULL_ON_INVALID_REFERENCE), true);
+        return $this->services['sonata.block.renderer.default'] = new \Sonata\BlockBundle\Block\BlockRenderer($this->get('sonata.block.manager'), $this->get('sonata.block.exception.strategy.manager'), $this->get('logger', ContainerInterface::NULL_ON_INVALID_REFERENCE), false);
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.service.container' shared service.
      *
      * @return \Sonata\BlockBundle\Block\Service\ContainerBlockService
@@ -3596,7 +3522,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.service.container'] = new \Sonata\BlockBundle\Block\Service\ContainerBlockService('sonata.block.container', $this->get('templating'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.service.empty' shared service.
      *
      * @return \Sonata\BlockBundle\Block\Service\EmptyBlockService
@@ -3606,7 +3532,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.service.empty'] = new \Sonata\BlockBundle\Block\Service\EmptyBlockService('sonata.block.empty', $this->get('templating'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.service.menu' shared service.
      *
      * @return \Sonata\BlockBundle\Block\Service\MenuBlockService
@@ -3616,7 +3542,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.service.menu'] = new \Sonata\BlockBundle\Block\Service\MenuBlockService('sonata.block.menu', $this->get('templating'), $this->get('knp_menu.menu_provider'), $this->get('sonata.block.menu.registry'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.service.rss' shared service.
      *
      * @return \Sonata\BlockBundle\Block\Service\RssBlockService
@@ -3626,7 +3552,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.service.rss'] = new \Sonata\BlockBundle\Block\Service\RssBlockService('sonata.block.rss', $this->get('templating'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.service.template' shared service.
      *
      * @return \Sonata\BlockBundle\Block\Service\TemplateBlockService
@@ -3636,7 +3562,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.service.template'] = new \Sonata\BlockBundle\Block\Service\TemplateBlockService('sonata.block.template', $this->get('templating'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.service.text' shared service.
      *
      * @return \Sonata\BlockBundle\Block\Service\TextBlockService
@@ -3646,17 +3572,17 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.service.text'] = new \Sonata\BlockBundle\Block\Service\TextBlockService('sonata.block.text', $this->get('templating'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.templating.helper' shared service.
      *
      * @return \Sonata\BlockBundle\Templating\Helper\BlockHelper
      */
     protected function getSonata_Block_Templating_HelperService()
     {
-        return $this->services['sonata.block.templating.helper'] = new \Sonata\BlockBundle\Templating\Helper\BlockHelper($this->get('sonata.block.manager'), array('by_type' => array('sonata.admin.block.admin_list' => 'sonata.cache.noop', 'sonata.admin.block.search_result' => 'sonata.cache.noop')), $this->get('sonata.block.renderer.default'), $this->get('sonata.block.context_manager.default'), $this->get('debug.event_dispatcher'), NULL, $this->get('sonata.block.cache.handler.default', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['sonata.block.templating.helper'] = new \Sonata\BlockBundle\Templating\Helper\BlockHelper($this->get('sonata.block.manager'), array('by_type' => array('sonata.admin.block.admin_list' => 'sonata.cache.noop', 'sonata.admin.block.search_result' => 'sonata.cache.noop')), $this->get('sonata.block.renderer.default'), $this->get('sonata.block.context_manager.default'), $this->get('event_dispatcher'), NULL, $this->get('sonata.block.cache.handler.default', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.block.twig.global' shared service.
      *
      * @return \Sonata\BlockBundle\Twig\GlobalVariables
@@ -3666,7 +3592,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.block.twig.global'] = new \Sonata\BlockBundle\Twig\GlobalVariables(array('block_base' => 'SonataBlockBundle:Block:block_base.html.twig', 'block_container' => 'SonataBlockBundle:Block:block_container.html.twig'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.date.moment_format_converter' shared service.
      *
      * @return \Sonata\CoreBundle\Date\MomentFormatConverter
@@ -3676,7 +3602,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.date.moment_format_converter'] = new \Sonata\CoreBundle\Date\MomentFormatConverter();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.flashmessage.manager' shared service.
      *
      * @return \Sonata\CoreBundle\FlashMessage\FlashManager
@@ -3686,7 +3612,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.flashmessage.manager'] = new \Sonata\CoreBundle\FlashMessage\FlashManager($this->get('session'), $this->get('translator'), array('success' => array('success' => array('domain' => 'SonataCoreBundle'), 'sonata_flash_success' => array('domain' => 'SonataAdminBundle'), 'sonata_user_success' => array('domain' => 'SonataUserBundle'), 'fos_user_success' => array('domain' => 'FOSUserBundle')), 'warning' => array('warning' => array('domain' => 'SonataCoreBundle'), 'sonata_flash_info' => array('domain' => 'SonataAdminBundle')), 'danger' => array('error' => array('domain' => 'SonataCoreBundle'), 'sonata_flash_error' => array('domain' => 'SonataAdminBundle'), 'sonata_user_error' => array('domain' => 'SonataUserBundle'))), array('success' => 'success', 'warning' => 'warning', 'danger' => 'danger'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.flashmessage.twig.extension' shared service.
      *
      * @return \Sonata\CoreBundle\Twig\Extension\FlashMessageExtension
@@ -3696,7 +3622,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.flashmessage.twig.extension'] = new \Sonata\CoreBundle\Twig\Extension\FlashMessageExtension($this->get('sonata.core.flashmessage.manager'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.array' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\ImmutableArrayType
@@ -3706,7 +3632,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.array'] = new \Sonata\CoreBundle\Form\Type\ImmutableArrayType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.boolean' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\BooleanType
@@ -3716,7 +3642,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.boolean'] = new \Sonata\CoreBundle\Form\Type\BooleanType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.collection' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\CollectionType
@@ -3726,7 +3652,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.collection'] = new \Sonata\CoreBundle\Form\Type\CollectionType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.color' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\ColorType
@@ -3736,7 +3662,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.color'] = new \Sonata\CoreBundle\Form\Type\ColorType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.color_selector' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\ColorSelectorType
@@ -3746,7 +3672,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.color_selector'] = new \Sonata\CoreBundle\Form\Type\ColorSelectorType();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.date_picker' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\DatePickerType
@@ -3756,7 +3682,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.date_picker'] = new \Sonata\CoreBundle\Form\Type\DatePickerType($this->get('sonata.core.date.moment_format_converter'), $this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.date_range' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\DateRangeType
@@ -3766,7 +3692,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.date_range'] = new \Sonata\CoreBundle\Form\Type\DateRangeType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.date_range_picker' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\DateRangePickerType
@@ -3776,7 +3702,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.date_range_picker'] = new \Sonata\CoreBundle\Form\Type\DateRangePickerType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.datetime_picker' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\DateTimePickerType
@@ -3786,7 +3712,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.datetime_picker'] = new \Sonata\CoreBundle\Form\Type\DateTimePickerType($this->get('sonata.core.date.moment_format_converter'), $this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.datetime_range' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\DateTimeRangeType
@@ -3796,7 +3722,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.datetime_range'] = new \Sonata\CoreBundle\Form\Type\DateTimeRangeType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.datetime_range_picker' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\DateTimeRangePickerType
@@ -3806,7 +3732,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.datetime_range_picker'] = new \Sonata\CoreBundle\Form\Type\DateTimeRangePickerType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.equal' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\EqualType
@@ -3816,7 +3742,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.equal'] = new \Sonata\CoreBundle\Form\Type\EqualType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.form.type.translatable_choice' shared service.
      *
      * @return \Sonata\CoreBundle\Form\Type\TranslatableChoiceType
@@ -3826,7 +3752,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.form.type.translatable_choice'] = new \Sonata\CoreBundle\Form\Type\TranslatableChoiceType($this->get('translator'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.model.adapter.chain' shared service.
      *
      * @return \Sonata\CoreBundle\Model\Adapter\AdapterChain
@@ -3840,7 +3766,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.slugify.cocur' shared service.
      *
      * @return \Cocur\Slugify\Slugify
@@ -3854,7 +3780,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.slugify.cocur'] = new \Cocur\Slugify\Slugify();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.slugify.native' shared service.
      *
      * @return \Sonata\CoreBundle\Component\NativeSlugify
@@ -3868,7 +3794,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.slugify.native'] = new \Sonata\CoreBundle\Component\NativeSlugify();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.twig.extension.text' shared service.
      *
      * @return \Sonata\CoreBundle\Twig\Extension\DeprecatedTextExtension
@@ -3878,7 +3804,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.twig.extension.text'] = new \Sonata\CoreBundle\Twig\Extension\DeprecatedTextExtension();
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.twig.extension.wrapping' shared service.
      *
      * @return \Sonata\CoreBundle\Twig\Extension\FormTypeExtension
@@ -3888,7 +3814,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.twig.extension.wrapping'] = new \Sonata\CoreBundle\Twig\Extension\FormTypeExtension('standard');
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.twig.status_extension' shared service.
      *
      * @return \Sonata\CoreBundle\Twig\Extension\StatusExtension
@@ -3902,17 +3828,17 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.twig.template_extension' shared service.
      *
      * @return \Sonata\CoreBundle\Twig\Extension\TemplateExtension
      */
     protected function getSonata_Core_Twig_TemplateExtensionService()
     {
-        return $this->services['sonata.core.twig.template_extension'] = new \Sonata\CoreBundle\Twig\Extension\TemplateExtension(true, $this->get('translator'), $this->get('sonata.core.model.adapter.chain'));
+        return $this->services['sonata.core.twig.template_extension'] = new \Sonata\CoreBundle\Twig\Extension\TemplateExtension(false, $this->get('translator'), $this->get('sonata.core.model.adapter.chain'));
     }
 
-    /**
+    /*
      * Gets the public 'sonata.core.validator.inline' shared service.
      *
      * @return \Sonata\CoreBundle\Validator\InlineValidator
@@ -3922,7 +3848,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['sonata.core.validator.inline'] = new \Sonata\CoreBundle\Validator\InlineValidator($this, $this->get('validator.validator_factory'));
     }
 
-    /**
+    /*
      * Gets the public 'streamed_response_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\StreamedResponseListener
@@ -3932,7 +3858,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['streamed_response_listener'] = new \Symfony\Component\HttpKernel\EventListener\StreamedResponseListener();
     }
 
-    /**
+    /*
      * Gets the public 'templating' shared service.
      *
      * @return \Symfony\Bundle\TwigBundle\TwigEngine
@@ -3942,7 +3868,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['templating'] = new \Symfony\Bundle\TwigBundle\TwigEngine($this->get('twig'), $this->get('templating.name_parser'), $this->get('templating.locator'));
     }
 
-    /**
+    /*
      * Gets the public 'templating.filename_parser' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser
@@ -3952,7 +3878,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['templating.filename_parser'] = new \Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser();
     }
 
-    /**
+    /*
      * Gets the public 'templating.helper.assets' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Templating\Helper\AssetsHelper
@@ -3962,7 +3888,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['templating.helper.assets'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\AssetsHelper($this->get('assets.packages'), array());
     }
 
-    /**
+    /*
      * Gets the public 'templating.helper.logout_url' shared service.
      *
      * @return \Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper
@@ -3972,7 +3898,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['templating.helper.logout_url'] = new \Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper($this->get('security.logout_url_generator'));
     }
 
-    /**
+    /*
      * Gets the public 'templating.helper.router' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Templating\Helper\RouterHelper
@@ -3982,7 +3908,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['templating.helper.router'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\RouterHelper($this->get('router'));
     }
 
-    /**
+    /*
      * Gets the public 'templating.helper.security' shared service.
      *
      * @return \Symfony\Bundle\SecurityBundle\Templating\Helper\SecurityHelper
@@ -3992,7 +3918,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['templating.helper.security'] = new \Symfony\Bundle\SecurityBundle\Templating\Helper\SecurityHelper($this->get('security.authorization_checker', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'templating.loader' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader
@@ -4002,7 +3928,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['templating.loader'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader($this->get('templating.locator'));
     }
 
-    /**
+    /*
      * Gets the public 'templating.name_parser' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Templating\TemplateNameParser
@@ -4012,7 +3938,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['templating.name_parser'] = new \Symfony\Bundle\FrameworkBundle\Templating\TemplateNameParser($this->get('kernel'));
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.csv' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\CsvFileDumper
@@ -4022,7 +3948,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.csv'] = new \Symfony\Component\Translation\Dumper\CsvFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.ini' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\IniFileDumper
@@ -4032,7 +3958,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.ini'] = new \Symfony\Component\Translation\Dumper\IniFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.json' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\JsonFileDumper
@@ -4042,7 +3968,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.json'] = new \Symfony\Component\Translation\Dumper\JsonFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.mo' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\MoFileDumper
@@ -4052,7 +3978,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.mo'] = new \Symfony\Component\Translation\Dumper\MoFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.php' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\PhpFileDumper
@@ -4062,7 +3988,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.php'] = new \Symfony\Component\Translation\Dumper\PhpFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.po' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\PoFileDumper
@@ -4072,7 +3998,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.po'] = new \Symfony\Component\Translation\Dumper\PoFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.qt' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\QtFileDumper
@@ -4082,7 +4008,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.qt'] = new \Symfony\Component\Translation\Dumper\QtFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.res' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\IcuResFileDumper
@@ -4092,7 +4018,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.res'] = new \Symfony\Component\Translation\Dumper\IcuResFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.xliff' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\XliffFileDumper
@@ -4102,7 +4028,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.xliff'] = new \Symfony\Component\Translation\Dumper\XliffFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.dumper.yml' shared service.
      *
      * @return \Symfony\Component\Translation\Dumper\YamlFileDumper
@@ -4112,7 +4038,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.dumper.yml'] = new \Symfony\Component\Translation\Dumper\YamlFileDumper();
     }
 
-    /**
+    /*
      * Gets the public 'translation.extractor' shared service.
      *
      * @return \Symfony\Component\Translation\Extractor\ChainExtractor
@@ -4127,7 +4053,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'translation.extractor.php' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Translation\PhpExtractor
@@ -4137,7 +4063,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.extractor.php'] = new \Symfony\Bundle\FrameworkBundle\Translation\PhpExtractor();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Translation\TranslationLoader
@@ -4164,7 +4090,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.csv' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\CsvFileLoader
@@ -4174,7 +4100,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.csv'] = new \Symfony\Component\Translation\Loader\CsvFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.dat' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\IcuDatFileLoader
@@ -4184,7 +4110,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.dat'] = new \Symfony\Component\Translation\Loader\IcuDatFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.ini' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\IniFileLoader
@@ -4194,7 +4120,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.ini'] = new \Symfony\Component\Translation\Loader\IniFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.json' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\JsonFileLoader
@@ -4204,7 +4130,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.json'] = new \Symfony\Component\Translation\Loader\JsonFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.mo' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\MoFileLoader
@@ -4214,7 +4140,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.mo'] = new \Symfony\Component\Translation\Loader\MoFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.php' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\PhpFileLoader
@@ -4224,7 +4150,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.php'] = new \Symfony\Component\Translation\Loader\PhpFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.po' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\PoFileLoader
@@ -4234,7 +4160,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.po'] = new \Symfony\Component\Translation\Loader\PoFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.qt' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\QtFileLoader
@@ -4244,7 +4170,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.qt'] = new \Symfony\Component\Translation\Loader\QtFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.res' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\IcuResFileLoader
@@ -4254,7 +4180,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.res'] = new \Symfony\Component\Translation\Loader\IcuResFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.xliff' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\XliffFileLoader
@@ -4264,7 +4190,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.xliff'] = new \Symfony\Component\Translation\Loader\XliffFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.loader.yml' shared service.
      *
      * @return \Symfony\Component\Translation\Loader\YamlFileLoader
@@ -4274,7 +4200,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translation.loader.yml'] = new \Symfony\Component\Translation\Loader\YamlFileLoader();
     }
 
-    /**
+    /*
      * Gets the public 'translation.writer' shared service.
      *
      * @return \Symfony\Component\Translation\Writer\TranslationWriter
@@ -4297,24 +4223,24 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'translator' shared service.
      *
      * @return \Symfony\Component\Translation\DataCollectorTranslator
      */
     protected function getTranslatorService()
     {
-        return $this->services['translator'] = new \Symfony\Component\Translation\DataCollectorTranslator(new \Symfony\Component\Translation\LoggingTranslator($this->get('translator.default'), $this->get('monolog.logger.translation')));
+        return $this->services['translator'] = new \Symfony\Component\Translation\DataCollectorTranslator($this->get('translator.default'));
     }
 
-    /**
+    /*
      * Gets the public 'translator.default' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Translation\Translator
      */
     protected function getTranslator_DefaultService()
     {
-        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => (__DIR__.'/translations'), 'debug' => true, 'resource_files' => array('af' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf'), 1 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.af.yml')), 'ar' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ar.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ar.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ar.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ar.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ar.yml')), 'az' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.az.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.az.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.az.xlf')), 'bg' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.bg.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.bg.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.bg.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.bg.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.bg.yml')), 'ca' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ca.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ca.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ca.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ca.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ca.yml')), 'cs' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.cs.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.cs.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.cs.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.cs.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.cs.yml')), 'cy' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf')), 'da' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.da.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.da.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.da.yml')), 'de' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.de.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.de.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.de.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.de.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.de.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.de.yml')), 'el' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.el.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.el.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.el.yml')), 'en' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.en.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.en.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.en.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.en.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.en.yml')), 'es' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.es.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.es.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.es.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.es.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.es.yml')), 'et' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf'), 2 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.et.yml')), 'eu' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf'), 2 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.eu.xliff'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.eu.xliff'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.eu.yml'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.eu.yml')), 'fa' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.fa.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fa.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.fa.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fa.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fa.yml')), 'fi' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf'), 2 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fi.xliff'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fi.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fi.yml')), 'fr' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.fr.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fr.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.fr.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.fr.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fr.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fr.yml')), 'gl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.gl.xlf')), 'he' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.he.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.he.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.he.yml')), 'hr' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.hr.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.hr.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.hr.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.hr.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hr.yml')), 'hu' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.hu.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.hu.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.hu.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.hu.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.hu.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hu.yml')), 'hy' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf')), 'id' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.id.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.id.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.id.yml')), 'it' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.it.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.it.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.it.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.it.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.it.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.it.yml')), 'ja' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ja.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ja.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ja.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ja.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ja.yml')), 'lb' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lb.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.lb.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lb.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lb.yml')), 'lt' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lt.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.lt.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lt.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lt.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.lt.yml')), 'lv' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lv.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lv.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lv.xliff'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lv.yml'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.lv.yml')), 'mn' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf')), 'nl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.nl.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.nl.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.nl.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.nl.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.nl.yml')), 'nn' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nn.xlf')), 'no' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.no.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.no.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.no.xliff')), 'pl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pl.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pl.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pl.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pl.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pl.yml')), 'pt' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf'), 2 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pt.xliff'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pt.xliff'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pt.yml'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pt.yml')), 'pt_BR' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pt_BR.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pt_BR.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pt_BR.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pt_BR.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pt_BR.yml')), 'ro' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ro.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ro.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ro.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ro.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ro.yml')), 'ru' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ru.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ru.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ru.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ru.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ru.yml')), 'sk' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sk.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.sk.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.sk.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sk.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sk.yml')), 'sl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sl.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.sl.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.sl.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sl.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sl.yml')), 'sq' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf')), 'sr_Cyrl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sr_Cyrl.xlf')), 'sr_Latn' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sr_Latn.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sr_Latn.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sr_Latn.yml')), 'sv' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sv.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sv.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sv.yml')), 'th' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.th.xlf'), 2 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.th.yml'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.th.yml')), 'tr' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.tr.xlf'), 2 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.tr.yml'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.tr.yml')), 'uk' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf'), 2 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.uk.xliff'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.uk.xliff'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.uk.yml'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.uk.yml')), 'vi' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.vi.xlf'), 2 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.vi.yml'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.vi.yml')), 'zh_CN' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.zh_CN.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.zh_CN.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.zh_CN.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.zh_CN.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.zh_CN.yml')), 'zh_TW' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf')), 'pt_PT' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pt_PT.xlf')), 'ua' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ua.xlf')), 'sv_SE' => array(0 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.sv_SE.xliff')), 'eo' => array(0 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.eo.yml'), 1 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.eo.yml')), 'ky' => array(0 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ky.yml'), 1 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ky.yml')), 'nb' => array(0 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.nb.yml'), 1 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.nb.yml')))), array());
+        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => (__DIR__.'/translations'), 'debug' => false, 'resource_files' => array('af' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf'), 1 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.af.yml')), 'ar' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ar.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ar.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ar.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ar.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ar.yml')), 'az' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.az.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.az.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.az.xlf')), 'bg' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.bg.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.bg.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.bg.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.bg.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.bg.yml')), 'ca' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ca.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ca.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ca.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ca.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ca.yml')), 'cs' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.cs.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.cs.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.cs.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.cs.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.cs.yml')), 'cy' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf')), 'da' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.da.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.da.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.da.yml')), 'de' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.de.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.de.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.de.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.de.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.de.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.de.yml')), 'el' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.el.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.el.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.el.yml')), 'en' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.en.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.en.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.en.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.en.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.en.yml')), 'es' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.es.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.es.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.es.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.es.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.es.yml')), 'et' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf'), 2 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.et.yml')), 'eu' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf'), 2 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.eu.xliff'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.eu.xliff'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.eu.yml'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.eu.yml')), 'fa' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.fa.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fa.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.fa.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fa.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fa.yml')), 'fi' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf'), 2 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fi.xliff'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fi.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fi.yml')), 'fr' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.fr.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.fr.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.fr.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.fr.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fr.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fr.yml')), 'gl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.gl.xlf')), 'he' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.he.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.he.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.he.yml')), 'hr' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.hr.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.hr.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.hr.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.hr.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hr.yml')), 'hu' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.hu.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.hu.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.hu.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.hu.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.hu.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.hu.yml')), 'hy' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf')), 'id' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.id.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.id.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.id.yml')), 'it' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.it.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.it.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/block-bundle/Resources/translations/SonataBlockBundle.it.xliff'), 5 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.it.xliff'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.it.yml'), 7 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.it.yml')), 'ja' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ja.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ja.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ja.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ja.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ja.yml')), 'lb' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lb.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.lb.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lb.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lb.yml')), 'lt' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lt.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.lt.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lt.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lt.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.lt.yml')), 'lv' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lv.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.lv.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.lv.xliff'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.lv.yml'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.lv.yml')), 'mn' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf')), 'nl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.nl.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.nl.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.nl.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.nl.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.nl.yml')), 'nn' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nn.xlf')), 'no' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.no.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.no.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.no.xliff')), 'pl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pl.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pl.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pl.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pl.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pl.yml')), 'pt' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf'), 2 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pt.xliff'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pt.xliff'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pt.yml'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pt.yml')), 'pt_BR' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pt_BR.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.pt_BR.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.pt_BR.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pt_BR.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pt_BR.yml')), 'ro' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ro.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ro.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ro.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ro.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ro.yml')), 'ru' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ru.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.ru.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.ru.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ru.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ru.yml')), 'sk' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sk.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.sk.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.sk.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sk.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sk.yml')), 'sl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sl.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.sl.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.sl.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sl.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sl.yml')), 'sq' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf')), 'sr_Cyrl' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sr_Cyrl.xlf')), 'sr_Latn' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sr_Latn.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sr_Latn.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sr_Latn.yml')), 'sv' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.sv.xlf'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sv.yml'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sv.yml')), 'th' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.th.xlf'), 2 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.th.yml'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.th.yml')), 'tr' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.tr.xlf'), 2 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.tr.yml'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.tr.yml')), 'uk' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf'), 2 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.uk.xliff'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.uk.xliff'), 4 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.uk.yml'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.uk.yml')), 'vi' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.vi.xlf'), 2 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.vi.yml'), 3 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.vi.yml')), 'zh_CN' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf'), 1 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf'), 2 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.zh_CN.xlf'), 3 => ($this->targetDirs[3].'/vendor/sonata-project/core-bundle/Resources/translations/SonataCoreBundle.zh_CN.xliff'), 4 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.zh_CN.xliff'), 5 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.zh_CN.yml'), 6 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.zh_CN.yml')), 'zh_TW' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf')), 'pt_PT' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.pt_PT.xlf')), 'ua' => array(0 => ($this->targetDirs[3].'/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Resources/translations/security.ua.xlf')), 'sv_SE' => array(0 => ($this->targetDirs[3].'/vendor/sonata-project/admin-bundle/Resources/translations/SonataAdminBundle.sv_SE.xliff')), 'eo' => array(0 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.eo.yml'), 1 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.eo.yml')), 'ky' => array(0 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ky.yml'), 1 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ky.yml')), 'nb' => array(0 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.nb.yml'), 1 => ($this->targetDirs[3].'/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.nb.yml')))), array());
 
         $instance->setConfigCacheFactory($this->get('config_cache_factory'));
         $instance->setFallbackLocales(array(0 => 'nl'));
@@ -4322,7 +4248,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'translator_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\TranslatorListener
@@ -4332,7 +4258,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['translator_listener'] = new \Symfony\Component\HttpKernel\EventListener\TranslatorListener($this->get('translator'), $this->get('request_stack'));
     }
 
-    /**
+    /*
      * Gets the public 'trsteel_ckeditor.form.type' shared service.
      *
      * @return \Trsteel\CkeditorBundle\Form\Type\CkeditorType
@@ -4346,51 +4272,48 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'twig' shared service.
      *
      * @return \Twig\Environment
      */
     protected function getTwigService()
     {
-        $a = $this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE);
-        $b = $this->get('request_stack');
-        $c = $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE);
-        $d = $this->get('fragment.handler');
-        $e = $this->get('knp_menu.matcher');
+        $a = $this->get('request_stack');
+        $b = $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE);
+        $c = $this->get('fragment.handler');
+        $d = $this->get('knp_menu.matcher');
 
-        $f = new \Symfony\Bridge\Twig\Extension\HttpFoundationExtension($b, $c);
+        $e = new \Symfony\Bridge\Twig\Extension\HttpFoundationExtension($a, $b);
 
-        $g = new \Knp\Menu\Util\MenuManipulator();
+        $f = new \Knp\Menu\Util\MenuManipulator();
 
-        $h = new \Symfony\Bridge\Twig\AppVariable();
-        $h->setEnvironment('dev');
-        $h->setDebug(true);
+        $g = new \Symfony\Bridge\Twig\AppVariable();
+        $g->setEnvironment('dev');
+        $g->setDebug(false);
         if ($this->has('security.token_storage')) {
-            $h->setTokenStorage($this->get('security.token_storage', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+            $g->setTokenStorage($this->get('security.token_storage', ContainerInterface::NULL_ON_INVALID_REFERENCE));
         }
         if ($this->has('request_stack')) {
-            $h->setRequestStack($b);
+            $g->setRequestStack($a);
         }
-        $h->setContainer($this);
+        $g->setContainer($this);
 
-        $this->services['twig'] = $instance = new \Twig\Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'exception_controller' => 'twig.controller.exception:showAction', 'form_themes' => array(0 => 'form_div_layout.html.twig'), 'autoescape' => 'name', 'cache' => (__DIR__.'/twig'), 'charset' => 'UTF-8', 'paths' => array(), 'date' => array('format' => 'F j, Y H:i', 'interval_format' => '%d days', 'timezone' => NULL), 'number_format' => array('decimals' => 0, 'decimal_point' => '.', 'thousands_separator' => ',')));
+        $this->services['twig'] = $instance = new \Twig\Environment($this->get('twig.loader'), array('debug' => false, 'strict_variables' => false, 'exception_controller' => 'twig.controller.exception:showAction', 'form_themes' => array(0 => 'form_div_layout.html.twig'), 'autoescape' => 'name', 'cache' => (__DIR__.'/twig'), 'charset' => 'UTF-8', 'paths' => array(), 'date' => array('format' => 'F j, Y H:i', 'interval_format' => '%d days', 'timezone' => NULL), 'number_format' => array('decimals' => 0, 'decimal_point' => '.', 'thousands_separator' => ',')));
 
         $instance->addExtension($this->get('project3_website.twig.extensions'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\LogoutUrlExtension($this->get('security.logout_url_generator')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\SecurityExtension($this->get('security.authorization_checker', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\ProfilerExtension($this->get('twig.profile'), $a));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator')));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\AssetExtension($this->get('assets.packages'), $f));
-        $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\ActionsExtension($d));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\AssetExtension($this->get('assets.packages'), $e));
+        $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\ActionsExtension($c));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, $this->targetDirs[2], 'UTF-8'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\StopwatchExtension($a, true));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\StopwatchExtension($this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE), false));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\ExpressionExtension());
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($d));
-        $instance->addExtension($f);
-        $instance->addExtension(new \Twig\Extension\DebugExtension());
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($c));
+        $instance->addExtension($e);
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig', 1 => 'TrsteelCkeditorBundle:Form:ckeditor_widget.html.twig')), $this->get('security.csrf.token_manager', ContainerInterface::NULL_ON_INVALID_REFERENCE))));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
         $instance->addExtension($this->get('sonata.core.flashmessage.twig.extension'));
@@ -4399,11 +4322,11 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension($this->get('sonata.core.twig.status_extension'));
         $instance->addExtension($this->get('sonata.core.twig.template_extension'));
         $instance->addExtension(new \Sonata\BlockBundle\Twig\Extension\BlockExtension($this->get('sonata.block.templating.helper')));
-        $instance->addExtension(new \Knp\Menu\Twig\MenuExtension(new \Knp\Menu\Twig\Helper($this->get('knp_menu.renderer_provider'), $this->get('knp_menu.menu_provider'), $g, $e), $e, $g));
+        $instance->addExtension(new \Knp\Menu\Twig\MenuExtension(new \Knp\Menu\Twig\Helper($this->get('knp_menu.renderer_provider'), $this->get('knp_menu.menu_provider'), $f, $d), $d, $f));
         $instance->addExtension($this->get('sonata.admin.twig.extension'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\DumpExtension($this->get('var_dumper.cloner')));
         $instance->addExtension(new \Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension());
-        $instance->addGlobal('app', $h);
+        $instance->addGlobal('app', $g);
         $instance->addGlobal('sonata_block', $this->get('sonata.block.twig.global'));
         $instance->addGlobal('sonata_admin', $this->get('sonata.admin.twig.global'));
         call_user_func(array(new \Symfony\Bundle\TwigBundle\DependencyInjection\Configurator\EnvironmentConfigurator('F j, Y H:i', '%d days', NULL, 0, '.', ','), 'configure'), $instance);
@@ -4411,17 +4334,17 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'twig.controller.exception' shared service.
      *
      * @return \Symfony\Bundle\TwigBundle\Controller\ExceptionController
      */
     protected function getTwig_Controller_ExceptionService()
     {
-        return $this->services['twig.controller.exception'] = new \Symfony\Bundle\TwigBundle\Controller\ExceptionController($this->get('twig'), true);
+        return $this->services['twig.controller.exception'] = new \Symfony\Bundle\TwigBundle\Controller\ExceptionController($this->get('twig'), false);
     }
 
-    /**
+    /*
      * Gets the public 'twig.controller.preview_error' shared service.
      *
      * @return \Symfony\Bundle\TwigBundle\Controller\PreviewErrorController
@@ -4431,7 +4354,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['twig.controller.preview_error'] = new \Symfony\Bundle\TwigBundle\Controller\PreviewErrorController($this->get('http_kernel'), 'twig.controller.exception:showAction');
     }
 
-    /**
+    /*
      * Gets the public 'twig.exception_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\ExceptionListener
@@ -4441,7 +4364,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['twig.exception_listener'] = new \Symfony\Component\HttpKernel\EventListener\ExceptionListener('twig.controller.exception:showAction', $this->get('monolog.logger.request', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'twig.loader' shared service.
      *
      * @return \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader
@@ -4472,7 +4395,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'twig.profile' shared service.
      *
      * @return \Twig\Profiler\Profile
@@ -4482,7 +4405,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['twig.profile'] = new \Twig\Profiler\Profile();
     }
 
-    /**
+    /*
      * Gets the public 'twig.translation.extractor' shared service.
      *
      * @return \Symfony\Bridge\Twig\Translation\TwigExtractor
@@ -4492,7 +4415,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['twig.translation.extractor'] = new \Symfony\Bridge\Twig\Translation\TwigExtractor($this->get('twig'));
     }
 
-    /**
+    /*
      * Gets the public 'uri_signer' shared service.
      *
      * @return \Symfony\Component\HttpKernel\UriSigner
@@ -4502,7 +4425,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['uri_signer'] = new \Symfony\Component\HttpKernel\UriSigner('ThisTokenIsNotSoSecretChangeIt');
     }
 
-    /**
+    /*
      * Gets the public 'validate_request_listener' shared service.
      *
      * @return \Symfony\Component\HttpKernel\EventListener\ValidateRequestListener
@@ -4512,7 +4435,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['validate_request_listener'] = new \Symfony\Component\HttpKernel\EventListener\ValidateRequestListener();
     }
 
-    /**
+    /*
      * Gets the public 'validator' shared service.
      *
      * @return \Symfony\Component\Validator\Validator\ValidatorInterface
@@ -4522,7 +4445,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['validator'] = $this->get('validator.builder')->getValidator();
     }
 
-    /**
+    /*
      * Gets the public 'validator.builder' shared service.
      *
      * @return \Symfony\Component\Validator\ValidatorBuilderInterface
@@ -4543,7 +4466,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'validator.email' shared service.
      *
      * @return \Symfony\Component\Validator\Constraints\EmailValidator
@@ -4553,7 +4476,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['validator.email'] = new \Symfony\Component\Validator\Constraints\EmailValidator(false);
     }
 
-    /**
+    /*
      * Gets the public 'validator.expression' shared service.
      *
      * @return \Symfony\Component\Validator\Constraints\ExpressionValidator
@@ -4563,7 +4486,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['validator.expression'] = new \Symfony\Component\Validator\Constraints\ExpressionValidator($this->get('property_accessor'));
     }
 
-    /**
+    /*
      * Gets the public 'var_dumper.cli_dumper' shared service.
      *
      * @return \Symfony\Component\VarDumper\Dumper\CliDumper
@@ -4573,7 +4496,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['var_dumper.cli_dumper'] = new \Symfony\Component\VarDumper\Dumper\CliDumper(NULL, 'UTF-8');
     }
 
-    /**
+    /*
      * Gets the public 'var_dumper.cloner' shared service.
      *
      * @return \Symfony\Component\VarDumper\Cloner\VarCloner
@@ -4588,17 +4511,17 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the public 'web_profiler.controller.exception' shared service.
      *
      * @return \Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController
      */
     protected function getWebProfiler_Controller_ExceptionService()
     {
-        return $this->services['web_profiler.controller.exception'] = new \Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController($this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), true);
+        return $this->services['web_profiler.controller.exception'] = new \Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController($this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), false);
     }
 
-    /**
+    /*
      * Gets the public 'web_profiler.controller.profiler' shared service.
      *
      * @return \Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController
@@ -4608,7 +4531,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['web_profiler.controller.profiler'] = new \Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController($this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), array('data_collector.request' => array(0 => 'request', 1 => '@WebProfiler/Collector/request.html.twig'), 'data_collector.time' => array(0 => 'time', 1 => '@WebProfiler/Collector/time.html.twig'), 'data_collector.memory' => array(0 => 'memory', 1 => '@WebProfiler/Collector/memory.html.twig'), 'data_collector.ajax' => array(0 => 'ajax', 1 => '@WebProfiler/Collector/ajax.html.twig'), 'data_collector.form' => array(0 => 'form', 1 => '@WebProfiler/Collector/form.html.twig'), 'data_collector.exception' => array(0 => 'exception', 1 => '@WebProfiler/Collector/exception.html.twig'), 'data_collector.logger' => array(0 => 'logger', 1 => '@WebProfiler/Collector/logger.html.twig'), 'data_collector.events' => array(0 => 'events', 1 => '@WebProfiler/Collector/events.html.twig'), 'data_collector.router' => array(0 => 'router', 1 => '@WebProfiler/Collector/router.html.twig'), 'data_collector.translation' => array(0 => 'translation', 1 => '@WebProfiler/Collector/translation.html.twig'), 'data_collector.security' => array(0 => 'security', 1 => '@Security/Collector/security.html.twig'), 'data_collector.twig' => array(0 => 'twig', 1 => '@WebProfiler/Collector/twig.html.twig'), 'data_collector.doctrine' => array(0 => 'db', 1 => '@Doctrine/Collector/db.html.twig'), 'data_collector.dump' => array(0 => 'dump', 1 => '@Debug/Profiler/dump.html.twig'), 'sonata.block.data_collector' => array(0 => 'block', 1 => 'SonataBlockBundle:Profiler:block.html.twig'), 'data_collector.config' => array(0 => 'config', 1 => '@WebProfiler/Collector/config.html.twig')), 'bottom');
     }
 
-    /**
+    /*
      * Gets the public 'web_profiler.controller.router' shared service.
      *
      * @return \Symfony\Bundle\WebProfilerBundle\Controller\RouterController
@@ -4618,7 +4541,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['web_profiler.controller.router'] = new \Symfony\Bundle\WebProfilerBundle\Controller\RouterController($this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the public 'web_profiler.debug_toolbar' shared service.
      *
      * @return \Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener
@@ -4628,7 +4551,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['web_profiler.debug_toolbar'] = new \Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener($this->get('twig'), false, 2, 'bottom', $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), '^/(app(_[\\w]+)?\\.php/)?_wdt');
     }
 
-    /**
+    /*
      * Gets the private 'controller_name_converter' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser
@@ -4638,17 +4561,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['controller_name_converter'] = new \Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser($this->get('kernel'));
     }
 
-    /**
-     * Gets the private 'doctrine.dbal.logger.profiling.default' shared service.
-     *
-     * @return \Doctrine\DBAL\Logging\DebugStack
-     */
-    protected function getDoctrine_Dbal_Logger_Profiling_DefaultService()
-    {
-        return $this->services['doctrine.dbal.logger.profiling.default'] = new \Doctrine\DBAL\Logging\DebugStack();
-    }
-
-    /**
+    /*
      * Gets the private 'form.server_params' shared service.
      *
      * @return \Symfony\Component\Form\Util\ServerParams
@@ -4658,7 +4571,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['form.server_params'] = new \Symfony\Component\Form\Util\ServerParams($this->get('request_stack'));
     }
 
-    /**
+    /*
      * Gets the private 'fos_user.object_manager' shared service.
      *
      * @return \Doctrine\Common\Persistence\ObjectManager
@@ -4668,7 +4581,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.object_manager'] = $this->get('doctrine')->getManager(NULL);
     }
 
-    /**
+    /*
      * Gets the private 'fos_user.user_provider.username_email' shared service.
      *
      * @return \FOS\UserBundle\Security\EmailUserProvider
@@ -4678,7 +4591,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.user_provider.username_email'] = new \FOS\UserBundle\Security\EmailUserProvider($this->get('fos_user.user_manager'));
     }
 
-    /**
+    /*
      * Gets the private 'fos_user.util.canonical_fields_updater' shared service.
      *
      * @return \FOS\UserBundle\Util\CanonicalFieldsUpdater
@@ -4690,7 +4603,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.util.canonical_fields_updater'] = new \FOS\UserBundle\Util\CanonicalFieldsUpdater($a, $a);
     }
 
-    /**
+    /*
      * Gets the private 'fos_user.util.password_updater' shared service.
      *
      * @return \FOS\UserBundle\Util\PasswordUpdater
@@ -4700,7 +4613,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['fos_user.util.password_updater'] = new \FOS\UserBundle\Util\PasswordUpdater($this->get('security.encoder_factory'));
     }
 
-    /**
+    /*
      * Gets the private 'monolog.processor.psr_log_message' shared service.
      *
      * @return \Monolog\Processor\PsrLogMessageProcessor
@@ -4710,7 +4623,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['monolog.processor.psr_log_message'] = new \Monolog\Processor\PsrLogMessageProcessor();
     }
 
-    /**
+    /*
      * Gets the private 'router.request_context' shared service.
      *
      * @return \Symfony\Component\Routing\RequestContext
@@ -4720,7 +4633,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['router.request_context'] = new \Symfony\Component\Routing\RequestContext('', 'GET', 'localhost', 'http', 80, 443);
     }
 
-    /**
+    /*
      * Gets the private 'security.access.decision_manager' shared service.
      *
      * @return \Symfony\Component\Security\Core\Authorization\AccessDecisionManager
@@ -4737,7 +4650,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the private 'security.authentication.manager' shared service.
      *
      * @return \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager
@@ -4746,14 +4659,14 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('security.user_checker.main');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.chain_provider'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('59c41f57f08902.55944150')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.chain_provider'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('59c420121a93d3.59203678')), true);
 
-        $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
+        $instance->setEventDispatcher($this->get('event_dispatcher'));
 
         return $instance;
     }
 
-    /**
+    /*
      * Gets the private 'security.authentication.rememberme.services.simplehash.main' shared service.
      *
      * @return \Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices
@@ -4763,7 +4676,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.authentication.rememberme.services.simplehash.main'] = new \Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices(array(0 => $this->get('security.user.provider.concrete.chain_provider')), 'ThisTokenIsNotSoSecretChangeIt', 'main', array('lifetime' => 604800, 'path' => '/', 'name' => 'REMEMBERME', 'domain' => NULL, 'secure' => false, 'httponly' => true, 'always_remember_me' => false, 'remember_me_parameter' => '_remember_me'), $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
-    /**
+    /*
      * Gets the private 'security.authentication.session_strategy' shared service.
      *
      * @return \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy
@@ -4773,7 +4686,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.authentication.session_strategy'] = new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate');
     }
 
-    /**
+    /*
      * Gets the private 'security.authentication.trust_resolver' shared service.
      *
      * @return \Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver
@@ -4783,7 +4696,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.authentication.trust_resolver'] = new \Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver('Symfony\\Component\\Security\\Core\\Authentication\\Token\\AnonymousToken', 'Symfony\\Component\\Security\\Core\\Authentication\\Token\\RememberMeToken');
     }
 
-    /**
+    /*
      * Gets the private 'security.logout_url_generator' shared service.
      *
      * @return \Symfony\Component\Security\Http\Logout\LogoutUrlGenerator
@@ -4797,7 +4710,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the private 'security.role_hierarchy' shared service.
      *
      * @return \Symfony\Component\Security\Core\Role\RoleHierarchy
@@ -4807,7 +4720,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_SUPER_ADMIN' => array(0 => 'ROLE_ADMIN'), 'ROLE_ADMIN' => array(0 => 'ROLE_USER'), 'ROLE_USER' => array(0 => 'ROLE_SONATA_ADMIN')));
     }
 
-    /**
+    /*
      * Gets the private 'security.user.provider.concrete.chain_provider' shared service.
      *
      * @return \Symfony\Component\Security\Core\User\ChainUserProvider
@@ -4817,7 +4730,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['security.user.provider.concrete.chain_provider'] = new \Symfony\Component\Security\Core\User\ChainUserProvider(array(0 => $this->get('security.user.provider.concrete.hardcoded'), 1 => $this->get('fos_user.user_provider.username_email')));
     }
 
-    /**
+    /*
      * Gets the private 'security.user.provider.concrete.hardcoded' shared service.
      *
      * @return \Symfony\Component\Security\Core\User\InMemoryUserProvider
@@ -4832,7 +4745,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the private 'session.storage.metadata_bag' shared service.
      *
      * @return \Symfony\Component\HttpFoundation\Session\Storage\MetadataBag
@@ -4842,14 +4755,14 @@ class appDevDebugProjectContainer extends Container
         return $this->services['session.storage.metadata_bag'] = new \Symfony\Component\HttpFoundation\Session\Storage\MetadataBag('_sf2_meta', '0');
     }
 
-    /**
+    /*
      * Gets the private 'sonata.block.manager' shared service.
      *
      * @return \Sonata\BlockBundle\Block\BlockServiceManager
      */
     protected function getSonata_Block_ManagerService()
     {
-        $this->services['sonata.block.manager'] = $instance = new \Sonata\BlockBundle\Block\BlockServiceManager($this, true, $this->get('logger', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        $this->services['sonata.block.manager'] = $instance = new \Sonata\BlockBundle\Block\BlockServiceManager($this, false, $this->get('logger', ContainerInterface::NULL_ON_INVALID_REFERENCE));
 
         $instance->add('sonata.block.service.container', 'sonata.block.service.container', array());
         $instance->add('sonata.block.service.empty', 'sonata.block.service.empty', array());
@@ -4864,7 +4777,7 @@ class appDevDebugProjectContainer extends Container
         return $instance;
     }
 
-    /**
+    /*
      * Gets the private 'templating.locator' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator
@@ -4874,7 +4787,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), __DIR__);
     }
 
-    /**
+    /*
      * Gets the private 'validator.validator_factory' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory
@@ -4884,7 +4797,7 @@ class appDevDebugProjectContainer extends Container
         return $this->services['validator.validator_factory'] = new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('validator.expression' => 'validator.expression', 'Symfony\\Component\\Validator\\Constraints\\ExpressionValidator' => 'validator.expression', 'Symfony\\Component\\Validator\\Constraints\\EmailValidator' => 'validator.email', 'security.validator.user_password' => 'security.validator.user_password', 'Symfony\\Component\\Security\\Core\\Validator\\Constraints\\UserPasswordValidator' => 'security.validator.user_password', 'doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique', 'Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntityValidator' => 'doctrine.orm.validator.unique', 'sonata.core.validator.inline' => 'sonata.core.validator.inline', 'Sonata\\CoreBundle\\Validator\\InlineValidator' => 'sonata.admin.validator.inline', 'sonata.admin.validator.inline' => 'sonata.admin.validator.inline'));
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function getParameter($name)
@@ -4898,7 +4811,7 @@ class appDevDebugProjectContainer extends Container
         return $this->parameters[$name];
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function hasParameter($name)
@@ -4908,7 +4821,7 @@ class appDevDebugProjectContainer extends Container
         return isset($this->parameters[$name]) || array_key_exists($name, $this->parameters);
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function setParameter($name, $value)
@@ -4916,7 +4829,7 @@ class appDevDebugProjectContainer extends Container
         throw new LogicException('Impossible to call set() on a frozen ParameterBag.');
     }
 
-    /**
+    /*
      * {@inheritdoc}
      */
     public function getParameterBag()
@@ -4928,7 +4841,7 @@ class appDevDebugProjectContainer extends Container
         return $this->parameterBag;
     }
 
-    /**
+    /*
      * Gets the default parameters.
      *
      * @return array An array of the default parameters
@@ -4938,7 +4851,7 @@ class appDevDebugProjectContainer extends Container
         return array(
             'kernel.root_dir' => $this->targetDirs[2],
             'kernel.environment' => 'dev',
-            'kernel.debug' => true,
+            'kernel.debug' => false,
             'kernel.name' => 'app',
             'kernel.cache_dir' => __DIR__,
             'kernel.logs_dir' => ($this->targetDirs[2].'/logs'),
@@ -5055,7 +4968,7 @@ class appDevDebugProjectContainer extends Container
                 ),
             ),
             'kernel.charset' => 'UTF-8',
-            'kernel.container_class' => 'appDevDebugProjectContainer',
+            'kernel.container_class' => 'appDevProjectContainer',
             'database_host' => '127.0.0.1',
             'database_port' => NULL,
             'database_name' => 'kdg_project3',
@@ -5176,7 +5089,7 @@ class appDevDebugProjectContainer extends Container
             'validator.translation_domain' => 'validators',
             'validator.api' => '2.5-bc',
             'fragment.listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\FragmentListener',
-            'translator.logging' => true,
+            'translator.logging' => false,
             'profiler.class' => 'Symfony\\Component\\HttpKernel\\Profiler\\Profiler',
             'profiler_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\ProfilerListener',
             'data_collector.config.class' => 'Symfony\\Component\\HttpKernel\\DataCollector\\ConfigDataCollector',
@@ -5211,14 +5124,14 @@ class appDevDebugProjectContainer extends Container
             'router.options.matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher',
             'router.options.matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper',
             'router.cache_warmer.class' => 'Symfony\\Bundle\\FrameworkBundle\\CacheWarmer\\RouterCacheWarmer',
-            'router.options.matcher.cache_class' => 'appDevDebugProjectContainerUrlMatcher',
-            'router.options.generator.cache_class' => 'appDevDebugProjectContainerUrlGenerator',
+            'router.options.matcher.cache_class' => 'appDevProjectContainerUrlMatcher',
+            'router.options.generator.cache_class' => 'appDevProjectContainerUrlGenerator',
             'router_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\RouterListener',
             'router.request_context.host' => 'localhost',
             'router.request_context.scheme' => 'http',
             'router.request_context.base_url' => '',
             'router.resource' => ($this->targetDirs[2].'/config/routing_dev.yml'),
-            'router.cache_class_prefix' => 'appDevDebugProjectContainer',
+            'router.cache_class_prefix' => 'appDevProjectContainer',
             'request_listener.http_port' => 80,
             'request_listener.https_port' => 443,
             'annotations.reader.class' => 'Doctrine\\Common\\Annotations\\AnnotationReader',
@@ -5226,10 +5139,7 @@ class appDevDebugProjectContainer extends Container
             'annotations.file_cache_reader.class' => 'Doctrine\\Common\\Annotations\\FileCacheReader',
             'debug.debug_handlers_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\DebugHandlersListener',
             'debug.stopwatch.class' => 'Symfony\\Component\\Stopwatch\\Stopwatch',
-            'debug.error_handler.throw_at' => -1,
-            'debug.event_dispatcher.class' => 'Symfony\\Component\\HttpKernel\\Debug\\TraceableEventDispatcher',
-            'debug.container.dump' => (__DIR__.'/appDevDebugProjectContainer.xml'),
-            'debug.controller_resolver.class' => 'Symfony\\Component\\HttpKernel\\Controller\\TraceableControllerResolver',
+            'debug.error_handler.throw_at' => 0,
             'security.context.class' => 'Symfony\\Component\\Security\\Core\\SecurityContext',
             'security.user_checker.class' => 'Symfony\\Component\\Security\\Core\\User\\UserChecker',
             'security.encoder_factory.generic.class' => 'Symfony\\Component\\Security\\Core\\Encoder\\EncoderFactory',
@@ -5466,7 +5376,7 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.second_level_cache.logger_statistics.class' => 'Doctrine\\ORM\\Cache\\Logging\\StatisticsCacheLogger',
             'doctrine.orm.second_level_cache.cache_configuration.class' => 'Doctrine\\ORM\\Cache\\CacheConfiguration',
             'doctrine.orm.second_level_cache.regions_configuration.class' => 'Doctrine\\ORM\\Cache\\RegionsConfiguration',
-            'doctrine.orm.auto_generate_proxy_classes' => true,
+            'doctrine.orm.auto_generate_proxy_classes' => false,
             'doctrine.orm.proxy_dir' => (__DIR__.'/doctrine/orm/Proxies'),
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'sensio_framework_extra.view.guesser.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser',
