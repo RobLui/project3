@@ -23,3 +23,14 @@ b3e0e0,127.0.0.1,GET,http://project3.local/,1506077902,,302
 fc9be4,127.0.0.1,GET,http://project3.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1506077902,ec8374,200
 125732,127.0.0.1,GET,http://project3.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1506077902,ec8374,200
 ec8374,127.0.0.1,GET,http://project3.local/login,1506077902,,200
+8b7f68,127.0.0.1,GET,http://project3.local/,1506107360,,200
+bdba52,127.0.0.1,GET,http://project3.local/,1506107494,,200
+648c44,127.0.0.1,GET,http://project3.local/logout,1506107516,,302
+32b940,127.0.0.1,GET,http://project3.local/,1506107516,,302
+2919ec,127.0.0.1,GET,http://project3.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1506107516,9202b1,200
+06ca10,127.0.0.1,GET,http://project3.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1506107516,9202b1,200
+9202b1,127.0.0.1,GET,http://project3.local/login,1506107516,,200
+8566b5,127.0.0.1,GET,http://project3.local/,1506107519,,302
+73c390,127.0.0.1,GET,http://project3.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1506107519,fcab00,200
+45a3d6,127.0.0.1,GET,http://project3.local/_fragment?_path=_format%3Dhtml%26_locale%3Dnl%26_controller%3DProject3WebsiteBundle%253ASecurity%253AloginForm,1506107519,fcab00,200
+fcab00,127.0.0.1,GET,http://project3.local/login,1506107519,,200
