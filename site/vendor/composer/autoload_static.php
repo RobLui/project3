@@ -80,10 +80,12 @@ class ComposerStaticInitd2f7b347232de65c9104e2adfc65c0fd
         'F' => 
         array (
             'FOS\\UserBundle\\' => 15,
+            'FOS\\ElasticaBundle\\' => 19,
         ),
         'E' => 
         array (
             'Exporter\\' => 9,
+            'Elastica\\' => 9,
         ),
         'D' => 
         array (
@@ -245,9 +247,17 @@ class ComposerStaticInitd2f7b347232de65c9104e2adfc65c0fd
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
         ),
+        'FOS\\ElasticaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/elastica-bundle',
+        ),
         'Exporter\\' => 
         array (
             0 => __DIR__ . '/..' . '/sonata-project/exporter/src',
+        ),
+        'Elastica\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ruflin/elastica/lib/Elastica',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
