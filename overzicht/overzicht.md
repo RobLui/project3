@@ -4,11 +4,15 @@
 
 ## ACCOUNT
 
-- Login pagina /login, /register
+- Login pagina /login, /registreer
 - Account /account
 
-  - Account-my shoppinglists /account/my-shoppinglists
-  - Edit profile (naam en foto kunnen wijzigen? /account/edit
+  - Account-my shoppinglists /account/shoppinglijstjes
+  - Edit profile (naam en foto kunnen wijzigen? /account/aanpassen
+
+- Account instellingen
+
+  - account/instellingen ( aantal weken verwijderen van shoppinglijst)
 
 ## GERECHTEN
 
@@ -18,4 +22,8 @@
 
 - Gerecht -> /gerechten/{id}/detail
 
-- -> /gerechten/surprise/?cat=veggie -> /gerechten/surprise/ (normaal iemand die alles wilt zien)
+- -> /gerechten/surprise/?cat=veggie -> /gerechten/verrassing/ (normaal iemand die alles wilt zien)
+
+- Klaargemaakte gerechten -> account/gerechten-klaargemaakt (hover Phedra)
+
+  - zeggen waar toegevoegd is, aan shoppinglijst bv en klaargemaakte gerechten

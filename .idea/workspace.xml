@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e9221fa-42d7-4aed-9b44-7fe4a6d7d1f0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/graphics/~$MVP.docx" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphics/MVP.docx" afterPath="$PROJECT_DIR$/graphics/MVP.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/app/cache/dev/profiler/index.csv" afterPath="$PROJECT_DIR$/site/app/cache/dev/profiler/index.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/site/app/logs/dev.log" afterPath="$PROJECT_DIR$/site/app/logs/dev.log" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/overzicht/overzicht.md" afterPath="$PROJECT_DIR$/overzicht/overzicht.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -112,12 +110,12 @@
       <option name="presentableId" value="Default" />
       <updated>1506024864434</updated>
       <workItem from="1506024866155" duration="21000" />
-      <workItem from="1506511239619" duration="17000" />
+      <workItem from="1506511239619" duration="623000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69000" />
+    <option name="totallyTimeSpent" value="675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
