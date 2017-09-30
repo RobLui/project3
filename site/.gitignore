@@ -1,13 +1,9 @@
 .idea
-.idea/*
-/app/cache/dev/*
 /app/cache/prod/*
 /app/logs/*
 /app/cache/*
 
 # Cache and logs (Symfony2)
-/app/cache/*
-/app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 
