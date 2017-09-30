@@ -35,6 +35,12 @@ class Stap
      */
     private $tekst;
 
+    /**
+     * Many Stappen have One Recept.
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Recept", inversedBy="stappen")
+     * @ORM\JoinColumn(name="recept_id", referencedColumnName="id")
+     */
+    private $recept;
 
     /**
      * Get id
@@ -93,5 +99,28 @@ class Stap
     {
         return $this->tekst;
     }
-}
 
+    /**
+     * Set recept
+     *
+     * @param \Project3\WebsiteBundle\Entity\Recept $recept
+     *
+     * @return Stap
+     */
+    public function setRecept(\Project3\WebsiteBundle\Entity\Recept $recept = null)
+    {
+        $this->recept = $recept;
+
+        return $this;
+    }
+
+    /**
+     * Get recept
+     *
+     * @return \Project3\WebsiteBundle\Entity\Recept
+     */
+    public function getRecept()
+    {
+        return $this->recept;
+    }
+}

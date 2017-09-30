@@ -24,6 +24,13 @@ class Recept
     /**
      * @var string
      *
+     * @ORM\Column(name="naam", type="string", length=255)
+     */
+    private $naam;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="benodigdheden", type="string", length=255)
      */
     private $benodigdheden;
@@ -35,6 +42,21 @@ class Recept
      */
     private $actief;
 
+    /**
+     * One Recept has Many Stappen.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Stap", mappedBy="recept")
+     */
+    private $stappen;
+
+    public function __construct() {
+        $this->stappen = new ArrayCollection();
+    }
+
+    // Wordt gebruikt om de naam terug te geven als tekst in de many side
+    function __toString()
+    {
+        return $this->naam;
+    }
 
     /**
      * Get id
@@ -93,5 +115,62 @@ class Recept
     {
         return $this->actief;
     }
-}
 
+    /**
+     * Add stappen
+     *
+     * @param \Project3\WebsiteBundle\Entity\Stap $stappen
+     *
+     * @return Recept
+     */
+    public function addStappen(\Project3\WebsiteBundle\Entity\Stap $stappen)
+    {
+        $this->stappen[] = $stappen;
+
+        return $this;
+    }
+
+    /**
+     * Remove stappen
+     *
+     * @param \Project3\WebsiteBundle\Entity\Stap $stappen
+     */
+    public function removeStappen(\Project3\WebsiteBundle\Entity\Stap $stappen)
+    {
+        $this->stappen->removeElement($stappen);
+    }
+
+    /**
+     * Get stappen
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStappen()
+    {
+        return $this->stappen;
+    }
+
+    /**
+     * Set naam
+     *
+     * @param string $naam
+     *
+     * @return Recept
+     */
+    public function setNaam($naam)
+    {
+        $this->naam = $naam;
+
+        return $this;
+    }
+
+    /**
+     * Get naam
+     *
+     * @return string
+     */
+    public function getNaam()
+    {
+        return $this->naam;
+    }
+}
