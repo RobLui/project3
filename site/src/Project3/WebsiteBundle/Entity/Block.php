@@ -31,9 +31,23 @@ class Block
     /**
      * @var string
      *
+     * @ORM\Column(name="foto", type="string", length=255, nullable=true)
+     */
+    private $foto;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="tekst", type="text", nullable=true)
      */
     private $tekst;
+
+    /**
+     * @var sort
+     *
+     * @ORM\Column(name="sort", type="integer", nullable=true)
+     */
+    private $sort;
 
     /**
      * @var bool
@@ -124,5 +138,52 @@ class Block
     {
         return $this->actief;
     }
-}
 
+    /**
+     * Set foto
+     *
+     * @param string $foto
+     *
+     * @return Block
+     */
+    public function setFoto($foto)
+    {
+        $this->foto = $foto;
+
+        return $this;
+    }
+
+    /**
+     * Get foto
+     *
+     * @return string
+     */
+    public function getFoto()
+    {
+        return $this->foto;
+    }
+
+    /**
+     * Set sort
+     *
+     * @param integer $sort
+     *
+     * @return Block
+     */
+    public function setSort($sort)
+    {
+        $this->sort = $sort;
+
+        return $this;
+    }
+
+    /**
+     * Get sort
+     *
+     * @return integer
+     */
+    public function getSort()
+    {
+        return $this->sort;
+    }
+}
