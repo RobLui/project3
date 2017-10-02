@@ -56,6 +56,11 @@ class Gerecht
      */
     private $actief;
 
+    /**
+     * One Gerecht has Many Ingredienten.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Ingredient", mappedBy="gerecht")
+     */
+    private $ingredienten;
 
     /**
      * Get id
@@ -186,5 +191,45 @@ class Gerecht
     {
         return $this->actief;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ingredienten = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add ingredienten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
+     *
+     * @return Gerecht
+     */
+    public function addIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
+    {
+        $this->ingredienten[] = $ingredienten;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredienten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
+     */
+    public function removeIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
+    {
+        $this->ingredienten->removeElement($ingredienten);
+    }
+
+    /**
+     * Get ingredienten
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIngredienten()
+    {
+        return $this->ingredienten;
+    }
+}
