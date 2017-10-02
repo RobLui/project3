@@ -2,6 +2,7 @@
 
 namespace Project3\WebsiteBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,7 +56,7 @@ class Recept
     // Wordt gebruikt om de naam terug te geven als tekst in de many side
     function __toString()
     {
-        return $this->naam;
+        return (string)($this->naam);
     }
 
     /**
