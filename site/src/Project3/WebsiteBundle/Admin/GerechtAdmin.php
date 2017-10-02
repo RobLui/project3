@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class BlockAdmin extends AbstractAdmin
+class GerechtAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -17,10 +17,10 @@ class BlockAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('titel')
+            ->add('naam')
             ->add('foto')
-            ->add('tekst')
-            ->add('sort')
+            ->add('beschrijving')
+            ->add('rating')
             ->add('actief')
         ;
     }
@@ -32,10 +32,10 @@ class BlockAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('titel')
+            ->add('naam')
             ->add('foto')
-            ->add('tekst')
-            ->add('sort')
+            ->add('beschrijving')
+            ->add('rating')
             ->add('actief')
             ->add('_action', null, array(
                 'actions' => array(
@@ -53,10 +53,10 @@ class BlockAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('titel')
+            ->add('naam')
             ->add('foto')
-            ->add('tekst')
-            ->add('sort')
+            ->add('beschrijving')
+            ->add('rating')
             ->add('actief')
         ;
     }
@@ -68,10 +68,10 @@ class BlockAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('titel')
+            ->add('naam')
             ->add('foto')
-            ->add('tekst')
-            ->add('sort')
+            ->add('beschrijving')
+            ->add('rating')
             ->add('actief')
         ;
     }

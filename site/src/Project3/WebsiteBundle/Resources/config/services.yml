@@ -56,3 +56,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Pagina }
         public: true
+
+    project3_website.admin.gerecht:
+        class: Project3\WebsiteBundle\Admin\GerechtAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\Gerecht, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Gerecht }
+        public: true
