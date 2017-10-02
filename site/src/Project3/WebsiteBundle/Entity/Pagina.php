@@ -77,6 +77,11 @@ class Pagina
      */
     private $actief;
 
+    /**
+     * One Pagina has Many Blokken.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Block", mappedBy="pagina")
+     */
+    private $blokken;
 
     /**
      * Get id
@@ -279,5 +284,45 @@ class Pagina
     {
         return $this->actief;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->blokken = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add blokken
+     *
+     * @param \Project3\WebsiteBundle\Entity\Block $blokken
+     *
+     * @return Pagina
+     */
+    public function addBlokken(\Project3\WebsiteBundle\Entity\Block $blokken)
+    {
+        $this->blokken[] = $blokken;
+
+        return $this;
+    }
+
+    /**
+     * Remove blokken
+     *
+     * @param \Project3\WebsiteBundle\Entity\Block $blokken
+     */
+    public function removeBlokken(\Project3\WebsiteBundle\Entity\Block $blokken)
+    {
+        $this->blokken->removeElement($blokken);
+    }
+
+    /**
+     * Get blokken
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlokken()
+    {
+        return $this->blokken;
+    }
+}

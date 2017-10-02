@@ -56,6 +56,12 @@ class Block
      */
     private $actief;
 
+    /**
+     * Many Blokken have One Pagina.
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Pagina", inversedBy="blokken")
+     * @ORM\JoinColumn(name="pagina_id", referencedColumnName="id")
+     */
+    private $pagina;
 
     /**
      * Get id
@@ -185,5 +191,29 @@ class Block
     public function getSort()
     {
         return $this->sort;
+    }
+
+    /**
+     * Set pagina
+     *
+     * @param \Project3\WebsiteBundle\Entity\Pagina $pagina
+     *
+     * @return Block
+     */
+    public function setPagina(\Project3\WebsiteBundle\Entity\Pagina $pagina = null)
+    {
+        $this->pagina = $pagina;
+
+        return $this;
+    }
+
+    /**
+     * Get pagina
+     *
+     * @return \Project3\WebsiteBundle\Entity\Pagina
+     */
+    public function getPagina()
+    {
+        return $this->pagina;
     }
 }

@@ -42,3 +42,17 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Stap }
         public: true
+
+    project3_website.admin.block:
+        class: Project3\WebsiteBundle\Admin\BlockAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\Block, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Block }
+        public: true
+
+    project3_website.admin.pagina:
+        class: Project3\WebsiteBundle\Admin\PaginaAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\Pagina, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Pagina }
+        public: true
