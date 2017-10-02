@@ -59,7 +59,6 @@ class PaginaAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
             ->add('url')
             ->add('naam')
             ->add('seoTitel')
