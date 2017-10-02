@@ -28,6 +28,11 @@ class Categorie
      */
     private $naam;
 
+    /**
+     * One Categorie has Many gerechten.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", mappedBy="categorie")
+     */
+    private $gerechten;
 
     /**
      * Get id
@@ -62,5 +67,45 @@ class Categorie
     {
         return $this->naam;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->gerechten = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add gerechten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerechten
+     *
+     * @return Categorie
+     */
+    public function addGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten)
+    {
+        $this->gerechten[] = $gerechten;
+
+        return $this;
+    }
+
+    /**
+     * Remove gerechten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerechten
+     */
+    public function removeGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten)
+    {
+        $this->gerechten->removeElement($gerechten);
+    }
+
+    /**
+     * Get gerechten
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGerechten()
+    {
+        return $this->gerechten;
+    }
+}

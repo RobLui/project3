@@ -57,6 +57,7 @@ class GerechtAdmin extends AbstractAdmin
             ->add('foto')
             ->add('beschrijving')
             ->add('rating')
+            ->add('ingredienten')
             ->add('actief')
         ;
     }

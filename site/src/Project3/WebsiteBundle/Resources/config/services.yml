@@ -63,3 +63,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Gerecht }
         public: true
+
+    project3_website.admin.categorie:
+        class: Project3\WebsiteBundle\Admin\CategorieAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\Categorie, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Categorie }
+        public: true

@@ -67,7 +67,7 @@ sonata_block:
             contexts: [admin]
 
 sonata_admin:
-    title: "Wiki"
+    title: "FoodGuru"
     options:
         title_mode: "single_text"
     persist_filters: true

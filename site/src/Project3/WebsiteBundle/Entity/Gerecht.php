@@ -63,6 +63,17 @@ class Gerecht
     private $ingredienten;
 
     /**
+     * One Gerecht has Many Categorieën.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Categorie", mappedBy="gerechten")
+     */
+    private $categorie;
+
+    function __toString()
+    {
+        return  $this->naam;
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -231,5 +242,39 @@ class Gerecht
     public function getIngredienten()
     {
         return $this->ingredienten;
+    }
+
+    /**
+     * Add categorie
+     *
+     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
+     *
+     * @return Gerecht
+     */
+    public function addCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie[] = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorie
+     *
+     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
+     */
+    public function removeCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }
