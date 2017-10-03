@@ -56,6 +56,22 @@ class Gerecht
      */
     private $actief;
 
+    /**
+     * One Gerecht has Many Ingredienten.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Ingredient", mappedBy="gerecht")
+     */
+    private $ingredienten;
+
+    /**
+     * One Gerecht has Many Categorieën.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Categorie", mappedBy="gerechten")
+     */
+    private $categorie;
+
+    function __toString()
+    {
+        return  $this->naam;
+    }
 
     /**
      * Get id
@@ -186,5 +202,79 @@ class Gerecht
     {
         return $this->actief;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ingredienten = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add ingredienten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
+     *
+     * @return Gerecht
+     */
+    public function addIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
+    {
+        $this->ingredienten[] = $ingredienten;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredienten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
+     */
+    public function removeIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
+    {
+        $this->ingredienten->removeElement($ingredienten);
+    }
+
+    /**
+     * Get ingredienten
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIngredienten()
+    {
+        return $this->ingredienten;
+    }
+
+    /**
+     * Add categorie
+     *
+     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
+     *
+     * @return Gerecht
+     */
+    public function addCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie[] = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorie
+     *
+     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
+     */
+    public function removeCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+}

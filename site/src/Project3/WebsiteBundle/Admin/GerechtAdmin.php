@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class IngredientAdmin extends AbstractAdmin
+class GerechtAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -18,6 +18,10 @@ class IngredientAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('naam')
+            ->add('foto')
+            ->add('beschrijving')
+            ->add('rating')
+            ->add('actief')
         ;
     }
 
@@ -29,7 +33,10 @@ class IngredientAdmin extends AbstractAdmin
         $listMapper
             ->add('id')
             ->add('naam')
-            ->add('gerecht')
+            ->add('foto')
+            ->add('beschrijving')
+            ->add('rating')
+            ->add('actief')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -47,7 +54,11 @@ class IngredientAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('naam')
-            ->add('gerecht')
+            ->add('foto')
+            ->add('beschrijving')
+            ->add('rating')
+            ->add('ingredienten')
+            ->add('actief')
         ;
     }
 
@@ -57,7 +68,12 @@ class IngredientAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('id')
             ->add('naam')
+            ->add('foto')
+            ->add('beschrijving')
+            ->add('rating')
+            ->add('actief')
         ;
     }
 }

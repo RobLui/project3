@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class IngredientAdmin extends AbstractAdmin
+class PaginaAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -17,7 +17,14 @@ class IngredientAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
+            ->add('url')
             ->add('naam')
+            ->add('seoTitel')
+            ->add('seoOmschrijving')
+            ->add('seoTrefwoorden')
+            ->add('seoAfbeelding')
+            ->add('seoRobots')
+            ->add('actief')
         ;
     }
 
@@ -28,8 +35,14 @@ class IngredientAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
+            ->add('url')
             ->add('naam')
-            ->add('gerecht')
+            ->add('seoTitel')
+            ->add('seoOmschrijving')
+            ->add('seoTrefwoorden')
+            ->add('seoAfbeelding')
+            ->add('seoRobots')
+            ->add('actief')
             ->add('_action', null, array(
                 'actions' => array(
                     'show' => array(),
@@ -46,8 +59,14 @@ class IngredientAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('url')
             ->add('naam')
-            ->add('gerecht')
+            ->add('seoTitel')
+            ->add('seoOmschrijving')
+            ->add('seoTrefwoorden')
+            ->add('seoAfbeelding')
+            ->add('seoRobots')
+            ->add('actief')
         ;
     }
 
@@ -57,7 +76,15 @@ class IngredientAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('id')
+            ->add('url')
             ->add('naam')
+            ->add('seoTitel')
+            ->add('seoOmschrijving')
+            ->add('seoTrefwoorden')
+            ->add('seoAfbeelding')
+            ->add('seoRobots')
+            ->add('actief')
         ;
     }
 }

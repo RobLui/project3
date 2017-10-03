@@ -28,6 +28,17 @@ class Ingredient
      */
     private $naam;
 
+    /**
+     * Many Ingredienten have One Gerecht.
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="ingredienten")
+     * @ORM\JoinColumn(name="gerecht_id", referencedColumnName="id")
+     */
+    private $gerecht;
+
+    function __toString()
+    {
+        return $this->naam;
+    }
 
     /**
      * Get id
@@ -62,5 +73,28 @@ class Ingredient
     {
         return $this->naam;
     }
-}
 
+    /**
+     * Set gerecht
+     *
+     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerecht
+     *
+     * @return Ingredient
+     */
+    public function setGerecht(\Project3\WebsiteBundle\Entity\Gerecht $gerecht = null)
+    {
+        $this->gerecht = $gerecht;
+
+        return $this;
+    }
+
+    /**
+     * Get gerecht
+     *
+     * @return \Project3\WebsiteBundle\Entity\Gerecht
+     */
+    public function getGerecht()
+    {
+        return $this->gerecht;
+    }
+}
