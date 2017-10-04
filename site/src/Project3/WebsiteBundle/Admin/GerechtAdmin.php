@@ -65,7 +65,7 @@ class GerechtAdmin extends AbstractAdmin
             ->end()
             ->tab("Recept")
                 ->with("Recept")
-
+//                    ->add('recept')
                 ->end()
             ->end()
         ;
@@ -84,5 +84,22 @@ class GerechtAdmin extends AbstractAdmin
             ->add('rating')
             ->add('actief')
         ;
+    }
+
+    public function prePersist($object)
+    {
+        parent::prePersist($object);
+        foreach ($object->getRecept() as $recept) {
+            $recept->setRecept($object);
+        }
+    }
+
+    public function preUpdate($object)
+    {
+        /* @var \Project3\WebsiteBundle\Entity\Recept $object */
+        parent::preUpdate($object);
+        foreach ($object->getRecept() as $recept) {
+            $recept->setRecept($object);
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Project3\WebsiteBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -67,12 +68,6 @@ class Gerecht
      * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Categorie", mappedBy="gerechten")
      */
     private $categorie;
-
-    /**
-     * 1 gerecht heeft 1 recept
-     * @ORM\OneToOne(targetEntity="Project3\WebsiteBundle\Entity\Recept", mappedBy="gerecht")
-     */
-    private $recept;
 
     function __toString()
     {
@@ -284,27 +279,4 @@ class Gerecht
         return $this->categorie;
     }
 
-    /**
-     * Set recept
-     *
-     * @param \Project3\WebsiteBundle\Entity\Recept $recept
-     *
-     * @return Gerecht
-     */
-    public function setRecept(\Project3\WebsiteBundle\Entity\Recept $recept = null)
-    {
-        $this->recept = $recept;
-
-        return $this;
-    }
-
-    /**
-     * Get recept
-     *
-     * @return \Project3\WebsiteBundle\Entity\Recept
-     */
-    public function getRecept()
-    {
-        return $this->recept;
-    }
 }
