@@ -32,6 +32,7 @@ class BlockAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
+            ->add('pagina')
             ->add('titel')
             ->add('foto')
             ->add('tekst')

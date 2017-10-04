@@ -2,6 +2,7 @@
 
 namespace Project3\WebsiteBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -79,7 +80,7 @@ class Pagina
 
     /**
      * One Pagina has Many Blokken.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Block", mappedBy="pagina")
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Block", mappedBy="pagina", cascade={"persist", "all"}))
      */
     private $blokken;
 
@@ -289,8 +290,14 @@ class Pagina
      */
     public function __construct()
     {
-        $this->blokken = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->blokken = new ArrayCollection();
     }
+
+    function __toString()
+    {
+        return (string)($this->naam);
+    }
+
 
     /**
      * Add blokken

@@ -63,6 +63,11 @@ class Block
      */
     private $pagina;
 
+    public function __toString()
+    {
+        return (string)($this->titel);
+    }
+
     /**
      * Get id
      *
