@@ -16,57 +16,61 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Users, label: Group }
 
-    project3_website.admin.user:
-        class: Project3\WebsiteBundle\Admin\UserAdmin
-        arguments: [~, Project3\WebsiteBundle\Entity\User, SonataAdminBundle:CRUD]
+    project3_website.admin.pagina:
+        class: Project3\WebsiteBundle\Admin\PaginaAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\Pagina, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Users, label: User }
-
-    project3_website.admin.recept:
-        class: Project3\WebsiteBundle\Admin\ReceptAdmin
-        arguments: [~, Project3\WebsiteBundle\Entity\Recept, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Recept }
-        public: true
-
-    project3_website.admin.ingredient:
-        class: Project3\WebsiteBundle\Admin\IngredientAdmin
-        arguments: [~, Project3\WebsiteBundle\Entity\Ingredient, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Ingredient }
-        public: true
-
-    project3_website.admin.stap:
-        class: Project3\WebsiteBundle\Admin\StapAdmin
-        arguments: [~, Project3\WebsiteBundle\Entity\Stap, SonataAdminBundle:CRUD]
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Stap }
+            - { name: sonata.admin, manager_type: orm, group: Paginas, label: Pagina }
         public: true
 
     project3_website.admin.block:
         class: Project3\WebsiteBundle\Admin\BlockAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Block, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Block }
+            - { name: sonata.admin, manager_type: orm, group: Paginas, label: Blokken }
         public: true
 
-    project3_website.admin.pagina:
-        class: Project3\WebsiteBundle\Admin\PaginaAdmin
-        arguments: [~, Project3\WebsiteBundle\Entity\Pagina, SonataAdminBundle:CRUD]
+
+
+    project3_website.admin.user:
+        class: Project3\WebsiteBundle\Admin\UserAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\User, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Pagina }
-        public: true
+            - { name: sonata.admin, manager_type: orm, group: Users, label: User }
+
+#    project3_website.admin.recept:
+#        class: Project3\WebsiteBundle\Admin\ReceptAdmin
+#        arguments: [~, Project3\WebsiteBundle\Entity\Recept, SonataAdminBundle:CRUD]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: Recepten, label: Recepten }
+#        public: true
+
+#    project3_website.admin.ingredient:
+#        class: Project3\WebsiteBundle\Admin\IngredientAdmin
+#        arguments: [~, Project3\WebsiteBundle\Entity\Ingredient, SonataAdminBundle:CRUD]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Ingredienten }
+#        public: true
+
+#    project3_website.admin.stap:
+#        class: Project3\WebsiteBundle\Admin\StapAdmin
+#        arguments: [~, Project3\WebsiteBundle\Entity\Stap, SonataAdminBundle:CRUD]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: Recepten, label: Stappen }
+#        public: true
+
+
 
     project3_website.admin.gerecht:
         class: Project3\WebsiteBundle\Admin\GerechtAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Gerecht, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Gerecht }
+            - { name: sonata.admin, manager_type: orm, group: Gerechten, label: Gerecht }
         public: true
 
     project3_website.admin.categorie:
         class: Project3\WebsiteBundle\Admin\CategorieAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Categorie, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: FoodGuru, label: Categorie }
+            - { name: sonata.admin, manager_type: orm, group: Gerechten, label: Categorie }
         public: true
