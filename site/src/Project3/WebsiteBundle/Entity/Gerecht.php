@@ -264,41 +264,6 @@ class Gerecht
     }
 
     /**
-     * Add categorie
-     *
-     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
-     *
-     * @return Gerecht
-     */
-    public function addCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
-    {
-        $this->categorie[] = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Remove categorie
-     *
-     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
-     */
-    public function removeCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
-    {
-        $this->categorie->removeElement($categorie);
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-
-    /**
      * Set benodigdheden
      *
      * @param string $benodigdheden
@@ -344,5 +309,39 @@ class Gerecht
     public function getBereidingswijze()
     {
         return $this->bereidingswijze;
+    }
+
+    /**
+     * Add categorie
+     *
+     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
+     *
+     * @return Gerecht
+     */
+    public function addCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie[] = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorie
+     *
+     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
+     */
+    public function removeCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }

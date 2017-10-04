@@ -14,8 +14,9 @@ class Categorie
 {
 
     /**
-     * One Categorie has Many gerechten.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", mappedBy="categorie")
+     * Many Categories have One Product.
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="categorie")
+     * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id")
      */
     private $gerechten;
 
@@ -81,34 +82,25 @@ class Categorie
         $this->gerechten = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
     /**
-     * Add gerechten
+     * Set gerechten
      *
      * @param \Project3\WebsiteBundle\Entity\Gerecht $gerechten
      *
      * @return Categorie
      */
-    public function addGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten)
+    public function setGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten = null)
     {
-        $this->gerechten[] = $gerechten;
+        $this->gerechten = $gerechten;
 
         return $this;
     }
 
     /**
-     * Remove gerechten
-     *
-     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerechten
-     */
-    public function removeGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten)
-    {
-        $this->gerechten->removeElement($gerechten);
-    }
-
-    /**
      * Get gerechten
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Project3\WebsiteBundle\Entity\Gerecht
      */
     public function getGerechten()
     {
