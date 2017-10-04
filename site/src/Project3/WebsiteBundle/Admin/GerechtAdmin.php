@@ -21,6 +21,7 @@ class GerechtAdmin extends AbstractAdmin
             ->add('foto')
             ->add('beschrijving')
             ->add('rating')
+            ->add('benodigdheden')
             ->add('actief')
         ;
     }
@@ -36,6 +37,7 @@ class GerechtAdmin extends AbstractAdmin
             ->add('foto')
             ->add('beschrijving')
             ->add('rating')
+            ->add('benodigdheden')
             ->add('actief')
             ->add('_action', null, array(
                 'actions' => array(
@@ -66,8 +68,9 @@ class GerechtAdmin extends AbstractAdmin
             ->end()
             ->tab("Recept")
                 ->with("Recept")
-//                    ->add('recept')
-                ->end()
+                    ->add("benodigdheden", 'ckeditor')
+                    ->add("bereidingswijze", 'ckeditor')
+            ->end()
             ->end()
             ->tab("Ingredienten")
                 ->with("Ingredienten")
@@ -88,6 +91,7 @@ class GerechtAdmin extends AbstractAdmin
             ->add('foto')
             ->add('beschrijving')
             ->add('rating')
+            ->add("benodigdheden")
             ->add('actief')
         ;
     }

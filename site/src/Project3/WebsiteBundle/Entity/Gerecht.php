@@ -13,6 +13,19 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Gerecht
 {
+
+    /**
+     * One Gerecht has Many Ingredienten.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Ingredient", mappedBy="gerecht")
+     */
+    private $ingredienten;
+
+    /**
+     * One Gerecht has Many Categorieën.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Categorie", mappedBy="gerechten")
+     */
+    private $categorie;
+
     /**
      * @var int
      *
@@ -58,16 +71,21 @@ class Gerecht
     private $actief;
 
     /**
-     * One Gerecht has Many Ingredienten.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Ingredient", mappedBy="gerecht")
+     * @var string
+     *
+     * @ORM\Column(name="benodigdheden", type="text", nullable=true)
      */
-    private $ingredienten;
+    private $benodigdheden;
 
     /**
-     * One Gerecht has Many Categorieën.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Categorie", mappedBy="gerechten")
+     * @var string
+     *
+     * @ORM\Column(name="bereidingswijze", type="text", nullable=true)
      */
-    private $categorie;
+    private $bereidingswijze;
+
+//    private $stappen;
+
 
     function __toString()
     {
@@ -279,4 +297,52 @@ class Gerecht
         return $this->categorie;
     }
 
+
+    /**
+     * Set benodigdheden
+     *
+     * @param string $benodigdheden
+     *
+     * @return Gerecht
+     */
+    public function setBenodigdheden($benodigdheden)
+    {
+        $this->benodigdheden = $benodigdheden;
+
+        return $this;
+    }
+
+    /**
+     * Get benodigdheden
+     *
+     * @return string
+     */
+    public function getBenodigdheden()
+    {
+        return $this->benodigdheden;
+    }
+
+    /**
+     * Set bereidingswijze
+     *
+     * @param string $bereidingswijze
+     *
+     * @return Gerecht
+     */
+    public function setBereidingswijze($bereidingswijze)
+    {
+        $this->bereidingswijze = $bereidingswijze;
+
+        return $this;
+    }
+
+    /**
+     * Get bereidingswijze
+     *
+     * @return string
+     */
+    public function getBereidingswijze()
+    {
+        return $this->bereidingswijze;
+    }
 }
