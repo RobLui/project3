@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Categorie
 {
+
+    /**
+     * One Categorie has Many gerechten.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", mappedBy="categorie")
+     */
+    private $gerechten;
+
     /**
      * @var int
      *
@@ -28,11 +35,10 @@ class Categorie
      */
     private $naam;
 
-    /**
-     * One Categorie has Many gerechten.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", mappedBy="categorie")
-     */
-    private $gerechten;
+    function __toString()
+    {
+        return (string)($this->naam);
+    }
 
     /**
      * Get id

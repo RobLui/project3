@@ -22,6 +22,7 @@ class GerechtAdmin extends AbstractAdmin
             ->add('beschrijving')
             ->add('rating')
             ->add('benodigdheden')
+            ->add('ingredienten')
             ->add('actief')
         ;
     }
@@ -37,7 +38,6 @@ class GerechtAdmin extends AbstractAdmin
             ->add('foto')
             ->add('beschrijving')
             ->add('rating')
-            ->add('benodigdheden')
             ->add('actief')
             ->add('_action', null, array(
                 'actions' => array(
@@ -56,25 +56,24 @@ class GerechtAdmin extends AbstractAdmin
     {
         $formMapper
             ->tab('Algemeen')
-                ->with('Onderdelen')
+                ->with('Overzicht')
 //                    ->add('categorie')
                     ->add('naam')
                     ->add('foto')
                     ->add('beschrijving')
                     ->add('rating')
-                    ->add('ingredienten')
                     ->add('actief')
                 ->end()
             ->end()
             ->tab("Recept")
-                ->with("Recept")
+                ->with("Overzicht")
                     ->add("benodigdheden", 'ckeditor')
                     ->add("bereidingswijze", 'ckeditor')
             ->end()
             ->end()
             ->tab("Ingredienten")
-                ->with("Ingredienten")
-    //                    ->add('recept')
+                ->with("Overzicht")
+                    ->add('ingredienten')
                 ->end()
             ->end()
         ;

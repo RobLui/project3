@@ -14,6 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Pagina
 {
     /**
+     * One Pagina has Many Blokken.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Block", mappedBy="pagina", cascade={"persist", "all"}))
+     */
+    private $blokken;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -77,12 +83,6 @@ class Pagina
      * @ORM\Column(name="actief", type="boolean")
      */
     private $actief;
-
-    /**
-     * One Pagina has Many Blokken.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Block", mappedBy="pagina", cascade={"persist", "all"}))
-     */
-    private $blokken;
 
     /**
      * Get id

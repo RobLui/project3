@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ingredient
 {
+
+    /**
+     * Many Ingredienten have One Gerecht.
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="ingredienten")
+     * @ORM\JoinColumn(name="gerecht_id", referencedColumnName="id")
+     */
+    private $gerecht;
+
     /**
      * @var int
      *
@@ -27,13 +35,6 @@ class Ingredient
      * @ORM\Column(name="naam", type="string", length=255, nullable=true)
      */
     private $naam;
-
-    /**
-     * Many Ingredienten have One Gerecht.
-     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="ingredienten")
-     * @ORM\JoinColumn(name="gerecht_id", referencedColumnName="id")
-     */
-    private $gerecht;
 
     function __toString()
     {
