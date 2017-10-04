@@ -15,7 +15,7 @@ class Ingredient
 
     /**
      * Many Ingredienten have One Gerecht.
-     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="ingredienten")
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="ingredienten", cascade={"persist"})
      * @ORM\JoinColumn(name="gerecht_id", referencedColumnName="id")
      */
     private $gerecht;

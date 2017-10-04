@@ -63,35 +63,36 @@ class UserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->tab('account')
-            ->with('account')
-            ->add('username')
-            ->add('email')
-            ->add('plainPassword', RepeatedType::class, array(
-                "required" => false,
-                "type" => PasswordType::class,
-                'first_options' => array('label' => 'Password'),
-                'second_options' => array('label' => 'Repeat Password'),
-            ))
-            ->add('enabled')
-            ->end()
+            ->tab('Account')
+                ->with('Overzicht')
+                    ->add('username')
+                    ->add('email')
+                    ->add('plainPassword', RepeatedType::class, array(
+                        "required" => false,
+                        "type" => PasswordType::class,
+                        'first_options' => array('label' => 'Password'),
+                        'second_options' => array('label' => 'Repeat Password'),
+                    ))
+                    ->add('enabled')
+                    ->add('shoppinglists')
+                ->end()
             ->end()
             ->tab('roles')
-            ->with('roles')
-            ->add('roles', "choice", array(
-                "multiple" => true,
-                "expanded" => true,
-                "choices" => array(
-                    "ROLE_ADMIN" => "ROLE_ADMIN",
-                    "ROLE_USER" => "ROLE_USER",
-                ),
-            ))
-            ->end()
+                ->with('roles')
+                    ->add('roles', "choice", array(
+                        "multiple" => true,
+                        "expanded" => true,
+                        "choices" => array(
+                            "ROLE_ADMIN" => "ROLE_ADMIN",
+                            "ROLE_USER" => "ROLE_USER",
+                        ),
+                    ))
+                ->end()
             ->end()
             ->tab('groups')
-            ->with('groups')
-            ->add('groups')
-            ->end()
+                ->with('groups')
+                    ->add('groups')
+                ->end()
             ->end();
     }
 
