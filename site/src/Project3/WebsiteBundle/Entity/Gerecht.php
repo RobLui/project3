@@ -15,16 +15,17 @@ class Gerecht
 {
 
     /**
+     * Many Gerechten have One categorie.
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Categorie", inversedBy="gerechten")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $categorie;
+
+    /**
      * One Gerecht has Many Ingredienten.
      * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Ingredient", mappedBy="gerecht")
      */
     private $ingredienten;
-
-    /**
-     * One Gerecht has Many Categorieën.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Categorie", mappedBy="gerechten")
-     */
-    private $categorie;
 
     /**
      * One Gerecht has Many Stappen.
@@ -96,6 +97,15 @@ class Gerecht
     }
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ingredienten = new ArrayCollection();
+        $this->stappen = new ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -104,7 +114,7 @@ class Gerecht
     {
         return $this->id;
     }
-
+    
     /**
      * Set naam
      *
@@ -194,7 +204,7 @@ class Gerecht
     /**
      * Get rating
      *
-     * @return int
+     * @return integer
      */
     public function getRating()
     {
@@ -218,53 +228,11 @@ class Gerecht
     /**
      * Get actief
      *
-     * @return bool
+     * @return boolean
      */
     public function getActief()
     {
         return $this->actief;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->ingredienten = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->stappen = new ArrayCollection();
-    }
-
-    /**
-     * Add ingredienten
-     *
-     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
-     *
-     * @return Gerecht
-     */
-    public function addIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
-    {
-        $this->ingredienten[] = $ingredienten;
-
-        return $this;
-    }
-
-    /**
-     * Remove ingredienten
-     *
-     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
-     */
-    public function removeIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
-    {
-        $this->ingredienten->removeElement($ingredienten);
-    }
-
-    /**
-     * Get ingredienten
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIngredienten()
-    {
-        return $this->ingredienten;
     }
 
     /**
@@ -316,37 +284,61 @@ class Gerecht
     }
 
     /**
-     * Add categorie
+     * Set categorie
      *
      * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
      *
      * @return Gerecht
      */
-    public function addCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
+    public function setCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie = null)
     {
-        $this->categorie[] = $categorie;
+        $this->categorie = $categorie;
 
         return $this;
     }
 
     /**
-     * Remove categorie
-     *
-     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
-     */
-    public function removeCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
-    {
-        $this->categorie->removeElement($categorie);
-    }
-
-    /**
      * Get categorie
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Project3\WebsiteBundle\Entity\Categorie
      */
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Add ingredienten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
+     *
+     * @return Gerecht
+     */
+    public function addIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
+    {
+        $this->ingredienten[] = $ingredienten;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredienten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
+     */
+    public function removeIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
+    {
+        $this->ingredienten->removeElement($ingredienten);
+    }
+
+    /**
+     * Get ingredienten
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIngredienten()
+    {
+        return $this->ingredienten;
     }
 
     /**

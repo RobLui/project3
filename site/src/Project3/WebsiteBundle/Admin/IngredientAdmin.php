@@ -58,6 +58,7 @@ class IngredientAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('naam')
+            ->add('gerecht')
         ;
     }
 }

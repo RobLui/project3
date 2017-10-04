@@ -57,7 +57,7 @@ class GerechtAdmin extends AbstractAdmin
         $formMapper
             ->tab('Algemeen')
                 ->with('Overzicht')
-//                    ->add('categorie')
+                    ->add('categorie')
                     ->add('naam')
                     ->add('foto')
                     ->add('beschrijving')
@@ -108,6 +108,9 @@ class GerechtAdmin extends AbstractAdmin
         foreach ($object->getStappen() as $stappen) {
             $stappen->setGerecht($object);
         }
+        foreach ($object->getIngredienten() as $ingredienten) {
+            $ingredienten->setGerecht($object);
+        }
     }
 
     public function preUpdate($object)
@@ -116,6 +119,9 @@ class GerechtAdmin extends AbstractAdmin
         parent::preUpdate($object);
         foreach ($object->getStappen() as $stappen) {
             $stappen->setGerecht($object);
+        }
+        foreach ($object->getIngredienten() as $ingredienten) {
+            $ingredienten->setGerecht($object);
         }
     }
 }

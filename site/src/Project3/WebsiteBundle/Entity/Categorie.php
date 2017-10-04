@@ -12,11 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Categorie
 {
-
     /**
-     * Many Categories have One Product.
-     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="categorie")
-     * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id")
+     * One Categorie has Many Gerechten.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", mappedBy="categorie")
      */
     private $gerechten;
 
@@ -42,6 +40,14 @@ class Categorie
     }
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->gerechten = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -50,6 +56,7 @@ class Categorie
     {
         return $this->id;
     }
+
 
     /**
      * Set naam
@@ -74,33 +81,35 @@ class Categorie
     {
         return $this->naam;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->gerechten = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
 
     /**
-     * Set gerechten
+     * Add gerechten
      *
      * @param \Project3\WebsiteBundle\Entity\Gerecht $gerechten
      *
      * @return Categorie
      */
-    public function setGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten = null)
+    public function addGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten)
     {
-        $this->gerechten = $gerechten;
+        $this->gerechten[] = $gerechten;
 
         return $this;
     }
 
     /**
+     * Remove gerechten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerechten
+     */
+    public function removeGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten)
+    {
+        $this->gerechten->removeElement($gerechten);
+    }
+
+    /**
      * Get gerechten
      *
-     * @return \Project3\WebsiteBundle\Entity\Gerecht
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGerechten()
     {
