@@ -104,12 +104,13 @@ class GerechtAdmin extends AbstractAdmin
 
     public function prePersist($object)
     {
+        /* @var \Project3\WebsiteBundle\Entity\Gerecht $object */
         parent::prePersist($object);
         foreach ($object->getStappen() as $stappen) {
             $stappen->setGerecht($object);
         }
         foreach ($object->getIngredienten() as $ingredienten) {
-            $ingredienten->setGerecht($object);
+            $ingredienten->addGerechten($object);
         }
     }
 
@@ -121,7 +122,7 @@ class GerechtAdmin extends AbstractAdmin
             $stappen->setGerecht($object);
         }
         foreach ($object->getIngredienten() as $ingredienten) {
-            $ingredienten->setGerecht($object);
+            $ingredienten->addGerechten($object);
         }
     }
 }

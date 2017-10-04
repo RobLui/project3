@@ -22,16 +22,17 @@ class Gerecht
     private $categorie;
 
     /**
-     * One Gerecht has Many Ingredienten.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Ingredient", mappedBy="gerecht")
-     */
-    private $ingredienten;
-
-    /**
      * One Gerecht has Many Stappen.
      * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Stap", mappedBy="gerecht", cascade={"persist", "all"}))
      */
     private $stappen;
+
+    /**
+     * Many Ingredienten have Many Gerechten.
+     * @ORM\ManyToMany(targetEntity="Project3\WebsiteBundle\Entity\Ingredient", inversedBy="gerechten")
+     * @ORM\JoinTable(name="ingredient_gerecht")
+     */
+    private $ingredienten;
 
     /**
      * @var int
@@ -101,20 +102,20 @@ class Gerecht
      */
     public function __construct()
     {
-        $this->ingredienten = new ArrayCollection();
         $this->stappen = new ArrayCollection();
+        $this->ingredienten = new ArrayCollection();
     }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
-    
+
     /**
      * Set naam
      *
@@ -308,40 +309,6 @@ class Gerecht
     }
 
     /**
-     * Add ingredienten
-     *
-     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
-     *
-     * @return Gerecht
-     */
-    public function addIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
-    {
-        $this->ingredienten[] = $ingredienten;
-
-        return $this;
-    }
-
-    /**
-     * Remove ingredienten
-     *
-     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
-     */
-    public function removeIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
-    {
-        $this->ingredienten->removeElement($ingredienten);
-    }
-
-    /**
-     * Get ingredienten
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIngredienten()
-    {
-        return $this->ingredienten;
-    }
-
-    /**
      * Add stappen
      *
      * @param \Project3\WebsiteBundle\Entity\Stap $stappen
@@ -373,5 +340,39 @@ class Gerecht
     public function getStappen()
     {
         return $this->stappen;
+    }
+
+    /**
+     * Add ingredienten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
+     *
+     * @return Gerecht
+     */
+    public function addIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
+    {
+        $this->ingredienten[] = $ingredienten;
+
+        return $this;
+    }
+
+    /**
+     * Remove ingredienten
+     *
+     * @param \Project3\WebsiteBundle\Entity\Ingredient $ingredienten
+     */
+    public function removeIngredienten(\Project3\WebsiteBundle\Entity\Ingredient $ingredienten)
+    {
+        $this->ingredienten->removeElement($ingredienten);
+    }
+
+    /**
+     * Get ingredienten
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIngredienten()
+    {
+        return $this->ingredienten;
     }
 }
