@@ -38,7 +38,7 @@ class Ingredient
 
     function __toString()
     {
-        return $this->naam;
+        return (string)($this->naam);
     }
 
     public function __construct() {

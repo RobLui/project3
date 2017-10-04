@@ -45,9 +45,7 @@ class PaginaAdmin extends AbstractAdmin
             ->add('actief')
             ->add('_action', null, array(
                 'actions' => array(
-                    'show' => array(),
                     'edit' => array(),
-                    'delete' => array(),
                 ),
             ))
         ;

@@ -47,7 +47,6 @@ class IngredientAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('naam')
-            ->add('gerechten')
         ;
     }
 
