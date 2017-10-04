@@ -49,6 +49,13 @@ class Recept
      */
     private $stappen;
 
+    /**
+     * 1 recept is van 1 gerecht
+     * @ORM\OneToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="recept")
+     * @ORM\JoinColumn(name="recept_id", referencedColumnName="id")
+     */
+    private $gerecht;
+
     public function __construct() {
         $this->stappen = new ArrayCollection();
     }
@@ -173,5 +180,29 @@ class Recept
     public function getNaam()
     {
         return $this->naam;
+    }
+
+    /**
+     * Set gerecht
+     *
+     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerecht
+     *
+     * @return Recept
+     */
+    public function setGerecht(\Project3\WebsiteBundle\Entity\Gerecht $gerecht = null)
+    {
+        $this->gerecht = $gerecht;
+
+        return $this;
+    }
+
+    /**
+     * Get gerecht
+     *
+     * @return \Project3\WebsiteBundle\Entity\Gerecht
+     */
+    public function getGerecht()
+    {
+        return $this->gerecht;
     }
 }

@@ -68,6 +68,12 @@ class Gerecht
      */
     private $categorie;
 
+    /**
+     * 1 gerecht heeft 1 recept
+     * @ORM\OneToOne(targetEntity="Project3\WebsiteBundle\Entity\Recept", mappedBy="gerecht")
+     */
+    private $recept;
+
     function __toString()
     {
         return  $this->naam;
@@ -276,5 +282,29 @@ class Gerecht
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set recept
+     *
+     * @param \Project3\WebsiteBundle\Entity\Recept $recept
+     *
+     * @return Gerecht
+     */
+    public function setRecept(\Project3\WebsiteBundle\Entity\Recept $recept = null)
+    {
+        $this->recept = $recept;
+
+        return $this;
+    }
+
+    /**
+     * Get recept
+     *
+     * @return \Project3\WebsiteBundle\Entity\Recept
+     */
+    public function getRecept()
+    {
+        return $this->recept;
     }
 }

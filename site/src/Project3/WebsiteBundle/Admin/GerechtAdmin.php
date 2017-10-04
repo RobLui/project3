@@ -53,12 +53,21 @@ class GerechtAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('naam')
-            ->add('foto')
-            ->add('beschrijving')
-            ->add('rating')
-            ->add('ingredienten')
-            ->add('actief')
+            ->tab('Algemeen')
+                ->with('Onderdelen')
+                    ->add('naam')
+                    ->add('foto')
+                    ->add('beschrijving')
+                    ->add('rating')
+                    ->add('ingredienten')
+                    ->add('actief')
+                ->end()
+            ->end()
+            ->tab("Recept")
+                ->with("Recept")
+
+                ->end()
+            ->end()
         ;
     }
 
