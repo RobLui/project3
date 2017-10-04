@@ -55,6 +55,7 @@ class GerechtAdmin extends AbstractAdmin
         $formMapper
             ->tab('Algemeen')
                 ->with('Onderdelen')
+//                    ->add('categorie')
                     ->add('naam')
                     ->add('foto')
                     ->add('beschrijving')
@@ -66,6 +67,11 @@ class GerechtAdmin extends AbstractAdmin
             ->tab("Recept")
                 ->with("Recept")
 //                    ->add('recept')
+                ->end()
+            ->end()
+            ->tab("Ingredienten")
+                ->with("Ingredienten")
+    //                    ->add('recept')
                 ->end()
             ->end()
         ;
@@ -85,21 +91,21 @@ class GerechtAdmin extends AbstractAdmin
             ->add('actief')
         ;
     }
-
-    public function prePersist($object)
-    {
-        parent::prePersist($object);
-        foreach ($object->getRecept() as $recept) {
-            $recept->setRecept($object);
-        }
-    }
-
-    public function preUpdate($object)
-    {
-        /* @var \Project3\WebsiteBundle\Entity\Recept $object */
-        parent::preUpdate($object);
-        foreach ($object->getRecept() as $recept) {
-            $recept->setRecept($object);
-        }
-    }
+//
+//    public function prePersist($object)
+//    {
+//        parent::prePersist($object);
+//        foreach ($object->getRecept() as $recept) {
+//            $recept->setRecept($object);
+//        }
+//    }
+//
+//    public function preUpdate($object)
+//    {
+//        /* @var \Project3\WebsiteBundle\Entity\Recept $object */
+//        parent::preUpdate($object);
+//        foreach ($object->getRecept() as $recept) {
+//            $recept->setRecept($object);
+//        }
+//    }
 }
