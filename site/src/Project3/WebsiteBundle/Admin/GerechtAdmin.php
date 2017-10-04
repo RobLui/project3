@@ -67,9 +67,16 @@ class GerechtAdmin extends AbstractAdmin
             ->end()
             ->tab("Recept")
                 ->with("Overzicht")
+                    ->add('stappen', 'sonata_type_collection', array(
+                        'type_options' => array()
+                    ), array(
+                        'edit' => 'inline',
+                        'inline' => 'table',
+                        'sortable' => 'sort',
+                    ))
                     ->add("benodigdheden", 'ckeditor')
                     ->add("bereidingswijze", 'ckeditor')
-            ->end()
+                ->end()
             ->end()
             ->tab("Ingredienten")
                 ->with("Overzicht")
@@ -94,21 +101,21 @@ class GerechtAdmin extends AbstractAdmin
             ->add('actief')
         ;
     }
-//
-//    public function prePersist($object)
-//    {
-//        parent::prePersist($object);
-//        foreach ($object->getRecept() as $recept) {
-//            $recept->setRecept($object);
-//        }
-//    }
-//
-//    public function preUpdate($object)
-//    {
-//        /* @var \Project3\WebsiteBundle\Entity\Recept $object */
-//        parent::preUpdate($object);
-//        foreach ($object->getRecept() as $recept) {
-//            $recept->setRecept($object);
-//        }
-//    }
+
+    public function prePersist($object)
+    {
+        parent::prePersist($object);
+        foreach ($object->getStappen() as $stappen) {
+            $stappen->setGerecht($object);
+        }
+    }
+
+    public function preUpdate($object)
+    {
+        /* @var \Project3\WebsiteBundle\Entity\Gerecht $object */
+        parent::preUpdate($object);
+        foreach ($object->getStappen() as $stappen) {
+            $stappen->setGerecht($object);
+        }
+    }
 }

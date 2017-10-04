@@ -27,6 +27,12 @@ class Gerecht
     private $categorie;
 
     /**
+     * One Gerecht has Many Stappen.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Stap", mappedBy="gerecht", cascade={"persist", "all"}))
+     */
+    private $stappen;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -83,9 +89,6 @@ class Gerecht
      * @ORM\Column(name="bereidingswijze", type="text", nullable=true)
      */
     private $bereidingswijze;
-
-//    private $stappen;
-
 
     function __toString()
     {
@@ -227,6 +230,7 @@ class Gerecht
     public function __construct()
     {
         $this->ingredienten = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->stappen = new ArrayCollection();
     }
 
     /**
@@ -343,5 +347,39 @@ class Gerecht
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Add stappen
+     *
+     * @param \Project3\WebsiteBundle\Entity\Stap $stappen
+     *
+     * @return Gerecht
+     */
+    public function addStappen(\Project3\WebsiteBundle\Entity\Stap $stappen)
+    {
+        $this->stappen[] = $stappen;
+
+        return $this;
+    }
+
+    /**
+     * Remove stappen
+     *
+     * @param \Project3\WebsiteBundle\Entity\Stap $stappen
+     */
+    public function removeStappen(\Project3\WebsiteBundle\Entity\Stap $stappen)
+    {
+        $this->stappen->removeElement($stappen);
+    }
+
+    /**
+     * Get stappen
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStappen()
+    {
+        return $this->stappen;
     }
 }

@@ -13,11 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Recept
 {
-    /**
-     * One Recept has Many Stappen.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Stap", mappedBy="recept")
-     */
-    private $stappen;
+//    /**
+//     * One Recept has Many Stappen.
+//     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Stap", mappedBy="recept")
+//     */
+//    private $stappen;
 
     /**
      * @var int
