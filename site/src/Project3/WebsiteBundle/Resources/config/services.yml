@@ -70,3 +70,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Gerechten, label: Categorie }
         public: true
+
+    #CONTACT
+    project3_website.admin.contact:
+        class: Project3\WebsiteBundle\Admin\ContactAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\Contact, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Contact, label: Contact }
+        public: true
