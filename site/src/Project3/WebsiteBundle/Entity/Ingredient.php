@@ -2,6 +2,7 @@
 
 namespace Project3\WebsiteBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,6 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ingredient
 {
+
+    /**
+     * Many Ingredienten have Many Gerechten.
+     * @ORM\ManyToMany(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", mappedBy="ingredienten")
+     */
+    private $gerechten;
+
     /**
      * @var int
      *
@@ -28,22 +36,19 @@ class Ingredient
      */
     private $naam;
 
-    /**
-     * Many Ingredienten have One Gerecht.
-     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="ingredienten")
-     * @ORM\JoinColumn(name="gerecht_id", referencedColumnName="id")
-     */
-    private $gerecht;
-
     function __toString()
     {
-        return $this->naam;
+        return (string)($this->naam);
+    }
+
+    public function __construct() {
+        $this->ingredienten = new ArrayCollection();
     }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -75,26 +80,36 @@ class Ingredient
     }
 
     /**
-     * Set gerecht
+     * Add gerechten
      *
-     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerecht
+     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerechten
      *
      * @return Ingredient
      */
-    public function setGerecht(\Project3\WebsiteBundle\Entity\Gerecht $gerecht = null)
+    public function addGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten)
     {
-        $this->gerecht = $gerecht;
+        $this->gerechten[] = $gerechten;
 
         return $this;
     }
 
     /**
-     * Get gerecht
+     * Remove gerechten
      *
-     * @return \Project3\WebsiteBundle\Entity\Gerecht
+     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerechten
      */
-    public function getGerecht()
+    public function removeGerechten(\Project3\WebsiteBundle\Entity\Gerecht $gerechten)
     {
-        return $this->gerecht;
+        $this->gerechten->removeElement($gerechten);
+    }
+
+    /**
+     * Get gerechten
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGerechten()
+    {
+        return $this->gerechten;
     }
 }

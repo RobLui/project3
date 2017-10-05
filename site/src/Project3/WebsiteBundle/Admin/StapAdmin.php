@@ -29,7 +29,6 @@ class StapAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('recept')
             ->add('stapnummer')
             ->add('tekst')
             ->add('_action', null, array(
@@ -48,7 +47,6 @@ class StapAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('recept')
             ->add('stapnummer')
             ->add('tekst')
         ;
@@ -60,7 +58,6 @@ class StapAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('recept')
             ->add('stapnummer')
             ->add('tekst')
         ;

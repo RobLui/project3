@@ -5,3 +5,6 @@ project3_security_login:
 project3_security_logout:
     path:     /logout
     defaults: { _controller: Project3WebsiteBundle:Security:logout }
+
+admin_dashboard:
+    path:     /admin/dashboard

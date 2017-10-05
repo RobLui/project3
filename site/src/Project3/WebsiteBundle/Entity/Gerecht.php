@@ -2,6 +2,7 @@
 
 namespace Project3\WebsiteBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,6 +13,27 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Gerecht
 {
+
+    /**
+     * Many Gerechten have One categorie.
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Categorie", inversedBy="gerechten")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $categorie;
+
+    /**
+     * One Gerecht has Many Stappen.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Stap", mappedBy="gerecht", cascade={"persist", "all"}))
+     */
+    private $stappen;
+
+    /**
+     * Many Ingredienten have Many Gerechten.
+     * @ORM\ManyToMany(targetEntity="Project3\WebsiteBundle\Entity\Ingredient", inversedBy="gerechten")
+     * @ORM\JoinTable(name="ingredient_gerecht")
+     */
+    private $ingredienten;
+
     /**
      * @var int
      *
@@ -57,32 +79,37 @@ class Gerecht
     private $actief;
 
     /**
-     * One Gerecht has Many Ingredienten.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Ingredient", mappedBy="gerecht")
+     * @var string
+     *
+     * @ORM\Column(name="benodigdheden", type="text", nullable=true)
      */
-    private $ingredienten;
+    private $benodigdheden;
 
     /**
-     * One Gerecht has Many Categorieën.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Categorie", mappedBy="gerechten")
+     * @var string
+     *
+     * @ORM\Column(name="bereidingswijze", type="text", nullable=true)
      */
-    private $categorie;
-
-    /**
-     * 1 gerecht heeft 1 recept
-     * @ORM\OneToOne(targetEntity="Project3\WebsiteBundle\Entity\Recept", mappedBy="gerecht")
-     */
-    private $recept;
+    private $bereidingswijze;
 
     function __toString()
     {
-        return  $this->naam;
+        return  (string)($this->naam);
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->stappen = new ArrayCollection();
+        $this->ingredienten = new ArrayCollection();
     }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -178,7 +205,7 @@ class Gerecht
     /**
      * Get rating
      *
-     * @return int
+     * @return integer
      */
     public function getRating()
     {
@@ -202,18 +229,117 @@ class Gerecht
     /**
      * Get actief
      *
-     * @return bool
+     * @return boolean
      */
     public function getActief()
     {
         return $this->actief;
     }
+
     /**
-     * Constructor
+     * Set benodigdheden
+     *
+     * @param string $benodigdheden
+     *
+     * @return Gerecht
      */
-    public function __construct()
+    public function setBenodigdheden($benodigdheden)
     {
-        $this->ingredienten = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->benodigdheden = $benodigdheden;
+
+        return $this;
+    }
+
+    /**
+     * Get benodigdheden
+     *
+     * @return string
+     */
+    public function getBenodigdheden()
+    {
+        return $this->benodigdheden;
+    }
+
+    /**
+     * Set bereidingswijze
+     *
+     * @param string $bereidingswijze
+     *
+     * @return Gerecht
+     */
+    public function setBereidingswijze($bereidingswijze)
+    {
+        $this->bereidingswijze = $bereidingswijze;
+
+        return $this;
+    }
+
+    /**
+     * Get bereidingswijze
+     *
+     * @return string
+     */
+    public function getBereidingswijze()
+    {
+        return $this->bereidingswijze;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
+     *
+     * @return Gerecht
+     */
+    public function setCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie = null)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Project3\WebsiteBundle\Entity\Categorie
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Add stappen
+     *
+     * @param \Project3\WebsiteBundle\Entity\Stap $stappen
+     *
+     * @return Gerecht
+     */
+    public function addStappen(\Project3\WebsiteBundle\Entity\Stap $stappen)
+    {
+        $this->stappen[] = $stappen;
+
+        return $this;
+    }
+
+    /**
+     * Remove stappen
+     *
+     * @param \Project3\WebsiteBundle\Entity\Stap $stappen
+     */
+    public function removeStappen(\Project3\WebsiteBundle\Entity\Stap $stappen)
+    {
+        $this->stappen->removeElement($stappen);
+    }
+
+    /**
+     * Get stappen
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStappen()
+    {
+        return $this->stappen;
     }
 
     /**
@@ -248,63 +374,5 @@ class Gerecht
     public function getIngredienten()
     {
         return $this->ingredienten;
-    }
-
-    /**
-     * Add categorie
-     *
-     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
-     *
-     * @return Gerecht
-     */
-    public function addCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
-    {
-        $this->categorie[] = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Remove categorie
-     *
-     * @param \Project3\WebsiteBundle\Entity\Categorie $categorie
-     */
-    public function removeCategorie(\Project3\WebsiteBundle\Entity\Categorie $categorie)
-    {
-        $this->categorie->removeElement($categorie);
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
-
-    /**
-     * Set recept
-     *
-     * @param \Project3\WebsiteBundle\Entity\Recept $recept
-     *
-     * @return Gerecht
-     */
-    public function setRecept(\Project3\WebsiteBundle\Entity\Recept $recept = null)
-    {
-        $this->recept = $recept;
-
-        return $this;
-    }
-
-    /**
-     * Get recept
-     *
-     * @return \Project3\WebsiteBundle\Entity\Recept
-     */
-    public function getRecept()
-    {
-        return $this->recept;
     }
 }

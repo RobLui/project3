@@ -12,6 +12,21 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Stap
 {
+//
+//    /**
+//     * Many Stappen have One Recept.
+//     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Recept", inversedBy="stappen")
+//     * @ORM\JoinColumn(name="recept_id", referencedColumnName="id")
+//     */
+//    private $recept;
+
+    /**
+     * Many Stappen have One Gerecht.
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="stappen")
+     * @ORM\JoinColumn(name="gerecht_id", referencedColumnName="id")
+     */
+    private $gerecht;
+
     /**
      * @var int
      *
@@ -35,12 +50,10 @@ class Stap
      */
     private $tekst;
 
-    /**
-     * Many Stappen have One Recept.
-     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Recept", inversedBy="stappen")
-     * @ORM\JoinColumn(name="recept_id", referencedColumnName="id")
-     */
-    private $recept;
+    function __toString()
+    {
+        return  "Stap ". (string)($this->stapnummer);
+    }
 
     /**
      * Get id
@@ -122,5 +135,29 @@ class Stap
     public function getRecept()
     {
         return $this->recept;
+    }
+
+    /**
+     * Set gerecht
+     *
+     * @param \Project3\WebsiteBundle\Entity\Gerecht $gerecht
+     *
+     * @return Stap
+     */
+    public function setGerecht(\Project3\WebsiteBundle\Entity\Gerecht $gerecht = null)
+    {
+        $this->gerecht = $gerecht;
+
+        return $this;
+    }
+
+    /**
+     * Get gerecht
+     *
+     * @return \Project3\WebsiteBundle\Entity\Gerecht
+     */
+    public function getGerecht()
+    {
+        return $this->gerecht;
     }
 }

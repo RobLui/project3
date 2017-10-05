@@ -32,6 +32,7 @@ class BlockAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
+            ->add('pagina')
             ->add('titel')
             ->add('foto')
             ->add('tekst')
@@ -53,6 +54,7 @@ class BlockAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('pagina')
             ->add('titel')
             ->add('foto')
             ->add('tekst')

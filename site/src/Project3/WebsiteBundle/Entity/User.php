@@ -13,6 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+
+    /**
+     * One User has Many Shoppinglists.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Shoppinglijst", mappedBy="user")
+     */
+    private $shoppinglists;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -24,9 +31,9 @@ class User extends BaseUser
      *
      * @ORM\ManyToMany(targetEntity="Group")
      * @ORM\JoinTable(name="website_user_group",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id", onDelete="CASCADE")}
-     *      )
+     * joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id", onDelete="CASCADE")}
+     * )
      */
     protected $groups;
 
@@ -52,5 +59,39 @@ class User extends BaseUser
     public function isAdmin()
     {
         return in_array("ROLE_ADMIN", $this->getRoles());
+    }
+
+    /**
+     * Add shoppinglist
+     *
+     * @param \Project3\WebsiteBundle\Entity\Shoppinglijst $shoppinglist
+     *
+     * @return User
+     */
+    public function addShoppinglist(\Project3\WebsiteBundle\Entity\Shoppinglijst $shoppinglist)
+    {
+        $this->shoppinglists[] = $shoppinglist;
+
+        return $this;
+    }
+
+    /**
+     * Remove shoppinglist
+     *
+     * @param \Project3\WebsiteBundle\Entity\Shoppinglijst $shoppinglist
+     */
+    public function removeShoppinglist(\Project3\WebsiteBundle\Entity\Shoppinglijst $shoppinglist)
+    {
+        $this->shoppinglists->removeElement($shoppinglist);
+    }
+
+    /**
+     * Get shoppinglists
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getShoppinglists()
+    {
+        return $this->shoppinglists;
     }
 }

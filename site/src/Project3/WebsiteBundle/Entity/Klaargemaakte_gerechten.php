@@ -28,8 +28,6 @@ class Klaargemaakte_gerechten
      */
     private $datum;
 
-
-
     /**
      * Get id
      *

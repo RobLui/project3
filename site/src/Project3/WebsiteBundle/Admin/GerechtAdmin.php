@@ -21,6 +21,8 @@ class GerechtAdmin extends AbstractAdmin
             ->add('foto')
             ->add('beschrijving')
             ->add('rating')
+            ->add('benodigdheden')
+            ->add('ingredienten')
             ->add('actief')
         ;
     }
@@ -54,18 +56,31 @@ class GerechtAdmin extends AbstractAdmin
     {
         $formMapper
             ->tab('Algemeen')
-                ->with('Onderdelen')
+                ->with('Overzicht')
+                    ->add('categorie')
                     ->add('naam')
                     ->add('foto')
                     ->add('beschrijving')
                     ->add('rating')
-                    ->add('ingredienten')
                     ->add('actief')
                 ->end()
             ->end()
             ->tab("Recept")
-                ->with("Recept")
-
+                ->with("Overzicht")
+                    ->add('stappen', 'sonata_type_collection', array(
+                        'type_options' => array()
+                    ), array(
+                        'edit' => 'inline',
+                        'inline' => 'table',
+                        'sortable' => 'sort',
+                    ))
+                    ->add("benodigdheden", 'ckeditor')
+                    ->add("bereidingswijze", 'ckeditor')
+                ->end()
+            ->end()
+            ->tab("Ingredienten")
+                ->with("Overzicht")
+                    ->add('ingredienten')
                 ->end()
             ->end()
         ;
@@ -82,7 +97,32 @@ class GerechtAdmin extends AbstractAdmin
             ->add('foto')
             ->add('beschrijving')
             ->add('rating')
+            ->add("benodigdheden")
             ->add('actief')
         ;
+    }
+
+    public function prePersist($object)
+    {
+        /* @var \Project3\WebsiteBundle\Entity\Gerecht $object */
+        parent::prePersist($object);
+        foreach ($object->getStappen() as $stappen) {
+            $stappen->setGerecht($object);
+        }
+        foreach ($object->getIngredienten() as $ingredienten) {
+            $ingredienten->addGerechten($object);
+        }
+    }
+
+    public function preUpdate($object)
+    {
+        /* @var \Project3\WebsiteBundle\Entity\Gerecht $object */
+        parent::preUpdate($object);
+        foreach ($object->getStappen() as $stappen) {
+            $stappen->setGerecht($object);
+        }
+        foreach ($object->getIngredienten() as $ingredienten) {
+            $ingredienten->addGerechten($object);
+        }
     }
 }

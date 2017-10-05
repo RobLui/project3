@@ -28,7 +28,6 @@ class Group extends BaseGroup
     public function __construct($name = null, $roles = array())
     {
         parent::__construct($name, $roles);
-        // your own logic
     }
 
     function __toString()

@@ -49,7 +49,6 @@ class Contact
      */
     private $adres;
 
-
     /**
      * Get id
      *

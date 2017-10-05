@@ -13,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Categorie
 {
     /**
+     * One Categorie has Many Gerechten.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", mappedBy="categorie")
+     */
+    private $gerechten;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -28,11 +34,18 @@ class Categorie
      */
     private $naam;
 
+    function __toString()
+    {
+        return (string)($this->naam);
+    }
+
     /**
-     * One Categorie has Many gerechten.
-     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", mappedBy="categorie")
+     * Constructor
      */
-    private $gerechten;
+    public function __construct()
+    {
+        $this->gerechten = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -43,6 +56,7 @@ class Categorie
     {
         return $this->id;
     }
+
 
     /**
      * Set naam
@@ -66,13 +80,6 @@ class Categorie
     public function getNaam()
     {
         return $this->naam;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->gerechten = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

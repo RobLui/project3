@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Block
 {
+
+    /**
+     * Many Blokken have One Pagina.
+     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Pagina", inversedBy="blokken")
+     * @ORM\JoinColumn(name="pagina_id", referencedColumnName="id")
+     */
+    private $pagina;
+
     /**
      * @var int
      *
@@ -56,12 +64,10 @@ class Block
      */
     private $actief;
 
-    /**
-     * Many Blokken have One Pagina.
-     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Pagina", inversedBy="blokken")
-     * @ORM\JoinColumn(name="pagina_id", referencedColumnName="id")
-     */
-    private $pagina;
+    public function __toString()
+    {
+        return (string)($this->titel);
+    }
 
     /**
      * Get id

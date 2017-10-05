@@ -45,9 +45,7 @@ class PaginaAdmin extends AbstractAdmin
             ->add('actief')
             ->add('_action', null, array(
                 'actions' => array(
-                    'show' => array(),
                     'edit' => array(),
-                    'delete' => array(),
                 ),
             ))
         ;
@@ -59,14 +57,29 @@ class PaginaAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('url')
-            ->add('naam')
-            ->add('seoTitel')
-            ->add('seoOmschrijving')
-            ->add('seoTrefwoorden')
-            ->add('seoAfbeelding')
-            ->add('seoRobots')
-            ->add('actief')
+            ->tab('Pagina')
+                ->with("Pagina")
+                    ->add('url')
+                    ->add('naam')
+                    ->add('seoTitel')
+                    ->add('seoOmschrijving')
+                    ->add('seoTrefwoorden')
+                    ->add('seoAfbeelding')
+                    ->add('seoRobots')
+                    ->add('actief')
+                ->end()
+            ->end()
+            ->tab('Blokken')
+                ->with('Overzicht')
+                ->add('blokken', 'sonata_type_collection', array(
+                    'type_options' => array()
+                ), array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'sort',
+                ))
+                ->end()
+            ->end()
         ;
     }
 
@@ -86,5 +99,22 @@ class PaginaAdmin extends AbstractAdmin
             ->add('seoRobots')
             ->add('actief')
         ;
+    }
+
+    public function prePersist($object)
+    {
+        parent::prePersist($object);
+        foreach ($object->getBlokken() as $blokken) {
+            $blokken->setPagina($object);
+        }
+    }
+
+    public function preUpdate($object)
+    {
+        /* @var \Project3\WebsiteBundle\Entity\Pagina $object */
+        parent::preUpdate($object);
+        foreach ($object->getBlokken() as $blokken) {
+            $blokken->setPagina($object);
+        }
     }
 }
