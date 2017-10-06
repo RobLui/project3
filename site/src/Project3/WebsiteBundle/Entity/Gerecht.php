@@ -85,13 +85,6 @@ class Gerecht
      */
     private $benodigdheden;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="bereidingswijze", type="text", nullable=true)
-     */
-    private $bereidingswijze;
-
     function __toString()
     {
         return  (string)($this->naam);
@@ -258,30 +251,6 @@ class Gerecht
     public function getBenodigdheden()
     {
         return $this->benodigdheden;
-    }
-
-    /**
-     * Set bereidingswijze
-     *
-     * @param string $bereidingswijze
-     *
-     * @return Gerecht
-     */
-    public function setBereidingswijze($bereidingswijze)
-    {
-        $this->bereidingswijze = $bereidingswijze;
-
-        return $this;
-    }
-
-    /**
-     * Get bereidingswijze
-     *
-     * @return string
-     */
-    public function getBereidingswijze()
-    {
-        return $this->bereidingswijze;
     }
 
     /**

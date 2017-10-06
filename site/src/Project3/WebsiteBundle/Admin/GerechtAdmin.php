@@ -75,7 +75,6 @@ class GerechtAdmin extends AbstractAdmin
                         'sortable' => 'sort',
                     ))
                     ->add("benodigdheden", 'ckeditor')
-                    ->add("bereidingswijze", 'ckeditor')
                 ->end()
             ->end()
             ->tab("Ingredienten")
