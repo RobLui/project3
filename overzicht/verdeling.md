@@ -1,6 +1,6 @@
 # Overzicht pagina's
 
-## 8 volgordes:
+## 9 volgordes:
 
 ### home
 
@@ -30,8 +30,44 @@
 
 - 7
 
+### contact
+
+- ++ contactpagina
+
 ### gerechten suprise // EXTRA
 
 - Robbert zet structuur op
 
 - Phedra zet na structuur content erin en voorziet opmaak na Robbert
+
+### home
+
+- 1 / DONE
+
+### gerechten
+
+- 2 / DONE
+
+### account shoppinglijstjes
+
+- 3 / DONE
+
+### gerecht detail
+
+- 4
+
+### account instellingen
+
+- 5 / DONE
+
+### account klaargemaakte gerechten
+
+- 6 / DONE
+
+### gerechten {query}
+
+- 7 / DONE
+
+### contact
+
+- ++ contactpagina
