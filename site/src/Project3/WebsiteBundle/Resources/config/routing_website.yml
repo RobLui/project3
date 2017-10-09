@@ -1,10 +1,7 @@
+#HOME - INDEX
 project3_website_home:
     path:     /
     defaults: { _controller: Project3WebsiteBundle:Default:index }
-
-project3_website_group:
-    path:     /group/{slug}
-    defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }
 
 #ACCOUNT
 project3_account_instellingen:
@@ -15,12 +12,35 @@ project3_account_shoppinglijstjes:
     path:     /account/shoppinglijstjes
     defaults: { _controller: Project3WebsiteBundle:Account:shoppinglijstjes }
 
+project3_klaargemaakte_gerechten:
+    path:     /account/klaargemaakte-gerechten
+    defaults: { _controller: Project3WebsiteBundle:Account:klaargemaakteGerechten }
+
 #GERECHTEN
-project3_gerechten_overzicht:
+project3_alle_gerechten:
     path:     /gerechten
     defaults: { _controller: Project3WebsiteBundle:Gerecht:overzicht}
 
-project_gerechten_detail:
-    path:     /gerechten/{id}
+project3_gerecht_detail:
+    path:     /gerechten/gerecht/{id}
     defaults: { _controller: Project3WebsiteBundle:Gerecht:detail, id: id}
 
+project3_gerecht_surprise:
+    path:     /gerechten/verrassing
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:surprise}
+
+project3_gerecht_query:
+    path:     /gerechten/{query}
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:query, query: query}
+
+
+
+
+
+
+
+
+#EXTRA
+project3_website_group:
+    path:     /group/{slug}
+    defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }
