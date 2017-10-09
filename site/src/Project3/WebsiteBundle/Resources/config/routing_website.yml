@@ -5,3 +5,22 @@ project3_website_home:
 project3_website_group:
     path:     /group/{slug}
     defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }
+
+#ACCOUNT
+project3_account_instellingen:
+    path:     /account/instellingen
+    defaults: { _controller: Project3WebsiteBundle:Account:instellingen}
+
+project3_account_shoppinglijstjes:
+    path:     /account/shoppinglijstjes
+    defaults: { _controller: Project3WebsiteBundle:Account:shoppinglijstjes }
+
+#GERECHTEN
+project3_gerechten_overzicht:
+    path:     /gerechten
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:overzicht}
+
+project_gerechten_detail:
+    path:     /gerechten/{id}
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:detail, id: id}
+
