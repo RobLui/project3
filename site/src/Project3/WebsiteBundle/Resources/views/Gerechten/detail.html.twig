@@ -5,5 +5,54 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Detail gerecht</h1>
+
+    <div class="row">
+        <img src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="logo" class="img-responsive center-block" />
+
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    TITEL GERECHT
+                </h3>
+            </div>
+
+            <div class="full-image">
+                <img class="center-block" src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="food">
+            </div>
+
+            <div class="bordered detail">
+                <div class="col-md-6">
+                    <p class="text-left">Tekst enzo</p>
+                </div>
+                <div class="col-md-2">
+                    <p>45 min</p>
+                </div>
+                <div class="col-md-4">
+                    <p>STERREKES</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-6">
+                <p> Welke ingredienten</p>
+                <div class="bordered">
+                    <ul class="list-group">
+                        <li class="list-unstyled">
+                            appel
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <p>Shoppinglijstje</p>
+                <div class="bordered">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 {% endblock %}

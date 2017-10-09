@@ -23,10 +23,25 @@
     margin-left:0.8em;
     display: block;
 }
+/* GERECHT DETAIL */
+.bordered.detail {
+    margin-top:1em;
+    margin-bottom:2em;
+    height:2em;
+    display: block;
+}
 
 /* GERECHTEN & QUERY GERECHTEN */
 .category {
     margin-top:1em;
     padding:1em;
     background: orange;
+}
+
+.full-image img {
+    background: center center no-repeat;
+    width:100%;
+    height:100%;
+    display: block;
+    border:1px solid orange;
 }
