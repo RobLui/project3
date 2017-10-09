@@ -1,18 +1,24 @@
 # Overzicht pagina's:
 
-- Home (index of home)
-
 ## ACCOUNT
 
 - Login pagina /login, /registreer
-- Account /account
+
+- Account shoppinglists
 
   - Account-my shoppinglists /account/shoppinglijstjes
-  - Edit profile (naam en foto kunnen wijzigen? /account/aanpassen
 
 - Account instellingen
 
   - account/instellingen ( aantal weken verwijderen van shoppinglijst)
+
+- Account Klaargemaakte gerechten
+
+  - Klaargemaakte gerechten -> account/gerechten-klaargemaakt (hover Phedra)
+
+## HOME
+
+- Home (index of home) -> /
 
 ## GERECHTEN
 
@@ -20,10 +26,10 @@
 
 - Resultaten voor normale zoekopdracht -> /gerechten/{queryresult}
 
-- Gerecht -> /gerechten/{id}/detail
+- Gerecht detail-> /gerechten/{id}/detail
 
-- -> /gerechten/surprise/?cat=veggie -> /gerechten/verrassing/ (normaal iemand die alles wilt zien)
+## EXTRA (bij gerechten)
 
-- Klaargemaakte gerechten -> account/gerechten-klaargemaakt (hover Phedra)
+- /gerechten/surprise -> /gerechten/verrassing/ (normaal iemand die alles wilt zien)
 
-  - zeggen waar toegevoegd is, aan shoppinglijst bv en klaargemaakte gerechten
+- zeggen waar toegevoegd is, aan shoppinglijst bv en klaargemaakte gerechten
