@@ -53,22 +53,32 @@
             {##--------------------TEST NAVIGATIE--------------------#}
             {##}
             {##}
-            <ul class="nav navbar-nav">
+
+            <nav class="main-nav navbar-fixed-top navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item"><a class="page-scroll" href="{{ path('project3_website_home') }}">HOME</a></li>
+                        <li class="nav-item"><a class="page-scroll" href="{{ path('project3_alle_gerechten')}}">GERECHTEN</a></li>
+                        <li class="nav-item"><a class="page-scroll" href="{{ path('project3_website_contact')}}">CONTACT</a></li>
+                    </ul>
+                </div>
+            </nav>
+            {#<ul class="nav navbar-nav">#}
 
                 {#HOME#}
-                <li><a class="navbar-brand" href="{{ path('project3_website_home') }}">Home</a></li>
+                {#<li><a class="navbar-brand" href="{{ path('project3_website_home') }}">Home</a></li>#}
 
                 {#GERECHTEN#}
-                <li><a href="{{ path('project3_alle_gerechten') }}">Gerechten</a></li>
-                <li><a href="{{ path('project3_gerecht_query',{query:1}) }}">Query gerechten</a></li>
-                <li><a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">Detail gerecht</a></li>
+                {#<li><a href="{{ path('project3_alle_gerechten') }}">Gerechten</a></li>#}
+                {#<li><a href="{{ path('project3_gerecht_query',{query:1}) }}">Query gerechten</a></li>#}
+                {#<li><a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">Detail gerecht</a></li>#}
 
                 {#ACCOUNT#}
-                <li><a href="{{ path('project3_account_instellingen') }}">Instellingen</a></li>
-                <li><a href="{{ path('project3_account_shoppinglijstjes') }}">Shoppinglijstjes</a></li>
-                <li><a href="{{ path('project3_account_klaargemaakte_gerechten') }}">Klaargemaakte gerechten</a></li>
+                {#<li><a href="{{ path('project3_account_instellingen') }}">Instellingen</a></li>#}
+                {#<li><a href="{{ path('project3_account_shoppinglijstjes') }}">Shoppinglijstjes</a></li>#}
+                {#<li><a href="{{ path('project3_account_klaargemaakte_gerechten') }}">Klaargemaakte gerechten</a></li>#}
 
-            </ul>
+            {#</ul>#}
             {##}
             {##}
             {##}

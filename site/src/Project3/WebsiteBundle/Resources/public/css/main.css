@@ -45,3 +45,16 @@
     display: block;
     border:1px solid orange;
 }
+
+/* NAVBAR */
+
+.nav.navbar-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+    .navbar-nav {
+        float: none;
+    }
+}

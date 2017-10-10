@@ -19,8 +19,8 @@ security:
         hardcoded:
             memory:
               users:
-                  robbert: { password: "project3", roles: ['ROLE_SUPER_ADMIN'] }
-                  phedra: { password: "project3", roles: ['ROLE_SUPER_ADMIN'] }
+                  robbert: { password: "000000", roles: ['ROLE_SUPER_ADMIN'] }
+                  phedra: { password: "000000", roles: ['ROLE_SUPER_ADMIN'] }
         database:
             id: fos_user.user_provider.username_email
 

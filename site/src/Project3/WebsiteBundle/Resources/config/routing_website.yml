@@ -2,6 +2,10 @@
 project3_website_home:
     path:     /
     defaults: { _controller: Project3WebsiteBundle:Default:index }
+project3_website_contact:
+    path:     /contact
+    defaults: { _controller: Project3WebsiteBundle:Default:contact }
+
 
 #ACCOUNT
 project3_account_instellingen:
