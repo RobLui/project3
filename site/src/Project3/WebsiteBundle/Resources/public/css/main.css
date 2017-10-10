@@ -127,3 +127,6 @@
     margin-bottom:0.5em;
 }
 
+.btn{
+    border-radius:0 !important;
+}
