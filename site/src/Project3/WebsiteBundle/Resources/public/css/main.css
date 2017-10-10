@@ -6,13 +6,7 @@
 
 /* ZOEKEN HOMEPAGE */
 #top-margin {
-    margin-top:0%;
     margin-bottom:45%;
-}
-
-/* ALLE IMAGES */
-.img-responsive {
-    /*margin-top:5rem;*/
 }
 
 /* SHOPPINGLISTS */
@@ -23,6 +17,8 @@
     margin-left:0.8em;
     display: block;
 }
+
+
 /* GERECHT DETAIL */
 .bordered.detail {
     margin-top:1em;
@@ -37,6 +33,7 @@
     background: orange;
     text-align: center;
     font-size:1.2rem;
+    margin-bottom:1em;
 }
 .full-image img {
     background: center center no-repeat;
@@ -64,4 +61,14 @@
 #map {
     height:25em;
     width:100%;
+    margin-top:2em;
+}
+
+.footer a {
+    font-size:1rem;
+    float:left;
+}
+
+.glyphicon.glyphicon-envelope a{
+    text-align: center;
 }
