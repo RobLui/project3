@@ -7,99 +7,134 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
             <img src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="logo" class="img-responsive center-block gerechten" />
 
-            <div class="col-md-8 col-md-offset-2">
-                <h3 class="title">
-                    QUERY RESULTS
-                </h3>
+            <div class="col-sm-12">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h3 class="title">
+                        GERECHTEN OBV ZOEKOPDRACHT
+                    </h3>
+                </div>
             </div>
-            <div class="col-md-2 col-md-offset-3">
-                <p class="text-center category">Vlees</p>
+            <div class="col-sm-12">
+                <div class="col-sm-2 col-sm-offset-3">
+                    <p class="text-center category">Vlees</p>
+                </div>
+                <div class="col-sm-2">
+                    <p class="text-center category">Vis</p>
+                </div>
+                <div class="col-sm-2">
+                    <p class="text-center category">Veggie</p>
+                </div>
             </div>
-            <div class="col-md-2">
-                <p class="text-center category">Vis</p>
-            </div>
-            <div class="col-md-2">
-                <p class="text-center category">Veggie</p>
-            </div>
-
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
 
-            <div class="col-md-6 text-center">
-                <div class="img-responsive">
-                    <img src="{{ asset('bundles/project3website/images/test.png') }}" alt="test">
-                </div>
+            {# 1 #}
+            <div class="col-md-6 text-center quickfix">
+
+                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
+                    <div class="img-responsive">
+                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/spring-chicken.jpg') }}" alt="spring chicken">
+                    </div>
+                </a>
 
                 <div class="col-md-6 col-md-offset-3">
                     <p>CHICKEN TANDOORI</p>
                 </div>
 
-                <div class="col-md-3 col-md-offset-3">
-                    <p>aaaaaa</p>
+                <div class="col-md-5 col-md-offset-1">
+                    <p>45 min</p>
                 </div>
 
-                <div class="col-md-3">
-                    <p>aaaaaaa</p>
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
                 </div>
             </div>
 
-            <div class="col-md-6 text-center">
-                <div class="img-responsive">
-                    <img src="{{ asset('bundles/project3website/images/test.png') }}" alt="test">
-                </div>
+            {# 2 #}
+            <div class="col-md-6 text-center quickfix">
+
+                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
+                    <div class="img-responsive">
+                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/chicken-kale-mushrooms.jpg') }}" alt="test">
+                    </div>
+                </a>
 
                 <div class="col-md-6 col-md-offset-3">
-                    <p>CHICKEN TANDOORI</p>
+                    <p>CHICKEN MUSH</p>
                 </div>
 
-                <div class="col-md-3 col-md-offset-3">
-                    <p>aaaaaa</p>
+                <div class="col-md-5 col-md-offset-1">
+                    <p>45 min</p>
                 </div>
 
-                <div class="col-md-3">
-                    <p>aaaaaaa</p>
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
                 </div>
             </div>
 
-            <div class="col-md-6 text-center">
-                <div class="img-responsive">
-                    <img src="{{ asset('bundles/project3website/images/test.png') }}" alt="test">
-                </div>
+            {# 3 #}
+            <div class="col-md-6 text-center quickfix">
+
+                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
+                    <div class="img-responsive">
+                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/chicken-curry.jpg') }}" alt="test">
+                    </div>
+                </a>
 
                 <div class="col-md-6 col-md-offset-3">
-                    <p>CHICKEN TANDOORI</p>
+                    <p>CHICKEN CURRY</p>
                 </div>
 
-                <div class="col-md-3 col-md-offset-3">
-                    <p>aaaaaa</p>
+                <div class="col-md-5 col-md-offset-1">
+                    <p>45 min</p>
                 </div>
 
-                <div class="col-md-3">
-                    <p>aaaaaaa</p>
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
                 </div>
             </div>
 
-            <div class="col-md-6 text-center">
-                <div class="img-responsive">
-                    <img src="{{ asset('bundles/project3website/images/test.png') }}" alt="test">
-                </div>
+            {# 4 #}
+            <div class="col-md-6 text-center quickfix">
+
+                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
+                    <div class="img-responsive">
+                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/chilli-chicken-wraps.jpg') }}" alt="test">
+                    </div>
+                </a>
 
                 <div class="col-md-6 col-md-offset-3">
-                    <p>CHICKEN TANDOORI</p>
+                    <p>CHICKEN WRAPS</p>
                 </div>
 
-                <div class="col-md-3 col-md-offset-3">
-                    <p>aaaaaa</p>
+                <div class="col-md-5 col-md-offset-1">
+                    <p>45 min</p>
                 </div>
 
-                <div class="col-md-3">
-                    <p>aaaaaaa</p>
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
                 </div>
             </div>
         </div>

@@ -11,16 +11,20 @@
             <img src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="logo" class="img-responsive center-block gerechten" />
             <div class="col-md-6 col-md-offset-3">
                 <h3 class="text-center title">
-                    KLAARGEMAAKTE GERECHTEN
+                    MIJN KLAARGEMAAKTE GERECHTEN
                 </h3>
             </div>
         </div>
 
         <div class="col-md-12 text-center">
+
             <div class="col-md-4 text-center">
-                <div class="img-responsive">
-                    <img class="col-md-12" src="{{ asset('bundles/project3website/images/chilli-chicken-wraps.jpg') }}" alt="test">
-                </div>
+
+                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
+                    <div class="img-responsive">
+                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/chilli-chicken-wraps.jpg') }}" alt="test">
+                    </div>
+                </a>
 
                 <div class="col-md-8 col-md-offset-2">
                     <p>CHICKEN WRAPS</p>
@@ -36,9 +40,12 @@
             </div>
 
             <div class="col-md-4 text-center">
-                <div class="img-responsive">
-                    <img class="col-md-12" src="{{ asset('bundles/project3website/images/spring-chicken.jpg') }}" alt="spring chicken">
-                </div>
+
+                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
+                    <div class="img-responsive">
+                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/spring-chicken.jpg') }}" alt="spring chicken">
+                    </div>
+                </a>
 
                 <div class="col-md-8 col-md-offset-2">
                     <p>HERFST CHICKEN</p>
@@ -56,7 +63,9 @@
 
             <div class="col-md-4 text-center">
                 <div class="img-responsive">
-                    <img class="col-md-12"src="{{ asset('bundles/project3website/images/chicken-kale-mushrooms.jpg') }}" alt="test">
+                    <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
+                    <img class="col-md-12"src="{{ asset('bundles/project3website/images/chicken-kale-mushrooms.jpg') }}" alt="kip kale">
+                    </a>
                 </div>
 
                 <div class="col-md-8 col-md-offset-2">
