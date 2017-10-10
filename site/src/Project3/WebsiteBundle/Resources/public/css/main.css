@@ -6,13 +6,13 @@
 
 /* ZOEKEN HOMEPAGE */
 #top-margin {
-    margin-top:25%;
-    margin-bottom:30%;
+    margin-top:0%;
+    margin-bottom:45%;
 }
 
 /* ALLE IMAGES */
 .img-responsive {
-    margin-top:5rem;
+    /*margin-top:5rem;*/
 }
 
 /* SHOPPINGLISTS */
@@ -36,7 +36,7 @@
     padding:1em;
     background: orange;
     text-align: center;
-    font-size:1rem;
+    font-size:1.2rem;
 }
 .full-image img {
     background: center center no-repeat;
@@ -59,5 +59,5 @@
     }
 }
 .title {
-margin-bottom:1em;
+    margin-bottom:1em;
 }
