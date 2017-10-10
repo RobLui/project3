@@ -33,11 +33,11 @@
 
 /* GERECHTEN & QUERY GERECHTEN */
 .category {
-    margin-top:1em;
     padding:1em;
     background: orange;
+    text-align: center;
+    font-size:1rem;
 }
-
 .full-image img {
     background: center center no-repeat;
     width:100%;
@@ -57,4 +57,7 @@
     .navbar-nav {
         float: none;
     }
+}
+.title {
+margin-bottom:1em;
 }
