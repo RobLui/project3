@@ -29,7 +29,6 @@
 /* GERECHTEN & QUERY GERECHTEN */
 .category {
     padding:1em;
-    /*background: orange;*/
     border:1px solid black;
     text-align: center;
     font-size:1.2rem;
@@ -59,23 +58,17 @@
         float: none;
     }
 }
+/* TITLES */
 .title {
     margin-bottom:1em;
 }
+/* MAP */
 #map {
     height:25em;
     width:100%;
     margin-top:2em;
 }
 
-.footer a{
-    font-size:1rem;
-    float:left;
-}
-
-.glyphicon.glyphicon-envelope a{
-    text-align: center;
-}
 .img-responsive img {
     margin-bottom:1em;
     max-height:100%;
@@ -126,11 +119,19 @@
     margin-bottom:0.5em;
 }
 
+/* BUTTON */
 .btn{
     border-radius:0 !important;
 }
-
+/* TEXTAREA */
 textarea {
     max-width:100%;
     width:100%;
+}
+
+.fixed-height{
+    height:12rem;
+}
+.fixed-height p {
+    margin-top:10%;
 }
