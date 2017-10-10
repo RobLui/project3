@@ -72,3 +72,9 @@
 .glyphicon.glyphicon-envelope a{
     text-align: center;
 }
+.img-responsive img {
+    margin-bottom:1em;
+}
+.col-sm-12 {
+    margin-bottom:1em;
+}
