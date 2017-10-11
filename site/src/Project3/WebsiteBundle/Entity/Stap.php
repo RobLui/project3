@@ -52,7 +52,7 @@ class Stap
 
     function __toString()
     {
-        return  "Stap ". (string)($this->stapnummer);
+        return  "STAP ". (string)($this->stapnummer);
     }
 
     /**

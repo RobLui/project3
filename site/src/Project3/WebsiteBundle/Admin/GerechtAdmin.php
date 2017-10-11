@@ -67,6 +67,7 @@ class GerechtAdmin extends AbstractAdmin
             ->end()
             ->tab("Recept")
                 ->with("Overzicht")
+                    ->add("bereidingstijd")
                     ->add('stappen', 'sonata_type_collection', array(
                         'type_options' => array()
                     ), array(

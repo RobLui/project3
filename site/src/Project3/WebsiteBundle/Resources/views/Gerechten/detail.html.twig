@@ -23,10 +23,10 @@
 
             <div class="detail minusfix">
                 <div class="col-md-6 bordered">
-                    <p class="text-left">{{ gerecht.beschrijving }}</p>
+                    <p class="text-left">{{ gerecht.beschrijving|default("-") }}</p>
                 </div>
                 <div class="col-md-2 bordered">
-                    <p>45 min</p>
+                    <p>{{ gerecht.bereidingstijd|default(0) }} min</p>
                 </div>
                 <div class="col-md-4 bordered">
                     <p>
@@ -43,41 +43,47 @@
     {#-------------INGREDIENTEN-------------#}
         <div class="col-md-8 col-md-offset-2">
             <div class="col-md-5 bordered">
-            <p class="plusfix"> WELKE INGREDIENTEN</p>
+                <p class="plusfix"> WELKE INGREDIENTEN</p>
                 <div class="col-md-offset-1 plusfix">
-                    <li class="col-md-12 list-unstyled">
-                        <div class="col-md-4 col-md-offset-5">
-                            <p class="optimized">HEB IK</p>
+
+
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-12 col-md-2 col-md-offset-2 text-center">
+                            <p class="optimized">WEL</p>
+                        </div>
+                        <div class="col-md-12 col-md-2 ">
                             <p class="optimized">NIET</p>
                         </div>
-                    </li>
-                    <ul class="col-md-6">
-                        <li>pasta</li>
-                        <li>kip</li>
-                        <li>tomaten</li>
-                        <li>look</li>
-                        <li>courgette</li>
-                        <li>ajuin</li>
-                    </ul>
-                    <ul class="col-md-3">
-                        <li class="list-unstyled">v</li>
-                        <li class="list-unstyled">v</li>
-                        <li class="list-unstyled">v</li>
-                        <li class="list-unstyled">v</li>
-                        <li class="list-unstyled">v</li>
-                        <li class="list-unstyled">v</li>
-                    </ul>
-                    <ul class="col-md-3">
-                        <li class="list-unstyled">x</li>
-                        <li class="list-unstyled">x</li>
-                        <li class="list-unstyled">x</li>
-                        <li class="list-unstyled">x</li>
-                        <li class="list-unstyled">x</li>
-                        <li class="list-unstyled">x</li>
-                    </ul>
+                    </div>
+
+                    <div class="col-md-12">
+                        <ul class="col-md-7">
+                            {% for ingredient in gerecht.ingredienten %}
+                                <li>{{ ingredient.naam }}</li>
+                            {% endfor %}
+                        </ul>
+                        <ul class="col-md-2 col-md-offset-1">
+                            <li class="list-unstyled">v</li>
+                            <li class="list-unstyled">v</li>
+                            <li class="list-unstyled">v</li>
+                            <li class="list-unstyled">v</li>
+                            <li class="list-unstyled">v</li>
+                            <li class="list-unstyled">v</li>
+                        </ul>
+                        <ul class="col-md-2">
+                            <li class="list-unstyled">x</li>
+                            <li class="list-unstyled">x</li>
+                            <li class="list-unstyled">x</li>
+                            <li class="list-unstyled">x</li>
+                            <li class="list-unstyled">x</li>
+                            <li class="list-unstyled">x</li>
+                        </ul>
+                    </div>
                 </div>
+
                 <div class="col-md-12">
                     <p class="btn shoppinglist bordered text-center">MAAK SHOPPINGLIJST</p>
                 </div>
@@ -105,10 +111,8 @@
                     <li class="list-unstyled col-md-offset-2">&euro; 2,25</li>
                 </ul>
             </div>
-            <div class="col-md-12">
-                <p class="btn text-center bordered col-md-6 shoppinglist">SLA OP</p>
-                <p class="btn text-center bordered col-md-6 shoppinglist">MAIL</p>
-            </div>
+                <p class="btn text-center bordered col-md-10 col-md-offset-1 mail-shop">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
+                <p class="btn text-center bordered col-md-10 col-md-offset-1 mail-shop">MAIL</p>
         </div>
     </div>
 
@@ -117,17 +121,8 @@
         <p class="plusfix">BEREIDINGSWIJZE</p>
         <div class="col-md-12 bordered">
             <div class="col-md-4">
-                <div class="col-md-offset-1">
-                    <ul class="col-md-12">
-                        <li class="list-unstyled plusfix" style="margin-left:-1em;">BENODIGDHEDEN(4personen)</li>
-                        <li>Pasta (500gram)</li>
-                        <li>Kip (1hele kip)</li>
-                        <li>1 tros tomaten</li>
-                        <li>Look (2 teentjes)</li>
-                        <li>Courgette (1 stuk)</li>
-                        <li>Ajuin (200 gram)</li>
-                    </ul>
-                </div>
+                <p class="plusfix">BENODIGDHEDEN(4personen)</p>
+                <p>{{ gerecht.benodigdheden|raw }}</p>
             </div>
         </div>
     </div>
@@ -135,40 +130,22 @@
 
     {#-------------STAPPEN-------------#}
     <div class="col-md-8 col-md-offset-2">
-        {# 1 #}
-        <div class="receptlist">
-            <div class="col-md-2">
-                <p class="col-md-12">STAP 1</p>
-                <input class="col-md-12" type="checkbox" style="margin-left:2em; margin-top:-0.6em;">
+        {% for stap in gerecht.stappen %}
+            <div class="receptlist">
+                <div class="col-md-1">
+                    <p class="col-md-12">{{ stap.stapnummer }}</p>
+                    <input class="col-md-12" type="checkbox" style="margin-left:0.7em; margin-top:-0.6em;">
+                </div>
+                <div class="col-md-11">
+                    <p>{{ stap.tekst }}</p>
+                </div>
             </div>
-            <div class="col-md-9">
-                <p>Snijd de ajuin en courgette. Maak tomatenpuree. Als er nog vet aan de billen hangt, snij deze er ook af.</p>
-            </div>
-        </div>
-        {# 2 #}
-        <div class="receptlist">
-            <div class="col-md-2">
-                <p class="col-md-12">STAP 2</p>
-                <input class="col-md-12" type="checkbox" style="margin-left:2em; margin-top:-0.6em;">
-            </div>
-            <div class="col-md-10">
-                <p>Bak de ajuin samen met de look tot de ajuin glazig is. Voeg dan de courgette toe en bak deze lichtjes. Voeg de tomatenpuree toe.</p>
-            </div>
-        </div>
-        {# 3 #}
-        <div class="receptlist">
-            <div class="col-md-2">
-                <p class="col-md-12">STAP 3</p>
-                <input class="col-md-12" type="checkbox" style="margin-left:2em; margin-top:-0.6em;">
-            </div>
-            <div class="col-md-9">
-                <p>Bak de kip in een aparte pan en voeg deze toe aan de saus. Kook de pasta. Voeg alles samen</p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
     <div class="col-md-8 col-md-offset-2">
         <p class="btn pull-right bordered plusfix">PRINT</p>
+        <p class="btn pull-right bordered plusfix">SLA OP IN MIJN GERECHTEN</p>
     </div>
 
     {#-------------REVIEWS-------------#}
@@ -195,7 +172,9 @@
     {#-------------SCHRIJF EEN REVIEW-------------#}
     <div class="col-md-8 col-md-offset-2 plusfix">
         <p class="plusfix">SCHRIJF EEN REVIEW</p>
-        <textarea name="review" class="bordered" cols="100" rows="5"></textarea>
+        <textarea name="review" class="bordered" cols="100" rows="5">
+
+        </textarea>
     </div>
 
     <div class="col-md-8 col-md-offset-2">

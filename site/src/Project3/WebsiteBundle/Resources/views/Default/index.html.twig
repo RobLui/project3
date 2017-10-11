@@ -1,13 +1,5 @@
 {% extends "@Project3Website/layout.html.twig" %}
 
-{% block jumbotron %}
-    {#<div class="jumbotron">#}
-        {#<div class="container text-center">#}
-            {#<h1>FoodGuru</h1>#}
-        {#</div>#}
-    {#</div>#}
-{% endblock jumbotron %}
-
 {% block content %}
 
     {#ZOEKEN#}
@@ -16,14 +8,11 @@
         <div class="col-sm-6 col-sm-offset-3">
             <div class="text-center">
                 <p>Geen inspiratie voor het avondeten?<p>
-                <p>Geef je ingredienten in en wij zorgen voor je inspiratie</p>
             </div>
             <div class="input-group stylish-input-group">
-                <input type="text" class="form-control" placeholder="Geef hier in met welke ingredienten je vandaag aan de slag wil" >
+                <input type="text" class="form-control text-center" placeholder="Geef hier in met welke ingredienten je vandaag aan de slag wil" >
                 <span class="input-group-addon">
-                    <button type="submit">
-                        <a href="{{ path('project3_gerecht_query',{query:1}) }}"><span class="glyphicon glyphicon-search"></span></a>
-                    </button>
+                    <a type="submit" href="{{ path('project3_gerecht_query',{query:1}) }}"><span class="glyphicon glyphicon-search"></span></a>
                 </span>
             </div>
         </div>
