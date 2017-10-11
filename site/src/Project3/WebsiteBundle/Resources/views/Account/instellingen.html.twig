@@ -7,27 +7,41 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
-            <img src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="logo" class="img-responsive center-block gerechten" />
+        <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <img src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="logo" class="img-responsive center-block gerechten" />
 
-            <div class="col-md-8 col-md-offset-2">
-                <h3 class="title">
-                    JOUW INSTELLINGEN
-                </h3>
-            </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <h3 class="title">
+                        JOUW INSTELLINGEN
+                    </h3>
+                </div>
 
                 <ul class="list-group">
-
                     {# SHOPPINGLIST #}
-                    <li class="col-md-7 list-group-item text-left">Shoppinglist verwijderen uit account:</li>
-                    <li class="col-md-5 list-group-item"><input type="checkbox"></li>
+                    <li class="col-md-7 list-group-item list-unstyled text-left">Shoppinglist verwijderen uit account:</li>
+                    <li class="col-md-5 list-unstyled">
+                    <ul class="list-group">
+                        <li class="nav-item dropdown list-unstyled">
+                            <a href="#" class="dropdown-toggle list-group-item" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                2 weken
+                            </a>
+                            <ul class="dropdown-menu list-group">
+                                <li class="list-group-item"><p>3 weken</p></li>
+                                <li class="list-group-item"><p>4 weken</p></li>
+                                <li class="list-group-item"><p>nooit</p></li>
+                            </ul>
+                        </li>
+                    </ul>
 
                     {# E-MAIL #}
                     <li class="col-md-7 list-group-item text-left">E-mailadres:</li>
                     <li class="col-md-5 list-group-item"><a href="mailto:robbertluit@hotmail.com">robbertluit@hotmail.com</a></li>
-
                 </ul>
 
+            </div>
         </div>
     </div>
 

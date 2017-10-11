@@ -135,3 +135,6 @@ textarea {
 .fixed-height p {
     margin-top:10%;
 }
+.comment {
+    font-size:1rem;
+}
