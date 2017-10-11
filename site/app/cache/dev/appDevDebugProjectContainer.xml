@@ -906,10 +906,10 @@
     </parameter>
     <parameter key="trsteel_ckeditor.ckeditor.startup_outline_blocks">true</parameter>
     <parameter key="trsteel_ckeditor.ckeditor.ui_color">null</parameter>
-    <parameter key="trsteel_ckeditor.ckeditor.width">100%</parameter>
-    <parameter key="trsteel_ckeditor.ckeditor.height">300</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.width">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.height">null</parameter>
     <parameter key="trsteel_ckeditor.ckeditor.force_paste_as_plaintext">null</parameter>
-    <parameter key="trsteel_ckeditor.ckeditor.language">nl-be</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.language">null</parameter>
     <parameter key="trsteel_ckeditor.ckeditor.filebrowser_browse_url" type="collection">
       <parameter key="url">null</parameter>
       <parameter key="route">null</parameter>
@@ -921,11 +921,9 @@
       <parameter key="route_parameters" type="collection"/>
     </parameter>
     <parameter key="trsteel_ckeditor.ckeditor.filebrowser_image_browse_url" type="collection">
-      <parameter key="route">elfinder</parameter>
-      <parameter key="route_parameters" type="collection">
-        <parameter key="instance">ckeditor</parameter>
-      </parameter>
       <parameter key="url">null</parameter>
+      <parameter key="route">null</parameter>
+      <parameter key="route_parameters" type="collection"/>
     </parameter>
     <parameter key="trsteel_ckeditor.ckeditor.filebrowser_image_upload_url" type="collection">
       <parameter key="url">null</parameter>
@@ -967,16 +965,14 @@
       <parameter key="instances" type="collection">
         <parameter key="default" type="collection">
           <parameter key="locale">nl</parameter>
-          <parameter key="editor">ckeditor</parameter>
-          <parameter key="fullscreen">false</parameter>
+          <parameter key="editor">form</parameter>
+          <parameter key="theme">smoothness</parameter>
           <parameter key="include_assets">true</parameter>
           <parameter key="connector" type="collection">
-            <parameter key="debug">false</parameter>
             <parameter key="roots" type="collection">
               <parameter key="uploads" type="collection">
-                <parameter key="show_hidden">false</parameter>
                 <parameter key="driver">LocalFileSystem</parameter>
-                <parameter key="path">/Users/louise/Documents/School/Project3/site/src/Project3/WebsiteBundle/Resources/public/uploads</parameter>
+                <parameter key="path">uploads</parameter>
                 <parameter key="upload_allow" type="collection">
                   <parameter>image/png</parameter>
                   <parameter>image/jpg</parameter>
@@ -1015,6 +1011,7 @@
                 </parameter>
                 <parameter key="attributes" type="collection"/>
                 <parameter key="accepted_name">/^\w[\w\s\.\%\-]*$/u</parameter>
+                <parameter key="show_hidden">false</parameter>
                 <parameter key="disabled_commands" type="collection"/>
                 <parameter key="tree_deep">0</parameter>
                 <parameter key="check_subfolders">true</parameter>
@@ -1047,12 +1044,13 @@
                 </parameter>
               </parameter>
             </parameter>
+            <parameter key="debug">false</parameter>
             <parameter key="binds" type="collection"/>
             <parameter key="plugins" type="collection"/>
           </parameter>
           <parameter key="cors_support">false</parameter>
           <parameter key="editor_template">null</parameter>
-          <parameter key="theme">smoothness</parameter>
+          <parameter key="fullscreen">true</parameter>
           <parameter key="tinymce_popup_path"></parameter>
           <parameter key="relative_path">true</parameter>
           <parameter key="path_prefix">/</parameter>
@@ -3899,7 +3897,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>59de854fb05ed3.01192603</argument>
+            <argument>59de985b0e53c2.77335149</argument>
           </service>
         </argument>
       </argument>
@@ -4241,7 +4239,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>59de854fb05ed3.01192603</argument>
+            <argument>59de985b0e53c2.77335149</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -6101,16 +6099,14 @@
         <argument key="instances" type="collection">
           <argument key="default" type="collection">
             <argument key="locale">nl</argument>
-            <argument key="editor">ckeditor</argument>
-            <argument key="fullscreen">false</argument>
+            <argument key="editor">form</argument>
+            <argument key="theme">smoothness</argument>
             <argument key="include_assets">true</argument>
             <argument key="connector" type="collection">
-              <argument key="debug">false</argument>
               <argument key="roots" type="collection">
                 <argument key="uploads" type="collection">
-                  <argument key="show_hidden">false</argument>
                   <argument key="driver">LocalFileSystem</argument>
-                  <argument key="path">/Users/louise/Documents/School/Project3/site/src/Project3/WebsiteBundle/Resources/public/uploads</argument>
+                  <argument key="path">uploads</argument>
                   <argument key="upload_allow" type="collection">
                     <argument>image/png</argument>
                     <argument>image/jpg</argument>
@@ -6149,6 +6145,7 @@
                   </argument>
                   <argument key="attributes" type="collection"/>
                   <argument key="accepted_name">/^\w[\w\s\.\%\-]*$/u</argument>
+                  <argument key="show_hidden">false</argument>
                   <argument key="disabled_commands" type="collection"/>
                   <argument key="tree_deep">0</argument>
                   <argument key="check_subfolders">true</argument>
@@ -6181,12 +6178,13 @@
                   </argument>
                 </argument>
               </argument>
+              <argument key="debug">false</argument>
               <argument key="binds" type="collection"/>
               <argument key="plugins" type="collection"/>
             </argument>
             <argument key="cors_support">false</argument>
             <argument key="editor_template">null</argument>
-            <argument key="theme">smoothness</argument>
+            <argument key="fullscreen">true</argument>
             <argument key="tinymce_popup_path"></argument>
             <argument key="relative_path">true</argument>
             <argument key="path_prefix">/</argument>

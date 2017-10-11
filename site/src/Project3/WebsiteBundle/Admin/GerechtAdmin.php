@@ -59,7 +59,11 @@ class GerechtAdmin extends AbstractAdmin
                 ->with('Overzicht')
                     ->add('categorie')
                     ->add('naam')
-                    ->add('foto','elfinder')
+                    ->add('foto', 'elfinder',array(
+                        "instance" => "default",
+                        "attr" => array("class" => "form-control", "placeholder" => "Klik hier om een foto toe te voegen"),
+                        "required" => false,
+                    ))
                     ->add('beschrijving')
                     ->add('rating')
                     ->add('actief')

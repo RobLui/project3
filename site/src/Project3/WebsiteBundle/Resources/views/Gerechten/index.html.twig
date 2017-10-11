@@ -41,11 +41,11 @@
                         </a>
 
                     <div class="col-md-6 col-md-offset-3">
-                        <p>{{ gerecht.naam }}</p>
+                        <p>{{ gerecht.naam|default() }}</p>
                     </div>
 
                     <div class="col-md-5 col-md-offset-1">
-                        <p>{{ gerecht.bereidingstijd }} min</p>
+                        <p>{{ gerecht.bereidingstijd|default(10) }} min</p>
                     </div>
 
                     <div class="col-md-6">
@@ -59,82 +59,82 @@
             {% endfor %}
 
             {# 2 #}
-            <div class="col-md-6 text-center quickfix">
+            {#<div class="col-md-6 text-center quickfix">#}
 
-                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
-                    <div class="img-responsive">
-                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/chicken-kale-mushrooms.jpg') }}" alt="test">
-                    </div>
-                </a>
+                {#<a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">#}
+                    {#<div class="img-responsive">#}
+                        {#<img class="col-md-12" src="{{ asset('bundles/project3website/images/chicken-kale-mushrooms.jpg') }}" alt="test">#}
+                    {#</div>#}
+                {#</a>#}
 
-                <div class="col-md-6 col-md-offset-3">
-                    <p>CHICKEN KALE</p>
-                </div>
+                {#<div class="col-md-6 col-md-offset-3">#}
+                    {#<p>CHICKEN KALE</p>#}
+                {#</div>#}
 
-                <div class="col-md-5 col-md-offset-1">
-                    <p>45 min</p>
-                </div>
+                {#<div class="col-md-5 col-md-offset-1">#}
+                    {#<p>45 min</p>#}
+                {#</div>#}
 
-                <div class="col-md-6">
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </div>
-            </div>
+                {#<div class="col-md-6">#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                {#</div>#}
+            {#</div>#}
 
             {# 3 #}
-            <div class="col-md-6 text-center quickfix">
+            {#<div class="col-md-6 text-center quickfix">#}
 
-                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
-                    <div class="img-responsive">
-                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/chicken-curry.jpg') }}" alt="test">
-                    </div>
-                </a>
+                {#<a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">#}
+                    {#<div class="img-responsive">#}
+                        {#<img class="col-md-12" src="{{ asset('bundles/project3website/images/chicken-curry.jpg') }}" alt="test">#}
+                    {#</div>#}
+                {#</a>#}
 
-                <div class="col-md-6 col-md-offset-3">
-                    <p>CHICKEN CURRY</p>
-                </div>
+                {#<div class="col-md-6 col-md-offset-3">#}
+                    {#<p>CHICKEN CURRY</p>#}
+                {#</div>#}
 
-                <div class="col-md-5 col-md-offset-1">
-                    <p>45 min</p>
-                </div>
+                {#<div class="col-md-5 col-md-offset-1">#}
+                    {#<p>45 min</p>#}
+                {#</div>#}
 
-                <div class="col-md-6">
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </div>
-            </div>
+                {#<div class="col-md-6">#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                {#</div>#}
+            {#</div>#}
 
             {# 4 #}
-            <div class="col-md-6 text-center quickfix">
+            {#<div class="col-md-6 text-center quickfix">#}
 
-                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
-                    <div class="img-responsive">
-                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/chilli-chicken-wraps.jpg') }}" alt="test">
-                    </div>
-                </a>
+                {#<a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">#}
+                    {#<div class="img-responsive">#}
+                        {#<img class="col-md-12" src="{{ asset('bundles/project3website/images/chilli-chicken-wraps.jpg') }}" alt="test">#}
+                    {#</div>#}
+                {#</a>#}
 
-                <div class="col-md-6 col-md-offset-3">
-                    <p>CHICKEN WRAPS</p>
-                </div>
+                {#<div class="col-md-6 col-md-offset-3">#}
+                    {#<p>CHICKEN WRAPS</p>#}
+                {#</div>#}
 
-                <div class="col-md-5 col-md-offset-1">
-                    <p>45 min</p>
-                </div>
+                {#<div class="col-md-5 col-md-offset-1">#}
+                    {#<p>45 min</p>#}
+                {#</div>#}
 
-                <div class="col-md-6">
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </div>
-            </div>
+                {#<div class="col-md-6">#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                    {#<span class="glyphicon glyphicon-star-empty"></span>#}
+                {#</div>#}
+            {#</div>#}
         </div>
     </div>
 

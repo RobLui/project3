@@ -117,7 +117,6 @@
 <div class="container" style="padding-top: 20px !important;">
     {% block content %}
     {% endblock content %}
-
         <div class="col-md-10 col-md-offset-1">
 
             {#<img src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="logo" class="img-responsive center-block" />#}
@@ -146,16 +145,10 @@
 <!-- /container -->
 
 <script>
-    function myMap() {
-        var mapCanvas = document.getElementById("map");
-        var mapOptions = {
-            center: new google.maps.LatLng(51.5, -0.2), zoom: 10
-        };
-        var map = new google.maps.Map(mapCanvas, mapOptions);
-    }
+
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8jBg9-43IR8MkDY0t2nk2dcSo4Tf_XVY&callback=myMap"></script>
+{#<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8jBg9-43IR8MkDY0t2nk2dcSo4Tf_XVY&callback=myMap"></script>#}
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp

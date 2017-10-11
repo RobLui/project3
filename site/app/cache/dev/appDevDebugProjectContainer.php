@@ -880,7 +880,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFmElfinder_Configurator_DefaultService()
     {
-        return $this->services['fm_elfinder.configurator.default'] = new \FM\ElfinderBundle\Configuration\ElFinderConfigurationReader(array('instances' => array('default' => array('locale' => 'nl', 'editor' => 'ckeditor', 'fullscreen' => false, 'include_assets' => true, 'connector' => array('debug' => false, 'roots' => array('uploads' => array('show_hidden' => false, 'driver' => 'LocalFileSystem', 'path' => '/Users/louise/Documents/School/Project3/site/src/Project3/WebsiteBundle/Resources/public/uploads', 'upload_allow' => array(0 => 'image/png', 1 => 'image/jpg', 2 => 'image/jpeg'), 'upload_deny' => array(0 => 'all'), 'upload_max_size' => '8M', 'volume_id' => 0, 'start_path' => '', 'url' => '', 'alias' => '', 'mime_detect' => 'auto', 'mimefile' => '', 'img_lib' => 'auto', 'tmb_path' => '.tmb', 'tmb_path_mode' => 511, 'tmb_url' => '', 'tmb_size' => 48, 'tmb_crop' => true, 'tmb_bg_color' => '#ffffff', 'copy_overwrite' => true, 'copy_join' => true, 'copy_from' => true, 'copy_to' => true, 'upload_overwrite' => true, 'fileMode' => 420, 'upload_order' => array(0 => 'deny', 1 => 'allow'), 'defaults' => array('read' => true, 'write' => true), 'attributes' => array(), 'accepted_name' => '/^\\w[\\w\\s\\.\\%\\-]*$/u', 'disabled_commands' => array(), 'tree_deep' => 0, 'check_subfolders' => true, 'separator' => '/', 'date_format' => 'j M Y H:i', 'time_format' => 'H:i', 'archive_mimes' => array(), 'archivers' => array('enabled' => false, 'create' => array(), 'extract' => array()), 'flysystem' => array('enabled' => false, 'type' => '', 'adapter_service' => ''), 'glide_url' => '', 'glide_key' => '', 'plugins' => array(), 'driver_options' => array(), 'dropbox_settings' => array('enabled' => false), 'ftp_settings' => array('enabled' => false), 's3_settings' => array('enabled' => false))), 'binds' => array(), 'plugins' => array()), 'cors_support' => false, 'editor_template' => NULL, 'theme' => 'smoothness', 'tinymce_popup_path' => '', 'relative_path' => true, 'path_prefix' => '/', 'visible_mime_types' => array())), 'configuration_provider' => 'fm_elfinder.configurator.default', 'assets_path' => '/assets', 'loader' => 'fm_elfinder.loader.default'), $this->get('request_stack'), $this);
+        return $this->services['fm_elfinder.configurator.default'] = new \FM\ElfinderBundle\Configuration\ElFinderConfigurationReader(array('instances' => array('default' => array('locale' => 'nl', 'editor' => 'form', 'theme' => 'smoothness', 'include_assets' => true, 'connector' => array('roots' => array('uploads' => array('driver' => 'LocalFileSystem', 'path' => 'uploads', 'upload_allow' => array(0 => 'image/png', 1 => 'image/jpg', 2 => 'image/jpeg'), 'upload_deny' => array(0 => 'all'), 'upload_max_size' => '8M', 'volume_id' => 0, 'start_path' => '', 'url' => '', 'alias' => '', 'mime_detect' => 'auto', 'mimefile' => '', 'img_lib' => 'auto', 'tmb_path' => '.tmb', 'tmb_path_mode' => 511, 'tmb_url' => '', 'tmb_size' => 48, 'tmb_crop' => true, 'tmb_bg_color' => '#ffffff', 'copy_overwrite' => true, 'copy_join' => true, 'copy_from' => true, 'copy_to' => true, 'upload_overwrite' => true, 'fileMode' => 420, 'upload_order' => array(0 => 'deny', 1 => 'allow'), 'defaults' => array('read' => true, 'write' => true), 'attributes' => array(), 'accepted_name' => '/^\\w[\\w\\s\\.\\%\\-]*$/u', 'show_hidden' => false, 'disabled_commands' => array(), 'tree_deep' => 0, 'check_subfolders' => true, 'separator' => '/', 'date_format' => 'j M Y H:i', 'time_format' => 'H:i', 'archive_mimes' => array(), 'archivers' => array('enabled' => false, 'create' => array(), 'extract' => array()), 'flysystem' => array('enabled' => false, 'type' => '', 'adapter_service' => ''), 'glide_url' => '', 'glide_key' => '', 'plugins' => array(), 'driver_options' => array(), 'dropbox_settings' => array('enabled' => false), 'ftp_settings' => array('enabled' => false), 's3_settings' => array('enabled' => false))), 'debug' => false, 'binds' => array(), 'plugins' => array()), 'cors_support' => false, 'editor_template' => NULL, 'fullscreen' => true, 'tinymce_popup_path' => '', 'relative_path' => true, 'path_prefix' => '/', 'visible_mime_types' => array())), 'configuration_provider' => 'fm_elfinder.configurator.default', 'assets_path' => '/assets', 'loader' => 'fm_elfinder.loader.default'), $this->get('request_stack'), $this);
     }
 
     /**
@@ -2658,7 +2658,7 @@ class appDevDebugProjectContainer extends Container
         $p = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $h, $l, 'main', $n, $o, array('check_path' => 'project3_security_login', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $c, NULL);
         $p->setRememberMeServices($e);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.chain_provider'), 1 => $this->get('security.user.provider.concrete.hardcoded'), 2 => $this->get('fos_user.user_provider.username_email')), 'main', $a, $c), 2 => $m, 3 => $p, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $e, $g, $a, $c, true, $h), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '59de854fb05ed3.01192603', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $l, 'project3_security_login', false), NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.chain_provider'), 1 => $this->get('security.user.provider.concrete.hardcoded'), 2 => $this->get('fos_user.user_provider.username_email')), 'main', $a, $c), 2 => $m, 3 => $p, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $e, $g, $a, $c, true, $h), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '59de985b0e53c2.77335149', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $l, 'project3_security_login', false), NULL, NULL, $a, false));
     }
 
     /**
@@ -5057,7 +5057,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('security.user_checker.main');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.chain_provider'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('59de854fb05ed3.01192603')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.chain_provider'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('59de985b0e53c2.77335149')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -6200,10 +6200,10 @@ class appDevDebugProjectContainer extends Container
             ),
             'trsteel_ckeditor.ckeditor.startup_outline_blocks' => true,
             'trsteel_ckeditor.ckeditor.ui_color' => NULL,
-            'trsteel_ckeditor.ckeditor.width' => '100%',
-            'trsteel_ckeditor.ckeditor.height' => 300,
+            'trsteel_ckeditor.ckeditor.width' => NULL,
+            'trsteel_ckeditor.ckeditor.height' => NULL,
             'trsteel_ckeditor.ckeditor.force_paste_as_plaintext' => NULL,
-            'trsteel_ckeditor.ckeditor.language' => 'nl-be',
+            'trsteel_ckeditor.ckeditor.language' => NULL,
             'trsteel_ckeditor.ckeditor.filebrowser_browse_url' => array(
                 'url' => NULL,
                 'route' => NULL,
@@ -6219,11 +6219,11 @@ class appDevDebugProjectContainer extends Container
                 ),
             ),
             'trsteel_ckeditor.ckeditor.filebrowser_image_browse_url' => array(
-                'route' => 'elfinder',
-                'route_parameters' => array(
-                    'instance' => 'ckeditor',
-                ),
                 'url' => NULL,
+                'route' => NULL,
+                'route_parameters' => array(
+
+                ),
             ),
             'trsteel_ckeditor.ckeditor.filebrowser_image_upload_url' => array(
                 'url' => NULL,
@@ -6279,16 +6279,14 @@ class appDevDebugProjectContainer extends Container
                 'instances' => array(
                     'default' => array(
                         'locale' => 'nl',
-                        'editor' => 'ckeditor',
-                        'fullscreen' => false,
+                        'editor' => 'form',
+                        'theme' => 'smoothness',
                         'include_assets' => true,
                         'connector' => array(
-                            'debug' => false,
                             'roots' => array(
                                 'uploads' => array(
-                                    'show_hidden' => false,
                                     'driver' => 'LocalFileSystem',
-                                    'path' => '/Users/louise/Documents/School/Project3/site/src/Project3/WebsiteBundle/Resources/public/uploads',
+                                    'path' => 'uploads',
                                     'upload_allow' => array(
                                         0 => 'image/png',
                                         1 => 'image/jpg',
@@ -6329,6 +6327,7 @@ class appDevDebugProjectContainer extends Container
 
                                     ),
                                     'accepted_name' => '/^\\w[\\w\\s\\.\\%\\-]*$/u',
+                                    'show_hidden' => false,
                                     'disabled_commands' => array(
 
                                     ),
@@ -6373,6 +6372,7 @@ class appDevDebugProjectContainer extends Container
                                     ),
                                 ),
                             ),
+                            'debug' => false,
                             'binds' => array(
 
                             ),
@@ -6382,7 +6382,7 @@ class appDevDebugProjectContainer extends Container
                         ),
                         'cors_support' => false,
                         'editor_template' => NULL,
-                        'theme' => 'smoothness',
+                        'fullscreen' => true,
                         'tinymce_popup_path' => '',
                         'relative_path' => true,
                         'path_prefix' => '/',
