@@ -59,7 +59,7 @@ class GerechtAdmin extends AbstractAdmin
                 ->with('Overzicht')
                     ->add('categorie')
                     ->add('naam')
-                    ->add('foto')
+                    ->add('foto','elfinder')
                     ->add('beschrijving')
                     ->add('rating')
                     ->add('actief')

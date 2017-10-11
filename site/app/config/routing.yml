@@ -2,12 +2,17 @@ project3_admin:
     resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
     prefix: /admin
 
+# SONATA ADMIN ROUTING
 project3_sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
 
+# WEBSITE ROUTING SUBFOLDER
 project3_website:
     resource: "@Project3WebsiteBundle/Resources/config/routing.yml"
     prefix:   /
 
+#    ELFINDER ROUTING
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"

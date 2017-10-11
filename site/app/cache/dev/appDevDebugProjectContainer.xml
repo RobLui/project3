@@ -22,6 +22,7 @@
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="TrsteelCkeditorBundle">Trsteel\CkeditorBundle\TrsteelCkeditorBundle</parameter>
       <parameter key="Project3WebsiteBundle">Project3\WebsiteBundle\Project3WebsiteBundle</parameter>
+      <parameter key="FMElfinderBundle">FM\ElfinderBundle\FMElfinderBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -97,6 +98,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/Users/louise/documents/school/project3/site/src/Project3/WebsiteBundle</parameter>
         <parameter key="namespace">Project3\WebsiteBundle</parameter>
+      </parameter>
+      <parameter key="FMElfinderBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/Users/louise/documents/school/project3/site/vendor/helios-ag/fm-elfinder-bundle</parameter>
+        <parameter key="namespace">FM\ElfinderBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -397,6 +403,7 @@
     <parameter key="twig.controller.preview_error.class">Symfony\Bundle\TwigBundle\Controller\PreviewErrorController</parameter>
     <parameter key="twig.exception_listener.controller">twig.controller.exception:showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
+      <parameter>FMElfinderBundle:Form:elfinder_widget.html.twig</parameter>
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>TrsteelCkeditorBundle:Form:ckeditor_widget.html.twig</parameter>
     </parameter>
@@ -899,10 +906,10 @@
     </parameter>
     <parameter key="trsteel_ckeditor.ckeditor.startup_outline_blocks">true</parameter>
     <parameter key="trsteel_ckeditor.ckeditor.ui_color">null</parameter>
-    <parameter key="trsteel_ckeditor.ckeditor.width">null</parameter>
-    <parameter key="trsteel_ckeditor.ckeditor.height">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.width">100%</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.height">300</parameter>
     <parameter key="trsteel_ckeditor.ckeditor.force_paste_as_plaintext">null</parameter>
-    <parameter key="trsteel_ckeditor.ckeditor.language">null</parameter>
+    <parameter key="trsteel_ckeditor.ckeditor.language">nl-be</parameter>
     <parameter key="trsteel_ckeditor.ckeditor.filebrowser_browse_url" type="collection">
       <parameter key="url">null</parameter>
       <parameter key="route">null</parameter>
@@ -914,9 +921,11 @@
       <parameter key="route_parameters" type="collection"/>
     </parameter>
     <parameter key="trsteel_ckeditor.ckeditor.filebrowser_image_browse_url" type="collection">
+      <parameter key="route">elfinder</parameter>
+      <parameter key="route_parameters" type="collection">
+        <parameter key="instance">ckeditor</parameter>
+      </parameter>
       <parameter key="url">null</parameter>
-      <parameter key="route">null</parameter>
-      <parameter key="route_parameters" type="collection"/>
     </parameter>
     <parameter key="trsteel_ckeditor.ckeditor.filebrowser_image_upload_url" type="collection">
       <parameter key="url">null</parameter>
@@ -951,6 +960,109 @@
     <parameter key="trsteel_ckeditor.ckeditor.allowed_content">null</parameter>
     <parameter key="trsteel_ckeditor.ckeditor.extra_allowed_content">null</parameter>
     <parameter key="trsteel_ckeditor.ckeditor.templates_replace_content">null</parameter>
+    <parameter key="fm_elfinder.loader">FM\ElfinderBundle\Loader\ElFinderLoader</parameter>
+    <parameter key="fm_elfinder.configurator">FM\ElfinderBundle\Configuration\ElFinderConfigurationReader</parameter>
+    <parameter key="elfinder.form.type.class">FM\ElfinderBundle\Form\Type\ElFinderType</parameter>
+    <parameter key="fm_elfinder" type="collection">
+      <parameter key="instances" type="collection">
+        <parameter key="default" type="collection">
+          <parameter key="locale">nl</parameter>
+          <parameter key="editor">ckeditor</parameter>
+          <parameter key="fullscreen">false</parameter>
+          <parameter key="include_assets">true</parameter>
+          <parameter key="connector" type="collection">
+            <parameter key="debug">false</parameter>
+            <parameter key="roots" type="collection">
+              <parameter key="uploads" type="collection">
+                <parameter key="show_hidden">false</parameter>
+                <parameter key="driver">LocalFileSystem</parameter>
+                <parameter key="path">/Users/louise/Documents/School/Project3/site/src/Project3/WebsiteBundle/Resources/public/uploads</parameter>
+                <parameter key="upload_allow" type="collection">
+                  <parameter>image/png</parameter>
+                  <parameter>image/jpg</parameter>
+                  <parameter>image/jpeg</parameter>
+                </parameter>
+                <parameter key="upload_deny" type="collection">
+                  <parameter>all</parameter>
+                </parameter>
+                <parameter key="upload_max_size">8M</parameter>
+                <parameter key="volume_id">0</parameter>
+                <parameter key="start_path"></parameter>
+                <parameter key="url"></parameter>
+                <parameter key="alias"></parameter>
+                <parameter key="mime_detect">auto</parameter>
+                <parameter key="mimefile"></parameter>
+                <parameter key="img_lib">auto</parameter>
+                <parameter key="tmb_path">.tmb</parameter>
+                <parameter key="tmb_path_mode">511</parameter>
+                <parameter key="tmb_url"></parameter>
+                <parameter key="tmb_size">48</parameter>
+                <parameter key="tmb_crop">true</parameter>
+                <parameter key="tmb_bg_color">#ffffff</parameter>
+                <parameter key="copy_overwrite">true</parameter>
+                <parameter key="copy_join">true</parameter>
+                <parameter key="copy_from">true</parameter>
+                <parameter key="copy_to">true</parameter>
+                <parameter key="upload_overwrite">true</parameter>
+                <parameter key="fileMode">420</parameter>
+                <parameter key="upload_order" type="collection">
+                  <parameter>deny</parameter>
+                  <parameter>allow</parameter>
+                </parameter>
+                <parameter key="defaults" type="collection">
+                  <parameter key="read">true</parameter>
+                  <parameter key="write">true</parameter>
+                </parameter>
+                <parameter key="attributes" type="collection"/>
+                <parameter key="accepted_name">/^\w[\w\s\.\%\-]*$/u</parameter>
+                <parameter key="disabled_commands" type="collection"/>
+                <parameter key="tree_deep">0</parameter>
+                <parameter key="check_subfolders">true</parameter>
+                <parameter key="separator">/</parameter>
+                <parameter key="date_format">j M Y H:i</parameter>
+                <parameter key="time_format">H:i</parameter>
+                <parameter key="archive_mimes" type="collection"/>
+                <parameter key="archivers" type="collection">
+                  <parameter key="enabled">false</parameter>
+                  <parameter key="create" type="collection"/>
+                  <parameter key="extract" type="collection"/>
+                </parameter>
+                <parameter key="flysystem" type="collection">
+                  <parameter key="enabled">false</parameter>
+                  <parameter key="type"></parameter>
+                  <parameter key="adapter_service"></parameter>
+                </parameter>
+                <parameter key="glide_url"></parameter>
+                <parameter key="glide_key"></parameter>
+                <parameter key="plugins" type="collection"/>
+                <parameter key="driver_options" type="collection"/>
+                <parameter key="dropbox_settings" type="collection">
+                  <parameter key="enabled">false</parameter>
+                </parameter>
+                <parameter key="ftp_settings" type="collection">
+                  <parameter key="enabled">false</parameter>
+                </parameter>
+                <parameter key="s3_settings" type="collection">
+                  <parameter key="enabled">false</parameter>
+                </parameter>
+              </parameter>
+            </parameter>
+            <parameter key="binds" type="collection"/>
+            <parameter key="plugins" type="collection"/>
+          </parameter>
+          <parameter key="cors_support">false</parameter>
+          <parameter key="editor_template">null</parameter>
+          <parameter key="theme">smoothness</parameter>
+          <parameter key="tinymce_popup_path"></parameter>
+          <parameter key="relative_path">true</parameter>
+          <parameter key="path_prefix">/</parameter>
+          <parameter key="visible_mime_types" type="collection"/>
+        </parameter>
+      </parameter>
+      <parameter key="configuration_provider">fm_elfinder.configurator.default</parameter>
+      <parameter key="assets_path">/assets</parameter>
+      <parameter key="loader">fm_elfinder.loader.default</parameter>
+    </parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1103,6 +1215,7 @@
       <parameter>fos_user.resetting.form.type</parameter>
       <parameter>fos_user.group.form.type</parameter>
       <parameter>trsteel_ckeditor.form.type</parameter>
+      <parameter>fm_elfinder.form.type</parameter>
     </parameter>
     <parameter key="sonata.core.form.type_extensions" type="collection">
       <parameter>form.type_extension.form.http_foundation</parameter>
@@ -3786,7 +3899,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>59dccb914eaa27.82839444</argument>
+            <argument>59de854fb05ed3.01192603</argument>
           </service>
         </argument>
       </argument>
@@ -4128,7 +4241,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>59dccb914eaa27.82839444</argument>
+            <argument>59de854fb05ed3.01192603</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -4356,6 +4469,7 @@
                 <argument type="service">
                   <service class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
                     <argument type="collection">
+                      <argument>FMElfinderBundle:Form:elfinder_widget.html.twig</argument>
                       <argument>form_div_layout.html.twig</argument>
                       <argument>TrsteelCkeditorBundle:Form:ckeditor_widget.html.twig</argument>
                     </argument>
@@ -4420,6 +4534,9 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="sonata.admin.twig.extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.fm_elfinder_init"/>
       </call>
       <call method="addExtension">
         <argument type="service">
@@ -5979,6 +6096,120 @@
         <argument>html_purifier</argument>
       </call>
     </service>
+    <service id="fm_elfinder.configurator.default" class="FM\ElfinderBundle\Configuration\ElFinderConfigurationReader">
+      <argument type="collection">
+        <argument key="instances" type="collection">
+          <argument key="default" type="collection">
+            <argument key="locale">nl</argument>
+            <argument key="editor">ckeditor</argument>
+            <argument key="fullscreen">false</argument>
+            <argument key="include_assets">true</argument>
+            <argument key="connector" type="collection">
+              <argument key="debug">false</argument>
+              <argument key="roots" type="collection">
+                <argument key="uploads" type="collection">
+                  <argument key="show_hidden">false</argument>
+                  <argument key="driver">LocalFileSystem</argument>
+                  <argument key="path">/Users/louise/Documents/School/Project3/site/src/Project3/WebsiteBundle/Resources/public/uploads</argument>
+                  <argument key="upload_allow" type="collection">
+                    <argument>image/png</argument>
+                    <argument>image/jpg</argument>
+                    <argument>image/jpeg</argument>
+                  </argument>
+                  <argument key="upload_deny" type="collection">
+                    <argument>all</argument>
+                  </argument>
+                  <argument key="upload_max_size">8M</argument>
+                  <argument key="volume_id">0</argument>
+                  <argument key="start_path"></argument>
+                  <argument key="url"></argument>
+                  <argument key="alias"></argument>
+                  <argument key="mime_detect">auto</argument>
+                  <argument key="mimefile"></argument>
+                  <argument key="img_lib">auto</argument>
+                  <argument key="tmb_path">.tmb</argument>
+                  <argument key="tmb_path_mode">511</argument>
+                  <argument key="tmb_url"></argument>
+                  <argument key="tmb_size">48</argument>
+                  <argument key="tmb_crop">true</argument>
+                  <argument key="tmb_bg_color">#ffffff</argument>
+                  <argument key="copy_overwrite">true</argument>
+                  <argument key="copy_join">true</argument>
+                  <argument key="copy_from">true</argument>
+                  <argument key="copy_to">true</argument>
+                  <argument key="upload_overwrite">true</argument>
+                  <argument key="fileMode">420</argument>
+                  <argument key="upload_order" type="collection">
+                    <argument>deny</argument>
+                    <argument>allow</argument>
+                  </argument>
+                  <argument key="defaults" type="collection">
+                    <argument key="read">true</argument>
+                    <argument key="write">true</argument>
+                  </argument>
+                  <argument key="attributes" type="collection"/>
+                  <argument key="accepted_name">/^\w[\w\s\.\%\-]*$/u</argument>
+                  <argument key="disabled_commands" type="collection"/>
+                  <argument key="tree_deep">0</argument>
+                  <argument key="check_subfolders">true</argument>
+                  <argument key="separator">/</argument>
+                  <argument key="date_format">j M Y H:i</argument>
+                  <argument key="time_format">H:i</argument>
+                  <argument key="archive_mimes" type="collection"/>
+                  <argument key="archivers" type="collection">
+                    <argument key="enabled">false</argument>
+                    <argument key="create" type="collection"/>
+                    <argument key="extract" type="collection"/>
+                  </argument>
+                  <argument key="flysystem" type="collection">
+                    <argument key="enabled">false</argument>
+                    <argument key="type"></argument>
+                    <argument key="adapter_service"></argument>
+                  </argument>
+                  <argument key="glide_url"></argument>
+                  <argument key="glide_key"></argument>
+                  <argument key="plugins" type="collection"/>
+                  <argument key="driver_options" type="collection"/>
+                  <argument key="dropbox_settings" type="collection">
+                    <argument key="enabled">false</argument>
+                  </argument>
+                  <argument key="ftp_settings" type="collection">
+                    <argument key="enabled">false</argument>
+                  </argument>
+                  <argument key="s3_settings" type="collection">
+                    <argument key="enabled">false</argument>
+                  </argument>
+                </argument>
+              </argument>
+              <argument key="binds" type="collection"/>
+              <argument key="plugins" type="collection"/>
+            </argument>
+            <argument key="cors_support">false</argument>
+            <argument key="editor_template">null</argument>
+            <argument key="theme">smoothness</argument>
+            <argument key="tinymce_popup_path"></argument>
+            <argument key="relative_path">true</argument>
+            <argument key="path_prefix">/</argument>
+            <argument key="visible_mime_types" type="collection"/>
+          </argument>
+        </argument>
+        <argument key="configuration_provider">fm_elfinder.configurator.default</argument>
+        <argument key="assets_path">/assets</argument>
+        <argument key="loader">fm_elfinder.loader.default</argument>
+      </argument>
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="fm_elfinder.loader.default" class="FM\ElfinderBundle\Loader\ElFinderLoader">
+      <argument type="service" id="fm_elfinder.configurator.default"/>
+    </service>
+    <service id="twig.extension.fm_elfinder_init" class="FM\ElfinderBundle\Twig\Extension\FMElfinderExtension">
+      <tag name="twig.extension" alias="fm_elfinder_init"/>
+      <argument type="service" id="twig"/>
+    </service>
+    <service id="fm_elfinder.form.type" class="FM\ElfinderBundle\Form\Type\ElFinderType">
+      <tag name="form.type" alias="elfinder"/>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -6364,6 +6595,8 @@
         <argument key="FOS\UserBundle\Form\Type\GroupFormType">fos_user.group.form.type</argument>
         <argument key="ckeditor">trsteel_ckeditor.form.type</argument>
         <argument key="Trsteel\CkeditorBundle\Form\Type\CkeditorType">trsteel_ckeditor.form.type</argument>
+        <argument key="elfinder">fm_elfinder.form.type</argument>
+        <argument key="FM\ElfinderBundle\Form\Type\ElFinderType">fm_elfinder.form.type</argument>
       </argument>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="collection">
@@ -6646,6 +6879,10 @@
         <argument>Project3Website</argument>
       </call>
       <call method="addPath">
+        <argument>/Users/louise/documents/school/project3/site/vendor/helios-ag/fm-elfinder-bundle/Resources/views</argument>
+        <argument>FMElfinder</argument>
+      </call>
+      <call method="addPath">
         <argument>/Users/louise/documents/school/project3/site/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -6714,6 +6951,8 @@
     <service id="sonata.block.cache.handler" alias="sonata.block.cache.handler.default"/>
     <service id="sonata.block.renderer" alias="sonata.block.renderer.default"/>
     <service id="fos_user.util.username_canonicalizer" alias="fos_user.util.email_canonicalizer"/>
+    <service id="fm_elfinder.configurator" alias="fm_elfinder.configurator.default"/>
+    <service id="fm_elfinder.loader" alias="fm_elfinder.loader.default"/>
     <service id="sensio.distribution.webconfigurator" alias="sensio_distribution.webconfigurator"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
   </services>

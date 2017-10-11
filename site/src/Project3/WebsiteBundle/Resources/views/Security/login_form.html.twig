@@ -4,6 +4,7 @@
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
+
     <form action="{{ path('project3_security_login') }}" method="POST" role="form" class="{{ class }}">
         <div class="form-group">
             <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Username or e-mail"/>
@@ -16,4 +17,5 @@
         #}
         <button type="submit" class="btn btn-success">Sign in</button>
     </form>
+
 {% endif %}

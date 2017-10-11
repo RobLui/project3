@@ -25,7 +25,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Trsteel\CkeditorBundle\TrsteelCkeditorBundle(),
             //WEBSITE
-            new Project3WebsiteBundle()
+            new Project3WebsiteBundle(),
+            new FM\ElfinderBundle\FMElfinderBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

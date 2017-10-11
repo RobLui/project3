@@ -141,3 +141,7 @@ textarea {
 .mail-shop {
     font-size:1.2rem;
 }
+
+.btn.btn-success {
+    background:grey;
+}

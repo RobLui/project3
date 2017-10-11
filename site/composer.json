@@ -18,10 +18,12 @@
     },
     "require": {
         "php": ">=5.3.9",
+        "barryvdh/elfinder-flysystem-driver": "^0.2.1",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/orm": "^2.4.8",
         "friendsofsymfony/elastica-bundle": "^4.0",
         "friendsofsymfony/user-bundle": "^2.0",
+        "helios-ag/fm-elfinder-bundle": "~6",
         "incenteev/composer-parameter-handler": "~2.0",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
@@ -55,7 +57,8 @@
     },
     "config": {
         "bin-dir": "bin",
-        "sort-packages": true
+        "sort-packages": true,
+        "component-dir": "web/assets"
     },
     "extra": {
         "symfony-app-dir": "app",
