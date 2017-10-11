@@ -13,14 +13,26 @@ class GerechtController extends Controller
     // TOON ALLE GERECHTEN
     public function overzichtAction()
     {
-        return $this->render('Project3WebsiteBundle:Gerechten:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $categories = $em->getRepository('Project3WebsiteBundle:Categorie')
+            ->findAll()
+            ;
+        $gerechten = $em->getRepository('Project3WebsiteBundle:Gerecht')
+            ->findAll()
+            ;
+
+        return $this->render('Project3WebsiteBundle:Gerechten:index.html.twig',
+            array(
+                'categories' => $categories,
+                'gerechten' => $gerechten
+            ));
     }
 
     // TOON DETAIL GERECHT
     public function detailAction(Request $request,$id)
     {
-        $em = $this->getDoctrine()
-            ->getManager();
+        $em = $this->getDoctrine()->getManager();
 
         $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
             ->findOneBy(

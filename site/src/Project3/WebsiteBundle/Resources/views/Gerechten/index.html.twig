@@ -18,15 +18,12 @@
                 </div>
             </div>
             <div class="col-sm-12">
-                <div class="col-sm-2 col-sm-offset-3">
-                    <p class="text-center category">Vlees</p>
-                </div>
-                <div class="col-sm-2">
-                    <p class="text-center category">Vis</p>
-                </div>
-                <div class="col-sm-2">
-                    <p class="text-center category">Veggie</p>
-                </div>
+                <div class="col-sm-3"></div>
+                {% for c in categories %}
+                    <div class="col-sm-2">
+                        <p class="text-center category">{{ c.naam|default() }}</p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -35,29 +32,31 @@
         <div class="col-md-8 col-md-offset-2 text-center">
 
             {# 1 #}
-            <div class="col-md-6 text-center quickfix">
-                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
-                    <div class="img-responsive">
-                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/spring-chicken.jpg') }}" alt="spring chicken">
+            {% for gerecht in gerechten %}
+                <div class="col-md-6 text-center quickfix">
+                        <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
+                            <div class="img-responsive">
+                                <img class="col-md-12" src="{{ asset('bundles/project3website/images/spring-chicken.jpg') }}" alt="spring chicken">
+                            </div>
+                        </a>
+
+                    <div class="col-md-6 col-md-offset-3">
+                        <p>{{ gerecht.naam }}</p>
                     </div>
-                </a>
 
-                <div class="col-md-6 col-md-offset-3">
-                    <p>CHICKEN TANDOORI</p>
-                </div>
+                    <div class="col-md-5 col-md-offset-1">
+                        <p>{{ gerecht.bereidingstijd }} min</p>
+                    </div>
 
-                <div class="col-md-5 col-md-offset-1">
-                    <p>45 min</p>
+                    <div class="col-md-6">
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
                 </div>
-
-                <div class="col-md-6">
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </div>
-            </div>
+            {% endfor %}
 
             {# 2 #}
             <div class="col-md-6 text-center quickfix">

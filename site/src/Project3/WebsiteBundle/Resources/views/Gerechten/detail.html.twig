@@ -13,7 +13,7 @@
         <div class="col-md-8 col-md-offset-2 text-center">
             <div class="col-md-8 col-md-offset-2">
                 <h3 class="title">
-                    {{ gerecht.naam }}
+                    {{ gerecht.naam|default() }}
                 </h3>
             </div>
 
@@ -23,7 +23,7 @@
 
             <div class="detail minusfix">
                 <div class="col-md-6 bordered">
-                    <p class="text-left">{{ gerecht.beschrijving|default("-") }}</p>
+                    <p class="text-left">{{ gerecht.beschrijving|default() }}</p>
                 </div>
                 <div class="col-md-2 bordered">
                     <p>{{ gerecht.bereidingstijd|default(0) }} min</p>
@@ -61,17 +61,17 @@
 
                     <div class="col-md-12">
                         <ul class="col-md-7">
-                            {% for ingredient in gerecht.ingredienten %}
-                                <li>{{ ingredient.naam }}</li>
+                            {% for ingredient in gerecht.ingredienten|default() %}
+                                <li>{{ ingredient.naam|default('naam') }}</li>
                             {% endfor %}
                         </ul>
                         <ul class="col-md-2 col-md-offset-1">
-                            {% for ingredient in gerecht.ingredienten %}
+                            {% for ingredient in gerecht.ingredienten|default() %}
                                 <li class="list-unstyled">v</li>
                             {% endfor %}
                         </ul>
                         <ul class="col-md-2">
-                            {% for ingredient in gerecht.ingredienten %}
+                            {% for ingredient in gerecht.ingredienten|default() %}
                                 <li class="list-unstyled">x</li>
                             {% endfor %}
                         </ul>
@@ -116,7 +116,9 @@
         <div class="col-md-12 bordered">
             <div class="col-md-4">
                 <p class="plusfix">BENODIGDHEDEN(4personen)</p>
-                <p>{{ gerecht.benodigdheden|raw }}</p>
+                {% if gerecht %}
+                    <p>{{ gerecht.benodigdheden|raw }}</p>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -124,17 +126,20 @@
 
     {#-------------STAPPEN-------------#}
     <div class="col-md-8 col-md-offset-2">
-        {% for stap in gerecht.stappen %}
-            <div class="receptlist">
-                <div class="col-md-1">
-                    <p class="col-md-12">{{ stap.stapnummer }}</p>
-                    <input class="col-md-12" type="checkbox" style="margin-left:0.7em; margin-top:-0.6em;">
+        {% if gerecht %}
+            {% for stap in gerecht.stappen %}
+                <div class="receptlist">
+                    <div class="col-md-1">
+                        <p class="col-md-12">{{ stap.stapnummer }}</p>
+                        <input class="col-md-12" type="checkbox" style="margin-left:0.7em; margin-top:-0.6em;">
+                    </div>
+                    <div class="col-md-11">
+                        <p>{{ stap.tekst }}</p>
+                    </div>
                 </div>
-                <div class="col-md-11">
-                    <p>{{ stap.tekst }}</p>
-                </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        {% endif %}
+
     </div>
 
     <div class="col-md-8 col-md-offset-2">
