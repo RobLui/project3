@@ -13,7 +13,7 @@
         <div class="col-md-8 col-md-offset-2 text-center">
             <div class="col-md-8 col-md-offset-2">
                 <h3 class="title">
-                    Chicken wraps
+                    {{ gerecht.naam }}
                 </h3>
             </div>
 
@@ -66,20 +66,14 @@
                             {% endfor %}
                         </ul>
                         <ul class="col-md-2 col-md-offset-1">
-                            <li class="list-unstyled">v</li>
-                            <li class="list-unstyled">v</li>
-                            <li class="list-unstyled">v</li>
-                            <li class="list-unstyled">v</li>
-                            <li class="list-unstyled">v</li>
-                            <li class="list-unstyled">v</li>
+                            {% for ingredient in gerecht.ingredienten %}
+                                <li class="list-unstyled">v</li>
+                            {% endfor %}
                         </ul>
                         <ul class="col-md-2">
-                            <li class="list-unstyled">x</li>
-                            <li class="list-unstyled">x</li>
-                            <li class="list-unstyled">x</li>
-                            <li class="list-unstyled">x</li>
-                            <li class="list-unstyled">x</li>
-                            <li class="list-unstyled">x</li>
+                            {% for ingredient in gerecht.ingredienten %}
+                                <li class="list-unstyled">x</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
