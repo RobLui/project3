@@ -23,7 +23,7 @@
 
             <div class="detail minusfix">
                 <div class="col-md-6 bordered">
-                    <p class="text-left">Pikante tomaten-looksaus wrap met gebakken kip</p>
+                    <p class="text-left">{{ gerecht.beschrijving }}</p>
                 </div>
                 <div class="col-md-2 bordered">
                     <p>45 min</p>
@@ -113,19 +113,19 @@
     </div>
 
     {#-------------RECEPT-------------#}
-    <div class="col-md-8 col-md-offset-2">
-        <p class="plusfix">RECEPT</p>
+    <div class="col-md-8 col-md-offset-2 plusfix">
+        <p class="plusfix">BEREIDINGSWIJZE</p>
         <div class="col-md-12 bordered">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="col-md-offset-1">
-                    <ul class="col-md-6">
+                    <ul class="col-md-12">
                         <li class="list-unstyled plusfix" style="margin-left:-1em;">BENODIGDHEDEN(4personen)</li>
-                        <li>pasta</li>
-                        <li>kip</li>
-                        <li>tomaten</li>
-                        <li>look</li>
-                        <li>courgette</li>
-                        <li>ajuin</li>
+                        <li>Pasta (500gram)</li>
+                        <li>Kip (1hele kip)</li>
+                        <li>1 tros tomaten</li>
+                        <li>Look (2 teentjes)</li>
+                        <li>Courgette (1 stuk)</li>
+                        <li>Ajuin (200 gram)</li>
                     </ul>
                 </div>
             </div>
@@ -137,22 +137,31 @@
     <div class="col-md-8 col-md-offset-2">
         {# 1 #}
         <div class="receptlist">
-            <div class="col-md-2"><p class="col-md-12">DONE</p><input class="col-md-12" type="checkbox" style="margin-left:1.5em; margin-top:-0.6em;"></div>
-            <div class="col-md-10">
+            <div class="col-md-2">
+                <p class="col-md-12">STAP 1</p>
+                <input class="col-md-12" type="checkbox" style="margin-left:2em; margin-top:-0.6em;">
+            </div>
+            <div class="col-md-9">
                 <p>Snijd de ajuin en courgette. Maak tomatenpuree. Als er nog vet aan de billen hangt, snij deze er ook af.</p>
             </div>
         </div>
         {# 2 #}
         <div class="receptlist">
-            <div class="col-md-2"><p class="col-md-12">DONE</p><input class="col-md-12" type="checkbox" style="margin-left:1.5em; margin-top:-0.6em;"></div>
+            <div class="col-md-2">
+                <p class="col-md-12">STAP 2</p>
+                <input class="col-md-12" type="checkbox" style="margin-left:2em; margin-top:-0.6em;">
+            </div>
             <div class="col-md-10">
                 <p>Bak de ajuin samen met de look tot de ajuin glazig is. Voeg dan de courgette toe en bak deze lichtjes. Voeg de tomatenpuree toe.</p>
             </div>
         </div>
         {# 3 #}
         <div class="receptlist">
-            <div class="col-md-2"><p class="col-md-12">DONE</p><input class="col-md-12" type="checkbox" style="margin-left:1.5em; margin-top:-0.6em;"></div>
-            <div class="col-md-10">
+            <div class="col-md-2">
+                <p class="col-md-12">STAP 3</p>
+                <input class="col-md-12" type="checkbox" style="margin-left:2em; margin-top:-0.6em;">
+            </div>
+            <div class="col-md-9">
                 <p>Bak de kip in een aparte pan en voeg deze toe aan de saus. Kook de pasta. Voeg alles samen</p>
             </div>
         </div>
@@ -190,7 +199,7 @@
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-        <p class="btn bordered plusfix">STUUR IN</p>
+        <p class="btn bordered plusfix">PLAATS REVIEW</p>
     </div>
 
     </div>

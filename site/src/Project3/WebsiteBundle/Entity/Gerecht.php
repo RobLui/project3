@@ -85,6 +85,14 @@ class Gerecht
      */
     private $benodigdheden;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="bereidingstijd", type="integer", nullable=true)
+     */
+    private $bereidingstijd;
+
+
     function __toString()
     {
         return  (string)($this->naam);
@@ -343,5 +351,29 @@ class Gerecht
     public function getIngredienten()
     {
         return $this->ingredienten;
+    }
+
+    /**
+     * Set bereidingstijd
+     *
+     * @param integer $bereidingstijd
+     *
+     * @return Gerecht
+     */
+    public function setBereidingstijd($bereidingstijd)
+    {
+        $this->bereidingstijd = $bereidingstijd;
+
+        return $this;
+    }
+
+    /**
+     * Get bereidingstijd
+     *
+     * @return integer
+     */
+    public function getBereidingstijd()
+    {
+        return $this->bereidingstijd;
     }
 }

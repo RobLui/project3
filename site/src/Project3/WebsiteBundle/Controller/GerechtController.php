@@ -2,8 +2,10 @@
 
 namespace Project3\WebsiteBundle\Controller;
 
+use Project3\WebsiteBundle\Entity\Gerecht;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class GerechtController extends Controller
 {
@@ -15,9 +17,22 @@ class GerechtController extends Controller
     }
 
     // TOON DETAIL GERECHT
-    public function detailAction($id)
+    public function detailAction(Request $request,$id)
     {
-        return $this->render('Project3WebsiteBundle:Gerechten:detail.html.twig');
+        $em = $this->getDoctrine()
+            ->getManager();
+
+        $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
+            ->findOneBy(
+                array(
+                    "id" => $id,
+                    'actief' => true
+                ), null, null, null);
+
+        return $this->render('Project3WebsiteBundle:Gerechten:detail.html.twig',
+            array(
+                'gerecht' => $gerecht,
+            ));
     }
 
     // TOON ALLE GERECHTEN OP BASIS VAN DE QUERY
