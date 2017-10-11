@@ -50,7 +50,20 @@ class GerechtController extends Controller
     // TOON ALLE GERECHTEN OP BASIS VAN DE QUERY
     public function queryAction($query)
     {
-        return $this->render('Project3WebsiteBundle:Gerechten:query.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $categories = $em->getRepository('Project3WebsiteBundle:Categorie')
+            ->findAll()
+        ;
+        $gerechten = $em->getRepository('Project3WebsiteBundle:Gerecht')
+            ->findAll()
+        ;
+
+        return $this->render('Project3WebsiteBundle:Gerechten:query.html.twig',
+            array(
+                'categories' => $categories,
+                'gerechten' => $gerechten
+            ));
     }
 
     // TOON EEN SURPRISE GERECHT
