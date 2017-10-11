@@ -2,6 +2,7 @@
 
 namespace Project3\WebsiteBundle\Controller;
 
+use const null;
 use Project3\WebsiteBundle\Entity\Gerecht;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -16,10 +17,15 @@ class GerechtController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository('Project3WebsiteBundle:Categorie')
-            ->findAll()
+            ->findAll();
             ;
         $gerechten = $em->getRepository('Project3WebsiteBundle:Gerecht')
-            ->findAll()
+            ->findBy(
+                array(),
+                array('bereidingstijd' => 'DESC'),
+                12,
+                null
+            )
             ;
 
         return $this->render('Project3WebsiteBundle:Gerechten:index.html.twig',
@@ -39,7 +45,7 @@ class GerechtController extends Controller
                 array(
                     "id" => $id,
                     'actief' => true
-                ), null, null, null);
+                ), null,null,null );
 
         return $this->render('Project3WebsiteBundle:Gerechten:detail.html.twig',
             array(
