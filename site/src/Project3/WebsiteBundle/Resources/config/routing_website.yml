@@ -20,6 +20,17 @@ project3_account_klaargemaakte_gerechten:
     path:     /account/klaargemaakte-gerechten
     defaults: { _controller: Project3WebsiteBundle:Account:klaargemaakteGerechten }
 
+
+project3_gerecht_print:
+    path:     /gerechten/gerecht/print/{id}
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:save, id: id}
+
+project3_gerecht_save:
+    path:     /gerechten/gerecht/save/{id}
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:save, id: id}
+
+
+
 #GERECHTEN
 project3_alle_gerechten:
     path:     /gerechten
@@ -34,10 +45,8 @@ project3_gerecht_surprise:
     defaults: { _controller: Project3WebsiteBundle:Gerecht:surprise}
 
 project3_gerecht_query:
-    path:     /gerechten/{query}
+    path:     /gerechten/zoek/{query}
     defaults: { _controller: Project3WebsiteBundle:Gerecht:query, query: query}
-
-
 
 
 

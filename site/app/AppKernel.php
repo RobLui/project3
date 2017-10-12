@@ -1,5 +1,6 @@
 <?php
 
+use FM\ElfinderBundle\FMElfinderBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Project3\WebsiteBundle\Project3WebsiteBundle;
@@ -26,7 +27,7 @@ class AppKernel extends Kernel
             new Trsteel\CkeditorBundle\TrsteelCkeditorBundle(),
             //WEBSITE
             new Project3WebsiteBundle(),
-            new FM\ElfinderBundle\FMElfinderBundle()
+            new FMElfinderBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

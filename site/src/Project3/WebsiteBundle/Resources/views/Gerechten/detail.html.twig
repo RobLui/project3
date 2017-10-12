@@ -143,42 +143,44 @@
     </div>
 
     <div class="col-md-8 col-md-offset-2">
-        <p class="btn pull-right bordered plusfix">PRINT</p>
-        <p class="btn pull-right bordered plusfix">SLA OP IN MIJN GERECHTEN</p>
+        {#<p class="btn pull-right bordered plusfix">PRINT</p>#}
+        <a class="btn btn-default pull-right bordered plusfix"href="{{ path('project3_gerecht_print',{id: gerecht.id}) }}">PRINT</a>
+        {#<p class="btn pull-right bordered plusfix">SLA OP IN MIJN GERECHTEN</p>#}
+        <a class="btn btn-default pull-right bordered plusfix"href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a>
     </div>
 
     {#-------------REVIEWS-------------#}
-    <div class="col-md-8 col-md-offset-2">
-        <p class="plusfix">REVIEWS</p>
-        <div class="receptlist">
-            <div class="col-md-12">
-                <p>
-                    <span class="optimized">Door Phedra op 28/08/2017</span>
-                    <br> Heel lekker gegeten! Makkelijk klaar te maken.
-                </p>
-            </div>
-        </div>
-        <div class="receptlist">
-            <div class="col-md-12">
-                <p>
-                    <span class="optimized">Door Robbert op 27/08/2017</span>
-                    <br> Duurde langer dan verwacht om klaar te maken maar was het waard, weer één om mee uit te pakken!
-                </p>
-            </div>
-        </div>
-    </div>
+    {#<div class="col-md-8 col-md-offset-2">#}
+        {#<p class="plusfix">REVIEWS</p>#}
+        {#<div class="receptlist">#}
+            {#<div class="col-md-12">#}
+                {#<p>#}
+                    {#<span class="optimized">Door Phedra op 28/08/2017</span>#}
+                    {#<br> Heel lekker gegeten! Makkelijk klaar te maken.#}
+                {#</p>#}
+            {#</div>#}
+        {#</div>#}
+        {#<div class="receptlist">#}
+            {#<div class="col-md-12">#}
+                {#<p>#}
+                    {#<span class="optimized">Door Robbert op 27/08/2017</span>#}
+                    {#<br> Duurde langer dan verwacht om klaar te maken maar was het waard, weer één om mee uit te pakken!#}
+                {#</p>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
 
     {#-------------SCHRIJF EEN REVIEW-------------#}
-    <div class="col-md-8 col-md-offset-2 plusfix">
-        <p class="plusfix">SCHRIJF EEN REVIEW</p>
-        <textarea name="review" class="bordered" cols="100" rows="5">
+    {#<div class="col-md-8 col-md-offset-2 plusfix">#}
+        {#<p class="plusfix">SCHRIJF EEN REVIEW</p>#}
+        {#<textarea name="review" class="bordered" cols="100" rows="5">#}
 
-        </textarea>
-    </div>
+        {#</textarea>#}
+    {#</div>#}
 
-    <div class="col-md-8 col-md-offset-2">
-        <p class="btn bordered plusfix">PLAATS REVIEW</p>
-    </div>
+    {#<div class="col-md-8 col-md-offset-2">#}
+        {#<p class="btn bordered plusfix">PLAATS REVIEW</p>#}
+    {#</div>#}
 
     </div>
 </div>

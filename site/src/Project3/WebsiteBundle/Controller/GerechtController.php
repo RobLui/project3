@@ -78,4 +78,16 @@ class GerechtController extends Controller
         return $this->render('Project3WebsiteBundle:Gerechten:surprise.html.twig');
     }
 
+    // SAVE GERECHT
+    public function saveAction($id)
+    {
+        return $this->render('Project3WebsiteBundle:Gerechten:surprise.html.twig');
+    }
+
+    // PRINT GERECHT
+    public function printAction($id)
+    {
+        return $this->render('Project3WebsiteBundle:Gerechten:surprise.html.twig');
+    }
+
 }
