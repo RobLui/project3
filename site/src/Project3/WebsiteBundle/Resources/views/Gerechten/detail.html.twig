@@ -7,11 +7,11 @@
 {% block content %}
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
 
         <img src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="logo" class="img-responsive center-block" />
-        <div class="col-md-8 col-md-offset-2 text-center">
-            <div class="col-md-8 col-md-offset-2">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <div class="col-sm-8 col-sm-offset-2">
                 <h3 class="title">
                     {{ gerecht.naam|default() }}
                 </h3>
@@ -22,13 +22,13 @@
             </div>
 
             <div class="detail minusfix">
-                <div class="col-md-6 bordered">
+                <div class="col-sm-6 bordered">
                     <p class="text-left">{{ gerecht.beschrijving|default() }}</p>
                 </div>
-                <div class="col-md-2 bordered">
+                <div class="col-sm-2 bordered">
                     <p>{{ gerecht.bereidingstijd|default(0) }} min</p>
                 </div>
-                <div class="col-md-4 bordered">
+                <div class="col-sm-4 bordered">
                     <p>
                         <span class="glyphicon glyphicon-star-empty"></span>
                         <span class="glyphicon glyphicon-star-empty"></span>
@@ -41,80 +41,71 @@
         </div>
 
     {#-------------INGREDIENTEN-------------#}
-        <div class="col-md-8 col-md-offset-2">
-            <div class="col-md-5 bordered">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="col-sm-5 bordered">
                 <p class="plusfix"> WELKE INGREDIENTEN</p>
-                <div class="col-md-offset-1 plusfix">
-
-
-                    <div class="col-md-12">
-                        <div class="col-md-6">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
 
                         </div>
-                        <div class="col-md-12 col-md-2 col-md-offset-2 text-center">
+                        <div class="col-sm-8 col-sm-offset-2 text-center">
                             <p class="optimized">WEL</p>
                         </div>
-                        <div class="col-md-12 col-md-2 ">
+                        <div class="col-sm-8 col-sm-offset-2 ">
                             <p class="optimized">NIET</p>
                         </div>
-                    </div>
 
-                    <div class="col-md-12">
-                        <ul class="col-md-7">
+                        <ul class="col-sm-7">
                             {% for ingredient in gerecht.ingredienten|default() %}
                                 <li>{{ ingredient.naam|default('naam') }}</li>
                             {% endfor %}
                         </ul>
-                        <ul class="col-md-2 col-md-offset-1">
+                        <ul class="col-sm-2 col-sm-offset-1">
                             {% for ingredient in gerecht.ingredienten|default() %}
                                 <li class="list-unstyled">v</li>
                             {% endfor %}
                         </ul>
-                        <ul class="col-md-2">
+                        <ul class="col-sm-2">
                             {% for ingredient in gerecht.ingredienten|default() %}
                                 <li class="list-unstyled">x</li>
                             {% endfor %}
                         </ul>
                     </div>
-                </div>
-
-                <div class="col-md-12">
-                    <p class="btn shoppinglist bordered text-center">MAAK SHOPPINGLIJST</p>
-                </div>
+                    <p class="btn btn-default bordered shoppinglist text-center">MAAK SHOPPINGLIJST</p>
             </div>
 
     {#-------------SHOPPINGLIJSTJE-------------#}
-        <div class="col-md-5 col-md-offset-2 bordered">
+        <div class="col-sm-5 col-sm-offset-2 bordered">
         <p class="plusfix"> SHOPPINGLIJSTJE</p>
-            <div class="col-md-offset-1 plusfix">
-                <li class="col-md-12 list-unstyled">
-                    <div class="col-md-5 col-md-offset-6">
+            <div class="col-sm-offset-1 plusfix">
+                <li class="col-sm-12 list-unstyled">
+                    <div class="col-sm-5 col-sm-offset-6">
                         <p>PRIJS/ST</p>
                     </div>
                 </li>
-                <ul class="col-md-6">
+                <ul class="col-sm-5">
                     <li>Tomaten</li>
                     <li>Look</li>
                     <li>Courgette</li>
                     <li>Ajuin</li>
                 </ul>
-                <ul class="col-md-6">
-                    <li class="list-unstyled col-md-offset-2">&euro; 3,15</li>
-                    <li class="list-unstyled col-md-offset-2">&euro; 0,30</li>
-                    <li class="list-unstyled col-md-offset-2">&euro; 2,50</li>
-                    <li class="list-unstyled col-md-offset-2">&euro; 2,25</li>
+                <ul class="col-sm-7">
+                    <li class="list-unstyled col-sm-offset-2">&euro; 3,15</li>
+                    <li class="list-unstyled col-sm-offset-2">&euro; 0,30</li>
+                    <li class="list-unstyled col-sm-offset-2">&euro; 2,50</li>
+                    <li class="list-unstyled col-sm-offset-2">&euro; 2,25</li>
                 </ul>
             </div>
-                <p class="btn text-center bordered col-md-10 col-md-offset-1 mail-shop">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
-                <p class="btn text-center bordered col-md-10 col-md-offset-1 mail-shop">MAIL</p>
+                <p class="btn btn-default text-center bordered col-sm-12 mail-shop plusfix">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
+                <p class="btn btn-default text-center bordered col-sm-12 mail-shop">MAIL</p>
         </div>
     </div>
 
     {#-------------RECEPT-------------#}
-    <div class="col-md-8 col-md-offset-2 plusfix">
+    <div class="col-sm-8 col-sm-offset-2 plusfix">
         <p class="plusfix">BEREIDINGSWIJZE</p>
-        <div class="col-md-12 bordered">
-            <div class="col-md-4">
+        <div class="col-sm-12 bordered">
+            <div class="col-sm-9">
                 <p class="plusfix">BENODIGDHEDEN(4personen)</p>
                 {% if gerecht %}
                     <p>{{ gerecht.benodigdheden|raw }}</p>
@@ -125,24 +116,24 @@
 
 
     {#-------------STAPPEN-------------#}
-    <div class="col-md-8 col-md-offset-2">
-        {% if gerecht %}
+    {% if gerecht %}
+        <div class="col-sm-8 col-sm-offset-2">
             {% for stap in gerecht.stappen %}
-                <div class="receptlist">
-                    <div class="col-md-1">
-                        <p class="col-md-12">{{ stap.stapnummer }}</p>
-                        <input class="col-md-12" type="checkbox" style="margin-left:0.7em; margin-top:-0.6em;">
+                <div class="col-sm-12 bordered">
+                    <div class="col-sm-2">
+                        <p>{{ stap.stapnummer }}
+                        <input type="checkbox" style="margin-left:0.7em; margin-top:-0.6em;"></p>
                     </div>
-                    <div class="col-md-11">
+                    <div class="col-sm-10">
                         <p>{{ stap.tekst }}</p>
                     </div>
                 </div>
             {% endfor %}
-        {% endif %}
+        </div>
+    {% endif %}
 
-    </div>
 
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-sm-8 col-sm-offset-2">
         {#<p class="btn pull-right bordered plusfix">PRINT</p>#}
         <a class="btn btn-default pull-right bordered plusfix"href="{{ path('project3_gerecht_print',{id: gerecht.id}) }}">PRINT</a>
         {#<p class="btn pull-right bordered plusfix">SLA OP IN MIJN GERECHTEN</p>#}
@@ -150,10 +141,10 @@
     </div>
 
     {#-------------REVIEWS-------------#}
-    {#<div class="col-md-8 col-md-offset-2">#}
+    {#<div class="col-sm-8 col-sm-offset-2">#}
         {#<p class="plusfix">REVIEWS</p>#}
         {#<div class="receptlist">#}
-            {#<div class="col-md-12">#}
+            {#<div class="col-sm-12">#}
                 {#<p>#}
                     {#<span class="optimized">Door Phedra op 28/08/2017</span>#}
                     {#<br> Heel lekker gegeten! Makkelijk klaar te maken.#}
@@ -161,7 +152,7 @@
             {#</div>#}
         {#</div>#}
         {#<div class="receptlist">#}
-            {#<div class="col-md-12">#}
+            {#<div class="col-sm-12">#}
                 {#<p>#}
                     {#<span class="optimized">Door Robbert op 27/08/2017</span>#}
                     {#<br> Duurde langer dan verwacht om klaar te maken maar was het waard, weer één om mee uit te pakken!#}
@@ -171,14 +162,14 @@
     {#</div>#}
 
     {#-------------SCHRIJF EEN REVIEW-------------#}
-    {#<div class="col-md-8 col-md-offset-2 plusfix">#}
+    {#<div class="col-sm-8 col-sm-offset-2 plusfix">#}
         {#<p class="plusfix">SCHRIJF EEN REVIEW</p>#}
         {#<textarea name="review" class="bordered" cols="100" rows="5">#}
 
         {#</textarea>#}
     {#</div>#}
 
-    {#<div class="col-md-8 col-md-offset-2">#}
+    {#<div class="col-sm-8 col-sm-offset-2">#}
         {#<p class="btn bordered plusfix">PLAATS REVIEW</p>#}
     {#</div>#}
 

@@ -15,11 +15,6 @@
                     <h3 class="title">
                         HIER HEB JE AL ONZE GERECHTEN
                     </h3>
-                    <div class="col-sm-3">
-
-                    </div>
-                </div>
-                <div class="col-sm-8 col-sm-offset-2">
                     {% for c in categories %}
                         <div class="col-sm-4">
                             <p class="text-center category">{{ c.naam|default() }}</p>
@@ -37,12 +32,12 @@
                     <div class="col-sm-6 text-center quickfix">
                         <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
                             <div class="img-responsive">
-                                <img class="col-md-12" src="{{ gerecht.foto }}" alt="{{ gerecht.naam }}">
+                                <img class="col-md-12" src="{{ gerecht.foto|default('-') }}" alt="{{ gerecht.naam|default('-') }}">
                             </div>
                         </a>
 
                         <div class="col-sm-6 col-sm-offset-3">
-                            <p>{{ gerecht.naam|default() }}</p>
+                            <p>{{ gerecht.naam|default('-') }}</p>
                         </div>
 
                         <div class="col-sm-5 col-sm-offset-1">
