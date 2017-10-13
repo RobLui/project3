@@ -111,7 +111,7 @@ fm_elfinder:
 
 fos_elastica:
     clients:
-        default: { host: project3.local, port: 9300 }
+        default: { host: project3.local, port: 9200 }
     indexes:
         src:
             settings:

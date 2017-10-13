@@ -52,68 +52,6 @@
     {#
     <div class="container">#} {#{% include 'Project3WebsiteBundle:Partials:footer.html.twig' %}#} {#
     </div>#}
-
-    <script>
-        #} {#
-            $("#quicksearch").select2({#} {#
-                        ajax: {#} {#
-                            url: "{{ path("
-                            project3_ajax_dummys ") }}",
-                            #
-                        } {#
-                            dataType: 'json',
-                            #
-                        } {#
-                            delay: 250,
-                            #
-                        } {#
-                            data: function(params) {#} {#
-                                console.log(params);#
-                            } {#
-                                return {#} {#
-                                    q: params.term, // search term#}
-                                    {#
-                                        page: params.page#
-                                    } {#};#
-                                } {#}, #
-                            } {#
-                                processResults: function(data, params) {#} {#
-                                    console.log(data);#
-                                } {#
-                                    return {#} {#
-                                        results: $.map(data, function(item, key) {#} {#
-                                            return {#} {#
-                                                text: item,
-                                                #
-                                            } {#
-                                                slug: item,
-                                                #
-                                            } {#
-                                                id: key#
-                                            } {#}#
-                                        } {#})#
-                                    } {#}#
-                                } {#},
-                                #
-                            } {#
-                                cache: false#
-                            } {#},
-                            #
-                        } {#
-                            minimumInputLength: 1,
-                            #
-                        } {#
-                            placeholder: "Quick Search",
-                            #
-                        } {#});#
-                } {#
-                    $(document).on('change', '#quicksearch', function(element) {#} {#
-                        top.location.href = "{{ path('project3_website_dummy') }}" + "/" + $(this).val();#
-                    } {#});#
-                } {#
-                    $('.dataTable').DataTable({});#
-                } {#
-    </script>#}
 </body>
 
 </html>
