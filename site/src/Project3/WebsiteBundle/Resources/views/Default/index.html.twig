@@ -3,26 +3,27 @@
 {% block content %}
 
     {#ZOEKEN#}
-    <div class="row">
-        <img src="{{ asset('bundles/project3website/images/food-guru-logo.png') }}" alt="logo" class="img-responsive center-block" />
-        <div class="col-sm-6 col-sm-offset-3">
-            <div class="text-center">
-                <p>Geen inspiratie voor het avondeten?<p>
-            </div>
+    <!--<div class="bodyhome">-->
+      <div class="row">
+          <img src="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" alt="logo" class="img-responsive center-block" />
+          <div class="col-sm-6 col-sm-offset-3">
+              <div class="text-center">
+                  <h3 class="bold margin-bottom-20">Geen inspiratie voor het avondeten?</h3>
+              </div>
 
-            <form action="{{ path('project3_gerecht_query',{query:'kip'}) }}">
-                <div class="input-group stylish-input-group">
-                    <input required type="text" class="form-control text-center" placeholder="Geef hier in met welke ingredienten je vandaag aan de slag wil" >
-                        <span class="input-group-addon">
-                            <button type="submit" class="glyphicon glyphicon-search">
+              <form action="{{ path('project3_gerecht_query',{query:'kip'}) }}">
+                  <div class="input-group stylish-input-group">
+                      <input required type="text" class="form-control text-center" placeholder="Geef hier de ingrediënten in die je thuis hebt liggen" >
+                          <span class="input-group-addon">
+                              <button type="submit" class="glyphicon glyphicon-search">
 
-                            </button>
-                        </span>
-                    </span>
-                </div>
-            </form>
+                              </button>
+                          </span>
+                      </span>
+                  </div>
+              </form>
 
-        </div>
-    </div>
-
+          </div>
+      </div>
+    <!--</div>-->
 {% endblock content %}

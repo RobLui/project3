@@ -21,9 +21,11 @@
         "barryvdh/elfinder-flysystem-driver": "^0.2.1",
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/orm": "^2.4.8",
+        "elasticsearch/elasticsearch": "^5.3",
         "friendsofsymfony/elastica-bundle": "^4.0",
         "friendsofsymfony/user-bundle": "^2.0",
         "helios-ag/fm-elfinder-bundle": "~6",
+        "helios-ag/fm-lessql-bundle": "^0.1.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
@@ -33,7 +35,8 @@
         "symfony/swiftmailer-bundle": "~2.3,>=2.3.10",
         "symfony/symfony": "2.8.*",
         "trsteel/ckeditor-bundle": "^1.11",
-        "twig/twig": "^1.0||^2.0"
+        "twig/twig": "^1.0||^2.0",
+        "ulff/elasticsearch-php-client-bundle": "^2.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
