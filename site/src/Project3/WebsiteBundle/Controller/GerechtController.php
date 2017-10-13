@@ -2,7 +2,6 @@
 
 namespace Project3\WebsiteBundle\Controller;
 
-use const null;
 use Project3\WebsiteBundle\Entity\Gerecht;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -56,19 +55,25 @@ class GerechtController extends Controller
     // TOON ALLE GERECHTEN OP BASIS VAN DE QUERY
     public function queryAction($query)
     {
+        $finder = $this->container->get('fos_elastica.finder.src.gerecht');
+
+        $gerechten = $finder->find($query);
+
+//        dump($results); die;
         $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository('Project3WebsiteBundle:Categorie')
             ->findAll()
         ;
-        $gerechten = $em->getRepository('Project3WebsiteBundle:Gerecht')
-            ->findAll()
-        ;
+
+//        $gerechten = $em->getRepository('Project3WebsiteBundle:Gerecht')
+//            ->findAll()
+//        ;
 
         return $this->render('Project3WebsiteBundle:Gerechten:query.html.twig',
             array(
                 'categories' => $categories,
-                'gerechten' => $gerechten
+                'gerechten' => $gerechten,
             ));
     }
 

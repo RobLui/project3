@@ -108,3 +108,31 @@ fm_elfinder:
                         upload_max_size: 8M # also file upload sizes restricted in php.ini
                         #attributes: example of setting attributes permission
                         #    - { pattern: '/(.*?)/', read: true, write: false, locked: true }
+
+fos_elastica:
+    clients:
+        default: { host: project3.local, port: 9200 }
+    indexes:
+        src:
+            types:
+                gerecht:
+                    mappings:
+                        categorie: ~
+                        stappen: ~
+                        ingredienten: ~
+                        id: ~
+                        naam: ~
+                        foto: ~
+                        beschrijving: ~
+                        rating: ~
+                        actief: ~
+                        benodigdheden: ~
+                        bereidingstijd: ~
+                    persistence:
+                        # the driver can be orm, mongodb, phpcr or propel
+                        # listener and finder are not supported by
+                        # propel and should be removed
+                        driver: orm
+                        model: Project3\WebsiteBundle\Entity\Gerecht
+                        provider: ~
+                        finder: ~

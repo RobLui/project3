@@ -12,11 +12,9 @@
         <ul class="nav navbar-nav ">
 
             <li class="nav-item">
-                <a class="page-scroll" href="{{ path('project3_website_home') }}">HOME</a>
+                <a class="page-scroll" href="{{ path('project3_website_home') }}">ZOEKEN</a>
             </li>
-            <li class="nav-item">
-                <a class="page-scroll" href="{{ path('project3_alle_gerechten') }}">GERECHTEN</a>
-            </li>
+
             {% if not app.user %}
                 <li class="text-center">
                     <a href="{{ path('project3_security_login') }}">
@@ -24,6 +22,11 @@
                     </a>
                 </li>
             {% endif %}
+
+            <li class="nav-item">
+                <a class="page-scroll" href="{{ path('project3_alle_gerechten') }}">GERECHTEN</a>
+            </li>
+
 
             {% block login %}
                 {% if app.user %}
