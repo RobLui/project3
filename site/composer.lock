@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dfbaa437b71827e39e2e43114d7d009",
+    "content-hash": "02ee4033bb19209a3a46be77808e51e4",
     "packages": [
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1080,61 +1080,6 @@
             "time": "2017-09-18T06:50:20+00:00"
         },
         {
-            "name": "elasticsearch/elasticsearch",
-            "version": "v5.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/elastic/elasticsearch-php.git",
-                "reference": "50e5b1c63db68839b8acc1f4766769570a27a448"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/50e5b1c63db68839b8acc1f4766769570a27a448",
-                "reference": "50e5b1c63db68839b8acc1f4766769570a27a448",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/ringphp": "~1.0",
-                "php": "^5.6|^7.0",
-                "psr/log": "~1.0"
-            },
-            "require-dev": {
-                "cpliakas/git-wrapper": "~1.0",
-                "doctrine/inflector": "^1.1",
-                "mockery/mockery": "0.9.4",
-                "phpunit/phpunit": "^4.7|^5.4",
-                "sami/sami": "~3.2",
-                "symfony/finder": "^2.8",
-                "symfony/yaml": "^2.8"
-            },
-            "suggest": {
-                "ext-curl": "*",
-                "monolog/monolog": "Allows for client-level logging and tracing"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Elasticsearch\\": "src/Elasticsearch/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Zachary Tong"
-                }
-            ],
-            "description": "PHP Client for Elasticsearch",
-            "keywords": [
-                "client",
-                "elasticsearch",
-                "search"
-            ],
-            "time": "2017-07-19T18:44:30+00:00"
-        },
-        {
             "name": "ezyang/htmlpurifier",
             "version": "v4.9.3",
             "source": {
@@ -1414,107 +1359,6 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
-            "name": "guzzlehttp/ringphp",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/RingPHP.git",
-                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
-                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/streams": "~3.0",
-                "php": ">=5.4.0",
-                "react/promise": "~2.0"
-            },
-            "require-dev": {
-                "ext-curl": "*",
-                "phpunit/phpunit": "~4.0"
-            },
-            "suggest": {
-                "ext-curl": "Guzzle will use specific adapters if cURL is present"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Ring\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
-            "time": "2015-05-20T03:37:09+00:00"
-        },
-        {
-            "name": "guzzlehttp/streams",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/streams.git",
-                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
-                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Stream\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Provides a simple abstraction over streams of data",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "Guzzle",
-                "stream"
-            ],
-            "time": "2014-10-12T19:18:40+00:00"
-        },
-        {
             "name": "helios-ag/fm-elfinder-bundle",
             "version": "6.2.1",
             "source": {
@@ -1636,57 +1480,6 @@
                 "filemanager"
             ],
             "time": "2017-04-03T08:09:10+00:00"
-        },
-        {
-            "name": "helios-ag/fm-lessql-bundle",
-            "version": "0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/helios-ag/FMLessQLBundle.git",
-                "reference": "7a64a63e4bee9ae7b7602c802797fd7b9fb70085"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/helios-ag/FMLessQLBundle/zipball/7a64a63e4bee9ae7b7602c802797fd7b9fb70085",
-                "reference": "7a64a63e4bee9ae7b7602c802797fd7b9fb70085",
-                "shasum": ""
-            },
-            "require": {
-                "morris/lessql": "~0.3",
-                "php": ">=5.3.3",
-                "symfony/framework-bundle": "~2.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.6"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "FM\\LessqlBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Al Ganiev",
-                    "email": "helios.ag@gmail.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/helios-ag/FMLessqlBundle/contributors"
-                }
-            ],
-            "description": "Lessql bundle, adds LessQL ORM PHP to your Symfony2 project",
-            "homepage": "https://github.com/helios-ag/FMLessqlBundle",
-            "keywords": [
-                "lessql",
-                "orm",
-                "sql"
-            ],
-            "time": "2015-05-31T11:31:17+00:00"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2311,54 +2104,6 @@
             "time": "2017-06-19T01:22:40+00:00"
         },
         {
-            "name": "morris/lessql",
-            "version": "v0.3.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/morris/lessql.git",
-                "reference": "ff6c631e3abf1d3ee618f5262be4cc6ed09f6957"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/morris/lessql/zipball/ff6c631e3abf1d3ee618f5262be4cc6ed09f6957",
-                "reference": "ff6c631e3abf1d3ee618f5262be4cc6ed09f6957",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.4"
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "dev-master",
-                "phpunit/phpunit": "~4.6"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Morris Brodersen",
-                    "homepage": "http://morrisbrodersen.de"
-                }
-            ],
-            "description": "LessQL: The agile PHP ORM alternative",
-            "homepage": "http://github.com/morris/lessql",
-            "keywords": [
-                "database",
-                "notorm",
-                "orm",
-                "pdo",
-                "sql"
-            ],
-            "time": "2016-07-06T15:10:11+00:00"
-        },
-        {
             "name": "paragonie/random_compat",
             "version": "v2.0.11",
             "source": {
@@ -2548,52 +2293,6 @@
                 "psr-3"
             ],
             "time": "2016-10-10T12:19:37+00:00"
-        },
-        {
-            "name": "react/promise",
-            "version": "v2.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/promise.git",
-                "reference": "62785ae604c8d69725d693eb370e1d67e94c4053"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/62785ae604c8d69725d693eb370e1d67e94c4053",
-                "reference": "62785ae604c8d69725d693eb370e1d67e94c4053",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\Promise\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Sorgalla",
-                    "email": "jsorgalla@gmail.com"
-                }
-            ],
-            "description": "A lightweight implementation of CommonJS Promises/A for PHP",
-            "keywords": [
-                "promise",
-                "promises"
-            ],
-            "time": "2017-03-25T12:08:31+00:00"
         },
         {
             "name": "robloach/component-installer",
@@ -4464,59 +4163,6 @@
                 "templating"
             ],
             "time": "2017-09-27T18:10:31+00:00"
-        },
-        {
-            "name": "ulff/elasticsearch-php-client-bundle",
-            "version": "2.2.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ulff/ElasticsearchPhpClientBundle.git",
-                "reference": "44673c90d9df4ee7191b89f6ea7d1acd0291b178"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ulff/ElasticsearchPhpClientBundle/zipball/44673c90d9df4ee7191b89f6ea7d1acd0291b178",
-                "reference": "44673c90d9df4ee7191b89f6ea7d1acd0291b178",
-                "shasum": ""
-            },
-            "require": {
-                "elasticsearch/elasticsearch": "~5.0",
-                "php": ">=5.5",
-                "symfony/framework-bundle": "~2.1|~3.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-4": {
-                    "Ulff\\ElasticsearchPhpClientBundle\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/",
-                    "/Test/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Olaf Gałązka",
-                    "email": "ulff.pl@gmail.com",
-                    "homepage": "http://ulff.pl/"
-                }
-            ],
-            "description": "A very simple bundle for integrating Symfony2.x/3.x with Elasticsearch-PHP 5.0",
-            "keywords": [
-                "PHP7",
-                "Symfony2",
-                "bundle",
-                "elastic",
-                "elasticsearch",
-                "elasticsearch-php",
-                "php5",
-                "symfony3"
-            ],
-            "time": "2017-08-30T07:32:18+00:00"
         }
     ],
     "packages-dev": [
