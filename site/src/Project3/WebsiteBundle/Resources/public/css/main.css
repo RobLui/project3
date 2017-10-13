@@ -5,6 +5,11 @@
    ========================================================================== */
 
 /* ZOEKEN HOMEPAGE */
+body {
+     padding-top: 4em;
+     padding-bottom: 2em;
+}
+
 #top-margin {
     margin-bottom:45%;
 }
@@ -131,12 +136,6 @@ textarea {
     width:100%;
 }
 
-.fixed-height{
-    height:12rem;
-}
-.fixed-height p {
-    margin-top:10%;
-}
 .optimized {
     font-size:1rem;
 }
@@ -146,4 +145,10 @@ textarea {
 
 .btn.btn-success {
     background:grey;
+}
+
+.footer {
+    bottom: 0;
+    height: 4em;
+    background-color: #f5f5f5;
 }

@@ -44,30 +44,14 @@
         <div class="col-sm-8 col-sm-offset-2">
             <div class="col-sm-5 bordered">
                 <p class="plusfix"> WELKE INGREDIENTEN</p>
-                    <div class="col-sm-12">
 
-                        <div class="col-sm-12  ">
-                            <p class="optimized pull-right">NIET </p>
-                            <p class="optimized col-sm-offset-9">WEL </p>
-                        </div>
-                        <div class="col-sm-12">
-                            <ul class="col-sm-7">
-                                {% for ingredient in gerecht.ingredienten|default() %}
-                                    <li>{{ ingredient.naam|default('naam') }}</li>
-                                {% endfor %}
-                            </ul>
-                            <ul class="col-sm-2 col-sm-offset-1">
-                                {% for ingredient in gerecht.ingredienten|default() %}
-                                    <li class="list-unstyled">v</li>
-                                {% endfor %}
-                            </ul>
-                            <ul class="col-sm-2">
-                                {% for ingredient in gerecht.ingredienten|default() %}
-                                    <li class="list-unstyled">x</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
+                    <ul class="col-sm-12">
+                        {% for ingredient in gerecht.ingredienten|default() %}
+                            <li class="col-sm-7">{{ ingredient.naam|default('naam') }}</li>
+                            <li class="list-unstyled col-sm-2">v</li>
+                            <li class="list-unstyled col-sm-2">x</li>
+                        {% endfor %}
+                    </ul>
                     <p class="btn btn-default bordered shoppinglist text-center">MAAK SHOPPINGLIJST</p>
             </div>
 

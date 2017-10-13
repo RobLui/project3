@@ -10,17 +10,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <title>FoodGuru</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="{{ asset('bundles/project3website/css/bootstrap.min.css') }}">
-    <style>
-        body {
-            padding-top: 50px;
-            padding-bottom: 20px;
-        }
-    </style>
+
     <link rel="stylesheet" href="{{ asset('bundles/project3website/css/bootstrap-theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/project3website/css/main.css') }}">
     <script src="{{ asset('bundles/project3website/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
@@ -41,128 +36,23 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
+
 <nav class="navbar navbar-fixed-top" role="navigation">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-
-            <nav class="nabvmain-nav navbar-fixed-top navbar-default col-md-8 col-md-offset-2" role="navigation">
-                <div class="container-fluid">
-                    <ul class="nav navbar-nav ">
-
-                        <li class="nav-item">
-                            <a class="page-scroll" href="{{ path('project3_website_home') }}">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="page-scroll" href="{{ path('project3_alle_gerechten') }}">GERECHTEN</a>
-                        </li>
-                        {% if not app.user %}
-                            <li class="text-center">
-                                <a href="{{ path('project3_security_login') }}">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </a>
-                            </li>
-                        {% endif %}
-
-                        {% block login %}
-                            {% if app.user %}
-                                <li class="nav-item dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                       aria-haspopup="true" aria-expanded="false">
-                                        {#{{ app.user }}#}
-                                        ACCOUNT
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        {#<li><a href="{{ url('admin_dashboard') }}">Dashboard</a></li>#}
-                                        <li><a href="{{ path('project3_account_klaargemaakte_gerechten') }}">Klaargemaakte gerechten</a></li>
-                                        <li><a href="{{ path('project3_account_shoppinglijstjes') }}">Shoppinglijstjes</a></li>
-                                        <li><a href="{{ path('project3_account_instellingen') }}">Instellingen</a></li>
-                                        <li><a href="{{ path('project3_security_logout') }}">Logout</a></li>
-                                    </ul>
-                                </li>
-                            {% else %}
-
-                                {#{{ render(controller("Project3WebsiteBundle:Security:loginForm", { class: "navbar-form navbar-right" })) }}#}
-                            {% endif %}
-                        {% endblock login %}
-                    </ul>
-                </div>
-            </nav>
-            {##}
-            {##--------------------TEST NAVIGATIE--------------------#}
-            {##}
-            {##}
-            {#<ul class="nav navbar-nav">#}
-
-            {#HOME#}
-            {#<li><a class="navbar-brand" href="{{ path('project3_website_home') }}">Home</a></li>#}
-
-            {#GERECHTEN#}
-            {#<li><a href="{{ path('project3_alle_gerechten') }}">Gerechten</a></li>#}
-            {#<li><a href="{{ path('project3_gerecht_query',{query:1}) }}">Query gerechten</a></li>#}
-            {#<li><a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">Detail gerecht</a></li>#}
-
-            {#ACCOUNT#}
-            {#<li><a href="{{ path('project3_account_instellingen') }}">Instellingen</a></li>#}
-            {#<li><a href="{{ path('project3_account_shoppinglijstjes') }}">Shoppinglijstjes</a></li>#}
-            {#<li><a href="{{ path('project3_account_klaargemaakte_gerechten') }}">Klaargemaakte gerechten</a></li>#}
-
-            {#</ul>#}
-        </div>
-
-    </div>
-
+        {% include 'Project3WebsiteBundle:Partials:nav.html.twig' %}
     </div>
 </nav>
-{% block jumbotron %}
-{% endblock jumbotron %}
-<div class="container" style="padding-top: 20px !important;">
+
+<div class="container">
     {% block content %}
     {% endblock content %}
-        <div class="col-md-10 col-md-offset-1">
-
-            {#<img src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="logo" class="img-responsive center-block" />#}
-
-            {#<div class="col-md-4 footer">#}
-
-            {#</div>#}
-            {#<div class="col-md-4 footer">#}
-                {#<nav class="nabvmain-nav navbar-fixed navbar-default" role="navigation">#}
-                    {#<div class="container-fluid">#}
-                        {#<ul class="nav navbar-nav">#}
-                            {#<li class="nav-item"><a class="page-scroll" href="{{ path('project3_website_home') }}">HOME</a>#}
-                            {#</li>#}
-                            {#<li class="nav-item"><a class="page-scroll" href="{{ path('project3_alle_gerechten') }}">GERECHTEN</a>#}
-                            {#</li>#}
-                            {#<li class="nav-item"><a class="page-scroll" href="{{ path('project3_website_contact') }}">CONTACT</a>#}
-                            {#</li>#}
-                        {#</ul>#}
-                    {#</div>#}
-                {#</nav>#}
-            {#</div>#}
-
-        {#</div>#}
-
 </div>
-<!-- /container -->
-
-<script>
-
-</script>
+{#<div class="container">#}
+    {#{% include 'Project3WebsiteBundle:Partials:footer.html.twig' %}#}
+{#</div>#}
 
 {#<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8jBg9-43IR8MkDY0t2nk2dcSo4Tf_XVY&callback=myMap"></script>#}
-<!--
-To use this code on your website, get a free API key from Google.
-Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
--->
+
 {#<script>#}
 {#$("#quicksearch").select2({#}
 {#ajax: {#}
