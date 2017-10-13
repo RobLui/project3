@@ -11,9 +11,9 @@
                   <h3 class="bold margin-bottom-20">Geen inspiratie voor het avondeten?</h3>
               </div>
 
-              <form action="{{ path('project3_gerecht_query',{query:'kip'}) }}">
+              <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
                   <div class="input-group stylish-input-group">
-                      <input required type="text" class="form-control text-center" placeholder="Geef hier de ingrediënten in die je thuis hebt liggen" >
+                      <input required name="searchinput" type="text" class="form-control text-center" placeholder="Geef hier de ingrediënten in die je thuis hebt liggen" >
                           <span class="input-group-addon">
                               <button type="submit" class="glyphicon glyphicon-search">
 

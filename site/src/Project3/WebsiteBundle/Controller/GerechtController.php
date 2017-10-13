@@ -53,11 +53,12 @@ class GerechtController extends Controller
     }
 
     // TOON ALLE GERECHTEN OP BASIS VAN DE QUERY
-    public function queryAction($query)
+    public function queryAction(Request $req)
     {
         $finder = $this->container->get('fos_elastica.finder.src.gerecht');
 
-        $gerechten = $finder->find($query);
+        $searchingput = $req->get('searchinput');
+        $gerechten = $finder->find($searchingput);
 
         $em = $this->getDoctrine()->getManager();
 

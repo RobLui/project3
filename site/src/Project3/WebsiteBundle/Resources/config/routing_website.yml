@@ -45,8 +45,8 @@ project3_gerecht_surprise:
     defaults: { _controller: Project3WebsiteBundle:Gerecht:surprise}
 
 project3_gerecht_query:
-    path:     /gerechten/zoek/{query}
-    defaults: { _controller: Project3WebsiteBundle:Gerecht:query, query: query}
+    path:     /gerechten/zoek/
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:query}
 
 
 

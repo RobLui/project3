@@ -29,34 +29,53 @@
     </div>
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            {% if gerechten|length > 0 %}
+                {% for gerecht in gerechten %}
+                    <div class="col-sm-6 text-center quickfix">
+                        <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
+                            <div class="img-responsive">
+                                <img class="col-sm-12" src="{{ gerecht.foto }}" alt="{{ gerecht.naam }}">
+                            </div>
+                        </a>
 
-            {% for gerecht in gerechten %}
-                <div class="col-md-6 text-center quickfix">
-                    <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
-                        <div class="img-responsive">
-                            <img class="col-md-12" src="{{ gerecht.foto }}" alt="{{ gerecht.naam }}">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <p>{{ gerecht.naam|default() }}</p>
                         </div>
-                    </a>
 
-                    <div class="col-md-6 col-md-offset-3">
-                        <p>{{ gerecht.naam|default() }}</p>
-                    </div>
+                        <div class="col-sm-5 col-sm-offset-1">
+                            <p>{{ gerecht.bereidingstijd|default(10) }} min</p>
+                        </div>
 
-                    <div class="col-md-5 col-md-offset-1">
-                        <p>{{ gerecht.bereidingstijd|default(10) }} min</p>
+                        <div class="col-sm-6">
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </div>
                     </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-sm-8 col-sm-offset-2 text-center quickfix">
+                    <h2>
+                        Er werden geen gerechten gevonden.. <span>
+                        </span>
+                    </h2>
 
-                    <div class="col-md-6">
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
+                    <form action="{{ path('project3_gerecht_query') }}">
+                        <div class="input-group stylish-input-group">
+                            <input required type="text" class="form-control text-center" placeholder="probeer het nog eens.." >
+                            <span class="input-group-addon">
+                              <button type="submit" class="glyphicon glyphicon-search">
+
+                              </button>
+                            </span>
+                        </div>
+                    </form>
+
                 </div>
-            {% endfor %}
-
+            {% endif %}
         </div>
     </div>
 
