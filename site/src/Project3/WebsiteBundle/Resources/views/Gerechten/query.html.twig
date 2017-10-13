@@ -8,16 +8,18 @@
 
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
-            <img src="{{ asset('bundles/project3website/images/food-guru.png') }}" alt="logo" class="img-responsive center-block gerechten" />
+            <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten" />
 
+    {% if gerechten|length > 0 %}
             <div class="col-sm-12">
                 <div class="col-sm-8 col-sm-offset-2">
                     <h3 class="title">
-                        GERECHTEN MET KIP
+                        GERECHTEN MET {{ ingredienten|default("-") }}
                     </h3>
                 </div>
             </div>
-            <div class="col-sm-12">
+
+        <div class="col-sm-12">
                 <div class="col-sm-3"></div>
 
                 {% for categorie in categories %}
@@ -32,7 +34,6 @@
 
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
-            {% if gerechten|length > 0 %}
                 {% for gerecht in gerechten %}
                     <div class="col-sm-6 text-center quickfix">
                         <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
@@ -61,17 +62,14 @@
             {% else %}
                 <div class="col-sm-8 col-sm-offset-2 text-center quickfix">
                     <h2>
-                        Er werden geen gerechten gevonden.. <span>
-                        </span>
+                        <span>Er werden geen gerechten gevonden met {{ ingredienten }}..</span>
                     </h2>
 
-                    <form action="{{ path('project3_gerecht_query') }}">
+                    <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
                         <div class="input-group stylish-input-group">
-                            <input required type="text" class="form-control text-center" placeholder="probeer het nog eens.." >
+                            <input required name="searchinput" type="text" class="form-control text-center" placeholder="Probeer het eens met andere ingrediënten?" >
                             <span class="input-group-addon">
-                              <button type="submit" class="glyphicon glyphicon-search">
-
-                              </button>
+                              <button type="submit" class="glyphicon glyphicon-search"></button>
                             </span>
                         </div>
                     </form>

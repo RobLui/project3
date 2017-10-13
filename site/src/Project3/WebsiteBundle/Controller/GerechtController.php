@@ -59,6 +59,7 @@ class GerechtController extends Controller
 
         $searchingput = $req->get('searchinput');
         $gerechten = $finder->find($searchingput);
+        $ingredienten = $searchingput;
 
         $em = $this->getDoctrine()->getManager();
 
@@ -70,6 +71,7 @@ class GerechtController extends Controller
             array(
                 'categories' => $categories,
                 'gerechten' => $gerechten,
+                'ingredienten' => $ingredienten
             ));
     }
 
