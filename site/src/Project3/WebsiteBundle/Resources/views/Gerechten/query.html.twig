@@ -19,11 +19,13 @@
             </div>
             <div class="col-sm-12">
                 <div class="col-sm-3"></div>
-                {% for c in categories %}
+
+                {% for categorie in categories %}
                     <div class="col-sm-2">
-                        <p class="text-center category">{{ c.naam|default() }}</p>
+                        <p class="text-center category">{{ categorie.naam|default('-') }}</p>
                     </div>
                 {% endfor %}
+
             </div>
         </div>
     </div>

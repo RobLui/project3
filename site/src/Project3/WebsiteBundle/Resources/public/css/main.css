@@ -100,15 +100,6 @@ body {
     margin-bottom: 1em;
 }
 
-
-/* MAP */
-
-#map {
-    height: 25em;
-    width: 100%;
-    margin-top: 2em;
-}
-
 .img-responsive img {
     margin-bottom: 1em;
     max-height: 100%;
@@ -205,3 +196,6 @@ textarea {
     background-color: #f5f5f5;
 }
 
+.loginform {
+    margin-top:20%;
+}
