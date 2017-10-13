@@ -114,6 +114,14 @@ fos_elastica:
         default: { host: project3.local, port: 9200 }
     indexes:
         src:
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            name_analyzer:
+                                type: custom
+                                tokenizer: standard
+                                filter: [standard, lowercase, asciifolding, elision]
             types:
                 gerecht:
                     mappings:
@@ -128,6 +136,12 @@ fos_elastica:
                         actief: ~
                         benodigdheden: ~
                         bereidingstijd: ~
+                        name_suggest:
+                            type: completion
+                            analyzer: name_analyzer
+                            search_analyzer: name_analyzer
+                            payloads: true
+
                     persistence:
                         # the driver can be orm, mongodb, phpcr or propel
                         # listener and finder are not supported by

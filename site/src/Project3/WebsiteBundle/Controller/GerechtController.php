@@ -59,16 +59,11 @@ class GerechtController extends Controller
 
         $gerechten = $finder->find($query);
 
-//        dump($results); die;
         $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository('Project3WebsiteBundle:Categorie')
             ->findAll()
         ;
-
-//        $gerechten = $em->getRepository('Project3WebsiteBundle:Gerecht')
-//            ->findAll()
-//        ;
 
         return $this->render('Project3WebsiteBundle:Gerechten:query.html.twig',
             array(

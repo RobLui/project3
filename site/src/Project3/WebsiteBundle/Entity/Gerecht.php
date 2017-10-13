@@ -92,6 +92,16 @@ class Gerecht
      */
     private $bereidingstijd;
 
+    public function getNameSuggest()
+    {
+        return array(
+            'input' => $this->getNaam(),
+            'output' => $this->getNaam(),
+            'payload' => array(
+                'id' => $this->getId(),
+            ),
+        );
+    }
 
     function __toString()
     {
