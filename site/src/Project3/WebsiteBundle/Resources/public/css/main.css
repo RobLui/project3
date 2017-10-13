@@ -123,7 +123,7 @@ body {
 }
 
 .plusfix {
-    margin-top: 1em;
+    padding-top: 1em;
 }
 
 
@@ -198,4 +198,8 @@ textarea {
 
 .loginform {
     margin-top:20%;
+}
+.col-sm-8
+{
+    background:white;
 }

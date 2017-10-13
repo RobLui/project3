@@ -9,9 +9,9 @@
 <div class="row">
     <div class="col-sm-12">
 
-        <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten" />
         <div class="col-sm-8 col-sm-offset-2 text-center">
-            <div class="col-sm-8 col-sm-offset-2">
+            <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten" />
+            <div class="col-sm-12">
                 <h3 class="title">
                     {{ gerecht.naam|default() }}
                 </h3>
@@ -22,13 +22,13 @@
             </div>
 
             <div class="detail minusfix">
-                <div class="col-sm-6 bordered">
+                <div class="col-sm-7 bordered">
                     <p class="text-left">{{ gerecht.beschrijving|default() }}</p>
                 </div>
                 <div class="col-sm-2 bordered">
                     <p>{{ gerecht.bereidingstijd|default(0) }} min</p>
                 </div>
-                <div class="col-sm-4 bordered">
+                <div class="col-sm-3 bordered">
                     <p>
                         <span class="glyphicon glyphicon-star-empty"></span>
                         <span class="glyphicon glyphicon-star-empty"></span>
@@ -40,45 +40,35 @@
             </div>
         </div>
 
-    {#-------------INGREDIENTEN-------------#}
-        <div class="col-sm-8 col-sm-offset-2">
-            <div class="col-sm-5 bordered">
-                <p class="plusfix"> WELKE INGREDIENTEN</p>
+    <div class="col-sm-8 col-sm-offset-2 plusfix">
 
-                    <ul class="col-sm-12">
-                        {% for ingredient in gerecht.ingredienten|default() %}
-                            <li class="col-sm-7">{{ ingredient.naam|default('naam') }}</li>
-                            <li class="list-unstyled col-sm-2">v</li>
-                            <li class="list-unstyled col-sm-2">x</li>
-                        {% endfor %}
-                    </ul>
-                    <p class="btn btn-default bordered shoppinglist text-center">MAAK SHOPPINGLIJST</p>
-            </div>
+        {#-------------INGREDIENTEN-------------#}
+        <div class="col-sm-5 bordered">
+            <p class="plusfix">INGREDIENTEN</p>
+            <ul class="col-sm-12">
+                {% for ingredient in gerecht.ingredienten|default() %}
+                    <li class="col-sm-12">
+                        <span class="col-sm-8">{{ ingredient.naam|default('naam') }}</span>
+                        <span class="col-sm-2 pull-right"><input type="checkbox"></span>
+                        <span class="col-sm-2 pull-right"><input type="checkbox" checked></span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p class="btn btn-default bordered shoppinglist text-center">MAAK SHOPPINGLIJST</p>
+        </div>
 
-    {#-------------SHOPPINGLIJSTJE-------------#}
+        {#-------------SHOPPINGLIJSTJE-------------#}
         <div class="col-sm-5 col-sm-offset-2 bordered">
-        <p class="plusfix"> SHOPPINGLIJSTJE</p>
-            <div class="col-sm-offset-1 plusfix">
-                <li class="col-sm-12 list-unstyled">
-                    <div class="col-sm-5 col-sm-offset-6">
-                        <p>PRIJS/ST</p>
-                    </div>
-                </li>
-                <ul class="col-sm-5">
-                    <li>Tomaten</li>
-                    <li>Look</li>
-                    <li>Courgette</li>
-                    <li>Ajuin</li>
-                </ul>
-                <ul class="col-sm-7">
-                    <li class="list-unstyled col-sm-offset-2">&euro; 3,15</li>
-                    <li class="list-unstyled col-sm-offset-2">&euro; 0,30</li>
-                    <li class="list-unstyled col-sm-offset-2">&euro; 2,50</li>
-                    <li class="list-unstyled col-sm-offset-2">&euro; 2,25</li>
-                </ul>
-            </div>
-                <p class="btn btn-default text-center bordered col-sm-12 mail-shop plusfix">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
-                <p class="btn btn-default text-center bordered col-sm-12 mail-shop">MAIL</p>
+            <p class="plusfix">SHOPPINGLIJSTJE</p>
+            <ul class="list-group">
+                <li class="col-sm-12 list-unstyled">-           <span class="pull-right">PRIJS/ST</span></li>
+                <li class="col-sm-12 list-unstyled">Tomaten     <span class="pull-right">&euro; 3,15</span></li>
+                <li class="col-sm-12 list-unstyled">Look        <span class="pull-right">&euro; 0,30</span></li>
+                <li class="col-sm-12 list-unstyled">Courgette   <span class="pull-right">&euro; 2,50</span></li>
+                <li class="col-sm-12 list-unstyled">Ajuin       <span class="pull-right">&euro; 2,25</span></li>
+            </ul>
+            <p class="btn btn-default text-center bordered col-sm-12 mail-shop ">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
+            <p class="btn btn-default text-center bordered col-sm-12 mail-shop pull-right">MAIL</p>
         </div>
     </div>
 
@@ -110,16 +100,11 @@
                     </div>
                 </div>
             {% endfor %}
+            <a class="btn btn-default pull-right bordered"href="{{ path('project3_gerecht_print',{id: gerecht.id}) }}">PRINT</a>
+            <a class="btn btn-default pull-right bordered"href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a>
         </div>
+
     {% endif %}
-
-
-    <div class="col-sm-8 col-sm-offset-2">
-        {#<p class="btn pull-right bordered plusfix">PRINT</p>#}
-        <a class="btn btn-default pull-right bordered plusfix"href="{{ path('project3_gerecht_print',{id: gerecht.id}) }}">PRINT</a>
-        {#<p class="btn pull-right bordered plusfix">SLA OP IN MIJN GERECHTEN</p>#}
-        <a class="btn btn-default pull-right bordered plusfix"href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a>
-    </div>
 
     {#-------------REVIEWS-------------#}
     {#<div class="col-sm-8 col-sm-offset-2">#}
