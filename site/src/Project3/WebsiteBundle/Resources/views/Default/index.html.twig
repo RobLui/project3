@@ -9,12 +9,19 @@
             <div class="text-center">
                 <p>Geen inspiratie voor het avondeten?<p>
             </div>
-            <div class="input-group stylish-input-group">
-                <input type="text" class="form-control text-center" placeholder="Geef hier in met welke ingredienten je vandaag aan de slag wil" >
-                <span class="input-group-addon">
-                    <a type="submit" href="{{ path('project3_gerecht_query',{query:'kip'}) }}"><span class="glyphicon glyphicon-search"></span></a>
-                </span>
-            </div>
+
+            <form action="{{ path('project3_gerecht_query',{query:'kip'}) }}">
+                <div class="input-group stylish-input-group">
+                    <input required type="text" class="form-control text-center" placeholder="Geef hier in met welke ingredienten je vandaag aan de slag wil" >
+                        <span class="input-group-addon">
+                            <button type="submit" class="glyphicon glyphicon-search">
+
+                            </button>
+                        </span>
+                    </span>
+                </div>
+            </form>
+
         </div>
     </div>
 
