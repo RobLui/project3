@@ -28,11 +28,9 @@
                 </div>
 
                 <div class="col-sm-8 col-md-offset-2">
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
+                    {% for i in 0..gerecht.rating|default(5) %}
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    {% endfor %}
                 </div>
             </div>
 

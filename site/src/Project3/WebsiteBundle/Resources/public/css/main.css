@@ -11,19 +11,15 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
     background: url("../images/achtergrond-home.jpg") no-repeat center center fixed;
-    /*background-size: 100%;*/
+    background-size:cover;
 }
+
 .bold {
     font-weight: bold;
 }
 
 .margin-bottom-20 {
     margin-bottom: 20px;
-}
-
-.bodyhome {
-    background-image: url("../images/achtergrond-home.jpg");
-    background-size: 100%;
 }
 
 #top-margin {
@@ -201,5 +197,7 @@ textarea {
 }
 .col-sm-8
 {
+    /*background: url("../images/temp.jpg") no-repeat center center fixed;*/
+    /*background-size:cover;*/
     background:white;
 }
