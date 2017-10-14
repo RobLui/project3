@@ -17,7 +17,7 @@
                 </h3>
             </div>
 
-            <div class="full-image">
+            <div class="full-image noprint">
                 <img src="{{ gerecht.foto }}" alt="{{ gerecht.naam|default("-") }}">
             </div>
 
@@ -105,8 +105,8 @@
                     </div>
                 </div>
             {% endfor %}
-            <a class="btn btn-default pull-right bordered"href="{{ path('project3_gerecht_print',{id: gerecht.id}) }}">PRINT</a>
-            <a class="btn btn-default pull-right bordered"href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a>
+            <a class="btn btn-default pull-right bordered"href="javascript:window.print()">PRINT</a>
+            <a class="btn btn-default pull-right bordered" href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a>
         </div>
 
     {% endif %}

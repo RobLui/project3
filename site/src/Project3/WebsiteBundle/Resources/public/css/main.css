@@ -255,3 +255,11 @@ textarea {
     /*background-size:cover;*/
     background: white;
 }
+
+/* css klasse die we erbij kunnen zetten op elementen die niet moeten geprint worden */
+@media print
+{
+    .noprint {
+        display:none;
+    }
+}
