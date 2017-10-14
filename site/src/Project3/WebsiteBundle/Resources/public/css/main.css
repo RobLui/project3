@@ -14,22 +14,11 @@ body {
     background-size: cover;
 }
 
-.navbar {
-    font-size: 15px;
-}
-
-.navbar-default {
-    background-color: transparent !important;
-    border-color: transparent;
-    background-image: none;
-    box-shadow: none;
-}
-
 .bold {
     font-weight: bold;
 }
 
-img.resize-img-smaller-75 {
+img.resize-logo-big {
     width: 380px;
 }
 
@@ -94,7 +83,7 @@ button {
     padding: 1em;
     border: 1px solid black;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 1em;
 }
 
@@ -110,8 +99,24 @@ button {
     display: block;
 }
 
+img.resize-logo-medium {
+    width: 285px;
+    padding: 15px;
+}
+
 
 /* NAVBAR */
+
+.navbar {
+    font-size: 15px;
+}
+
+.navbar-default {
+    background-color: transparent !important;
+    border-color: transparent;
+    background-image: none;
+    box-shadow: none;
+}
 
 .nav.navbar-nav {
     display: flex;
@@ -128,7 +133,7 @@ button {
 
 /* TITLES */
 
-.title {
+.margin-bottom-1em {
     margin-bottom: 1em;
 }
 
@@ -140,6 +145,10 @@ button {
 
 .col-sm-12 {
     margin-bottom: 1em;
+}
+
+h3 {
+    font-size: 22px;
 }
 
 
