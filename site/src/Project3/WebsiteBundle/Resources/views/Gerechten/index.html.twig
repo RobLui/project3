@@ -30,18 +30,18 @@
             <div class="col-sm-12">
                 {% for gerecht in gerechten %}
                     <div class="col-sm-6 text-center quickfix">
+                        
                         <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
                             <div class="img-responsive">
                                 <img class="col-md-12" src="{{ gerecht.foto|default('-') }}" alt="{{ gerecht.naam|default('-') }}">
                             </div>
                         </a>
-
                         <div class="col-sm-6 col-sm-offset-3">
                             <p>{{ gerecht.naam|default('-') }}</p>
                         </div>
 
                         <div class="col-sm-5 col-sm-offset-1">
-                            <p>{{ gerecht.bereidingstijd|default(10) }} min</p>
+                            <p><span class="glyphicon glyphicon-time"></span> {{ gerecht.bereidingstijd|default(10) }} min</p>
                         </div>
 
                         <div class="col-sm-6">
