@@ -11,7 +11,18 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
     background: url("../images/achtergrond-home.jpg") no-repeat center center fixed;
-    background-size:cover;
+    background-size: cover;
+}
+
+.navbar {
+    font-size: 14px;
+}
+
+.navbar-default {
+    background-color: transparent !important;
+    border-color: transparent;
+    background-image: none;
+    box-shadow: none;
 }
 
 .bold {
@@ -193,11 +204,11 @@ textarea {
 }
 
 .loginform {
-    margin-top:20%;
+    margin-top: 20%;
 }
-.col-sm-8
-{
+
+.col-sm-8 {
     /*background: url("../images/temp.jpg") no-repeat center center fixed;*/
     /*background-size:cover;*/
-    background:white;
+    background: white;
 }
