@@ -127,6 +127,10 @@ img.resize-logo-medium {
     box-shadow: none;
 }
 
+.navbar-default .navbar-nav>li>a {
+    color: #3e3d3d;
+}
+
 .nav.navbar-nav {
     display: flex;
     justify-content: center;
