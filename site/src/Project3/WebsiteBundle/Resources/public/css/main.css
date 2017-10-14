@@ -15,7 +15,7 @@ body {
 }
 
 .navbar {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .navbar-default {
@@ -27,6 +27,31 @@ body {
 
 .bold {
     font-weight: bold;
+}
+
+img.resize-img-smaller-75 {
+    width: 380px;
+}
+
+.glyphicon-search {
+    padding: 0;
+    border: 0;
+    width: 46px;
+    height: 32px;
+    position: static;
+}
+
+button {
+    background-color: rgb(253, 253, 253);
+}
+
+.input-group-addon {
+    padding: 0;
+    height: 32px;
+}
+
+.padding-15 {
+    padding: 15px;
 }
 
 .margin-bottom-20 {
