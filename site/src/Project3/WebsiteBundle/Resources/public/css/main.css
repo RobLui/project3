@@ -51,6 +51,10 @@ button {
     margin-bottom: 6px;
 }
 
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
 #top-margin {
     margin-bottom: 45%;
 }
@@ -260,10 +264,11 @@ textarea {
     background: white;
 }
 
+
 /* css klasse die we erbij kunnen zetten op elementen die niet moeten geprint worden */
-@media print
-{
+
+@media print {
     .noprint {
-        display:none;
+        display: none;
     }
 }
