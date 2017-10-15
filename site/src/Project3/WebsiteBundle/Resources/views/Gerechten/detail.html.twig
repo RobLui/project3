@@ -23,13 +23,13 @@
 
             <div class="detail minusfix">
                 <div class="col-sm-7 bordered">
-                    <p class="text-left">{{ gerecht.beschrijving|default() }}</p>
+                    <p class="text-left margin-top-0-5em">{{ gerecht.beschrijving|default() }}</p>
                 </div>
                 <div class="col-sm-2 bordered">
-                    <p><span class="glyphicon glyphicon-time"></span> {{ gerecht.bereidingstijd|default(0) }} min</p>
+                    <p class="margin-top-0-5em"><span class="glyphicon glyphicon-time"></span> {{ gerecht.bereidingstijd|default(0) }} min</p>
                 </div>
                 <div class="col-sm-3 bordered">
-                    <p>{% for i in 0..gerecht.rating|default(5) %}
+                    <p class="margin-top-0-5em">{% for i in 0..gerecht.rating|default(5) %}
                         <span class="glyphicon glyphicon-star-empty"></span>
                         {% endfor %}
                     </p>
@@ -41,7 +41,7 @@
 
         {#-------------INGREDIENTEN-------------#}
         <div class="col-sm-5 bordered">
-            <p class="plusfix">INGREDIENTEN</p>
+            <p class="plusfix semibold margin-top-0-5em">INGREDIENTEN</p>
             <ul class="col-sm-12">
                 <li class="col-sm-12 list-unstyled">-
                     <span class="pull-right">NIET</span>
@@ -61,7 +61,7 @@
 
         {#-------------SHOPPINGLIJSTJE-------------#}
         <div class="col-sm-5 col-sm-offset-2 bordered">
-            <p class="plusfix">SHOPPINGLIJSTJE</p>
+            <p class="plusfix semibold margin-top-0-5em">SHOPPINGLIJSTJE</p>
             <ul class="list-group">
                 <li class="col-sm-12 list-unstyled">-
                     <span class="pull-right">PRIJS/ST</span>
@@ -79,10 +79,10 @@
 
     {#-------------RECEPT-------------#}
     <div class="col-sm-8 col-sm-offset-2 plusfix">
-        <p class="plusfix">BEREIDINGSWIJZE</p>
         <div class="col-sm-12 bordered">
+            <p class="plusfix semibold">BEREIDINGSWIJZE</p>
             <div class="col-sm-9">
-                <p class="plusfix">BENODIGDHEDEN(4personen)</p>
+                <p class="margin-top-0">BENODIGDHEDEN(4personen)</p>
                 {% if gerecht %}
                     <p>{{ gerecht.benodigdheden|raw }}</p>
                 {% endif %}
@@ -97,7 +97,7 @@
             {% for stap in gerecht.stappen %}
                 <div class="col-sm-12 bordered">
                     <div class="col-sm-2">
-                        <p>{{ stap.stapnummer }}
+                        <p class="margin-top-0-5em">{{ stap.stapnummer }}
                         <input type="checkbox" style="margin-left:0.7em; margin-top:-0.6em;"></p>
                     </div>
                     <div class="col-sm-10">
@@ -141,7 +141,7 @@
     {#</div>#}
 
     {#<div class="col-sm-8 col-sm-offset-2">#}
-        {#<p class="btn bordered plusfix">PLAATS REVIEW</p>#}
+        {#<p class="btn bordered plusfix margin-top-0-5em">PLAATS REVIEW</p>#}
     {#</div>#}
 
     </div>

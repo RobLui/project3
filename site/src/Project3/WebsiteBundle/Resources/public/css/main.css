@@ -39,22 +39,6 @@ button {
     height: 32px;
 }
 
-.padding-15 {
-    padding: 15px;
-}
-
-.margin-bottom-20 {
-    margin-bottom: 20px;
-}
-
-.margin-bottom-6 {
-    margin-bottom: 6px;
-}
-
-.margin-bottom-0 {
-    margin-bottom: 0;
-}
-
 #top-margin {
     margin-bottom: 45%;
 }
@@ -66,13 +50,19 @@ button {
     border: 1px solid black;
 }
 
-.bordered .pull-left {
+
+/*.bordered .pull-left {
     margin-left: 0.8em;
     display: block;
-}
+}*/
 
 .bordered p {
-    margin-top: 1em;
+    margin-bottom: 1.3em;
+    text-align: center;
+}
+
+.semibold {
+    font-weight: 600;
 }
 
 
@@ -262,6 +252,33 @@ textarea {
     /*background: url("../images/temp.jpg") no-repeat center center fixed;*/
     /*background-size:cover;*/
     background: white;
+}
+
+
+/* Algemene klassen */
+
+.padding-15 {
+    padding: 15px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.margin-bottom-6 {
+    margin-bottom: 6px;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
+.margin-top-0-5em {
+    margin-top: 0.5em;
+}
+
+.margin-top-0 {
+    margin-top: 0;
 }
 
 
