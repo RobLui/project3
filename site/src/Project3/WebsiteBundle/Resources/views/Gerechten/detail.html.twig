@@ -12,7 +12,7 @@
         <div class="col-sm-8 col-sm-offset-2 text-center">
             <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
             <div class="col-sm-12">
-                <h3 class="margin-bottom-0">
+                <h3 class="margin-bottom-0 semibold">
                     {{ gerecht.naam|default() }}
                 </h3>
             </div>
@@ -41,12 +41,12 @@
 
         {#-------------INGREDIENTEN-------------#}
         <div class="col-sm-5 bordered">
-            <p class="plusfix semibold margin-top-0-5em">INGREDIENTEN</p>
+            <p class="plusfix semibold margin-top-0-5em text-center margin-top-1-75em">INGREDIENTEN</p>
+            <p class="col-sm-12 wel-niet">
+                <span class="pull-right">NIET</span>
+                <span class="pull-right padding-right-8">WEL</span>
+            </p>
             <ul class="col-sm-12">
-                <li class="col-sm-12 list-unstyled">-
-                    <span class="pull-right">NIET</span>
-                    <span class="pull-right">WEL</span>
-                </li>
                 {% for ingredient in gerecht.ingredienten|default() %}
                     <li class="col-sm-12 list-unstyled">
                         <hr>
@@ -56,31 +56,31 @@
                     </li>
                 {% endfor %}
             </ul>
-            <p class="btn btn-default bordered shoppinglist text-center">MAAK SHOPPINGLIJST</p>
+            <p class="btn btn-default bordered shoppinglist col-sm-12 text-center">MAAK SHOPPINGLIJST</p>
         </div>
 
         {#-------------SHOPPINGLIJSTJE-------------#}
         <div class="col-sm-5 col-sm-offset-2 bordered">
-            <p class="plusfix semibold margin-top-0-5em">SHOPPINGLIJSTJE</p>
-            <ul class="list-group">
-                <li class="col-sm-12 list-unstyled">-
-                    <span class="pull-right">PRIJS/ST</span>
-                </li>
+            <p class="plusfix semibold margin-top-0-5em text-center margin-top-1-75em">SHOPPINGLIJSTJE</p>
+            <p class="col-sm-12 wel-niet">
+                <span class="pull-right">PRIJS/ST</span>
+            </p>
+            <ul class="col-sm-12">
                 {% for ingredient in gerecht.ingredienten %}
                     <li class="col-sm-12 list-unstyled">
                         <hr> {{ ingredient }} <span class="pull-right">&euro; 3,15</span>
                     </li>
                 {% endfor %}
             </ul>
-            <p class="btn btn-default text-center bordered col-sm-12 mail-shop btn-sm ">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
-            <p class="btn btn-default text-center bordered col-sm-12 mail-shop pull-right btn-sm">MAIL</p>
+            <p class="btn btn-default text-center bordered col-sm-12 mail-shop">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
+            <p class="btn btn-default text-center bordered col-sm-12 mail-shop pull-right shoppinglist mail">MAIL</p>
         </div>
     </div>
 
     {#-------------RECEPT-------------#}
     <div class="col-sm-8 col-sm-offset-2 plusfix">
         <div class="col-sm-12 bordered">
-            <p class="plusfix semibold">BEREIDINGSWIJZE</p>
+            <p class="plusfix semibold text-center margin-top-1-75em">RECEPT</p>
             <div class="col-sm-9">
                 <p class="margin-top-0">BENODIGDHEDEN(4personen)</p>
                 {% if gerecht %}
