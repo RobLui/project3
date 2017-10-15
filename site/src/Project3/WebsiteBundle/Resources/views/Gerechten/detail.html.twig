@@ -72,14 +72,14 @@
                     </li>
                 {% endfor %}
             </ul>
-            <p class="btn text-center bordered col-sm-12 mail-shop">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
-            <p class="btn text-center bordered col-sm-12 mail-shop pull-right shoppinglist mail">MAIL</p>
+            <p class="btn text-center bordered col-sm-12 button-black">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
+            <p class="btn text-center bordered col-sm-12 button-black pull-right shoppinglist mail">MAIL</p>
         </div>
     </div>
 
     {#-------------RECEPT-------------#}
     <div class="col-sm-8 col-sm-offset-2 plusfix">
-        <div class="col-sm-12 bordered">
+        <div class="col-sm-12 bordered margin-bottom-0">
             <p class="padding-top-1-2em semibold text-center margin-top-1-75em">RECEPT</p>
             <div class="col-sm-9">
                 <p class="margin-top-0">BENODIGDHEDEN(4personen)</p>
@@ -95,7 +95,7 @@
     {% if gerecht %}
         <div class="col-sm-8 col-sm-offset-2">
             {% for stap in gerecht.stappen %}
-                <div class="col-sm-12 bordered">
+                <div class="col-sm-12 bordered margin-bottom-0">
                     <div class="col-sm-2">
                         <p class="margin-top-0-5em">{{ stap.stapnummer }}
                         <input type="checkbox" style="margin-left:0.7em; margin-top:-0.6em;"></p>
@@ -105,8 +105,8 @@
                     </div>
                 </div>
             {% endfor %}
-            <a class="btn btn-default pull-right bordered"href="javascript:window.print()">PRINT</a>
-            <a class="btn btn-default pull-right bordered" href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a>
+            <a class="btn button-black pull-right margin-top-3em bordered"href="javascript:window.print()">PRINT</a>
+            <a class="btn button-black pull-right margin-top-3em bordered" href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a>
         </div>
 
     {% endif %}

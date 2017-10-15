@@ -295,11 +295,15 @@ textarea {
     margin-bottom: 3em;
 }
 
+.margin-top-3em {
+    margin-top: 3em;
+}
+
 .mail {
     margin-top: 0;
 }
 
-.mail-shop:hover {
+.button-black:hover {
     background-color: rgb(36, 36, 36);
     color: rgb(253, 253, 253);
 }
