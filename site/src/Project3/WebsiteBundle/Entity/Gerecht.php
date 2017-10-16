@@ -53,6 +53,13 @@ class Gerecht
     /**
      * @var string
      *
+     * @ORM\Column(name="foto", type="string", length=255, nullable=true)
+     */
+    private $foto;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="foto_vierkant", type="string", length=255, nullable=true)
      */
     private $foto_vierkant;
@@ -416,5 +423,29 @@ class Gerecht
     public function getFotoRechthoek()
     {
         return $this->foto_rechthoek;
+    }
+
+    /**
+     * Set foto
+     *
+     * @param string $foto
+     *
+     * @return Gerecht
+     */
+    public function setFoto($foto)
+    {
+        $this->foto = $foto;
+
+        return $this;
+    }
+
+    /**
+     * Get foto
+     *
+     * @return string
+     */
+    public function getFoto()
+    {
+        return $this->foto;
     }
 }
