@@ -51,12 +51,12 @@
                     <li class="col-sm-12 list-unstyled">
                         <hr>
                         <span class="col-sm-8">{{ ingredient.naam|default('naam') }}</span>
-                        <span class="col-sm-2 pull-right"><input type="checkbox"></span>
-                        <span class="col-sm-2 pull-right"><input type="checkbox" checked></span>
+                        <span class="col-sm-2 pull-right"><input type="checkbox" value="heb ik niet"></span>
+                        <span class="col-sm-2 pull-right"><input type="checkbox" checked value="heb ik"></span>
                     </li>
                 {% endfor %}
             </ul>
-            <p class="btn btn-default bordered shoppinglist col-sm-12 text-center">MAAK SHOPPINGLIJST</p>
+                <p class="btn btn-default bordered col-sm-12 text-center shoppinglist shoppinglisttext" id="shoppinglistbind">MAAK SHOPPINGLIJST</p>
         </div>
 
         {#-------------SHOPPINGLIJSTJE-------------#}
