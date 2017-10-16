@@ -86,7 +86,7 @@ button {
 }
 
 .full-image {
-    height: 45rem;
+    height: 40em;
     display: block;
 }
 
@@ -304,4 +304,9 @@ textarea {
     .noprint {
         display: none;
     }
+}
+
+
+.responsive-enzo{
+    background-size:cover;
 }

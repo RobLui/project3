@@ -18,7 +18,8 @@ class GerechtAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('naam')
-            ->add('foto')
+            ->add('foto_vierkant')
+            ->add('foto_rechthoek')
             ->add('beschrijving')
             ->add('rating')
             ->add('benodigdheden')
@@ -35,7 +36,8 @@ class GerechtAdmin extends AbstractAdmin
         $listMapper
             ->add('id')
             ->add('naam')
-            ->add('foto')
+            ->add('foto_vierkant')
+            ->add('foto_rechthoek')
             ->add('beschrijving')
             ->add('rating')
             ->add('actief')
@@ -59,7 +61,12 @@ class GerechtAdmin extends AbstractAdmin
                 ->with('Overzicht')
                     ->add('categorie')
                     ->add('naam')
-                    ->add('foto', 'elfinder',array(
+                    ->add('foto_vierkant', 'elfinder',array(
+                        "instance" => "default",
+                        "attr" => array("class" => "form-control", "placeholder" => "Klik hier om een foto toe te voegen"),
+                        "required" => false,
+                    ))
+                    ->add('foto_rechthoek', 'elfinder',array(
                         "instance" => "default",
                         "attr" => array("class" => "form-control", "placeholder" => "Klik hier om een foto toe te voegen"),
                         "required" => false,
@@ -98,7 +105,8 @@ class GerechtAdmin extends AbstractAdmin
         $showMapper
             ->add('id')
             ->add('naam')
-            ->add('foto')
+            ->add('foto_vierkant')
+            ->add('foto_rechthoek')
             ->add('beschrijving')
             ->add('rating')
             ->add("benodigdheden")
