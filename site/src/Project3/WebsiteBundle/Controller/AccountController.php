@@ -11,7 +11,19 @@ class AccountController extends Controller
     // INSTELLINGEN
     public function instellingenAction()
     {
-        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig');
+        $contact = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('Project3WebsiteBundle:Contact')
+            ->find(1);
+        $email = $contact->getEmail();
+        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig',array(
+               "email" => $email,
+        ));
+
+    }
+    public function saveAction($email)
+    {
+        return $this->redirect("/account/instellingen");
     }
 
     // SHOPPINGLIJSTJES
