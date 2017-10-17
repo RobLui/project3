@@ -17,7 +17,9 @@
                     </h3>
                     {% for c in categories %}
                         <div class="col-sm-4">
-                            <p class="text-center category">{{ c.naam|default() }}</p>
+                            <div class="text-center category">
+                                <a href="{{ path('project3_gerecht_query') }}">{{ c.naam|default() }}</a>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>

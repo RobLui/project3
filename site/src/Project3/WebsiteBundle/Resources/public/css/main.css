@@ -73,14 +73,16 @@ button {
 /* GERECHTEN & QUERY GERECHTEN */
 
 .category {
-    padding: 1em;
-    border: 1px solid black;
     text-align: center;
     font-size: 1.4rem;
     margin-bottom: 1em;
 }
-
-.category:hover {
+.category a{
+    border: 1px solid black;
+    padding: 1em;
+    display:block;
+}
+.category a:hover{
     background-color: rgb(36, 36, 36);
     color: rgb(253, 253, 253);
 }
@@ -304,9 +306,4 @@ textarea {
     .noprint {
         display: none;
     }
-}
-
-
-.responsive-enzo{
-    background-size:cover;
 }
