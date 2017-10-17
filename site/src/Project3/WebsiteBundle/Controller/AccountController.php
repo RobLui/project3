@@ -2,22 +2,46 @@
 
 namespace Project3\WebsiteBundle\Controller;
 
-use Elastica\Request;
+use Project3\WebsiteBundle\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class AccountController extends Controller
 {
-    // INSTELLINGEN
-    public function instellingenAction()
+
+    public function instellingenAction(Request $req)
     {
-        $contact = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('Project3WebsiteBundle:Contact')
-            ->find(1);
-        $email = $contact->getEmail();
+        $em = $this->getDoctrine()->getManager();
+
+        $contact = $em->getRepository('Project3WebsiteBundle:Contact')->find(1);
         return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig',array(
-               "email" => $email,
+            "contact" => $contact,
+        ));
+
+    }
+    public function newContact(Request $req)
+    {
+        // Manager
+        $em = $this->getDoctrine()->getManager();
+
+        // Form
+        $contact = new Contact();
+        $form = $this->createForm('Project3\WebsiteBundle\Form\ContactType', $contact);
+        $form->handleRequest($req);
+
+        // POST
+        if ($req->isMethod('POST'))
+        {
+            if($form->isSubmitted() && $form->isValid()) {
+                $contact = $form->getData();
+                $em->persist($contact);
+                $em->flush();
+            }
+        }
+
+        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig',array(
+                "contact" => $contact,
+                "form"  => $form->createView()
         ));
 
     }

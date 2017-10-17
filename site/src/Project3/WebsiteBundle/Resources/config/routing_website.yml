@@ -7,6 +7,7 @@ project3_website_contact:
     defaults: { _controller: Project3WebsiteBundle:Default:contact }
 
 
+
 #ACCOUNT
 project3_account_instellingen:
     path:     /account/instellingen
@@ -19,11 +20,6 @@ project3_account_shoppinglijstjes:
 project3_account_klaargemaakte_gerechten:
     path:     /account/klaargemaakte-gerechten
     defaults: { _controller: Project3WebsiteBundle:Account:klaargemaakteGerechten }
-
-project3_instellingen_save:
-    path:     /account/save
-    defaults: { _controller: Project3WebsiteBundle:Account:save, email: email }
-
 
 
 
@@ -54,10 +50,24 @@ project3_gerecht_query:
 
 
 
-
-
-
 #EXTRA
 project3_website_group:
     path:     /group/{slug}
     defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }
+
+
+
+customer_new:
+    path:     /instellingen/create/newcontact/
+    defaults: { _controller: Project3WebsiteBundle:Account:instellingen}
+    methods: [GET,POST]
+
+customer_edit:
+    path:     /customer/edit/{id}
+    defaults: { _controller: EntoWebsiteBundle:Customer:edit}
+    methods: [GET,POST]
+
+customer_delete:
+    path:     /customer/delete/{id}
+    defaults: { _controller: EntoWebsiteBundle:Customer:delete}
+    methods: [DELETE]

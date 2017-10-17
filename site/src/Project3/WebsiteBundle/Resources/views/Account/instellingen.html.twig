@@ -18,13 +18,38 @@
                 </div>
 
                 {# E-MAIL #}
-                <div class="col-md-8 text-left">Shoppinglijstjes en gerechten mogen naar dit e-mail verzonden worden:</div>
+                <div class="col-sm-8 text-left"></div>
 
-                <input class="col-md-4" type="text" value="{{ email }}">
+                <input class="col-md-4" type="text" value="{{ contact.email }}">
+                {#
+                    <form method="POST" action="{{ path('project3_account_instellingen') }}" class="general-form">
+                        <div class="row">
+                            {{ form_start(form) }}
+                            <div class="col-sm-12">
+                                {{ form_label(form.email) }}
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="col-sm-12">
+                                {{ form_label(form.locatie) }}
+                                {{ form_widget(form.locatie) }}
+                            </div>
+                            <div class="col-sm-12">
+                                {{ form_label(form.tel) }}
+                                {{ form_widget(form.tel) }}
+                            </div>
+                            <div class="col-sm-12">
+                                {{ form_label(form.adres) }}
+                                {{ form_widget(form.adres) }}
+                            </div>
+                            <div class="col-sm-12">
+                                {{ form_widget(form._token) }}
+                                <input type="submit" class="submit" value="opslaan">
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </form>
+                #}
 
-                <div class="col-md-12">
-                    <a href='{{ path('project3_instellingen_save',{'email':email}) }}' class="btn btn-default" style="margin-top:2em;">opslaan</a>
-                </div>
             </div>
         </div>
     </div>
