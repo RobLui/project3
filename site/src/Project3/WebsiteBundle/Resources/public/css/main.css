@@ -10,8 +10,8 @@ body {
     padding-bottom: 2em;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
-    /*background: url("../images/achtergrond-home.jpg") no-repeat center center fixed;*/
-    /*background-size: cover;*/
+    background: url("../images/pex.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
 .bold {
@@ -77,14 +77,17 @@ button {
     font-size: 1.4rem;
     margin-bottom: 1em;
 }
-.category a{
+.category button{
     border: 1px solid black;
-    padding: 1em;
     display:block;
+    color:black;
+    height:4em;
+    width:8em;
 }
-.category a:hover{
+.category button:hover{
     background-color: rgb(36, 36, 36);
     color: rgb(253, 253, 253);
+    text-decoration:none;
 }
 
 .full-image {
@@ -95,7 +98,7 @@ button {
 .full-image img {
     background: center center no-repeat;
     width: 100%;
-    height: 75%;
+    max-height: 75%;
     display: block;
 }
 
@@ -113,7 +116,6 @@ img.resize-logo-medium {
 
 .navbar-default {
     background-color: transparent !important;
-    border-color: transparent;
     background-image: none;
     box-shadow: none;
 }
@@ -235,11 +237,6 @@ textarea {
     font-size: 1rem;
 }
 
-
-/*.mail-shop {
-    font-size: 1rem;
-}*/
-
 .btn.btn-success {
     background: grey;
 }
@@ -253,13 +250,6 @@ textarea {
 .loginform {
     margin-top: 20%;
 }
-
-.col-sm-8 {
-    /*background: url("../images/temp.jpg") no-repeat center center fixed;*/
-    /*background-size:cover;*/
-    background: white;
-}
-
 
 /* Algemene klassen */
 
@@ -307,3 +297,11 @@ textarea {
         display: none;
     }
 }
+
+/*@media (min-width: 768px) {*/
+    /*.img-responsive img{*/
+        /*height:28rem;*/
+        /*width:100%;*/
+        /*display:block;*/
+    /*}*/
+/*}*/

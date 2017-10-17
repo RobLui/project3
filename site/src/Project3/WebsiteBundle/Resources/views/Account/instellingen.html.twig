@@ -18,8 +18,8 @@
                 </div>
 
                 {# E-MAIL #}
-                <div class="col-sm-8 col-sm-offset-2 text-left">
-                    <p>Mails mogen verstuurd worden naar dit adres:</p>
+                <div class="col-sm-12 text-left">
+                    <p class="margin-bottom-1em">Gerechten en shoppinglijstjes mogen verstuurd worden naar dit adres:</p>
                     {% for contact in contacts %}
                         {{ contact.email }}
                         <a class="btn btn-primary pull-right" href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
