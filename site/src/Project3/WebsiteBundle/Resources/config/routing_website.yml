@@ -8,6 +8,8 @@ project3_website_contact:
 
 
 
+
+
 #ACCOUNT
 project3_account_instellingen:
     path:     /account/instellingen
@@ -23,11 +25,9 @@ project3_account_klaargemaakte_gerechten:
 
 
 
-#GERECHTEN
-project3_gerecht_print:
-    path:     /gerechten/gerecht/print/{id}
-    defaults: { _controller: Project3WebsiteBundle:Gerecht:save, id: id}
 
+
+#GERECHTEN
 project3_gerecht_save:
     path:     /gerechten/gerecht/save/{id}
     defaults: { _controller: Project3WebsiteBundle:Gerecht:save, id: id}
@@ -50,24 +50,34 @@ project3_gerecht_query:
 
 
 
+
+
+#CONTACT -> waar e-mail naartoe gestuurd kan worden
+
+project3_contact_show:
+    path:     /contact/{id}/
+    defaults: { _controller: Project3WebsiteBundle:Contact:show}
+    methods: [GET]
+
+project3_contact_new:
+    path:     /contact/create/new/
+    defaults: { _controller: Project3WebsiteBundle:Contact:new}
+    methods: [GET,POST]
+
+project3_contact_edit:
+    path:     /contact/edit/{id}
+    defaults: { _controller: Project3WebsiteBundle:Contact:edit}
+    methods: [GET,POST]
+
+project3_contact_delete:
+    path:     /contact/delete/{id}
+    defaults: { _controller: Project3WebsiteBundle:Contact:delete}
+    methods: [DELETE]
+
+
+
+
 #EXTRA
 project3_website_group:
     path:     /group/{slug}
     defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }
-
-
-
-customer_new:
-    path:     /instellingen/create/newcontact/
-    defaults: { _controller: Project3WebsiteBundle:Account:instellingen}
-    methods: [GET,POST]
-
-customer_edit:
-    path:     /customer/edit/{id}
-    defaults: { _controller: EntoWebsiteBundle:Customer:edit}
-    methods: [GET,POST]
-
-customer_delete:
-    path:     /customer/delete/{id}
-    defaults: { _controller: EntoWebsiteBundle:Customer:delete}
-    methods: [DELETE]

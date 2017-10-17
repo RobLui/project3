@@ -9,45 +9,15 @@ use Symfony\Component\HttpFoundation\Request;
 class AccountController extends Controller
 {
 
-    public function instellingenAction(Request $req)
+    public function instellingenAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $contact = $em->getRepository('Project3WebsiteBundle:Contact')->find(1);
+        $contacts = $em->getRepository('Project3WebsiteBundle:Contact')->findAll();
         return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig',array(
-            "contact" => $contact,
+            "contacts" => $contacts,
         ));
 
-    }
-    public function newContact(Request $req)
-    {
-        // Manager
-        $em = $this->getDoctrine()->getManager();
-
-        // Form
-        $contact = new Contact();
-        $form = $this->createForm('Project3\WebsiteBundle\Form\ContactType', $contact);
-        $form->handleRequest($req);
-
-        // POST
-        if ($req->isMethod('POST'))
-        {
-            if($form->isSubmitted() && $form->isValid()) {
-                $contact = $form->getData();
-                $em->persist($contact);
-                $em->flush();
-            }
-        }
-
-        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig',array(
-                "contact" => $contact,
-                "form"  => $form->createView()
-        ));
-
-    }
-    public function saveAction($email)
-    {
-        return $this->redirect("/account/instellingen");
     }
 
     // SHOPPINGLIJSTJES
@@ -61,4 +31,5 @@ class AccountController extends Controller
     {
         return $this->render('Project3WebsiteBundle:Account:klaargemaakte-gerechten.html.twig');
     }
+
 }
