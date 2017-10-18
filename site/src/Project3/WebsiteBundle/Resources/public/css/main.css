@@ -91,6 +91,9 @@ button {
 
 .size-buttons-shoppinglijst {
     width: 100%;
+}
+
+.size-buttons-no-cat {
     padding-top: 0.4em;
     padding-bottom: 0.4em;
 }
@@ -189,23 +192,6 @@ h3 {
 }
 
 
-/* SHOPPING LIST */
-
-.shoppinglist {
-    margin-top: 0.5em;
-    margin-bottom: 2.2em;
-}
-
-.shoppinglist:hover {
-    background-color: rgb(36, 36, 36);
-    color: rgb(253, 253, 253);
-}
-
-.shoppinglist p {
-    padding: 1em;
-}
-
-
 /* RECEPT LIST */
 
 .receptlist {
@@ -294,6 +280,10 @@ textarea {
 
 .margin-top-0-5em {
     margin-top: 0.5em;
+}
+
+.margin-top-1em {
+    margin-top: 1em;
 }
 
 .margin-top-1-75em {
