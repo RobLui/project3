@@ -10,10 +10,27 @@ $(document).ready(function() {
 
 
 
+    // Check on change
+    $('input:checked').change(function () {
+        console.log($(this).val());
+    })
 
 
+    // add box if checked
+    $('input:checkbox').change(function(){
+        if($(this).is(":checked")) {
+            $('.stap').addClass("greybox");
+        } else {
+            $('.stap').removeClass("greybox");
+        }
+    });
 
-
+    //
+    // $('input[type=checkbox]').each(function () {
+    //     if (this.checked) {
+    //         console.log($(this).val());
+    //     }
+    // });
 
     // Tel ingredienten die ik heb
     $("#shoppinglistbind").on("click", telIngredienten);

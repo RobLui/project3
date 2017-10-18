@@ -88,7 +88,7 @@
                 <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold">TOEVOEGEN AAN SHOPPINGLIJSTJE</button>
                 <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em">MAIL</button>
             </div>
-            <a href="{{ path('project3_mail',{ id: gerecht.id }) }}">mail test</a>
+            {#<a href="{{ path('project3_mail',{ id: gerecht.id }) }}">mail test</a>#}
         </div>
     </div>
 
@@ -110,13 +110,14 @@
     {% if gerecht %}
         <div class="col-sm-8 col-sm-offset-2 container-white padding-bottom-3em">
             {% for stap in gerecht.stappen %}
-                <div class="col-sm-12 bordered margin-bottom-0">
+                <div class="col-sm-12 bordered margin-bottom-0 stap">
                     <div class="col-sm-2">
                         <p class="margin-top-0-5em">{{ stap.stapnummer }}
-                        <input type="checkbox" style="margin-left:0.7em; margin-top:-0.6em;"></p>
+                            <input type="checkbox" value="{{ stap.stapnummer }}" class="stapcheck">
+                        </p>
                     </div>
                     <div class="col-sm-10">
-                        <p>{{ stap.tekst }}</p>
+                        {{ stap.tekst }}
                     </div>
                 </div>
             {% endfor %}
@@ -127,9 +128,7 @@
             </div>
 
         </div>
-
     {% endif %}
-
     {#-------------REVIEWS-------------#}
     {#<div class="col-sm-8 col-sm-offset-2">#}
         {#<p class="padding-top-1-2em">REVIEWS</p>#}
