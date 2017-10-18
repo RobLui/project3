@@ -74,6 +74,10 @@ project3_contact_delete:
     defaults: { _controller: Project3WebsiteBundle:Contact:delete}
     methods: [DELETE]
 
+project3_mail:
+    path:     /mail/{id}
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:mail }
+    methods: [GET]
 
 
 
@@ -81,3 +85,5 @@ project3_contact_delete:
 project3_website_group:
     path:     /group/{slug}
     defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }
+
+

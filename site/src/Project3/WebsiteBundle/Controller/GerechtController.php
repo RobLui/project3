@@ -3,7 +3,9 @@
 namespace Project3\WebsiteBundle\Controller;
 
 use function GuzzleHttp\Psr7\str;
+use Project3\WebsiteBundle\Entity\Account;
 use Project3\WebsiteBundle\Entity\Gerecht;
+use Project3\WebsiteBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -95,8 +97,10 @@ class GerechtController extends Controller
     }
 
     // VERSTUUR GERECHT IN MAIL
-    public function mailAction($id)
+    public function mailAction(Request $req, $id)
     {
+        $account = $this->getDoctrine()->getRepository(Account::class);
+
         $em = $this->getDoctrine()->getManager();
         $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
             ->findOneBy(
@@ -105,10 +109,15 @@ class GerechtController extends Controller
                     'actief' => true
                 ), null,null,null );
 
+        $user = $this->get('security.context')->getToken()->getUser();
+//        $user->getUsername();
+        $accountname = $account->findOneByGebruikersnaam($user->getUsername());
+        dump($accountname); die;
+
         $message = \Swift_Message::newInstance()
             ->setSubject(str($gerecht->getNaam()))
-            ->setFrom('robbertluit@gmail.com')
-            ->setTo('robbertluit@gmail.com')
+            ->setFrom($user)
+            ->setTo($accountname)
             ->setBody(
                 $this->renderView(
                     '@Project3Website/Gerechten/detail.html.twig',
@@ -119,4 +128,5 @@ class GerechtController extends Controller
         $this->container->get('mailer')->send($message);
 
     }
+
 }

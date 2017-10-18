@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ContactAdmin extends AbstractAdmin
+class AccountAdmin extends AbstractAdmin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -17,7 +17,8 @@ class ContactAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('usercontact')
+            ->add('gebruikersnaam')
+            ->add('password')
             ->add('email')
         ;
     }
@@ -29,7 +30,8 @@ class ContactAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('id')
-            ->add('usercontact')
+            ->add('gebruikersnaam')
+            ->add('password')
             ->add('email')
             ->add('_action', null, array(
                 'actions' => array(
@@ -47,7 +49,9 @@ class ContactAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('usercontact')
+//            ->add('id')
+            ->add('gebruikersnaam')
+            ->add('password')
             ->add('email')
         ;
     }
@@ -58,8 +62,9 @@ class ContactAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('id')
-            ->add('usercontact')
+//            ->add('id')
+            ->add('gebruikersnaam')
+            ->add('password')
             ->add('email')
         ;
     }

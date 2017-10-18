@@ -30,7 +30,9 @@ class UserAdmin extends AbstractAdmin
             ->add('confirmationToken')
             ->add('passwordRequestedAt')
             ->add('roles')
-            ->add('id');
+            ->add('id')
+            ->add('contacts')
+        ;
     }
 
     /**
@@ -42,6 +44,7 @@ class UserAdmin extends AbstractAdmin
             ->add('id')
             ->add('username')
             ->add('email')
+            ->add('contacts')
             ->add('enabled', null, array(
                 "editable" => true,
             ))
@@ -67,6 +70,7 @@ class UserAdmin extends AbstractAdmin
                 ->with('Overzicht')
                     ->add('username')
                     ->add('email')
+                    ->add('contacts')
                     ->add('plainPassword', RepeatedType::class, array(
                         "required" => false,
                         "type" => PasswordType::class,
@@ -113,6 +117,7 @@ class UserAdmin extends AbstractAdmin
             ->add('confirmationToken')
             ->add('passwordRequestedAt')
             ->add('roles')
+            ->add('contacts')
             ->add('id');
     }
 }

@@ -78,3 +78,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Contact, label: Contact }
         public: true
+
+    project3_website.admin.account:
+        class: Project3\WebsiteBundle\Admin\AccountAdmin
+        arguments: [~, Project3\WebsiteBundle\Entity\Account, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Users, label: Account }
+        public: true

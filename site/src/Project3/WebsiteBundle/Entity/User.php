@@ -20,6 +20,13 @@ class User extends BaseUser
      */
     private $shoppinglists;
 
+
+    /**
+     * One User has Many contact.
+     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Contact", mappedBy="usercontact")
+     */
+    private $contacts;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -94,5 +101,39 @@ class User extends BaseUser
     public function getShoppinglists()
     {
         return $this->shoppinglists;
+    }
+
+    /**
+     * Add contact
+     *
+     * @param \Project3\WebsiteBundle\Entity\Contact $contact
+     *
+     * @return User
+     */
+    public function addContact(\Project3\WebsiteBundle\Entity\Contact $contact)
+    {
+        $this->contacts[] = $contact;
+
+        return $this;
+    }
+
+    /**
+     * Remove contact
+     *
+     * @param \Project3\WebsiteBundle\Entity\Contact $contact
+     */
+    public function removeContact(\Project3\WebsiteBundle\Entity\Contact $contact)
+    {
+        $this->contacts->removeElement($contact);
+    }
+
+    /**
+     * Get contacts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getContacts()
+    {
+        return $this->contacts;
     }
 }
