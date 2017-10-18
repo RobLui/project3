@@ -135,7 +135,7 @@ img.resize-logo-medium {
 }
 
 .nav-item {
-    background: #e7e7e7;
+    background: #f4eeeb;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -415,22 +415,18 @@ h1 {
     color: #FFED85;
 }
 
-
-
-
-.container-white  {
-    background:white;
-    bottom:0;
-    display:block;
+.container-white {
+    background: white;
+    bottom: 0;
+    display: block;
 }
 
-.container-fluid{
-    margin-top:-5.5em;
+.container-fluid {
+    margin-top: -5.5em;
 }
 
-.bottom
-{
-    height:70rem;
+.bottom {
+    height: 70rem;
 }
 
 
