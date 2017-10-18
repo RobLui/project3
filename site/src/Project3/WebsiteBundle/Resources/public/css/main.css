@@ -415,13 +415,22 @@ h1 {
     color: #FFED85;
 }
 
-.container-white {
-    background: white;
-    bottom: 0;
+
+
+
+.container-white  {
+    background:white;
+    bottom:0;
+    display:block;
 }
 
-.bottom {
-    height: 70rem;
+.container-fluid{
+    margin-top:-5.5em;
+}
+
+.bottom
+{
+    height:70rem;
 }
 
 
