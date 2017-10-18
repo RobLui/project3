@@ -13,6 +13,11 @@ project3_website:
     resource: "@Project3WebsiteBundle/Resources/config/routing.yml"
     prefix:   /
 
-#    ELFINDER ROUTING
+# ELFINDER ROUTING
 elfinder:
      resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
+# REGISTER USERS
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register

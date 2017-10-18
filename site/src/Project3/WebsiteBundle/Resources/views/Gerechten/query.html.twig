@@ -3,61 +3,61 @@
 {% block title %}
 
 {% endblock %}
-
 {% block content %}
 
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 text-center">
-            <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+    <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
     {% if gerechten|length > 0 %}
-            <div class="col-sm-12">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <h3 class="margin-bottom-1em">
-                        GERECHTEN MET {{ ingredienten|default("-")|upper }}
-                    </h3>
-                    {% for c in categories %}
-                        <div class="col-sm-4">
-                            <div class="text-center category">
-                                <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
-                                    <input required name="searchinput" type="text" class="hidden" value="{{ c.naam }}+{{ ingredienten|default() }}" >
-                                    <button class="btnnn" type="submit">
-                                        {{ c.naam }}
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-12 text-center">
-            <div class="col-sm-12">
-                {% for gerecht in gerechten %}
-                    <div class="col-sm-4 text-center quickfix">
-
-                        <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
-                            <div class="img-responsive">
-                                <img class="col-sm-12" src="{{ gerecht.fotoVierkant|default('-') }}" alt="{{ gerecht.naam|default('-') }}">
-                            </div>
-                        </a>
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <p class="bold margin-bottom-6">{{ gerecht.naam|default('-') }}</p>
-                        </div>
-
-                        <div class="col-sm-5 col-sm-offset-1">
-                            <p><span class="glyphicon glyphicon-time"></span> {{ gerecht.bereidingstijd|default(10) }} min</p>
-                        </div>
-
-                        <div class="col-sm-6">
-                            {% for i in 0..gerecht.rating|default(4) %}
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            {% endfor %}
+        <div class="col-sm-12 ">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3 class="margin-bottom-1em">
+                    GERECHTEN MET {{ ingredienten|default("-")|upper }}
+                </h3>
+                {% for c in categories %}
+                    <div class="col-sm-4">
+                        <div class="text-center category">
+                            <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
+                                <input required name="searchinput" type="text" class="hidden" value="{{ c.naam }}" >
+                                <button class="btnnn size-category" type="submit">
+                                    {{ c.naam }}</a>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <div class="col-sm-12 container-white padding-top-1em">
+        {% for gerecht in gerechten %}
+            <div class="col-sm-4 text-center quickfix container-white">
+
+                <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
+                    <div class="img-responsive">
+                        <img src="{{ gerecht.fotoVierkant|default('-') }}" alt="{{ gerecht.naam|default('-') }}">
+                    </div>
+                </a>
+                <div class="col-sm-8 col-sm-offset-2">
+                    <p class="bold margin-bottom-6">{{ gerecht.naam|default('-') }}</p>
+                </div>
+
+                <div class="col-sm-5 col-sm-offset-1">
+                    <p><span class="glyphicon glyphicon-time"></span> {{ gerecht.bereidingstijd|default(10) }} min</p>
+                </div>
+
+                <div class="col-sm-6">
+                    {% for i in 0..gerecht.rating|default(4) %}
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
     {% else %}
             <div class="col-sm-8 col-sm-offset-2 text-center quickfix">
                 <h2>
