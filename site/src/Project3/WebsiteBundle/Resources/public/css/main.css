@@ -322,34 +322,13 @@ textarea {
 }
 
 
-/* css klasse die we erbij kunnen zetten op elementen die niet moeten geprint worden */
+/* Print exclude class */
 
 @media print {
     .noprint {
         display: none;
     }
 }
-
-
-/*@media (min-width: 768px) {*/
-
-
-/*.img-responsive img{*/
-
-
-/*height:28rem;*/
-
-
-/*width:100%;*/
-
-
-/*display:block;*/
-
-
-/*}*/
-
-
-/*}*/
 
 .margin-left-1 {
     margin-left: 1em;
@@ -444,29 +423,6 @@ h1 {
 }
 
 
-/*.fixed-image-size{*/
-
-
-/*margin:0 auto;*/
-
-
-/*height:18rem;*/
-
-
-/*width:18rem;*/
-
-
-/*position: center;*/
-
-
-/*overflow: hidden;*/
-
-
-/*}*/
-
-
-/*NIEUW --- ROBBERT*/
-
 .padding-top-1em {
     padding-top: 1em;
 }
@@ -478,7 +434,6 @@ h1 {
 .padding-bottom-3em {
     padding-bottom:3em;
 }
-/*EINDNIEUW ------ ROBBERT*/
 
 
 .stapcheck {
