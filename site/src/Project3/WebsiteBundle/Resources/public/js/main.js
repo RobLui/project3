@@ -7,7 +7,7 @@ $(document).ready(function() {
         $(".shoppinglisttext").text(hebik + (hebik === 1 ? " ingredient" : " ingredienten") + " in shoppinglijst");
         console.log("Ingredienten die ik heb = " + hebik);
     };
-
+    $("#shoppinglistbind").on("click", telIngredienten);
 
 
     // Check on change -> log de waarde van de checkbox
@@ -15,19 +15,17 @@ $(document).ready(function() {
         console.log($(this).val());
     });
 
-
-
+    // Check op welke inputbox de grijswaarden mogen komen
     $('input:checkbox').change(function(){
-        if($(this).is(':checked'))
-        // $(this).parent().parent().parent().addClass('greybox');
-        $(this).closest(".col-sm-12").addClass('greybox');
-        else
-        $(this).closest(".col-sm-12").removeClass('greybox')
-        // $(this).parent().parent().parent().removeClass('greybox')
+        if($(this).is(':checked')) {
+            if ($(this.closest('.stap').length != null)) {
+                $(this).closest(".col-sm-12").addClass('greybox');
+            }
+        }
+        else {
+            $(this).closest(".col-sm-12").removeClass('greybox')
+        }
     });
 
-
-    // Tel ingredienten die ik heb
-    $("#shoppinglistbind").on("click", telIngredienten);
 
 });
