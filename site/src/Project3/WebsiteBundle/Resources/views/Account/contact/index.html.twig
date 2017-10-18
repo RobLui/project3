@@ -1,0 +1,30 @@
+{% extends "@Project3Website/layout.html.twig" %}
+
+{% block content %}
+    <h1>Contacten</h1>
+    <table class="table table-striped dataTable">
+        <thead>
+        <tr>
+            <th>E-mail</th>
+            <th>Adres</th>
+            <th>locatie</th>
+            <th>Tel</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.email|default() }}</a></td>
+                <td>{{ contact.adres|default() }}</td>
+                <td>{{ contact.locatie|default() }}</td>
+                <td>{{ contact.tel|default() }}</td>
+                <td>
+                    <a class="btn btn-default" href="{{ path('project3_contact_show', { 'id': contact.id }) }}">tonen</a>
+                    <a class="btn btn-primary" href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a class=" btn btn-primary" href="{{ path('project3_contact_new') }}">nieuw contact</a>
+{% endblock content%}

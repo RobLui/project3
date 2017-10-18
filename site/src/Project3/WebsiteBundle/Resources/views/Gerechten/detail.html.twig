@@ -18,7 +18,7 @@
             </div>
 
             <div class="full-image noprint">
-                <img src="{{ gerecht.foto }}" alt="{{ gerecht.naam|default("-") }}">
+                <img src="{{ gerecht.fotoRechthoek }}" alt="{{ gerecht.naam|default("-") }}">
             </div>
 
             <div class="detail minusfix">
@@ -51,12 +51,16 @@
                     <li class="col-sm-12 list-unstyled">
                         <hr>
                         <span class="col-sm-8">{{ ingredient.naam|default('naam') }}</span>
-                        <span class="col-sm-2 pull-right"><input type="checkbox"></span>
-                        <span class="col-sm-2 pull-right"><input type="checkbox" checked></span>
+                        <span class="col-sm-2 pull-right"><input type="checkbox" value="{{ ingredient.naam }}"></span>
+                        <span class="col-sm-2 pull-right"><input type="checkbox" checked value="{{ ingredient.naam }}"></span>
                     </li>
                 {% endfor %}
             </ul>
+<<<<<<< HEAD
             <p class="btn bordered shoppinglist col-sm-12 text-center">MAAK SHOPPINGLIJST</p>
+=======
+                <p class="btn btn-default bordered col-sm-12 text-center shoppinglist shoppinglisttext" id="shoppinglistbind">MAAK SHOPPINGLIJST</p>
+>>>>>>> cb893523acdf2f19511f89f24c1355769af8f2c5
         </div>
 
         {#-------------SHOPPINGLIJSTJE-------------#}
@@ -72,8 +76,10 @@
                     </li>
                 {% endfor %}
             </ul>
-            <p class="btn text-center bordered col-sm-12 button-black">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
-            <p class="btn text-center bordered col-sm-12 button-black pull-right shoppinglist mail">MAIL</p>
+
+            <p class="btn btn-default text-center bordered col-sm-12 mail-shop">TOEVOEGEN AAN SHOPPINGLIJSTJE</p>
+            <p class="btn btn-default text-center bordered col-sm-12 mail-shop pull-right shoppinglist mail">MAIL</p>
+            {#<a href="{{ path('mail_gerecht',{ id: gerecht.id }) }}"></a>#}
         </div>
     </div>
 

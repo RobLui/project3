@@ -14,7 +14,7 @@ class DefaultController extends Controller
     }
     public function contactAction()
     {
-        return $this->render('Project3WebsiteBundle:Default:contact.html.twig');
+        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig');
     }
 
     public function groupAction(Request $request, $slug = null)

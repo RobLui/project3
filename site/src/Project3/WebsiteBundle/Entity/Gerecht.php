@@ -60,6 +60,19 @@ class Gerecht
     /**
      * @var string
      *
+     * @ORM\Column(name="foto_vierkant", type="string", length=255, nullable=true)
+     */
+    private $foto_vierkant;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="foto_rechthoek", type="string", length=255, nullable=true)
+     */
+    private $foto_rechthoek;
+    /**
+     * @var string
+     *
      * @ORM\Column(name="beschrijving", type="text", nullable=true)
      */
     private $beschrijving;
@@ -151,29 +164,6 @@ class Gerecht
         return $this->naam;
     }
 
-    /**
-     * Set foto
-     *
-     * @param string $foto
-     *
-     * @return Gerecht
-     */
-    public function setFoto($foto)
-    {
-        $this->foto = $foto;
-
-        return $this;
-    }
-
-    /**
-     * Get foto
-     *
-     * @return string
-     */
-    public function getFoto()
-    {
-        return $this->foto;
-    }
 
     /**
      * Set beschrijving
@@ -385,5 +375,77 @@ class Gerecht
     public function getBereidingstijd()
     {
         return $this->bereidingstijd;
+    }
+
+    /**
+     * Set fotoVierkant
+     *
+     * @param string $fotoVierkant
+     *
+     * @return Gerecht
+     */
+    public function setFotoVierkant($fotoVierkant)
+    {
+        $this->foto_vierkant = $fotoVierkant;
+
+        return $this;
+    }
+
+    /**
+     * Get fotoVierkant
+     *
+     * @return string
+     */
+    public function getFotoVierkant()
+    {
+        return $this->foto_vierkant;
+    }
+
+    /**
+     * Set fotoRechthoek
+     *
+     * @param string $fotoRechthoek
+     *
+     * @return Gerecht
+     */
+    public function setFotoRechthoek($fotoRechthoek)
+    {
+        $this->foto_rechthoek = $fotoRechthoek;
+
+        return $this;
+    }
+
+    /**
+     * Get fotoRechthoek
+     *
+     * @return string
+     */
+    public function getFotoRechthoek()
+    {
+        return $this->foto_rechthoek;
+    }
+
+    /**
+     * Set foto
+     *
+     * @param string $foto
+     *
+     * @return Gerecht
+     */
+    public function setFoto($foto)
+    {
+        $this->foto = $foto;
+
+        return $this;
+    }
+
+    /**
+     * Get foto
+     *
+     * @return string
+     */
+    public function getFoto()
+    {
+        return $this->foto;
     }
 }

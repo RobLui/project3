@@ -2,16 +2,22 @@
 
 namespace Project3\WebsiteBundle\Controller;
 
-use Elastica\Request;
+use Project3\WebsiteBundle\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class AccountController extends Controller
 {
-    // INSTELLINGEN
+
     public function instellingenAction()
     {
-        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $contacts = $em->getRepository('Project3WebsiteBundle:Contact')->findAll();
+        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig',array(
+            "contacts" => $contacts,
+        ));
+
     }
 
     // SHOPPINGLIJSTJES
@@ -25,4 +31,5 @@ class AccountController extends Controller
     {
         return $this->render('Project3WebsiteBundle:Account:klaargemaakte-gerechten.html.twig');
     }
+
 }

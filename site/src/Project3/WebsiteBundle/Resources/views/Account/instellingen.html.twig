@@ -7,41 +7,23 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-8 col-md-offset-2 text-center">
+        <div class="col-sm-12">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
                 <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten" />
 
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-sm-8 col-sm-offset-2">
                     <h3 class="title">
                         JOUW INSTELLINGEN
                     </h3>
                 </div>
 
-                {# SHOPPINGLIST #}
-                {#<li class="col-md-7 list-group-item list-unstyled text-left">Shoppinglist verwijderen uit account:</li>#}
-                {#<li class="col-md-5 list-unstyled">#}
-                {#<ul class="list-group">#}
-                    {#<li class="nav-item dropdown list-unstyled">#}
-                        {#<a href="#" class="dropdown-toggle list-group-item" data-toggle="dropdown" role="button"#}
-                           {#aria-haspopup="true" aria-expanded="false">#}
-                            {#<span class="caret"></span>#}
-                            {#2 weken#}
-                        {#</a>#}
-                        {#<ul class="dropdown-menu list-group"  style="width:100%">#}
-                            {#<li class="list-group-item list-unstyled"><a>3 weken</a></li>#}
-                            {#<li class="list-group-item list-unstyled"><a>4 weken</a></li>#}
-                            {#<li class="list-group-item list-unstyled"><a>nooit</a></li>#}
-                        {#</ul>#}
-                    {#</li>#}
-                {#</ul>#}
-
                 {# E-MAIL #}
-                <div class="col-md-8 text-left">Shoppinglijstjes en gerechten mogen naar dit e-mail verzonden worden:</div>
-
-                <input class="col-md-4" type="text" value="robbertluit@hotmail.com">
-
-                <div class="col-md-12">
-                    <a href="#" class="btn btn-default" style="margin-top:2em;">opslaan</a>
+                <div class="col-sm-12 text-left">
+                    <p class="margin-bottom-1em">Gerechten en shoppinglijstjes mogen verstuurd worden naar dit adres:</p>
+                    {% for contact in contacts %}
+                        {{ contact.email }}
+                        <a class="btn btn-primary pull-right" href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
+                    {% endfor %}
                 </div>
             </div>
         </div>

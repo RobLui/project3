@@ -7,6 +7,9 @@ project3_website_contact:
     defaults: { _controller: Project3WebsiteBundle:Default:contact }
 
 
+
+
+
 #ACCOUNT
 project3_account_instellingen:
     path:     /account/instellingen
@@ -21,17 +24,14 @@ project3_account_klaargemaakte_gerechten:
     defaults: { _controller: Project3WebsiteBundle:Account:klaargemaakteGerechten }
 
 
-project3_gerecht_print:
-    path:     /gerechten/gerecht/print/{id}
-    defaults: { _controller: Project3WebsiteBundle:Gerecht:save, id: id}
-
-project3_gerecht_save:
-    path:     /gerechten/gerecht/save/{id}
-    defaults: { _controller: Project3WebsiteBundle:Gerecht:save, id: id}
 
 
 
 #GERECHTEN
+project3_gerecht_save:
+    path:     /gerechten/gerecht/save/{id}
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:save, id: id}
+
 project3_alle_gerechten:
     path:     /gerechten
     defaults: { _controller: Project3WebsiteBundle:Gerecht:overzicht}
@@ -49,6 +49,30 @@ project3_gerecht_query:
     defaults: { _controller: Project3WebsiteBundle:Gerecht:query}
 
 
+
+
+
+#CONTACT -> waar e-mail naartoe gestuurd kan worden
+
+project3_contact_show:
+    path:     /contact/{id}/
+    defaults: { _controller: Project3WebsiteBundle:Contact:show}
+    methods: [GET]
+
+project3_contact_new:
+    path:     /contact/create/new/
+    defaults: { _controller: Project3WebsiteBundle:Contact:new}
+    methods: [GET,POST]
+
+project3_contact_edit:
+    path:     /contact/edit/{id}
+    defaults: { _controller: Project3WebsiteBundle:Contact:edit}
+    methods: [GET,POST]
+
+project3_contact_delete:
+    path:     /contact/delete/{id}
+    defaults: { _controller: Project3WebsiteBundle:Contact:delete}
+    methods: [DELETE]
 
 
 

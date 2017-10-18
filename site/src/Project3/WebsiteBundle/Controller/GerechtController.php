@@ -2,6 +2,7 @@
 
 namespace Project3\WebsiteBundle\Controller;
 
+use function GuzzleHttp\Psr7\str;
 use Project3\WebsiteBundle\Entity\Gerecht;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -93,4 +94,29 @@ class GerechtController extends Controller
         return $this->render('Project3WebsiteBundle:Gerechten:surprise.html.twig');
     }
 
+    // VERSTUUR GERECHT IN MAIL
+    public function mailAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
+            ->findOneBy(
+                array(
+                    "id" => $id,
+                    'actief' => true
+                ), null,null,null );
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject(str($gerecht->getNaam()))
+            ->setFrom('robbertluit@gmail.com')
+            ->setTo('robbertluit@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    '@Project3Website/Gerechten/detail.html.twig',
+                    array('gerecht' => $gerecht)
+                )
+            )
+        ;
+        $this->container->get('mailer')->send($message);
+
+    }
 }

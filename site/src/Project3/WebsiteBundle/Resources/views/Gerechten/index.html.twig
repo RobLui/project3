@@ -17,7 +17,14 @@
                     </h3>
                     {% for c in categories %}
                         <div class="col-sm-4">
-                            <p class="text-center category">{{ c.naam|default() }}</p>
+                            <div class="text-center category">
+                                <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
+                                    <input required name="searchinput" type="text" class="hidden" value="{{ c.naam }}" >
+                                    <button class="btnnn" type="submit">
+                                        {{ c.naam }}</a>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
@@ -26,17 +33,17 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 text-center">
+        <div class="col-sm-12 text-center">
             <div class="col-sm-12">
                 {% for gerecht in gerechten %}
-                    <div class="col-sm-6 text-center quickfix">
+                    <div class="col-sm-4 text-center quickfix">
 
                         <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
                             <div class="img-responsive">
-                                <img class="col-md-12" src="{{ gerecht.foto|default('-') }}" alt="{{ gerecht.naam|default('-') }}">
+                                <img src="{{ gerecht.fotoVierkant|default('-') }}" alt="{{ gerecht.naam|default('-') }}">
                             </div>
                         </a>
-                        <div class="col-sm-6 col-sm-offset-3">
+                        <div class="col-sm-8 col-sm-offset-2">
                             <p class="bold margin-bottom-6">{{ gerecht.naam|default('-') }}</p>
                         </div>
 
@@ -45,7 +52,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                            {% for i in 0..gerecht.rating|default(5) %}
+                            {% for i in 0..gerecht.rating|default(4) %}
                                 <span class="glyphicon glyphicon-star-empty"></span>
                             {% endfor %}
                         </div>

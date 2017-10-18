@@ -1,5 +1,10 @@
 {% extends "@Project3Website/layout.html.twig" %}
 
+{% block cssfiles %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/project3website/css/home.css') }}">
+{% endblock cssfiles %}
+
 {% block content %}
 
     {#ZOEKEN#}
