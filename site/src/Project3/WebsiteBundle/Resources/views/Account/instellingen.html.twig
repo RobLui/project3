@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-white bottom">
     <div class="row">
         <div class="col-sm-12">
             <div class="col-sm-8 col-sm-offset-2 text-center">
@@ -18,15 +17,23 @@
                 </div>
 
                 {# E-MAIL #}
-                <div class="col-sm-12 text-left">
-                    <p class="margin-bottom-1em">Gerechten en shoppinglijstjes mogen verstuurd worden naar dit adres:</p>
+                <div class="col-sm-12 text-left  container-white">
+                    <p class="margin-bottom-1em">Gerechten en shoppinglijstjes mogen verstuurd worden naar deze adressen verstuurd worden:</p>
+                    <ul class="list-group">
                     {% for contact in contacts %}
-                        {{ contact.email }}
-                        <a class="btn btn-primary pull-right" href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
+                        <li class="list-group-item">
+                            {{ contact.email }}
+                            <a class="btn btn-primary pull-right" href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
+                        </li>
                     {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> origin/master
