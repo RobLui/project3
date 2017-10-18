@@ -52,15 +52,13 @@
         <div class="col-sm-5 bordered">
             <p class="padding-top-1-2em semibold margin-top-0-5em text-center margin-top-1-75em">INGREDIENTEN</p>
             <p class="col-sm-12 wel-niet">
-                <span class="pull-right">NIET</span>
-                <span class="pull-right padding-right-8">WEL</span>
+                <span class="pull-right">HEB IK</span>
             </p>
             <ul class="col-sm-12">
                 {% for ingredient in gerecht.ingredienten|default() %}
                     <li class="col-sm-12 list-unstyled">
                         <hr>
                         <span class="col-sm-8">{{ ingredient.naam|default('naam') }}</span>
-                        <span class="col-sm-2 pull-right"><input type="checkbox" value="{{ ingredient.naam }}"></span>
                         <span class="col-sm-2 pull-right"><input type="checkbox" checked value="{{ ingredient.naam }}"></span>
                     </li>
                 {% endfor %}
