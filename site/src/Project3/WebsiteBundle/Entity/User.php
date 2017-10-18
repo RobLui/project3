@@ -42,6 +42,7 @@ class User extends BaseUser
         parent::__construct();
         $this->setEnabled(true);
         $this->roles = array("ROLE_USER" => "ROLE_USER");
+
     }
 
     public function __toString()
