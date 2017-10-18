@@ -15,65 +15,74 @@
                 </h3>
             </div>
 
-            <div class="col-sm-4 text-center plusfix">
 
-                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
-                    <div class="img-responsive">
-                        <img class="col-md-12" src="{{ asset('bundles/project3website/images/chilli-chicken-wraps.jpg') }}" alt="test">
-                    </div>
-                </a>
+            <div class="text-center">
 
-                <div class="col-sm-8 col-md-offset-2">
-                    <p>CHICKEN WRAPS</p>
-                </div>
+                <div class="col-sm-4 background-white padding-favorieten margin-top-1em">
 
-                <div class="col-sm-8 col-md-offset-2">
-                    {% for i in 0..gerecht.rating|default(4) %}
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="col-sm-4 text-center plusfix">
-
-                <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
-                    <div class="img-responsive">
-                        <img class="col-sm-12" src="{{ asset('bundles/project3website/images/spring-chicken.jpg') }}" alt="spring chicken">
-                    </div>
-                </a>
-
-                <div class="col-sm-8 col-sm-offset-2">
-                    <p>HERFST CHICKEN</p>
-                </div>
-
-                <div class="col-sm-8 col-md-offset-2">
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </div>
-
-            </div>
-
-            <div class="col-sm-4 text-center plusfix">
-                <div class="img-responsive">
                     <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
-                    <img class="col-sm-12"src="{{ asset('bundles/project3website/images/chicken-kale-mushrooms.jpg') }}" alt="kip kale">
+                        <div class="img-responsive">
+                            <img class="col-md-12" src="{{ asset('bundles/project3website/images/chilli-chicken-wraps.jpg') }}" alt="test">
+                        </div>
                     </a>
+
+                    <div class="col-sm-8 col-md-offset-2">
+                        <p>CHICKEN WRAPS</p>
+                    </div>
+
+                    <div class="col-sm-8 col-md-offset-2">
+                        {% for i in 0..gerecht.rating|default(4) %}
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        {% endfor %}
+                    </div>
                 </div>
 
-                <div class="col-sm-8 col-sm-offset-2">
-                    <p>KIP KALE</p>
+
+
+
+
+                <div class="col-sm-4 background-white padding-favorieten margin-top-1em">
+
+                    <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
+                        <div class="img-responsive">
+                            <img class="col-sm-12" src="{{ asset('bundles/project3website/images/spring-chicken.jpg') }}" alt="spring chicken">
+                        </div>
+                    </a>
+
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <p>HERFST CHICKEN</p>
+                    </div>
+
+                    <div class="col-sm-8 col-md-offset-2">
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+
                 </div>
 
-                <div class="col-sm-8 col-sm-offset-2">
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
+                <div class="col-sm-4 background-white padding-favorieten margin-top-1em">
+                    <div class="img-responsive">
+                        <a href="{{ path('project3_gerecht_detail', {id: 1 }) }}">
+                        <img class="col-sm-12"src="{{ asset('bundles/project3website/images/chicken-kale-mushrooms.jpg') }}" alt="kip kale">
+                        </a>
+                    </div>
+
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <p>KIP KALE</p>
+                    </div>
+
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
                 </div>
+
             </div>
 
         </div>

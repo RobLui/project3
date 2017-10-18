@@ -121,6 +121,11 @@ img.resize-logo-medium {
     padding: 15px;
 }
 
+.padding-favorieten {
+    padding-top: 2em;
+    padding-bottom: 1.5em;
+}
+
 
 /* NAVBAR */
 
@@ -420,6 +425,10 @@ h1 {
     background: white;
     bottom: 0;
     display: block;
+}
+
+.background-white {
+    background: white;
 }
 
 .container-fluid {
