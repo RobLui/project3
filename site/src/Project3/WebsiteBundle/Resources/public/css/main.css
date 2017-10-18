@@ -179,7 +179,8 @@ h3 {
 /* QUICK FIXES */
 
 .quickfix {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    margin-top: 1em;
     display: block;
 }
 
@@ -453,7 +454,9 @@ h1 {
 
 /*NIEUW --- ROBBERT*/
 
-.padding-top-3em {
-    padding-top:3em;
+.padding-top-1em {
+    padding-top: 1em;
 }
+
+
 /*EINDNIEUW ------ ROBBERT*/
