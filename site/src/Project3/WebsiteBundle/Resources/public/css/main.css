@@ -77,17 +77,28 @@ button {
     font-size: 1.4rem;
     margin-bottom: 1em;
 }
-.category button{
+
+.category button {
     border: 1px solid black;
-    display:block;
-    color:black;
-    height:4em;
-    width:8em;
+    display: block;
+    color: black;
 }
-.category button:hover{
+
+.size-category {
+    height: 4em;
+    width: 8em;
+}
+
+.size-buttons-shoppinglijst {
+    width: 100%;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+}
+
+.category button:hover {
     background-color: rgb(36, 36, 36);
     color: rgb(253, 253, 253);
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .full-image {
@@ -119,9 +130,11 @@ img.resize-logo-medium {
     background-image: none;
     box-shadow: none;
 }
-.nav-item{
-    background: #e7e7e7 ;
+
+.nav-item {
+    background: #e7e7e7;
 }
+
 .navbar-default .navbar-nav>li>a {
     color: #3e3d3d;
 }
@@ -252,6 +265,7 @@ textarea {
     margin-top: 20%;
 }
 
+
 /* Algemene klassen */
 
 .padding-15 {
@@ -302,11 +316,6 @@ textarea {
     margin-top: 0;
 }
 
-.button-black:hover {
-    background-color: rgb(36, 36, 36);
-    color: rgb(253, 253, 253);
-}
-
 
 /* css klasse die we erbij kunnen zetten op elementen die niet moeten geprint worden */
 
@@ -316,10 +325,23 @@ textarea {
     }
 }
 
+
 /*@media (min-width: 768px) {*/
-    /*.img-responsive img{*/
-        /*height:28rem;*/
-        /*width:100%;*/
-        /*display:block;*/
-    /*}*/
+
+
+/*.img-responsive img{*/
+
+
+/*height:28rem;*/
+
+
+/*width:100%;*/
+
+
+/*display:block;*/
+
+
+/*}*/
+
+
 /*}*/

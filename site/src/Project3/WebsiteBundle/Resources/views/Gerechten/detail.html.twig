@@ -56,11 +56,11 @@
                     </li>
                 {% endfor %}
             </ul>
-<<<<<<< HEAD
-            <p class="btn bordered shoppinglist col-sm-12 text-center">MAAK SHOPPINGLIJST</p>
-=======
-                <p class="btn btn-default bordered col-sm-12 text-center shoppinglist shoppinglisttext" id="shoppinglistbind">MAAK SHOPPINGLIJST</p>
->>>>>>> cb893523acdf2f19511f89f24c1355769af8f2c5
+
+            <div class="category">
+                <button class="btnnn shoppinglisttext size-buttons-shoppinglijst" id="shoppinglistbind">MAAK SHOPPINGLIJST</button>
+            </div>
+
         </div>
 
         {#-------------SHOPPINGLIJSTJE-------------#}
@@ -111,8 +111,8 @@
                     </div>
                 </div>
             {% endfor %}
-            <a class="btn button-black pull-right margin-top-3em bordered"href="javascript:window.print()">PRINT</a>
-            <a class="btn button-black pull-right margin-top-3em bordered" href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a>
+            <a class="btn category pull-right margin-top-3em bordered"href="javascript:window.print()">PRINT</a>
+            <a class="btn category pull-right margin-top-3em bordered" href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a>
         </div>
 
     {% endif %}
