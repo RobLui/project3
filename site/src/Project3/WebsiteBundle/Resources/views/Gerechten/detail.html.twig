@@ -13,10 +13,10 @@
                 <h3 class="margin-bottom-0 semibold">
                     {{ gerecht.naam|default() }}
                 </h3>
-r
+
         </div>
         <div class="col-sm-8 col-sm-offset-2 text-center container-white padding-top-3em">
-            <div class="full-image noprint">
+            <div class="full-image noprint padding-top-1-2em">
                 <img src="{{ gerecht.fotoRechthoek }}" alt="{{ gerecht.naam|default("-") }}">
             </div>
 
@@ -108,7 +108,7 @@ r
 
     {#-------------STAPPEN-------------#}
     {% if gerecht %}
-        <div class="col-sm-8 col-sm-offset-2 container-white">
+        <div class="col-sm-8 col-sm-offset-2 container-white padding-bottom-3em">
             {% for stap in gerecht.stappen %}
                 <div class="col-sm-12 bordered margin-bottom-0">
                     <div class="col-sm-2">
