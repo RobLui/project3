@@ -8,15 +8,15 @@
          <table class="table table-striped dataTable">
              <tbody>
              <th>E-mail</th>
-             <th>Locatie</th>
-             <th>Tel</th>
-             <th>Adres</th>
+             {#<th>Locatie</th>#}
+             {#<th>Tel</th>#}
+             {#<th>Adres</th>#}
              <th>Acties</th>
              <tr>
                  <td>{{ contact.email}}</td>
-                 <td>{{ contact.locatie}}</td>
-                 <td>{{ contact.tel}}</td>
-                 <td>{{ contact.adres}}</td>
+                 {#<td>{{ contact.locatie}}</td>#}
+                 {#<td>{{ contact.tel}}</td>#}
+                 {#<td>{{ contact.adres}}</td>#}
                  <td>
                      <a class="btn btn-default" href="{{ path('project3_contact_show', { 'id': contact.id }) }}">tonen</a>
                      <a class="btn btn-primary" href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
