@@ -10,10 +10,10 @@
     <div class="col-sm-12">
         <div class="col-sm-8 col-sm-offset-2 text-center">
             <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
-                <h3 class="margin-bottom-0 semibold w">
+                <h3 class="margin-bottom-0 semibold">
                     {{ gerecht.naam|default() }}
                 </h3>
-
+r
         </div>
         <div class="col-sm-8 col-sm-offset-2 text-center container-white padding-top-3em">
             <div class="full-image noprint">
@@ -122,8 +122,8 @@
             {% endfor %}
 
             <div class="category">
-                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right" href="javascript:window.print()">PRINT</button>
-                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right" href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</button>
+                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right"><a href="javascript:window.print()">PRINT</a></button>
+                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right"><a href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a></button>
             </div>
 
         </div>
