@@ -410,11 +410,16 @@ h1 {
     color: #FFED85;
 }
 
-
 .container-white  {
     background:white;
     bottom:0;
+    display:block;
 }
+
+.container-fluid{
+    margin-top:-5.5em;
+}
+
 .bottom
 {
     height:70rem;

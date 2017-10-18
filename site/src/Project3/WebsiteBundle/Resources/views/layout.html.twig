@@ -41,11 +41,9 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-    <nav class="navbar top-0" role="navigation">
-            {% include 'Project3WebsiteBundle:Partials:nav.html.twig' %}
-    </nav>
-
     <div class="container">
+        {% include 'Project3WebsiteBundle:Partials:nav.html.twig' %}
+
         {% block content %}
 
         {% endblock content %}
