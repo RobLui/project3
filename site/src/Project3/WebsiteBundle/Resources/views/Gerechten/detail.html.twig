@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-white">
 
 <div class="row">
     <div class="col-sm-12">
@@ -22,7 +21,7 @@
                 <img src="{{ gerecht.fotoRechthoek }}" alt="{{ gerecht.naam|default("-") }}">
             </div>
 
-            <div class="detail minusfix">
+            <div class="detail minusfix container-white col-sm-12">
 
                 <div class="col-sm-7 bordered">
                     <p class="text-left margin-top-0-5em">{{ gerecht.beschrijving|default() }}</p>
@@ -46,7 +45,7 @@
         </div>
     </div>
 
-    <div class="col-sm-8 col-sm-offset-2 padding-top-5em">
+    <div class="col-sm-8 col-sm-offset-2 padding-top-5em container-white">
 
         {#-------------INGREDIENTEN-------------#}
         <div class="col-sm-5 bordered">
@@ -71,7 +70,7 @@
         </div>
 
         {#-------------SHOPPINGLIJSTJE-------------#}
-        <div class="col-sm-5 col-sm-offset-2 bordered">
+        <div class="col-sm-5 col-sm-offset-2 bordered container-white">
             <p class="padding-top-1-2em semibold margin-top-0-5em text-center margin-top-1-75em">SHOPPINGLIJSTJE</p>
             <p class="col-sm-12 wel-niet">
                 <span class="pull-right">PRIJS/ST</span>
@@ -89,12 +88,12 @@
                 <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold">TOEVOEGEN AAN SHOPPINGLIJSTJE</button>
                 <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em">MAIL</button>
             </div>
-            <a href="{{ path('project3_mail',{ id: gerecht.id }) }}">mail test</a>
+            {#<a href="{{ path('project3_mail',{ id: gerecht.id }) }}">mail test</a>#}
         </div>
     </div>
 
     {#-------------RECEPT-------------#}
-    <div class="col-sm-8 col-sm-offset-2 plusfix">
+    <div class="col-sm-8 col-sm-offset-2 plusfix container-white">
         <div class="col-sm-12 bordered margin-bottom-0">
             <p class="padding-top-1-2em semibold text-center margin-top-1-75em">RECEPT</p>
             <div class="col-sm-9">
@@ -109,7 +108,7 @@
 
     {#-------------STAPPEN-------------#}
     {% if gerecht %}
-        <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-8 col-sm-offset-2 container-white">
             {% for stap in gerecht.stappen %}
                 <div class="col-sm-12 bordered margin-bottom-0">
                     <div class="col-sm-2">
@@ -123,8 +122,8 @@
             {% endfor %}
 
             <div class="category">
-                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right" href="javascript:window.print()">PRINT</button>
-                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right" href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</button>
+                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right"><a href="javascript:window.print()">PRINT</a></button>
+                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right"><a href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a></button>
             </div>
 
         </div>
@@ -165,7 +164,6 @@
     {#</div>#}
 
     </div>
-</div>
 </div>
 
 {% endblock %}
