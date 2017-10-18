@@ -184,11 +184,12 @@ h3 {
 }
 
 .minusfix {
-    margin-top: -1.5em;
+    margin-top: -5.5em;
 }
 
 .plusfix {
     padding-top: 3em;
+    background: white;
 }
 
 
@@ -264,6 +265,10 @@ textarea {
 
 .padding-top-1-2em {
     padding-top: 1.2em;
+}
+
+.padding-top-5em {
+    padding-top: 5em;
 }
 
 .margin-bottom-20 {
@@ -410,21 +415,32 @@ h1 {
     color: #FFED85;
 }
 
+.container-white {
+    background: white;
+    bottom: 0;
+}
 
-.container-white  {
-    background:white;
-    bottom:0;
+.bottom {
+    height: 70rem;
 }
-.bottom
-{
-    height:70rem;
-}
+
 
 /*.fixed-image-size{*/
-    /*margin:0 auto;*/
-    /*height:18rem;*/
-    /*width:18rem;*/
-    /*position: center;*/
-    /*overflow: hidden;*/
-/*}*/
 
+
+/*margin:0 auto;*/
+
+
+/*height:18rem;*/
+
+
+/*width:18rem;*/
+
+
+/*position: center;*/
+
+
+/*overflow: hidden;*/
+
+
+/*}*/
