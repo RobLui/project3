@@ -4,7 +4,7 @@ $(document).ready(function() {
     var telIngredienten = function() {
 
         var hebik = $(".jQueryShopping:input").length - $(".jQueryShopping:input:checked").length;
-        $(".shoppinglisttext").text(hebik + (hebik == 1 ? " ingredient" : " ingredienten") + " in shoppinglijst");
+        // $(".shoppinglisttext").text(hebik + (hebik == 1 ? " ingredient" : " ingredienten") + " in shoppinglijst");
         // console.log("Ingredienten die ik heb = " + hebik);
 
         $('.generated').show();
@@ -71,6 +71,33 @@ $(document).ready(function() {
     });
 
 
+
+    $('#addToShoppinglist').click(function()
+    {
+        var shoppingarray = [];
+
+            $( ".shoppinglist>li" ).each(function( index ) {
+                if (!$(this).hasClass("hide")) {
+                    shoppingarray.push($(this).text());
+                    console.log(index + $(this).text());
+                }
+            });
+
+        console.log(shoppingarray);
+    });
+
+    // $('#input_hidden_field').val(JSON.stringify(elems)); //store array
+    //
+    // var value = $('#input_hidden_field').val(); //retrieve array
+    // value = JSON.parse(value);
+    //
+    // console.log(value);
+
+    // for li item in shoppinglist class
+    //      -> name gerecht
+    //      -> save current date
+    //      -> push to database on click shoppinglist
+    //      -> add mail ding in view
 
 
 });

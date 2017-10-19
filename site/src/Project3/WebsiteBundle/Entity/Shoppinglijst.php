@@ -50,6 +50,13 @@ class Shoppinglijst
      */
     private $naamGerecht;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="$ingredientitems", type="string", length=255, nullable=true)
+     */
+    private $ingredientitems;
+
 
     /**
      * Get id
@@ -155,5 +162,29 @@ class Shoppinglijst
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set ingredientitems
+     *
+     * @param string $ingredientitems
+     *
+     * @return Shoppinglijst
+     */
+    public function setIngredientitems($ingredientitems)
+    {
+        $this->ingredientitems = $ingredientitems;
+
+        return $this;
+    }
+
+    /**
+     * Get ingredientitems
+     *
+     * @return string
+     */
+    public function getIngredientitems()
+    {
+        return $this->ingredientitems;
     }
 }
