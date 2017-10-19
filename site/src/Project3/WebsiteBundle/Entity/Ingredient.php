@@ -36,6 +36,13 @@ class Ingredient
      */
     private $naam;
 
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="prijs_delhaize", type="float", nullable=true)
+     */ 
+    private $prijsDelhaize;
+
     function __toString()
     {
         return (string)($this->naam);
@@ -111,5 +118,29 @@ class Ingredient
     public function getGerechten()
     {
         return $this->gerechten;
+    }
+
+    /**
+     * Set prijsDelhaize
+     *
+     * @param float $prijsDelhaize
+     *
+     * @return Ingredient
+     */
+    public function setPrijsDelhaize($prijsDelhaize)
+    {
+        $this->prijsDelhaize = $prijsDelhaize;
+
+        return $this;
+    }
+
+    /**
+     * Get prijsDelhaize
+     *
+     * @return float
+     */
+    public function getPrijsDelhaize()
+    {
+        return $this->prijsDelhaize;
     }
 }
