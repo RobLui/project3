@@ -18,7 +18,6 @@ class AccountAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('gebruikersnaam')
-            ->add('password')
             ->add('email')
         ;
     }
@@ -31,7 +30,6 @@ class AccountAdmin extends AbstractAdmin
         $listMapper
             ->add('id')
             ->add('gebruikersnaam')
-            ->add('password')
             ->add('email')
             ->add('_action', null, array(
                 'actions' => array(
@@ -51,7 +49,6 @@ class AccountAdmin extends AbstractAdmin
         $formMapper
 //            ->add('id')
             ->add('gebruikersnaam')
-            ->add('password')
             ->add('email')
         ;
     }
@@ -64,7 +61,6 @@ class AccountAdmin extends AbstractAdmin
         $showMapper
 //            ->add('id')
             ->add('gebruikersnaam')
-            ->add('password')
             ->add('email')
         ;
     }

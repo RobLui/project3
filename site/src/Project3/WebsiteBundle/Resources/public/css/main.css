@@ -50,12 +50,6 @@ button {
     border: 1px solid black;
 }
 
-
-/*.bordered .pull-left {
-    margin-left: 0.8em;
-    display: block;
-}*/
-
 .semibold {
     font-weight: 600;
 }
@@ -90,8 +84,8 @@ button {
 }
 
 .size-buttons-shoppinglijst {
-    width: 100%;
-}
+     width: 100%;
+ }
 
 .size-buttons-no-cat {
     padding-top: 0.4em;
@@ -443,4 +437,18 @@ h1 {
 
 .greybox {
     background: #d6d4d5;
+}
+
+.instellingen a{
+    display: block;
+    text-decoration: none;
+    color:black;
+}
+.instellingen a:hover, .instellingen:hover {
+    background:black;
+    color:white;
+}
+
+.shoppinglist {
+
 }

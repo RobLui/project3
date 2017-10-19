@@ -21,9 +21,9 @@
                     <p class="margin-bottom-1em">Gerechten en shoppinglijstjes mogen verstuurd worden naar deze adressen verstuurd worden:</p>
                     <ul class="list-group margin-bottom-0">
                     {% for contact in contacts %}
-                        <li class="list-group-item">
+                        <li class="list-group-item category">
                             {{ contact.email }}
-                            <a class="btn btn-primary pull-right" href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
+                            <button class="btnnn semibold pull-right instellingen"><a href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a></button>
                         </li>
                     {% endfor %}
                     </ul>

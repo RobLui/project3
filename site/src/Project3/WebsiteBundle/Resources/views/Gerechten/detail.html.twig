@@ -75,10 +75,12 @@
             <p class="col-sm-12 wel-niet">
                 <span class="pull-right">PRIJS/ST</span>
             </p>
-            <ul class="col-sm-12">
+            <ul class="col-sm-12 shoppinglist">
                 {% for ingredient in gerecht.ingredienten %}
                     <li class="col-sm-12 list-unstyled">
-                        <hr> {{ ingredient }} <span class="pull-right">&euro; 3,15</span>
+                        <hr>
+                        <span class="info-ingredient">{{ ingredient }}</span>
+                        <span class="pull-right">&euro; 3,15</span>
                     </li>
                 {% endfor %}
             </ul>
@@ -96,7 +98,7 @@
     <div class="col-sm-8 col-sm-offset-2 plusfix">
         <div class="col-sm-12 bordered margin-bottom-0">
             <p class="padding-top-1-2em semibold text-center margin-top-1-75em">RECEPT</p>
-            <div class="col-sm-9">
+            <div class="col-sm-9 padding-bottom-3em">
                 <p class="margin-top-0">BENODIGDHEDEN(4personen)</p>
                 {% if gerecht %}
                     <p>{{ gerecht.benodigdheden|raw }}</p>
@@ -123,8 +125,8 @@
             {% endfor %}
 
             <div class="category">
-                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right"><a href="javascript:window.print()">PRINT</a></button>
-                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right"><a href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a></button>
+                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right instellingen"><a href="javascript:window.print()">PRINT</a></button>
+                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right instellingen "><a href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a></button>
             </div>
 
         </div>

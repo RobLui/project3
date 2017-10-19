@@ -31,16 +31,15 @@ class Account
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
+
+
+    function __toString()
+    {
+        return (string)$this->gebruikersnaam;
+    }
 
 
     /**
@@ -77,29 +76,6 @@ class Account
         return $this->gebruikersnaam;
     }
 
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return Account
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
 
     /**
      * Set email
