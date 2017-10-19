@@ -4,11 +4,21 @@ $(document).ready(function() {
     var telIngredienten = function() {
 
         var hebik = $(".jQueryShopping:input").length - $(".jQueryShopping:input:checked").length;
-        $(".shoppinglisttext").text(hebik + ( 1 ? " ingredient" : " ingredienten") + " in shoppinglijst");
+        $(".shoppinglisttext").text(hebik + (hebik == 1 ? " ingredient" : " ingredienten") + " in shoppinglijst");
         // console.log("Ingredienten die ik heb = " + hebik);
+
+        $('.generated').show();
+        $('.generated').removeClass('hidden');
+
     };
     $("#shoppinglistbind").on("click", telIngredienten);
-
+//
+//
+//
+//
+//
+//
+// SHOPPING LIST - SHOW & HIDE VALUES
 
     // Check on change -> log de waarde van de checkbox
     $('input:checked').change(function () {
@@ -40,6 +50,13 @@ $(document).ready(function() {
             }
         });
     });
+//
+//
+//
+//
+//
+//
+// STAPPEN
 
     // Check op welke inputbox de grijswaarden mogen komen
     $('input:checkbox.stapnummer').change(function(){
@@ -52,6 +69,8 @@ $(document).ready(function() {
             $(this).closest(".col-sm-12").removeClass('greybox')
         }
     });
+
+
 
 
 });
