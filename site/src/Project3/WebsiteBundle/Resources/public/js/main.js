@@ -28,7 +28,14 @@ $(document).ready(function() {
             // console.log( index + ": " + $( this).find('.info-ingredient')).text();
             if(shoppinglistvalue.match(ingredientvalue))
             {
-                $(this).addClass("hide");
+                if($(this).hasClass('hide'))
+                {
+                    $(this).removeClass("hide");
+                }
+                else
+                {
+                    $(this).addClass("hide");
+                }
                 console.log("hetzelfde op plaats: " + index );
             }
         });
