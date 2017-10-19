@@ -40,7 +40,7 @@ class Ingredient
      * @var float
      *
      * @ORM\Column(name="prijs_delhaize", type="float", nullable=true)
-     */ 
+     */
     private $prijsDelhaize;
 
     function __toString()
