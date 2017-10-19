@@ -70,7 +70,13 @@ $(document).ready(function() {
         }
     });
 
-
+//
+//
+//
+//
+//
+//
+// SHOPPINGLIST ARRAY OPSLAG
 
     $('#addToShoppinglist').click(function()
     {
@@ -79,19 +85,23 @@ $(document).ready(function() {
             $( ".shoppinglist>li" ).each(function( index ) {
                 if (!$(this).hasClass("hide")) {
                     shoppingarray.push($(this).text());
-                    console.log(index + $(this).text());
+                    // console.log(index + $(this).text());
                 }
             });
+            shoppingarray = shoppingarray.join('-');
 
-        console.log(shoppingarray);
+        console.log(shoppingarray + getCurrentDate());
     });
 
-    // $('#input_hidden_field').val(JSON.stringify(elems)); //store array
-    //
-    // var value = $('#input_hidden_field').val(); //retrieve array
-    // value = JSON.parse(value);
-    //
-    // console.log(value);
+
+    function getCurrentDate() {
+        var d = new Date();
+        var day = d.getDate();
+        var month = d.getMonth();
+        var year = d.getFullYear();
+        return day + "/" + month + "/" + year;
+    }
+
 
     // for li item in shoppinglist class
     //      -> name gerecht
