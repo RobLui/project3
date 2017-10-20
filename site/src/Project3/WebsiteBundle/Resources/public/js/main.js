@@ -69,7 +69,6 @@ $(document).ready(function() {
             $(this).closest(".col-sm-12").removeClass('greybox')
         }
     });
-
 //
 //
 //
@@ -90,9 +89,19 @@ $(document).ready(function() {
             });
             shoppingarray = shoppingarray.join('-');
 
+        // document.querySelector('.added').innerHTML = shoppingarray.toString();
+        $(".ingredientitems").text(shoppingarray.toString());
+        $(".datumAangemaakt").text(getCurrentDate);
+
         console.log(shoppingarray + getCurrentDate());
     });
-
+//
+//
+//
+//
+//
+//
+// CURRENT DATE
 
     function getCurrentDate() {
         var d = new Date();
@@ -101,7 +110,6 @@ $(document).ready(function() {
         var year = d.getFullYear();
         return day + "/" + month + "/" + year;
     }
-
 
     // for li item in shoppinglist class
     //      -> name gerecht

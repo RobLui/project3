@@ -53,7 +53,6 @@ project3_gerecht_query:
 
 
 #CONTACT -> waar e-mail naartoe gestuurd kan worden
-
 project3_contact_show:
     path:     /contact/{id}/
     defaults: { _controller: Project3WebsiteBundle:Contact:show}
@@ -74,11 +73,6 @@ project3_contact_delete:
     defaults: { _controller: Project3WebsiteBundle:Contact:delete}
     methods: [DELETE]
 
-project3_mail:
-    path:     /mail/{id}
-    defaults: { _controller: Project3WebsiteBundle:Gerecht:mail }
-    methods: [GET]
-
 
 
 #EXTRA
@@ -86,4 +80,10 @@ project3_website_group:
     path:     /group/{slug}
     defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }
 
+
+
+shoppinglist_add:
+    path:     /addshoppinglist
+    defaults: { _controller: Project3WebsiteBundle:Shoppinglist:addToShoppinglist }
+    methods: [POST]
 

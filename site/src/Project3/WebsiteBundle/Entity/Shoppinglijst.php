@@ -53,7 +53,7 @@ class Shoppinglijst
     /**
      * @var string
      *
-     * @ORM\Column(name="$ingredientitems", type="string", length=255, nullable=true)
+     * @ORM\Column(name="ingredientitems", type="string", length=255, nullable=true)
      */
     private $ingredientitems;
 

@@ -5,7 +5,9 @@ namespace Project3\WebsiteBundle\Controller;
 use function GuzzleHttp\Psr7\str;
 use Project3\WebsiteBundle\Entity\Account;
 use Project3\WebsiteBundle\Entity\Gerecht;
+use Project3\WebsiteBundle\Entity\Shoppinglijst;
 use Project3\WebsiteBundle\Entity\User;
+use Project3\WebsiteBundle\Form\ShoppinglijstType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,6 +42,18 @@ class GerechtController extends Controller
     // TOON DETAIL GERECHT
     public function detailAction(Request $request,$id)
     {
+
+        $manager = $this->container->get('doctrine')->getManager();
+        $shoppinglist = new Shoppinglijst();
+        $form = $this->container->get('form.factory')->create(ShoppinglijstType::class, $shoppinglist,array());
+        if ($request->isMethod("POST")) {
+            $form->submit($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $manager->persist($shoppinglist);
+                $manager->flush();
+            }
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
@@ -52,6 +66,7 @@ class GerechtController extends Controller
         return $this->render('Project3WebsiteBundle:Gerechten:detail.html.twig',
             array(
                 'gerecht' => $gerecht,
+                'form' => $form->createView()
             ));
     }
 
@@ -90,43 +105,37 @@ class GerechtController extends Controller
         return $this->render('Project3WebsiteBundle:Gerechten:surprise.html.twig');
     }
 
-    // PRINT GERECHT
-    public function printAction($id)
-    {
-        return $this->render('Project3WebsiteBundle:Gerechten:surprise.html.twig');
-    }
+//    // VERSTUUR GERECHT IN MAIL
+//    public function mailAction(Request $req, $id)
+//    {
+//        $account = $this->getDoctrine()->getRepository(Account::class);
+//
+//        $em = $this->getDoctrine()->getManager();
+//        $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
+//            ->findOneBy(
+//                array(
+//                    "id" => $id,
+//                    'actief' => true
+//                ), null,null,null );
 
-    // VERSTUUR GERECHT IN MAIL
-    public function mailAction(Request $req, $id)
-    {
-        $account = $this->getDoctrine()->getRepository(Account::class);
-
-        $em = $this->getDoctrine()->getManager();
-        $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
-            ->findOneBy(
-                array(
-                    "id" => $id,
-                    'actief' => true
-                ), null,null,null );
-
-        $user = $this->get('security.context')->getToken()->getUser();
-//        $user->getUsername();
-        $accountname = $account->findOneByGebruikersnaam($user->getUsername());
-        dump($accountname); die;
-
-        $message = \Swift_Message::newInstance()
-            ->setSubject(str($gerecht->getNaam()))
-            ->setFrom($user)
-            ->setTo($accountname)
-            ->setBody(
-                $this->renderView(
-                    '@Project3Website/Gerechten/detail.html.twig',
-                    array('gerecht' => $gerecht)
-                )
-            )
-        ;
-        $this->container->get('mailer')->send($message);
-
-    }
+//        $user = $this->get('security.context')->getToken()->getUser();
+////        $user->getUsername();
+//        $accountname = $account->findOneByGebruikersnaam($user->getUsername());
+//        dump($accountname); die;
+////
+//        $message = \Swift_Message::newInstance()
+//            ->setSubject(str($gerecht->getNaam()))
+//            ->setFrom($user)
+//            ->setTo($accountname)
+//            ->setBody(
+//                $this->renderView(
+//                    '@Project3Website/Gerechten/detail.html.twig',
+//                    array('gerecht' => $gerecht)
+//                )
+//            )
+//        ;
+//        $this->container->get('mailer')->send($message);
+//
+//    }
 
 }

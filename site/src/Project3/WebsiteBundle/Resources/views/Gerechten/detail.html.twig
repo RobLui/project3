@@ -87,7 +87,7 @@
 
 
             <div class="category">
-                <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold" id="addToShoppinglist">TOEVOEGEN AAN SHOPPINGLIJSTJE</button>
+                <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold" id="addToShoppinglist">TOEVOEGEN AAN SHOPPINGLIJSTJES</button>
                 <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em">MAIL</button>
             </div>
             {#<a href="{{ path('project3_mail',{ id: gerecht.id }) }}">mail test</a>#}
@@ -131,6 +131,11 @@
 
         </div>
     {% endif %}
+        <div class="col-sm-12">
+            <form action="{{ path('shoppinglist_add') }}" method="post">
+                <button class="btn btn-primary">toevoegen</button>
+            </form>
+        </div>
     {#-------------REVIEWS-------------#}
     {#<div class="col-sm-8 col-sm-offset-2">#}
         {#<p class="padding-top-1-2em">REVIEWS</p>#}
