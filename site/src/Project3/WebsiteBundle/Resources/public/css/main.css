@@ -302,6 +302,10 @@ textarea {
     margin-bottom: 1.5em;
 }
 
+.margin-bottom-1em {
+    margin-bottom: 1em;
+}
+
 .margin-top-3em {
     margin-top: 3em;
 }
@@ -460,4 +464,17 @@ h1 {
 .aanpassen-button {
     margin-top: -0.7em;
     margin-right: -1.1em;
+}
+
+.padding-0 {
+    padding: 0;
+}
+
+.rating-padding {
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.space-number-check {
+    margin-right: 1.5em;
 }

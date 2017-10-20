@@ -10,7 +10,7 @@
     <div class="col-sm-12">
         <div class="col-sm-8 col-sm-offset-2 text-center">
             <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
-                <h3 class="margin-bottom-0 semibold">
+                <h3 class="margin-bottom-1em semibold">
                     {{ gerecht.naam|default() }}
                 </h3>
 
@@ -20,7 +20,7 @@
                 <img src="{{ gerecht.fotoRechthoek }}" alt="{{ gerecht.naam|default("-") }}">
             </div>
 
-    <div class="col-sm-12 margin-bottom-3em">
+    <div class="col-sm-12 margin-bottom-3em padding-0 ">
 
         <div class="detail">
 
@@ -32,7 +32,7 @@
                     <p class="margin-top-0-5em"><span class="glyphicon glyphicon-time"></span> {{ gerecht.bereidingstijd|default(0) }} min</p>
                 </div>
 
-                <div class="col-sm-3 bordered">
+                <div class="col-sm-3 bordered rating-padding">
                     <fieldset class="rating">
                         <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
                         <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Awesome - 4 stars"></label>
@@ -114,7 +114,7 @@
             {% for stap in gerecht.stappen %}
                 <div class="col-sm-12 bordered margin-bottom-0 stap">
                     <div class="col-sm-2">
-                        <p class="margin-top-0-5em">{{ stap.stapnummer }}
+                        <p class="margin-top-0-5em"><span class="space-number-check">{{ stap.stapnummer }}</span>
                             <input type="checkbox" class="stapnummer" value="{{ stap.stapnummer }}">
                         </p>
                     </div>
