@@ -87,3 +87,7 @@ shoppinglist_add:
     defaults: { _controller: Project3WebsiteBundle:Shoppinglist:addToShoppinglist }
     methods: [POST]
 
+project3_mail:
+    path:     /mail/{id}
+    defaults: { _controller: Project3WebsiteBundle:Gerecht:mail }
+    methods: [GET,POST]

@@ -118,7 +118,7 @@ class Gerecht
 
     function __toString()
     {
-        return  (string)($this->naam);
+        return (string)($this->naam);
     }
 
     /**

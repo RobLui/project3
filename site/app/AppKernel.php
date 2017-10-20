@@ -29,7 +29,7 @@ class AppKernel extends Kernel
             new Project3WebsiteBundle(),
             new FMElfinderBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
-//            new cspoo\Swiftmailer\MailgunBundle\cspooSwiftmailerMailgunBundle(),
+            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
 
         );
 

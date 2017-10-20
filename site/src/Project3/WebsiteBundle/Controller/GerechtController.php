@@ -8,6 +8,9 @@ use Project3\WebsiteBundle\Entity\Gerecht;
 use Project3\WebsiteBundle\Entity\Shoppinglijst;
 use Project3\WebsiteBundle\Entity\User;
 use Project3\WebsiteBundle\Form\ShoppinglijstType;
+use Swift_Mailer;
+use Swift_Message;
+use Swift_SmtpTransport;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -105,37 +108,46 @@ class GerechtController extends Controller
         return $this->render('Project3WebsiteBundle:Gerechten:surprise.html.twig');
     }
 
-//    // VERSTUUR GERECHT IN MAIL
-//    public function mailAction(Request $req, $id)
-//    {
-//        $account = $this->getDoctrine()->getRepository(Account::class);
-//
-//        $em = $this->getDoctrine()->getManager();
-//        $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
-//            ->findOneBy(
-//                array(
-//                    "id" => $id,
-//                    'actief' => true
-//                ), null,null,null );
+    // VERSTUUR GERECHT IN MAIL
+    public function mailAction(Request $req, $id)
+    {
+        $account = $this->getDoctrine()->getRepository(Account::class);
 
-//        $user = $this->get('security.context')->getToken()->getUser();
-////        $user->getUsername();
-//        $accountname = $account->findOneByGebruikersnaam($user->getUsername());
-//        dump($accountname); die;
-////
-//        $message = \Swift_Message::newInstance()
-//            ->setSubject(str($gerecht->getNaam()))
-//            ->setFrom($user)
-//            ->setTo($accountname)
-//            ->setBody(
-//                $this->renderView(
-//                    '@Project3Website/Gerechten/detail.html.twig',
-//                    array('gerecht' => $gerecht)
-//                )
-//            )
-//        ;
-//        $this->container->get('mailer')->send($message);
-//
-//    }
+        $em = $this->getDoctrine()->getManager();
+        $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
+            ->findOneBy(
+                array(
+                    "id" => $id,
+                    'actief' => true
+                ), null,null,null );
+
+        $user = $this->get('security.context')->getToken()->getUser();
+        $accountname = $account->findOneByGebruikersnaam($user->getUsername());
+//        dump($accountname->getEmail()); die;
+
+        $transport = (new Swift_SmtpTransport('smtp.mailgun.org', 587))
+            ->setUsername('postmaster@sandboxf055f8120319424b9fa2aa3e52cb83c1.mailgun.org')
+            ->setPassword('aea6703953c7416cda54cbcdd3a731f3')
+        ;
+
+        $mailer = new Swift_Mailer($transport);
+
+        $message = (new Swift_Message($gerecht->getNaam()))
+            ->setFrom(array($accountname->getEmail()))
+            ->setTo(['robbertluit@gmail.com', 'robbertluit@hotmail.com' => 'RL HOTMAIL'])
+            ->setCharset('utf-8')
+            ->setContentType('text/html')
+            ->setBody(
+                $this->renderView(
+                    '@Project3Website/Ingredienten/email.html.twig',
+                    array('gerecht' => $gerecht)
+                )
+            )
+        ;
+
+        $result = $mailer->send($message);
+
+        return $this->render('Project3WebsiteBundle:Account:shoppinglijstjes.html.twig');
+    }
 
 }
