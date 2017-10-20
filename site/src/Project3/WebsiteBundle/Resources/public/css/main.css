@@ -84,8 +84,8 @@ button {
 }
 
 .size-buttons-shoppinglijst {
-     width: 100%;
- }
+    width: 100%;
+}
 
 .size-buttons-no-cat {
     padding-top: 0.4em;
@@ -416,7 +416,6 @@ h1 {
     height: 70rem;
 }
 
-
 .padding-top-1em {
     padding-top: 1em;
 }
@@ -426,28 +425,34 @@ h1 {
 }
 
 .padding-bottom-3em {
-    padding-bottom:3em;
+    padding-bottom: 3em;
 }
 
-
 .stapcheck {
-    margin-left:0.7em;
-    margin-top:-0.6em;
+    margin-left: 0.7em;
+    margin-top: -0.6em;
 }
 
 .greybox {
     background: #d6d4d5;
 }
 
-.instellingen a{
+.instellingen a {
     display: block;
     text-decoration: none;
-    color:black;
+    color: rgb(36, 36, 36);
 }
+
 .instellingen a:hover, .instellingen:hover {
-    background:black;
-    color:white;
+    background: rgb(36, 36, 36);
+    color: rgb(253, 253, 253);
 }
-.show{
+
+.show {
     visibility: visible;
+}
+
+.aanpassen-button {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
