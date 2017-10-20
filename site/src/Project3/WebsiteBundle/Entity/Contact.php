@@ -29,13 +29,6 @@ class Contact
     private $email;
 
     /**
-     * Many contacts have One User.
-     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\User", inversedBy="contacts")
-     * @ORM\JoinColumn(name="contact_id", referencedColumnName="id")
-     */
-    private $usercontact;
-
-    /**
      * Get id
      *
      * @return int
@@ -69,33 +62,10 @@ class Contact
         return $this->email;
     }
 
-    /**
-     * Set usercontact
-     *
-     * @param \Project3\WebsiteBundle\Entity\User $usercontact
-     *
-     * @return Contact
-     */
-    public function setUsercontact(\Project3\WebsiteBundle\Entity\User $usercontact = null)
-    {
-        $this->usercontact = $usercontact;
-
-        return $this;
-    }
-
-    /**
-     * Get usercontact
-     *
-     * @return \Project3\WebsiteBundle\Entity\User
-     */
-    public function getUsercontact()
-    {
-        return $this->usercontact;
-    }
 
     public function  __toString()
     {
-        return (string)$this->usercontact;
+        return (string)$this->email;
     }
 
 }

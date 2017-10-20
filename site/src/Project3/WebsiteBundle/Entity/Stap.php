@@ -12,13 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Stap
 {
-//
-//    /**
-//     * Many Stappen have One Recept.
-//     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Recept", inversedBy="stappen")
-//     * @ORM\JoinColumn(name="recept_id", referencedColumnName="id")
-//     */
-//    private $recept;
 
     /**
      * Many Stappen have One Gerecht.

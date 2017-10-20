@@ -13,19 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
-//
-//    /**
-//     * One User has Many Shoppinglists.
-//     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Shoppinglijst", mappedBy="user")
-//     */
-//    private $shoppinglists;
-//
-//
-//    /**
-//     * One User has Many contact.
-//     * @ORM\OneToMany(targetEntity="Project3\WebsiteBundle\Entity\Contact", mappedBy="usercontact")
-//     */
-//    private $contacts;
 
     /**
      * @ORM\Id
@@ -62,71 +49,4 @@ class User extends BaseUser
         return in_array("ROLE_ADMIN", $this->getRoles());
     }
 
-    /**
-     * Add shoppinglist
-     *
-     * @param \Project3\WebsiteBundle\Entity\Shoppinglijst $shoppinglist
-     *
-     * @return User
-     */
-    public function addShoppinglist(\Project3\WebsiteBundle\Entity\Shoppinglijst $shoppinglist)
-    {
-        $this->shoppinglists[] = $shoppinglist;
-
-        return $this;
-    }
-//
-//    /**
-//     * Remove shoppinglist
-//     *
-//     * @param \Project3\WebsiteBundle\Entity\Shoppinglijst $shoppinglist
-//     */
-//    public function removeShoppinglist(\Project3\WebsiteBundle\Entity\Shoppinglijst $shoppinglist)
-//    {
-//        $this->shoppinglists->removeElement($shoppinglist);
-//    }
-//
-//    /**
-//     * Get shoppinglists
-//     *
-//     * @return \Doctrine\Common\Collections\Collection
-//     */
-//    public function getShoppinglists()
-//    {
-//        return $this->shoppinglists;
-//    }
-//
-//    /**
-//     * Add contact
-//     *
-//     * @param \Project3\WebsiteBundle\Entity\Contact $contact
-//     *
-//     * @return User
-//     */
-//    public function addContact(\Project3\WebsiteBundle\Entity\Contact $contact)
-//    {
-//        $this->contacts[] = $contact;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Remove contact
-//     *
-//     * @param \Project3\WebsiteBundle\Entity\Contact $contact
-//     */
-//    public function removeContact(\Project3\WebsiteBundle\Entity\Contact $contact)
-//    {
-//        $this->contacts->removeElement($contact);
-//    }
-//
-//    /**
-//     * Get contacts
-//     *
-//     * @return \Doctrine\Common\Collections\Collection
-//     */
-//    public function getContacts()
-//    {
-//        return $this->contacts;
-//    }
 }

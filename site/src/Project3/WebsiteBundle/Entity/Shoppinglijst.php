@@ -14,13 +14,6 @@ class Shoppinglijst
 {
 
     /**
-     * Many Shoppinglijsten have One User.
-     * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\User", inversedBy="shoppinglists")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -143,30 +136,6 @@ class Shoppinglijst
     public function getNaamGerecht()
     {
         return $this->naamGerecht;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \Project3\WebsiteBundle\Entity\User $user
-     *
-     * @return Shoppinglijst
-     */
-    public function setUser(\Project3\WebsiteBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \Project3\WebsiteBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 
     /**

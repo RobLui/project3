@@ -14,7 +14,6 @@ class ShoppinglijstType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('user')
             ->add('actief')
             ->add('naamGerecht')
             ->add('ingredientitems')
