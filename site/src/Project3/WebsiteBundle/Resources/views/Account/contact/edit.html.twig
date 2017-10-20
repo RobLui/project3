@@ -6,15 +6,26 @@
         <div class="col-sm-12">
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <div class="col-sm-6 col-sm-offset-3">
-                    <h1>Aanpassen </h1>
+                    <h1>Email wijzigen </h1>
                     {{ form_start(edit_form) }}
 
-                        {#EMAIL#}
-                        {{ form_label(edit_form.email, 'Email', {'label_attr': {'class': 'control-label'}}) }}
-                        {{ form_errors(edit_form.email) }}
-                        {{ form_widget(edit_form.email, { "attr":{ "class":"form-control control" } }) }}
+                    <div class="col-sm-12">
+                        <ul class="list-group margin-bottom-0 col-sm-12 ">
+                            <li class="list-group-item category ">
+                                {{ form_widget(edit_form.email, { "attr":{ "class":"form-control control" } }) }}                                    </button>
+                            </li>
+                            <li class="list-unstyled ">
+                                <button type="submit" class="semibold instellingen aanpassen-button col-sm-4">
+                                    save
+                                </button>
+                            </li>
+                        </ul>
 
-                        <input class="btn btn-primary" type="submit" value="opslaan" />
+
+
+                    </div>
+                        {#EMAIL#}
+
 
                     {{ form_end(edit_form) }}
                     </div>

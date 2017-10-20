@@ -23,7 +23,7 @@
                     {% for contact in contacts %}
                         <li class="list-group-item category">
                             {{ contact.email }}
-                            <button type="submt" class="btnnn semibold pull-right instellingen aanpassen-button semibold">
+                            <button class="btnnn semibold pull-right instellingen aanpassen-button semibold">
                               <a href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">AANPASSEN</a>
                             </button>
                         </li>

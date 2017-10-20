@@ -88,8 +88,9 @@
 
             <div class="category">
                 <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold" id="addToShoppinglist">TOEVOEGEN AAN SHOPPINGLIJSTJES</button>
-                <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em"><a href="{{ path('project3_mail',{ id: gerecht.id }) }}">MAIL</a></button>
-
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em"><a href="{{ path('project3_mail',{ id: gerecht.id }) }}">MAIL</a></button>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -131,43 +132,6 @@
 
         </div>
     {% endif %}
-        <div class="col-sm-12">
-            <form action="{{ path('shoppinglist_add') }}" method="post">
-                <button class="btn btn-primary">toevoegen</button>
-            </form>
-        </div>
-    {#-------------REVIEWS-------------#}
-    {#<div class="col-sm-8 col-sm-offset-2">#}
-        {#<p class="padding-top-1-2em">REVIEWS</p>#}
-        {#<div class="receptlist">#}
-            {#<div class="col-sm-12">#}
-                {#<p>#}
-                    {#<span class="optimized">Door Phedra op 28/08/2017</span>#}
-                    {#<br> Heel lekker gegeten! Makkelijk klaar te maken.#}
-                {#</p>#}
-            {#</div>#}
-        {#</div>#}
-        {#<div class="receptlist">#}
-            {#<div class="col-sm-12">#}
-                {#<p>#}
-                    {#<span class="optimized">Door Robbert op 27/08/2017</span>#}
-                    {#<br> Duurde langer dan verwacht om klaar te maken maar was het waard, weer één om mee uit te pakken!#}
-                {#</p>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-
-    {#-------------SCHRIJF EEN REVIEW-------------#}
-    {#<div class="col-sm-8 col-sm-offset-2 plusfix">#}
-        {#<p class="padding-top-1-2em">SCHRIJF EEN REVIEW</p>#}
-        {#<textarea name="review" class="bordered" cols="100" rows="5">#}
-
-        {#</textarea>#}
-    {#</div>#}
-
-    {#<div class="col-sm-8 col-sm-offset-2">#}
-        {#<p class="btn bordered plusfix margin-top-0-5em">PLAATS REVIEW</p>#}
-    {#</div>#}
 
     </div>
 </div>
