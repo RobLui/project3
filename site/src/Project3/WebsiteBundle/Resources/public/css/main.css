@@ -246,6 +246,9 @@ textarea {
 .loginform {
     margin-top: 20%;
 }
+.registerform {
+    margin-top: 10%;
+}
 
 
 /* Algemene klassen */
@@ -486,6 +489,7 @@ button a {
     display: block;
     /*color:white;*/
 }
+
 button a:hover {
     color: rgb(253, 253, 253);
     color:white;

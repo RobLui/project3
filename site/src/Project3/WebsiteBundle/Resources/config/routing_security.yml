@@ -8,7 +8,7 @@ project3_security_logout:
 
 project3_security_register:
     path:     /register
-    defaults: { _controller: Project3WebsiteBundle:Security:register }
+    defaults: { _controller: Project3WebsiteBundle:Registration:register }
 
 admin_dashboard:
     path:     /admin/dashboard
