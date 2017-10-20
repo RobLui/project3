@@ -98,7 +98,7 @@
     <div class="col-sm-8 col-sm-offset-2 plusfix">
         <div class="col-sm-12 bordered margin-bottom-0">
             <p class="padding-top-1-2em semibold text-center margin-top-1-75em">RECEPT</p>
-            <div class="col-sm-9 padding-bottom-3em">
+            <div class="col-sm-9 padding-bottom-1em">
                 <p class="margin-top-0">BENODIGDHEDEN(4personen)</p>
                 {% if gerecht %}
                     <p>{{ gerecht.benodigdheden|raw }}</p>
@@ -118,8 +118,8 @@
                             <input type="checkbox" class="stapnummer" value="{{ stap.stapnummer }}">
                         </p>
                     </div>
-                    <div class="col-sm-10">
-                        {{ stap.tekst }}
+                    <div class="col-sm-10 margin-top-0-5em">
+                        <p>{{ stap.tekst }}</p>
                     </div>
                 </div>
             {% endfor %}
