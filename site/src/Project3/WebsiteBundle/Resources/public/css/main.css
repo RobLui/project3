@@ -479,18 +479,26 @@ h1 {
     margin-right: 1.5em;
 }
 
-button a{
+button a {
     height:100%;
     width:100%;
     color:black;
     display: block;
     /*color:white;*/
 }
-button a:hover{
+button a:hover {
     color: rgb(253, 253, 253);
     color:white;
     text-decoration: none;
 }
-.btnnn {
-    display: block;
+
+.shoppinglist-btn {
+    color:black;
+    text-decoration-line: none;
+}
+.shoppinglist-btn .container-white:hover
+{
+    text-decoration-line: none;
+    color:white;
+    background-color:black;
 }

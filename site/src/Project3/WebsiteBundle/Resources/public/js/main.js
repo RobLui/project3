@@ -111,11 +111,20 @@ $(document).ready(function() {
         return day + "/" + month + "/" + year;
     }
 
-    // for li item in shoppinglist class
-    //      -> name gerecht
-    //      -> save current date
-    //      -> push to database on click shoppinglist
-    //      -> add mail ding in view
+//
+//
+//
+//
+//
+//
+// SHOPPINGLIST TOGGLER
+    $('.shoppinglist-btn').on("click", function(e) {
+        e.preventDefault();
+        $('.shoppinglist-toggle').trigger('click');
+    });
 
-
+    $('.shoppinglist-toggle').on('click', function (e) {
+        e.preventDefault();
+        $('.shoppinglist-content').toggleClass('hide');
+    });
 });

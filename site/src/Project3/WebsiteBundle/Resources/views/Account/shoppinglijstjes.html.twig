@@ -18,13 +18,18 @@
         </div>
 
         <div class="col-sm-10 col-sm-offset-1 text-center ">
-
             <div class="col-sm-4 account">
-                <div class="bordered container-white">
-                    <p class="text-center">Spicy Chicken pasta</p>
-                    <p class="text-center">02/10/2017</p>
-                </div>
-                <div class="bordered col-sm-12 container-white">
+
+                {# SHOPPING CLICK #}
+                <a href="#" class="shoppinglist-btn">
+                    <div class="bordered container-white">
+                        <p class="text-center">Spicy Chicken pasta</p>
+                        <p class="text-center">02/10/2017</p>
+                    </div>
+                </a>
+
+                {# TOGGLED SHOPPING CONTENT #}
+                <div class="bordered col-sm-12 container-white shoppinglist-content shoppinglist-toggle hide">
                     <ul class="col-sm-12">
 
                         <li class="col-sm-12 list-unstyled margin-top-1em">
@@ -45,8 +50,8 @@
                         </li>
 
                     </ul>
-
                 </div>
+
                 <div class="bordered container-white">
                     <i class="glyphicon glyphicon-envelope"></i>
                 </div>
