@@ -23,29 +23,15 @@
                     {% for contact in contacts %}
                         <li class="list-group-item category">
                             {{ contact.email }}
-                            <button class="btnnn semibold pull-right instellingen"><a href="{{ path('project3_contact_edit', { 'id': contact.id }) }}" class="size-buttons-no-cat">aanpassen</a></button>
+                            <button type="submt" class="btnnn semibold pull-right instellingen aanpassen-button">
+                              <a href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
+                            </button>
                         </li>
                     {% endfor %}
                     </ul>
                 </div>
 
-
-                <div class="col-sm-12 text-left container-white padding-2em">
-                    <p class="margin-bottom-1em">Gerechten en shoppinglijstjes mogen verstuurd worden naar deze adressen verstuurd worden:</p>
-                    {% for contact in contacts %}
-                    <form action="{{ path('project3_contact_edit', { 'id': contact.id }) }}" method="post">
-
-                      <div class="input-group stylish-input-group">
-                          <input required name="searchinput" type="text" class="form-control text-center" value="{{ contact.email }}" >
-                              <span class="input-group-addon">
-                                  <button type="submit" class="aanpassen-button">aanpassen</button>
-                              </span>
-                          </span>
-                      </div>
-
-                    </form>
-                    {% endfor %}
-                </div>
+              </div>
 
             </div>
         </div>

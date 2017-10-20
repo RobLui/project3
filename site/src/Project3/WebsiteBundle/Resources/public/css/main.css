@@ -452,7 +452,11 @@ h1 {
     visibility: visible;
 }
 
+.aanpassen-button a {
+    padding: 0.5em;
+}
+
 .aanpassen-button {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    margin-top: -0.7em;
+    margin-right: -1.1em;
 }
