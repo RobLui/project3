@@ -46,8 +46,8 @@ $(document).ready(function() {
                 {
                     $(this).addClass("hide");
                 }
-                // console.log("hetzelfde op plaats: " + index );
             }
+            // console.log("hetzelfde op plaats: " + index );
         });
     });
 //
