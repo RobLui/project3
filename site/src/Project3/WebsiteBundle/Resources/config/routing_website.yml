@@ -71,8 +71,6 @@ project3_contact_edit:
 project3_contact_delete:
     path:     /contact/delete/{id}
     defaults: { _controller: Project3WebsiteBundle:Contact:delete}
-    methods: [DELETE]
-
 
 
 #EXTRA

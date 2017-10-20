@@ -7,31 +7,28 @@
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <div class="col-sm-6 col-sm-offset-3">
                     <h1>Email wijzigen </h1>
-                    {{ form_start(edit_form) }}
+                        <div class="col-sm-12">
 
-                    <div class="col-sm-12">
-                        <ul class="list-group margin-bottom-0 col-sm-12 ">
-                            <li class="list-group-item category ">
-                                {{ form_widget(edit_form.email, { "attr":{ "class":"form-control control" } }) }}                                    </button>
-                            </li>
-                            <li class="list-unstyled ">
-                                <button type="submit" class="semibold instellingen aanpassen-button col-sm-4">
-                                    save
+                            {{ form_start(edit_form) }}
+                            {{ form_widget(edit_form.email, { "attr":{ "class":"form-control control col-sm-12" } }) }}                                    </button>
+                                <div class="col-sm-12">
+                                <button type="submit" class="semibold instellingen aanpassen-button col-sm-6 pull-left">
+                                    opslaan
                                 </button>
-                            </li>
-                        </ul>
+                            {{ form_end(edit_form) }}
 
+                            {{ form_start(delete_form) }}
+                                <button type="submit" class="col-sm-6 semibold instellingen aanpassen-button pull-right">
+                                    delete
+                                </button>
+                                </div>
+                            {{ form_end(delete_form) }}
 
+                        </div>
 
-                    </div>
-                        {#EMAIL#}
-
-
-                    {{ form_end(edit_form) }}
-                    </div>
+                </div>
                 </div>
             </div>
         </div>
-    </div>
 
 {% endblock content %}

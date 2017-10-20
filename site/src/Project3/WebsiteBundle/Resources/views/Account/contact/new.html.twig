@@ -3,20 +3,20 @@
 {% block content %}
 
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="col-sm-8 col-sm-offset-2 text-center">
-            <div class="col-sm-6">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <div class="col-sm-6 col-sm-offset-3">
                 <h1>Nieuw contact</h1>
                 {{ form_start(form) }}
-
-                {#EMAIL#}
-                {{ form_label(form.email, 'Email', {'label_attr': {'class': 'control-label'}}) }}
-                {{ form_errors(form.email) }}
-                {{ form_widget(form.email, { "attr":{ "class":"form-control control" } }) }}
-
-                <input class="btn btn-primary" type="submit" value="Maak aan &#65515;" />
-
+                    <div class="col-sm-12">
+                        {{ form_widget(form.email, { "attr":{ "class":"form-control control","required": "true" } }) }}
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="submit" class="semibold instellingen aanpassen-button col-sm-4">
+                            opslaan
+                        </button>
+                    </div>
                 {{ form_end(form) }}
             </div>
         </div>
