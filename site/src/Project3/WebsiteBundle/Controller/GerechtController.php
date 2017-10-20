@@ -122,19 +122,20 @@ class GerechtController extends Controller
                 ), null,null,null );
 
         $user = $this->get('security.context')->getToken()->getUser();
-        $accountname = $account->findOneByGebruikersnaam($user->getUsername());
-//        dump($accountname->getEmail()); die;
+//        $accountname = $account->findOneByGebruikersnaam($user->getUsername());
+        $accountname = $user->getEmail();
+//        dump($user->getEmail()); die;
 
         $transport = (new Swift_SmtpTransport('smtp.mailgun.org', 587))
             ->setUsername('postmaster@sandboxf055f8120319424b9fa2aa3e52cb83c1.mailgun.org')
             ->setPassword('aea6703953c7416cda54cbcdd3a731f3')
         ;
-        dump($user); die;
+//        dump($user); die;
         $mailer = new Swift_Mailer($transport);
 
         $message = (new Swift_Message($gerecht->getNaam()))
             ->setFrom(array($user->getEmail()))
-            ->setTo(array($accountname->getEmail()))
+            ->setTo(array($accountname))
             ->setCharset('utf-8')
             ->setContentType('text/html')
             ->setBody(

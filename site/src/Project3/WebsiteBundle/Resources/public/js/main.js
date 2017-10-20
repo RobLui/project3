@@ -21,7 +21,7 @@ $(document).ready(function() {
 // SHOPPING LIST - SHOW & HIDE VALUES
 
     // Check on change -> log de waarde van de checkbox
-    $('input:checked').change(function () {
+    $('.jQueryShopping').change(function () {
 
         // waarde van het geklikte ingredient
         var ingredientvalue = $(this).val();
@@ -38,13 +38,13 @@ $(document).ready(function() {
             // console.log( index + ": " + $( this).find('.info-ingredient')).text();
             if(shoppinglistvalue.match(ingredientvalue))
             {
-                if($(this).hasClass('hide'))
+                if(!$(this).hasClass('hide'))
                 {
-                    $(this).removeClass("hide");
+                    $(this).addClass("hide");
                 }
                 else
                 {
-                    $(this).addClass("hide");
+                    $(this).removeClass("hide");
                 }
             }
             // console.log("hetzelfde op plaats: " + index );

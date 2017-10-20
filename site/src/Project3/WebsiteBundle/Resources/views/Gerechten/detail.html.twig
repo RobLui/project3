@@ -58,7 +58,7 @@
                     <li class="col-sm-12 list-unstyled">
                         <hr>
                         <span class="col-sm-8">{{ ingredient.naam|default('naam') }}</span>
-                        <span class="col-sm-2 pull-right"><input type="checkbox" class="jQueryShopping" checked value="{{ ingredient.naam }}"></span>
+                        <span class="col-sm-2 pull-right"><input type="checkbox" class="jQueryShopping" value="{{ ingredient.naam }}"></span>
                     </li>
                 {% endfor %}
             </ul>
@@ -77,7 +77,7 @@
             </p>
             <ul class="col-sm-12 shoppinglist">
                 {% for ingredient in gerecht.ingredienten %}
-                    <li class="col-sm-12 list-unstyled hide">
+                    <li class="col-sm-12 list-unstyled">
                         <hr>
                         <span class="info-ingredient">{{ ingredient }}</span>
                         <span class="pull-right">&euro; {{ ingredient.prijsDelhaize|default() }}</span>
@@ -87,7 +87,7 @@
 
 
             <div class="category">
-                <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold" id="addToShoppinglist">TOEVOEGEN AAN SHOPPINGLIJSTJES</button>
+                {#<button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold" id="addToShoppinglist">TOEVOEGEN AAN SHOPPINGLIJSTJES</button>#}
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em"><a href="{{ path('project3_mail',{ id: gerecht.id }) }}">MAIL</a></button>
                 {% endif %}
