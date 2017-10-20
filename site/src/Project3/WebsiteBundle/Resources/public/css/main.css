@@ -434,7 +434,8 @@ h1 {
 }
 
 .greybox {
-    background: #d6d4d5;
+    background: #edeaeb;
+    color: #bfbdbe;
 }
 
 .instellingen a {
@@ -453,7 +454,8 @@ h1 {
 }
 
 .aanpassen-button a {
-    padding: 0.5em;
+    padding: 0.6em;
+    font-size: 0.95em;
 }
 
 .aanpassen-button {
