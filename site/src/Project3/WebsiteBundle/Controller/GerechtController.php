@@ -129,12 +129,12 @@ class GerechtController extends Controller
             ->setUsername('postmaster@sandboxf055f8120319424b9fa2aa3e52cb83c1.mailgun.org')
             ->setPassword('aea6703953c7416cda54cbcdd3a731f3')
         ;
-
+        dump($user); die;
         $mailer = new Swift_Mailer($transport);
 
         $message = (new Swift_Message($gerecht->getNaam()))
-            ->setFrom(array($accountname->getEmail()))
-            ->setTo(['robbertluit@gmail.com', 'robbertluit@hotmail.com' => 'RL HOTMAIL'])
+            ->setFrom(array($user->getEmail()))
+            ->setTo(array($accountname->getEmail()))
             ->setCharset('utf-8')
             ->setContentType('text/html')
             ->setBody(

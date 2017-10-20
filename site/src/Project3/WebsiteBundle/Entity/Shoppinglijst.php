@@ -57,6 +57,11 @@ class Shoppinglijst
      */
     private $ingredientitems;
 
+    function __toString()
+    {
+        return (string)$this->naamGerecht;
+    }
+
 
     /**
      * Get id
