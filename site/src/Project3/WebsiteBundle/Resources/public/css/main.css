@@ -47,7 +47,8 @@ button {
 /* SHOPPINGLISTS */
 
 .bordered {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    background-color: #FDFDFD;
 }
 
 .semibold {
@@ -73,9 +74,9 @@ button {
 }
 
 .category button {
-    border: 1px solid black;
+    border: 1px solid #000033;
     display: block;
-    color: black;
+    color: #202020;
 }
 
 .size-category {
@@ -93,7 +94,7 @@ button {
 }
 
 .category button:hover {
-    background-color: rgb(36, 36, 36);
+    background-color: #000033;
     color: rgb(253, 253, 253);
     text-decoration: none;
 }
@@ -246,6 +247,7 @@ textarea {
 .loginform {
     margin-top: 20%;
 }
+
 .registerform {
     margin-top: 10%;
 }
@@ -289,8 +291,8 @@ textarea {
     margin-top: 1em;
 }
 
-.margin-top-1-75em {
-    margin-bottom: 1.75em;
+.margin-bottom-1-15em {
+    margin-bottom: 1.15em;
 }
 
 .margin-top-0 {
@@ -434,14 +436,17 @@ h1 {
     padding-bottom: 1em;
 }
 
+.padding-bottom-0-5em {
+    padding-bottom: 0.5em;
+}
+
 .stapcheck {
     margin-left: 0.7em;
     margin-top: -0.6em;
 }
 
 .greybox {
-    background: #edeaeb;
-    color: #bfbdbe;
+    color: #d6d6d6;
 }
 
 .instellingen a {
@@ -464,6 +469,10 @@ h1 {
     font-size: 0.95em;
 }
 
+.margin-right-1em {
+    margin-right: 1em;
+}
+
 .aanpassen-button {
     margin-top: -0.7em;
     margin-right: -1.1em;
@@ -483,29 +492,30 @@ h1 {
 }
 
 button a {
-    height:100%;
-    width:100%;
-    color:black;
+    height: 100%;
+    width: 100%;
+    color: black;
     display: block;
 }
 
 button a:hover {
-    color:white;
+    color: white;
     text-decoration: none;
 }
 
 .shoppinglist-btn {
-    color:black;
+    color: black;
     text-decoration-line: none;
-}
-.shoppinglist-btn .container-white:hover
-{
-    text-decoration-line: none;
-    color:white;
-    background-color:black;
 }
 
-.stapnummer:checked { /* change "blue" browser chrome to yellow */
+.shoppinglist-btn .container-white:hover {
+    text-decoration-line: none;
+    color: white;
+    background-color: black;
+}
+
+.stapnummer:checked {
+    /* change "blue" browser chrome to yellow */
     filter: invert(50%) hue-rotate(90deg) brightness(1.85);
     /*box-shadow: 3px 3px 3px 3px #ccc;*/
 }

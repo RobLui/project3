@@ -49,7 +49,7 @@
 
         {#-------------INGREDIENTEN-------------#}
         <div class="col-sm-5 bordered">
-            <p class="padding-top-1-2em semibold margin-top-0-5em text-center margin-top-1-75em">INGREDIENTEN</p>
+            <p class="padding-top-1-2em semibold margin-top-0-5em text-center">INGREDIËNTEN</p>
             <p class="col-sm-12 wel-niet">
                 <span class="pull-right">HEB IK</span>
             </p>
@@ -71,7 +71,7 @@
 
         {#-------------SHOPPINGLIJSTJE-------------#}
         <div class="generated hidden col-sm-5 col-sm-offset-2 bordered">
-            <p class="padding-top-1-2em semibold margin-top-0-5em text-center margin-top-1-75em">SHOPPINGLIJSTJE</p>
+            <p class="padding-top-1-2em semibold margin-top-0-5em text-center">SHOPPINGLIJSTJE</p>
             <p class="col-sm-12 wel-niet">
                 <span class="pull-right">PRIJS/ST</span>
             </p>
@@ -98,7 +98,7 @@
     {#-------------RECEPT-------------#}
     <div class="col-sm-8 col-sm-offset-2 plusfix">
         <div class="col-sm-12 bordered margin-bottom-0">
-            <p class="padding-top-1-2em semibold text-center margin-top-1-75em">RECEPT</p>
+            <p class="padding-top-1-2em semibold text-center margin-bottom-1-15em">RECEPT</p>
             <div class="col-sm-9 padding-bottom-1em">
                 <p class="margin-top-0">BENODIGDHEDEN(4personen)</p>
                 {% if gerecht %}
@@ -113,7 +113,7 @@
     {% if gerecht %}
         <div class="col-sm-8 col-sm-offset-2 container-white padding-bottom-3em">
             {% for stap in gerecht.stappen %}
-                <div class="col-sm-12 bordered margin-bottom-0 stap">
+                <div class="col-sm-12 bordered margin-bottom-0 stap padding-bottom-0-5em">
                     <div class="col-sm-2">
                         <p class="margin-top-0-5em"><span class="space-number-check">{{ stap.stapnummer }}</span>
                             <input type="checkbox" class="stapnummer" value="{{ stap.stapnummer }}">
@@ -137,8 +137,8 @@
                             <option class="hidden" selected value="{{ gerecht.id }}">{{ gerecht.naam }}</option>
                         </select>
                         {{ form_widget(form.datum) }}
-                        <button type="submit" class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen ">
-                            SLA OP IN MIJN GERECHTEN
+                        <button type="submit" class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen margin-right-1em">
+                            TOEVOEGEN AAN FAVORIETEN
                         </button>
                         {{ form_rest(form) }}
                 {{ form_end(form) }}
