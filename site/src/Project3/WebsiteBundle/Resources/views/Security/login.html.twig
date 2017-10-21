@@ -2,9 +2,16 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-6 col-md-offset-3">
+        <div class="col-sm-12">
+            <div class="col-sm-4 col-sm-offset-4">
                 {{ render(controller("Project3WebsiteBundle:Security:loginForm")) }}
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div class="col-sm-9 col-sm-offset-2">
+                    <p>Nog geen account? registreer <a href="{{ path('project3_security_register') }}">hier</a></p>
+                </div>
             </div>
         </div>
     </div>
