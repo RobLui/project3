@@ -120,6 +120,7 @@ $(document).ready(function() {
 // SHOPPINGLIST TOGGLER
     $('.shoppinglist-btn').on("click", function(e) {
         e.preventDefault();
+        $('.bordered.container-white.shoppinglist-btn-spacing').first().toggleClass('active-color');
         $('.shoppinglist-toggle').trigger('click');
     });
 

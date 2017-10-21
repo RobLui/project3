@@ -15,15 +15,13 @@
                         HIER HEB JE AL ONZE GERECHTEN
                     </h3>
                     {% for c in categories %}
-                        <div class="col-sm-4">
-                            <div class="text-center category">
-                                <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
-                                    <input required name="searchinput" type="text" class="hidden" value="{{ c.naam }}" >
-                                    <button class="btnnn size-category" type="submit">
-                                        {{ c.naam }}</a>
-                                    </button>
-                                </form>
-                            </div>
+                        <div class="text-center category col-sm-4">
+                            <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
+                                <input required name="searchinput" type="text" class="hidden" value="{{ c.naam }}" >
+                                <button class="btnnn size-category" type="submit">
+                                    {{ c.naam }}</a>
+                                </button>
+                            </form>
                         </div>
                     {% endfor %}
                 </div>

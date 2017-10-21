@@ -47,8 +47,9 @@ button {
 /* SHOPPINGLISTS */
 
 .bordered {
-    /*border: 1px solid black;*/
-    background-color: #FDFDFD;
+    /*background-color: #FDFDFD;*/
+    background-color: #f5f3f2;
+    border-radius: 3px;
 }
 
 .semibold {
@@ -523,4 +524,23 @@ button a:hover {
     /* change "blue" browser chrome to yellow */
     filter: invert(50%) hue-rotate(90deg) brightness(1.85);
     /*box-shadow: 3px 3px 3px 3px #ccc;*/
+}
+
+@media (max-width:769px) {
+    .nav-item {
+        float:left;
+        width:100%;
+        text-align:center;
+    }
+    .category{
+        float:left;
+        font-size: 1rem;
+    }
+    .category.col-sm-4{
+        max-width:33%;
+    }
+}
+.active-color{
+    background-color: #000033;
+    color:white;
 }
