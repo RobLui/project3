@@ -487,11 +487,9 @@ button a {
     width:100%;
     color:black;
     display: block;
-    /*color:white;*/
 }
 
 button a:hover {
-    color: rgb(253, 253, 253);
     color:white;
     text-decoration: none;
 }

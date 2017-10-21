@@ -126,8 +126,22 @@
             {% endfor %}
 
             <div class="category">
-                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right instellingen"><a href="javascript:window.print()">PRINT</a></button>
-                <button class="btnnn semibold margin-top-3em size-buttons-no-cat pull-right instellingen "><a href="{{ path('project3_gerecht_save') }}">SLA OP IN MIJN GERECHTEN</a></button>
+                <button class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen"><a href="javascript:window.print()">PRINT</a></button>
+
+                {{ form_start(form,{'method': 'POST'}) }}
+
+                    {{ form_widget(form, { 'attr': {'class': 'hidden'} }) }}
+                        {#{{ form_widget(form.gerechten) }}#}
+                        <label class="hidden" for="project3_websitebundle_klaargemaakte_gerechten_gerechten">Gerechten</label>
+                        <select class="hidden" id="project3_websitebundle_klaargemaakte_gerechten_gerechten" name="project3_websitebundle_klaargemaakte_gerechten[gerechten][]" multiple="multiple">
+                            <option class="hidden" selected value="{{ gerecht.id }}">{{ gerecht.naam }}</option>
+                        </select>
+                        {{ form_widget(form.datum) }}
+                        <button type="submit" class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen ">
+                            SLA OP IN MIJN GERECHTEN
+                        </button>
+                        {{ form_rest(form) }}
+                {{ form_end(form) }}
             </div>
 
         </div>

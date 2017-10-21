@@ -28,9 +28,10 @@ project3_account_klaargemaakte_gerechten:
 
 
 #GERECHTEN
-project3_gerecht_save:
-    path:     /gerechten/gerecht/save/{id}
-    defaults: { _controller: Project3WebsiteBundle:Gerecht:save, id: id}
+project3_klaargemaakt_new:
+    path:     gerechten/gerecht/{id}/klaargemaakt
+    defaults: { _controller: Project3WebsiteBundle:Account:klaargemaakteGerechten}
+    methods: [GET,POST]
 
 project3_alle_gerechten:
     path:     /gerechten
@@ -73,12 +74,6 @@ project3_contact_delete:
     defaults: { _controller: Project3WebsiteBundle:Contact:delete}
 
 
-#EXTRA
-project3_website_group:
-    path:     /group/{slug}
-    defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }
-
-
 
 shoppinglist_add:
     path:     /addshoppinglist
@@ -89,3 +84,11 @@ project3_mail:
     path:     /mail/{id}
     defaults: { _controller: Project3WebsiteBundle:Gerecht:mail }
     methods: [GET,POST]
+
+
+
+
+#EXTRA
+project3_website_group:
+    path:     /group/{slug}
+    defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }

@@ -1,37 +1,42 @@
 <html>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Shoppinglijstje</title>
+<title>Shoppinglijstje FoodGuru</title>
 <head>
     <style>
+        body {
+            background-color: grey;
+        }
         ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            background-color: black;
+            width:50%;
         }
 
         li {
             display: block;
             color: white;
             text-decoration-color: white;
-            padding: 1em;
+            padding: 0.2em;
             text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <div>
-        <h2>SHOPPINGLIJSTJE</h2>
-        <ul>
-            {% for ingredient in gerecht.ingredienten %}
-                <li>
-                    <hr>
-                    <p>{{ ingredient.naam }}</p>
-                    <p>&euro; {{ ingredient.prijsDelhaize }}</p>
-                </li>
-            {% endfor %}
-        </ul>
-</div>
+    {#<img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />#}
+    <h1>FoodGuru - shoppinglijstje </h1>
+    <hr>
+    <h2>{{ gerecht.naam }}</h2>
+
+    <ul>
+        {% for ingredient in gerecht.ingredienten %}
+            <li>
+                <hr>
+                <p>{{ ingredient.naam }}</p>
+                <p>&euro; {{ ingredient.prijsDelhaize }}</p>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

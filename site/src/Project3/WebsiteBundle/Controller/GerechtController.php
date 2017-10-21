@@ -5,9 +5,11 @@ namespace Project3\WebsiteBundle\Controller;
 use function GuzzleHttp\Psr7\str;
 use Project3\WebsiteBundle\Entity\Account;
 use Project3\WebsiteBundle\Entity\Gerecht;
+use Project3\WebsiteBundle\Entity\Klaargemaakte_gerechten;
 use Project3\WebsiteBundle\Entity\Shoppinglijst;
 use Project3\WebsiteBundle\Entity\User;
 use Project3\WebsiteBundle\Form\ShoppinglijstType;
+use Swift_Image;
 use Swift_Mailer;
 use Swift_Message;
 use Swift_SmtpTransport;
@@ -45,19 +47,17 @@ class GerechtController extends Controller
     // TOON DETAIL GERECHT
     public function detailAction(Request $request,$id)
     {
-
-        $manager = $this->container->get('doctrine')->getManager();
-        $shoppinglist = new Shoppinglijst();
-        $form = $this->container->get('form.factory')->create(ShoppinglijstType::class, $shoppinglist,array());
-        if ($request->isMethod("POST")) {
-            $form->submit($request);
-            if ($form->isSubmitted() && $form->isValid()) {
-                $manager->persist($shoppinglist);
-                $manager->flush();
-            }
-        }
-
         $em = $this->getDoctrine()->getManager();
+
+        $klaargemaakt_gerecht = new Klaargemaakte_gerechten();
+        $form = $this->createForm('Project3\WebsiteBundle\Form\Klaargemaakte_gerechtenType', $klaargemaakt_gerecht);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($klaargemaakt_gerecht);
+            $em->flush();
+        }
 
         $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
             ->findOneBy(
@@ -122,15 +122,13 @@ class GerechtController extends Controller
                 ), null,null,null );
 
         $user = $this->get('security.context')->getToken()->getUser();
-//        $accountname = $account->findOneByGebruikersnaam($user->getUsername());
         $accountname = $user->getEmail();
-//        dump($user->getEmail()); die;
 
         $transport = (new Swift_SmtpTransport('smtp.mailgun.org', 587))
             ->setUsername('postmaster@sandboxf055f8120319424b9fa2aa3e52cb83c1.mailgun.org')
             ->setPassword('aea6703953c7416cda54cbcdd3a731f3')
         ;
-//        dump($user); die;
+
         $mailer = new Swift_Mailer($transport);
 
         $message = (new Swift_Message($gerecht->getNaam()))
@@ -141,10 +139,13 @@ class GerechtController extends Controller
             ->setBody(
                 $this->renderView(
                     '@Project3Website/Ingredienten/email.html.twig',
-                    array('gerecht' => $gerecht)
+                    array(
+                        'gerecht' => $gerecht,
+                    )
                 )
             )
         ;
+
 
         $result = $mailer->send($message);
 
