@@ -239,11 +239,7 @@ textarea {
     background: grey;
 }
 
-.footer {
-    bottom: 0;
-    height: 4em;
-    background-color: #f5f5f5;
-}
+
 
 .loginform {
     margin-top: 20%;
@@ -543,4 +539,19 @@ button a:hover {
 .active-color{
     background-color: #000033;
     color:white;
+}
+
+.footer{
+    position: absolute;
+    left: 0;
+    bottom: inherit;
+    height: 2em;
+    width: 100%;
+    overflow:hidden;
+}
+.footer p {
+    margin-top:0.5em;
+}
+.margin-bottom {
+    margin-top:19em;
 }
