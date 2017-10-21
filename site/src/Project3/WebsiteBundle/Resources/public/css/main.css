@@ -95,7 +95,7 @@ button {
 
 .category button:hover {
     background-color: #000033;
-    color: rgb(253, 253, 253);
+    color: #FDFDFD;
     text-decoration: none;
 }
 
@@ -452,12 +452,12 @@ h1 {
 .instellingen a {
     display: block;
     text-decoration: none;
-    color: rgb(36, 36, 36);
+    color: #000033;
 }
 
 .instellingen a:hover, .instellingen:hover {
-    background: rgb(36, 36, 36);
-    color: rgb(253, 253, 253);
+    background-color: #000033;
+    color: #FDFDFD;
 }
 
 .show {
@@ -504,14 +504,19 @@ button a:hover {
 }
 
 .shoppinglist-btn {
-    color: black;
+    color: #000033;
     text-decoration-line: none;
 }
 
 .shoppinglist-btn .container-white:hover {
     text-decoration-line: none;
-    color: white;
-    background-color: black;
+    color: #FDFDFD;
+    background-color: #000033;
+}
+
+.shoppinglist-btn-spacing {
+    padding-top: 0.7em;
+    padding-bottom: 0.4em;
 }
 
 .stapnummer:checked {
