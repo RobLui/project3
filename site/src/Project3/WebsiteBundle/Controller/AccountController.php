@@ -28,7 +28,9 @@ class AccountController extends Controller
     // KLAARGEMAAKTE GERECHTEN
     public function klaargemaakteGerechtenAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
-        $alle_klaargem_gerechten =  $em->getRepository('Project3WebsiteBundle:Klaargemaakte_gerechten')->findAll();
+        $alle_klaargem_gerechten =  $em
+            ->getRepository('Project3WebsiteBundle:Klaargemaakte_gerechten')
+            ->findAll(array(), array('datum' => 'DESC'));
 
         $klaargemaakt_gerecht = new Klaargemaakte_gerechten();
         $form = $this->createForm('Project3\WebsiteBundle\Form\Klaargemaakte_gerechtenType', $klaargemaakt_gerecht);
