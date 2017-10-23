@@ -239,8 +239,6 @@ textarea {
     background: grey;
 }
 
-
-
 .loginform {
     margin-top: 20%;
 }
@@ -466,6 +464,10 @@ h1 {
     font-size: 0.95em;
 }
 
+.aanpassen-button-login {
+    padding: 0.6em;
+}
+
 .margin-right-1em {
     margin-right: 1em;
 }
@@ -524,34 +526,37 @@ button a:hover {
 
 @media (max-width:769px) {
     .nav-item {
-        float:left;
-        width:100%;
-        text-align:center;
+        float: left;
+        width: 100%;
+        text-align: center;
     }
-    .category{
-        float:left;
+    .category {
+        float: left;
         font-size: 1rem;
     }
-    .category.col-sm-4{
-        max-width:33%;
+    .category.col-sm-4 {
+        max-width: 33%;
     }
 }
-.active-color{
+
+.active-color {
     background-color: #000033;
-    color:white;
+    color: white;
 }
 
-.footer{
+.footer {
     position: absolute;
     left: 0;
     bottom: inherit;
     height: 2em;
     width: 100%;
-    overflow:hidden;
+    overflow: hidden;
 }
+
 .footer p {
-    margin-top:0.5em;
+    margin-top: 0.5em;
 }
+
 .margin-bottom {
-    margin-top:19em;
+    margin-top: 19em;
 }
