@@ -30,7 +30,11 @@ class AccountController extends Controller
         $em = $this->getDoctrine()->getManager();
         $alle_klaargem_gerechten =  $em
             ->getRepository('Project3WebsiteBundle:Klaargemaakte_gerechten')
-            ->findAll(array(), array('datum' => 'DESC'));
+            ->findBy(
+                array(),
+                array('datum' => 'DESC')
+                )
+                ;
 
         $klaargemaakt_gerecht = new Klaargemaakte_gerechten();
         $form = $this->createForm('Project3\WebsiteBundle\Form\Klaargemaakte_gerechtenType', $klaargemaakt_gerecht);
