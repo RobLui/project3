@@ -1,10 +1,13 @@
+
 {% if app.user %}
     <h3>Already logged in!</h3>
-{% else %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-    <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block" />
+{% endif %}
+
+<img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block" />
+{% if error %}
+        {{ error.messageKey|trans(error.messageData, 'security') }}
+{% endif %}
+
 <div class="loginform col-sm-8 col-sm-offset-2">
     <form action="{{ path('project3_security_login') }}" method="POST" role="form" class="{{ class }}">
         <div class="form-group">
@@ -16,4 +19,4 @@
         <button type="submit" class="semibold size-buttons-no-cat instellingen aanpassen-button-login">Inloggen</button>
     </form>
 </div>
-{% endif %}
+

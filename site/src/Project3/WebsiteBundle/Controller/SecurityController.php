@@ -16,6 +16,11 @@ class SecurityController extends Controller
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        if ($error){
+            $error = ["message" => "Helaas zijn de juiste gegevens niet ingegeven, probeer opnieuw"];
+        }
+        // $error = "Helaas zijn de juiste gegevens niet ingegeven, probeer opnieuw.";
+
         return $this->render('@Project3Website/Security/login.html.twig', array(
             'last_username' => $lastUsername,
             'error' => $error,

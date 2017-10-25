@@ -45,7 +45,7 @@ class GerechtController extends Controller
     }
 
     // TOON DETAIL GERECHT
-    public function detailAction(Request $request,$id)
+    public function detailAction(Request $request,$id)t
     {
         $em = $this->getDoctrine()->getManager();
 

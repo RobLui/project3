@@ -1,6 +1,16 @@
 {% extends "@Project3Website/layout.html.twig" %}
 
 {% block content %}
+
+    {% if error %}
+        <div class="col-sm-12 text-center">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="alert-danger">
+                    {{ error.message }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
     <div class="row">
         <div class="col-sm-12 category">
             <div class="col-sm-4 col-sm-offset-4">
