@@ -4,7 +4,7 @@
 
 > ~~Account mannetje rechts in nav en met zelfde achtegrond (beige)~~ DONE
 
-> Meer introtekst om duidelijkheid te geven DONE
+> Meer introtekst om duidelijkheid te geven
 
 > ~~Gerechten inhoud nog eens nachecken ajuin waar geen ajuin in zit~~ DONE
 
@@ -22,7 +22,7 @@ EXTRA:
 
 > Ev. shoppinglijstje van in het begin tonen en een tekst er in zetten
 
-> "Duid links aan welke ingrediënten je nog mist en creëer dan je persoonlijk shoppinglijstje voor dit gerecht"
+> Duid links aan welke ingrediënten je nog mist en creëer dan je persoonlijk shoppinglijstje voor dit gerecht
 
 OTHER:
 
@@ -32,13 +32,11 @@ OTHER:
 
 > recept aanpasbaar voor aantal personen
 
-> Lay-out van header veranderd bij inloggen van
-
-> > 'zoeken account gerechten' naar 'zoeken gerechten account'
+> ~~Lay-out van header veranderd bij inloggen van 'zoeken account gerechten' naar 'zoeken gerechten account'~~ DONE
 
 > laad soms traag
 
-> logo drukken = terug naar homepage
+> ~~logo drukken = terug naar homepage~~ DONE
 
 > copywrite = wit ipv zwart?
 

@@ -102,9 +102,19 @@
 
 > Contact toevoegen is niet gelijk aan emailadres ingeven. Ook geen validatie
 
-13 - Sam
+13 - Anoniem
 
-> "Leuke homepage
+> Site ziet er op het eerste zicht mooi uit.
+
+> Laadtijden zijn wel lang voor de gerechten.
+
+> Bij het recept zou ik de grey out vervangen door doorstreept.
+
+> Ik mis toch iets van en favoriet feature.
+
+# Sam
+
+> Leuke homepage
 
 > Zoeken in de menu is gewoon de homepage, is verwarrend (zeker omdat het visueel niet opvalt dat dat de actieve pagina is)
 

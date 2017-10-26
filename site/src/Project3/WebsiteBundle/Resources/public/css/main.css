@@ -47,7 +47,6 @@ button {
 /* SHOPPINGLISTS */
 
 .bordered {
-    /*background-color: #FDFDFD;*/
     background-color: #f5f3f2;
     border-radius: 3px;
 }
@@ -519,9 +518,7 @@ button a:hover {
 }
 
 .stapnummer:checked {
-    /* change "blue" browser chrome to yellow */
     filter: invert(50%) hue-rotate(90deg) brightness(1.85);
-    /*box-shadow: 3px 3px 3px 3px #ccc;*/
 }
 
 @media (max-width:769px) {
@@ -559,4 +556,13 @@ button a:hover {
 
 .margin-bottom {
     margin-top: 19em;
+}
+
+.shoppinglist-info-text {
+    display:block;
+    margin-top:13em;
+}
+
+.make-shoppinglist {
+    display:block;
 }

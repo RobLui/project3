@@ -6,156 +6,157 @@
 
 {% block content %}
 
-{#{% if session %}#}
-    {#{{ session|t }}#}
-{#{% endif %}#}
+    <div class="row">
+        <div class="col-sm-12">
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
 
-            <a href="{{ path('project3_website_home') }}">
-                <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
-            </a>
+                <a href="{{ path('project3_website_home') }}">
+                    <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
+                </a>
                 <h3 class="margin-bottom-1em semibold">
                     {{ gerecht.naam|default() }}
                 </h3>
-
-        </div>
-        <div class="col-sm-8 col-sm-offset-2 text-center container-white padding-top-3em">
-            <div class="full-image noprint padding-top-1-2em">
-                <img src="{{ gerecht.fotoRechthoek }}" alt="{{ gerecht.naam|default("-") }}">
             </div>
 
-    <div class="col-sm-12 margin-bottom-3em padding-0 ">
+            <div class="col-sm-8 col-sm-offset-2 text-center container-white padding-top-3em">
 
-        <div class="detail">
-
-                <div class="col-sm-7 bordered">
-                    <p class="text-left margin-top-0-5em">{{ gerecht.beschrijving|default() }}</p>
+                <div class="full-image noprint padding-top-1-2em">
+                    <img src="{{ gerecht.fotoRechthoek }}" alt="{{ gerecht.naam|default("-") }}">
                 </div>
 
-                <div class="col-sm-2 bordered">
-                    <p class="margin-top-0-5em"><span class="glyphicon glyphicon-time"></span> {{ gerecht.bereidingstijd|default(0) }} min</p>
+                <div class="col-sm-12 margin-bottom-3em padding-0 ">
+
+                    <div class="detail">
+                        <div class="col-sm-7 bordered">
+                            <p class="text-left margin-top-0-5em">{{ gerecht.beschrijving|default() }}</p>
+                        </div>
+
+                        <div class="col-sm-2 bordered">
+                            <p class="margin-top-0-5em"><span class="glyphicon glyphicon-time"></span> {{ gerecht.bereidingstijd|default(0) }} min</p>
+                        </div>
+
+                        <div class="col-sm-3 bordered rating-padding">
+                            <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Awesome - 4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Awesome - 3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Awesome - 2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Awesome - 1 stars"></label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-sm-offset-2 container-white">
+
+                {#-------------INGREDIENTEN-------------#}
+                <div class="col-sm-5 bordered">
+                    <p class="padding-top-1-2em semibold margin-top-0-5em text-center">INGREDIËNTEN</p>
+                    <p class="col-sm-12 wel-niet">
+                        <span class="pull-right">HEB IK</span>
+                    </p>
+                    <ul class="col-sm-12">
+                        {% for ingredient in gerecht.ingredienten|default() %}
+                            <li class="col-sm-12 list-unstyled">
+                                <hr>
+                                <span class="col-sm-8">{{ ingredient.naam|default('naam') }}</span>
+                                <span class="col-sm-2 pull-right"><input type="checkbox" class="jQueryShopping" value="{{ ingredient.naam }}"></span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    <div class="category">
+                        <button class="btnnn shoppinglisttext size-buttons-shoppinglijst size-buttons-no-cat semibold" id="shoppinglistbind">MAAK SHOPPINGLIJST</button>
+                    </div>
+
                 </div>
 
-                <div class="col-sm-3 bordered rating-padding">
-                    <fieldset class="rating">
-                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Awesome - 4 stars"></label>
-                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Awesome - 3 stars"></label>
-                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Awesome - 2 stars"></label>
-                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Awesome - 1 stars"></label>
-                    </fieldset>
+                {#-------------SHOPPINGLIJSTJE-------------#}
+                <div class="generated hidden col-sm-5 col-sm-offset-2 bordered">
+                    <p class="padding-top-1-2em semibold margin-top-0-5em text-center">SHOPPINGLIJSTJE</p>
+                    <p class="col-sm-12 wel-niet">
+                        <span class="pull-right">PRIJS/ST</span>
+                    </p>
+                    <ul class="col-sm-12 shoppinglist">
+                        {% for ingredient in gerecht.ingredienten %}
+                            <li class="col-sm-12 list-unstyled">
+                                <hr>
+                                <span class="info-ingredient">{{ ingredient }}</span>
+                                <span class="pull-right">&euro; {{ ingredient.prijsDelhaize|default() }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    <div class="category">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <button class="size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em"><a href="{{ path('project3_mail',{ id: gerecht.id }) }}">MAIL</a></button>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-8 col-sm-offset-2 container-white">
-
-        {#-------------INGREDIENTEN-------------#}
-        <div class="col-sm-5 bordered">
-            <p class="padding-top-1-2em semibold margin-top-0-5em text-center">INGREDIËNTEN</p>
-            <p class="col-sm-12 wel-niet">
-                <span class="pull-right">HEB IK</span>
-            </p>
-            <ul class="col-sm-12">
-                {% for ingredient in gerecht.ingredienten|default() %}
-                    <li class="col-sm-12 list-unstyled">
-                        <hr>
-                        <span class="col-sm-8">{{ ingredient.naam|default('naam') }}</span>
-                        <span class="col-sm-2 pull-right"><input type="checkbox" class="jQueryShopping" value="{{ ingredient.naam }}"></span>
-                    </li>
-                {% endfor %}
-            </ul>
-
-            <div class="category">
-                <button class="btnnn shoppinglisttext size-buttons-shoppinglijst size-buttons-no-cat semibold" id="shoppinglistbind">MAAK SHOPPINGLIJST</button>
-            </div>
-
-        </div>
-
-        {#-------------SHOPPINGLIJSTJE-------------#}
-        <div class="generated hidden col-sm-5 col-sm-offset-2 bordered">
-            <p class="padding-top-1-2em semibold margin-top-0-5em text-center">SHOPPINGLIJSTJE</p>
-            <p class="col-sm-12 wel-niet">
-                <span class="pull-right">PRIJS/ST</span>
-            </p>
-            <ul class="col-sm-12 shoppinglist">
-                {% for ingredient in gerecht.ingredienten %}
-                    <li class="col-sm-12 list-unstyled">
-                        <hr>
-                        <span class="info-ingredient">{{ ingredient }}</span>
-                        <span class="pull-right">&euro; {{ ingredient.prijsDelhaize|default() }}</span>
-                    </li>
-                {% endfor %}
-            </ul>
-
-
-            <div class="category">
-                {#<button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold" id="addToShoppinglist">TOEVOEGEN AAN SHOPPINGLIJSTJES</button>#}
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <button class="btnnn size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em"><a href="{{ path('project3_mail',{ id: gerecht.id }) }}">MAIL</a></button>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-
-    {#-------------RECEPT-------------#}
-    <div class="col-sm-8 col-sm-offset-2 plusfix">
-        <div class="col-sm-12 bordered margin-bottom-0">
-            <p class="padding-top-1-2em semibold text-center margin-bottom-1-15em">RECEPT</p>
-            <div class="col-sm-9 padding-bottom-1em">
-                <p class="margin-top-0">BENODIGDHEDEN(4personen)</p>
-                {% if gerecht %}
-                    <p>{{ gerecht.benodigdheden|raw }}</p>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-
-
-    {#-------------STAPPEN-------------#}
-    {% if gerecht %}
-        <div class="col-sm-8 col-sm-offset-2 container-white padding-bottom-3em">
-            {% for stap in gerecht.stappen %}
-                <div class="col-sm-12 bordered margin-bottom-0 stap padding-bottom-0-5em">
-                    <div class="col-sm-2">
-                        <p class="margin-top-0-5em"><span class="space-number-check">{{ stap.stapnummer }}</span>
-                            <input type="checkbox" class="stapnummer" value="{{ stap.stapnummer }}">
+                <div class="shoppinglist-info-text col-sm-5 col-sm-offset-2 bordered">
+                    <div class="col-sm-12">
+                        <p class="padding-top-1-2em semibold margin-top-0-5e text-center">
+                            Klik hiernaast op <span class="make-shoppinglist">"MAAK SHOPPINGLIJST"</span> om je persoonlijk shoppinglijstje samen te stellen voor dit gerecht.
                         </p>
                     </div>
-                    <div class="col-sm-10 margin-top-0-5em">
-                        <p>{{ stap.tekst }}</p>
-                    </div>
                 </div>
-            {% endfor %}
 
-            <div class="category">
-                <button class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen"><a href="javascript:window.print()">PRINT</a></button>
-
-                {{ form_start(form,{'method': 'POST'}) }}
-
-                    {{ form_widget(form, { 'attr': {'class': 'hidden'} }) }}
-                        {#{{ form_widget(form.gerechten) }}#}
-                        <label class="hidden" for="project3_websitebundle_klaargemaakte_gerechten_gerechten">Gerechten</label>
-                        <select class="hidden" id="project3_websitebundle_klaargemaakte_gerechten_gerechten" name="project3_websitebundle_klaargemaakte_gerechten[gerechten][]" multiple="multiple">
-                            <option class="hidden" selected value="{{ gerecht.id }}">{{ gerecht.naam }}</option>
-                        </select>
-                        {{ form_widget(form.datum) }}
-                        <button type="submit" class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen margin-right-1em">
-                            TOEVOEGEN AAN KLAARGEMAAKT
-                        </button>
-                        {{ form_rest(form) }}
-                {{ form_end(form) }}
             </div>
 
-        </div>
-    {% endif %}
+            {#-------------RECEPT-------------#}
+            <div class="col-sm-8 col-sm-offset-2 plusfix">
+                <div class="col-sm-12 bordered margin-bottom-0">
+                    <p class="padding-top-1-2em semibold text-center margin-bottom-1-15em">RECEPT</p>
+                    <div class="col-sm-9 padding-bottom-1em">
+                        <p class="margin-top-0">BENODIGDHEDEN(4personen)</p>
+                        {% if gerecht %}
+                            <p>{{ gerecht.benodigdheden|raw }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
 
+
+            {#-------------STAPPEN-------------#}
+            {% if gerecht %}
+                <div class="col-sm-8 col-sm-offset-2 container-white padding-bottom-3em">
+                    {% for stap in gerecht.stappen %}
+                        <div class="col-sm-12 bordered margin-bottom-0 stap padding-bottom-0-5em">
+                            <div class="col-sm-2">
+                                <p class="margin-top-0-5em"><span class="space-number-check">{{ stap.stapnummer }}</span>
+                                    <input type="checkbox" class="stapnummer" value="{{ stap.stapnummer }}">
+                                </p>
+                            </div>
+                            <div class="col-sm-10 margin-top-0-5em">
+                                <p>{{ stap.tekst }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="category">
+                        <button class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen">
+                            <a href="javascript:window.print()">PRINT</a>
+                        </button>
+                        {{ form_start(form,{'method': 'POST'}) }}
+                            {{ form_widget(form, { 'attr': {'class': 'hidden'} }) }}
+                            <label class="hidden" for="project3_websitebundle_klaargemaakte_gerechten_gerechten">Gerechten</label>
+                            <select class="hidden" id="project3_websitebundle_klaargemaakte_gerechten_gerechten" name="project3_websitebundle_klaargemaakte_gerechten[gerechten][]" multiple="multiple">
+                                <option class="hidden" selected value="{{ gerecht.id }}">{{ gerecht.naam }}</option>
+                            </select>
+                            {{ form_widget(form.datum) }}
+                            <button type="submit" class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen margin-right-1em">
+                                TOEVOEGEN AAN KLAARGEMAAKT
+                            </button>
+                            {{ form_rest(form) }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
     </div>
-</div>
 
 {% endblock %}
 

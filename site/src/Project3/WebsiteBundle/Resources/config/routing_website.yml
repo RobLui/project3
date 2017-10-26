@@ -41,10 +41,6 @@ project3_gerecht_detail:
     path:     /gerechten/gerecht/{id}
     defaults: { _controller: Project3WebsiteBundle:Gerecht:detail, id: id}
 
-project3_gerecht_surprise:
-    path:     /gerechten/verrassing
-    defaults: { _controller: Project3WebsiteBundle:Gerecht:surprise}
-
 project3_gerecht_query:
     path:     /gerechten/zoek/
     defaults: { _controller: Project3WebsiteBundle:Gerecht:query}
