@@ -42,17 +42,17 @@
 
 7 - Adriaan
 
-> - ziet er mooi uit!
+> ziet er mooi uit!
 
-> - sterretjes bij /gerechten zien eruit alsof ze nog moeten ingevuld worden
+> sterretjes bij /gerechten zien eruit alsof ze nog moeten ingevuld worden
 
-> - Grootte logo is anders op elke pagina
+> Grootte logo is anders op elke pagina
 
-> - Niet direct duidelijk waar in te loggen
+> Niet direct duidelijk waar in te loggen
 
-> - Lay-out van header veranderd bij inloggen van 'zoeken account gerechten' naar 'zoeken gerechten account' -> misschien wat raar
+> Lay-out van header veranderd bij inloggen van 'zoeken account gerechten' naar 'zoeken gerechten account' -> misschien wat raar
 
-> - shoppinglijst komt er nog te staan wanneer je alles al hebt, misschien de shoppinglijst button disablen wanneer alles is ingevuld"
+> shoppinglijst komt er nog te staan wanneer je alles al hebt, misschien de shoppinglijst button disablen wanneer alles is ingevuld"
 
 8 - Andreea
 
