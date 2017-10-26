@@ -16,17 +16,12 @@
             </li>
 
             {% if not app.user %}
-                <li class="text-center">
+                <li class="nav-item">
                     <a href="{{ path('project3_security_login') }}">
                         <span class="glyphicon glyphicon-user"></span>
                     </a>
                 </li>
             {% endif %}
-
-            <li class="nav-item">
-                <a class="page-scroll" href="{{ path('project3_alle_gerechten') }}">GERECHTEN</a>
-            </li>
-
 
             {% block login %}
                 {% if app.user %}
@@ -45,10 +40,13 @@
                             <li><a href="{{ path('project3_security_logout') }}">Logout</a></li>
                         </ul>
                     </li>
-                {% else %}
-                    {#{{ render(controller("Project3WebsiteBundle:Security:loginForm", { class: "navbar-form navbar-right" })) }}#}
                 {% endif %}
             {% endblock login %}
+
+
+            <li class="nav-item">
+                <a class="page-scroll" href="{{ path('project3_alle_gerechten') }}">GERECHTEN</a>
+            </li>
         </ul>
     </div>
 </nav>

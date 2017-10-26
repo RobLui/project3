@@ -1,14 +1,14 @@
 # Feedback aanpassingen
 
-> Sterretjes op gerechten pagina, ingevulde versies (volledig zwart)
+> ~~Sterretjes op gerechten pagina, ingevulde versies (volledig zwart)~~ DONE
 
-> Account mannetje rechts in nav en met zelfde achtegrond (beige)
+> ~~Account mannetje rechts in nav en met zelfde achtegrond (beige)~~ DONE
 
-> Meer introtekst om duidelijkheid te geven
+> Meer introtekst om duidelijkheid te geven DONE
 
-> Gerechten inhoud nog eens nachecken ajuin waar geen ajuin in zit
+> ~~Gerechten inhoud nog eens nachecken ajuin waar geen ajuin in zit~~ DONE
 
-> ~~Link logo home pagina~~ done
+> ~~Link logo home pagina~~ DONE
 
 > Active pagina in nav duidelijk maken
 
