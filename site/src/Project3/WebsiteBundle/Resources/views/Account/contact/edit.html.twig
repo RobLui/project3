@@ -4,28 +4,29 @@
 
     <div class="row">
         <div class="col-sm-12">
+            <a href="{{ path('project3_website_home') }}">
+                <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
+            </a>
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <div class="col-sm-6 col-sm-offset-3">
                     <h1>Email wijzigen </h1>
-                        <div class="col-sm-12">
+                    <div class="col-sm-12">
 
-                            {{ form_start(edit_form) }}
-                            {{ form_widget(edit_form.email, { "attr":{ "class":"form-control control col-sm-12" } }) }}                                    </button>
-                                <div class="col-sm-12 category">
-                                <button type="submit" class="semibold instellingen aanpassen-button col-sm-6 pull-left">
-                                    <a>OPSLAAN</a>
-                                </button>
-                            {{ form_end(edit_form) }}
+                        {{ form_start(edit_form) }}
+                        {{ form_widget(edit_form.email, { "attr":{ "class":"form-control control col-sm-12" } }) }}                                    </button>
+                            <div class="col-sm-12 category">
+                            <button type="submit" class="semibold instellingen aanpassen-button col-sm-6 pull-left">
+                                <a>OPSLAAN</a>
+                            </button>
+                        {{ form_end(edit_form) }}
 
-                            {{ form_start(delete_form) }}
-                                <button type="submit" class="col-sm-6 semibold instellingen aanpassen-button pull-right">
-                                    <a>DELETE</a>
-                                </button>
-                                </div>
-                            {{ form_end(delete_form) }}
-
-                        </div>
-
+                        {{ form_start(delete_form) }}
+                            <button type="submit" class="col-sm-6 semibold instellingen aanpassen-button pull-right">
+                                <a>DELETE</a>
+                            </button>
+                            </div>
+                        {{ form_end(delete_form) }}
+                    </div>
                 </div>
             </div>
         </div>

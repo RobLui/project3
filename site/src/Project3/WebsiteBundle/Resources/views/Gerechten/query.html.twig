@@ -7,7 +7,9 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
+        <a href="{{ path('project3_website_home') }}">
             <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
+        </a>
             {% if gerechten|length > 0 %}
                 <div class="col-sm-12 ">
                     <div class="col-sm-8 col-sm-offset-2">

@@ -8,7 +8,7 @@
 
 > Gerechten inhoud nog eens nachecken ajuin waar geen ajuin in zit
 
-> Link logo home pagina
+> ~~Link logo home pagina~~ done
 
 > Active pagina in nav duidelijk maken
 
@@ -43,3 +43,11 @@ OTHER:
 > copywrite = wit ipv zwart?
 
 > contact != email dus, aanpassen aan email
+
+> toevoegen aan klaargemaakt = anders verwoorden
+
+> bevestiging klaargemaakt (bij toevoegen)
+
+> contact = Validatie opzetten
+
+> shoppinglijstjes allemaal aanklikbaar maken
