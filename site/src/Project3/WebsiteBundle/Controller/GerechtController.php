@@ -2,20 +2,15 @@
 
 namespace Project3\WebsiteBundle\Controller;
 
-use function GuzzleHttp\Psr7\str;
 use Project3\WebsiteBundle\Entity\Account;
-use Project3\WebsiteBundle\Entity\Gerecht;
 use Project3\WebsiteBundle\Entity\Klaargemaakte_gerechten;
-use Project3\WebsiteBundle\Entity\Shoppinglijst;
-use Project3\WebsiteBundle\Entity\User;
-use Project3\WebsiteBundle\Form\ShoppinglijstType;
-use Swift_Image;
+use function session_start;
 use Swift_Mailer;
 use Swift_Message;
 use Swift_SmtpTransport;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class GerechtController extends Controller
 {
@@ -45,18 +40,22 @@ class GerechtController extends Controller
     }
 
     // TOON DETAIL GERECHT
-    public function detailAction(Request $request,$id)t
+    public function detailAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
 
         $klaargemaakt_gerecht = new Klaargemaakte_gerechten();
         $form = $this->createForm('Project3\WebsiteBundle\Form\Klaargemaakte_gerechtenType', $klaargemaakt_gerecht);
         $form->handleRequest($request);
+        $notice = [];
+
+//        $session = $this->get('service_container')->get('session');
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($klaargemaakt_gerecht);
             $em->flush();
+//            $session->setFlash('notice', 'Gerecht is succesvol toegevoegd aan jouw gerechten.');
         }
 
         $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
@@ -69,7 +68,8 @@ class GerechtController extends Controller
         return $this->render('Project3WebsiteBundle:Gerechten:detail.html.twig',
             array(
                 'gerecht' => $gerecht,
-                'form' => $form->createView()
+                'form' => $form->createView(),
+//                'session' => $session
             ));
     }
 
