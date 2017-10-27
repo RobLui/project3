@@ -13,25 +13,34 @@
           <div class="col-sm-6 col-sm-offset-3">
               <div class="text-center">
                   <h3 class="margin-bottom-20">Geen inspiratie voor het avondeten?</h3>
-              </div>
 
-              <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
-                  <div class="input-group stylish-input-group">
-                      <input required name="searchinput" type="text" class="form-control text-center" placeholder="Geef hier de ingrediënten in die je thuis hebt liggen" >
-                          <span class="input-group-addon">
-                              <button type="submit" class="glyphicon glyphicon-search"></button>
+                  <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
+                      <div class="input-group stylish-input-group">
+                          <input required name="searchinput" type="text" class="form-control text-center" placeholder="Geef hier de ingrediënten in die je thuis hebt liggen" >
+                              <span class="input-group-addon">
+                                  <button type="submit" class="glyphicon glyphicon-search"></button>
+                              </span>
                           </span>
-                      </span>
+                      </div>
+                  </form>
+
+                  {# EXTRA INFO #}
+                  <button class="instellingen aanpassen-button semibold btn-toggle-extra-uitleg margin-top-2em">
+                      meer uitleg
+                  </button>
+                  <div class="uitleg-content hidden margin-top-1em">
+                      <p>Geef de gerechten in die je thuis voorraadig hebt, zo kan je nieuwe en inspirerende gerechten ontdekken waar je misschien eerder niet aan had gedacht!</p>
                   </div>
-              </form>
+
+              </div>
 
           </div>
       </div>
 {% endblock content %}
 
 {% block footer %}
-    <div class="margin-bottom">
-            {% include 'Project3WebsiteBundle:Partials:footer.html.twig' %}
+    <div class="margin-top-18em">
+        {% include 'Project3WebsiteBundle:Partials:footer.html.twig' %}
     </div>
 {% endblock %}
 

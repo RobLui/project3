@@ -182,4 +182,13 @@ $(document).ready(function() {
     });
 ////////////////
 
+
+// EXTRA UITLEG HOMEPAGE TOGGLER
+
+    // UITLEG ACTIVE
+    $('.btn-toggle-extra-uitleg').on("click", function(e) {
+        e.preventDefault();
+        $('.uitleg-content').toggleClass('hidden');
+    });
+
 });
