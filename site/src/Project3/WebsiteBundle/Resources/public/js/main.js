@@ -8,10 +8,10 @@ $(document).ready(function() {
     // Check aantal ingredienten
     var telIngredienten = function() {
 
-        var hebik = $(".jQueryShopping:input").length - $(".jQueryShopping:input:checked").length;
+        var hebikniet = $(".jQueryShopping:input").length - $(".jQueryShopping:input:checked").length;
         // $(".shoppinglisttext").text(hebik + (hebik == 1 ? " ingredient" : " ingredienten") + " in shoppinglijst");
-        console.log("Ingredienten die ik niet heb = " + hebik);
-        return hebik;
+        // console.log("Ingredienten die ik niet heb = " + hebikniet);
+        return hebikniet;
     };
 //
 //
@@ -22,7 +22,7 @@ $(document).ready(function() {
 // GENERATED LIST TOGGLER
 
     var toggler = function () {
-
+        // Check op dat er mag geklikt worden of niet
         if(can_activate_global_trigger && telIngredienten() > 0)
         {
             $('.generated').show();
@@ -31,6 +31,11 @@ $(document).ready(function() {
 
             global_trigger = true;
             can_activate_global_trigger = false;
+        }
+
+        if(!($(".jQueryShopping:input").length == $(".jQueryShopping:input:checked").length))
+        {
+            $('.shoppinglist-info-text').addClass('hidden');
         }
 
         return global_trigger;
@@ -75,17 +80,6 @@ $(document).ready(function() {
             // console.log("hetzelfde op plaats: " + index );
         });
 
-        var ingredients_full_length = $(".jQueryShopping:input").length;
-
-        // Check of dat alles aangevinkt werd door de gebruiker (check doet die niet in het begin, bhv de counter variabele :) )
-        if(counter == ingredients_full_length)
-        {
-            console.log("volledige lengte bereikt, namelijk: " + ingredients_full_length);
-        }
-        console.log(counter);
-        console.log(ingredients_full_length);
-
-
         // Check of er op de knop gedrukt is & zich in de true staat bevind
         if(global_trigger)
         {
@@ -94,13 +88,30 @@ $(document).ready(function() {
             {
                 can_activate_global_trigger = false;
                 $('.generated').addClass('hidden');
-
+                $('.all-ingredients-confirm').removeClass('hidden');
             }
             if(telIngredienten() != 0)
             {
+                console.log(counter);
                 can_activate_global_trigger = true;
                 $('.generated').removeClass('hidden');
+                $('.all-ingredients-confirm').addClass('hidden');
             }
+        }
+
+        if($(".jQueryShopping:input").length == $(".jQueryShopping:input:checked").length) {
+            $('.all-ingredients-confirm').removeClass('hidden');
+            $('.shoppinglist-info-text').addClass('hidden');
+        }
+
+        if(!($(".jQueryShopping:input").length == $(".jQueryShopping:input:checked").length))
+        {
+            $('.all-ingredients-confirm').addClass('hidden');
+        }
+
+        if($('.shoppinglist-content').hasClass('hide'))
+        {
+            $('.shoppinglist-info-text').removeClass('hidden');
         }
 
     });
@@ -147,7 +158,7 @@ $(document).ready(function() {
         $(".ingredientitems").text(shoppingarray.toString());
         $(".datumAangemaakt").text(getCurrentDate);
 
-        console.log(shoppingarray + getCurrentDate());
+        // console.log(shoppingarray + getCurrentDate());
     });
 //
 //

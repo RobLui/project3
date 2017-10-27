@@ -561,7 +561,8 @@ button a:hover {
 
 /* AFTER FEEDBACK */
 
-.shoppinglist-info-text {
+.shoppinglist-info-text,
+.all-ingredients-confirm {
     display:block;
     margin-top:13em;
 }
