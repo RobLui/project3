@@ -46,7 +46,7 @@
 
 > ~~ziet er mooi uit!~~ THANKS
 
-> ~~sterretjes bij /gerechten zien eruit alsof ze nog moeten ingevuld worden~ AANGEPAST / DONE
+> ~~sterretjes bij /gerechten zien eruit alsof ze nog moeten ingevuld worden~~ AANGEPAST / DONE
 
 > ~~Grootte logo is anders op elke pagina~~ DONE
 
@@ -54,7 +54,7 @@
 
 > ~~Lay-out van header veranderd bij inloggen van 'zoeken account gerechten' naar 'zoeken gerechten account' -> misschien wat raar~~ DONE
 
-> shoppinglijst komt er nog te staan wanneer je alles al hebt, misschien de shoppinglijst button disablen wanneer alles is ingevuld"
+> ~~shoppinglijst komt er nog te staan wanneer je alles al hebt, misschien de shoppinglijst button disablen wanneer alles is ingevuld"~~ DONE
 
 8 - Andreea
 
@@ -88,29 +88,33 @@
 
 12 - Thomas
 
-> "het logo zou leuk zijn als het ook klikbaar is :) goed dat de zoek zegt dat er niets gevonden is bij gekke dingen misschien wel 3 puntjes of suggesties maar zo is het ook al ok ;)
+> ~~het logo zou leuk zijn als het ook klikbaar is :)~~ DONE goed dat de zoek
 
-> copywrite miss wit (de advocado is donker) misschien al een lege shoppinglijst tonen als er nog niets is anders is het leeg aan de rechterkant goed dat je de stappen ook ongedaan kan maken bij het recept
+> ~~zegt dat er niets gevonden is bij gekke dingen misschien wel 3 puntjes of suggesties maar zo is het ook al ok ;)~~ OK
 
-> het shoppinglijstjes gedeelte is het niet duidelijk wat er is als het leeg is :/ "
+> copywrite miss wit (de advocado is donker)
+
+> ~~misschien al een lege shoppinglijst tonen als er nog niets is anders is het leeg aan de rechterkant~~ DONE
+
+> ~~goed dat je de stappen ook ongedaan kan maken bij het recept~~ THANKS
+
+> ~~het shoppinglijstjes gedeelte is het niet duidelijk wat er is als het leeg is~~ AANGEPAST / DONE
 
 14 - Anoniem
 
-> Mooie website, staat op punt.
+> ~~Mooie website, staat op punt.~~ THANKS
 
-> Zoekknop op homepage misschien veranderen in home?
+> ~~Zoekknop op homepage misschien veranderen in home?~~ DONE
 
 > Videos bij recepten?
 
 > Favoriete recepten?
 
-> Da zijn een een paar suggesties om het completer.
-
 > Contact toevoegen is niet gelijk aan emailadres ingeven. Ook geen validatie
 
 13 - Anoniem
 
-> Site ziet er op het eerste zicht mooi uit.
+> ~~Site ziet er op het eerste zicht mooi uit.~~ THANKS
 
 > Laadtijden zijn wel lang voor de gerechten.
 
@@ -120,9 +124,9 @@
 
 # Sam
 
-> Leuke homepage
+> ~~Leuke homepage~~ THANKS
 
-> Zoeken in de menu is gewoon de homepage, is verwarrend (zeker omdat het visueel niet opvalt dat dat de actieve pagina is)
+> ~~Zoeken in de menu is gewoon de homepage, is verwarrend (zeker omdat het visueel niet opvalt dat dat de actieve pagina is)~~ AANGEPAST / DONE
 
 > Hier heb je al onze gerechten"", moet beter kunnen kwa copy denk ik
 
@@ -130,11 +134,11 @@
 
 > Als je maar 1 resultaat krijgt heb je groot wit vlak, kan je die breedte niet mee laten aanpassen?
 
-> Design gerecht is nog niet af gok ik (nu begrijp ik ondertss dat er een vlak bij komt ... zou ik anders oplossen, of er al zetten en opvullen of visueel anders, dat je niet zo'n groot wit vlak hebt)
+> ~~Design gerecht is nog niet af gok ik (nu begrijp ik ondertss dat er een vlak bij komt ... zou ik anders oplossen, of er al zetten en opvullen of visueel anders, dat je niet zo'n groot wit vlak hebt)~~ AANGEPAST / DONE
 
 > Als ik op mail duw kom ik op mijn shoppinglijstjes, not sure of er nu iets gebeurd is of niet
 
-> is niet echt duidelijk wat toevoegen aan klaargemaakt is
+> ~~is niet echt duidelijk wat toevoegen aan klaargemaakt is~~ AANGEPAST / DONE
 
 > als ik 2x toevoeg aan klaargemaakt krijg ik een sql error
 

@@ -133,10 +133,18 @@ class GerechtController extends Controller
             )
         ;
 
-
         $result = $mailer->send($message);
 
-        return $this->render('Project3WebsiteBundle:Account:shoppinglijstjes.html.twig');
+        if ($result)
+        {
+            $req->getSession()
+                ->getFlashBag()
+                ->add('success', 'Het gerecht werd naar je e-mail verstuurd!')
+            ;
+        }
+
+        $referer = $req->headers->get('referer');
+        return $this->redirect($referer);
     }
 
 }
