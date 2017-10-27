@@ -2,12 +2,6 @@
 project3_website_home:
     path:     /
     defaults: { _controller: Project3WebsiteBundle:Default:index }
-project3_website_contact:
-    path:     /contact
-    defaults: { _controller: Project3WebsiteBundle:Default:contact }
-
-
-
 
 
 #ACCOUNT
@@ -22,9 +16,6 @@ project3_account_shoppinglijstjes:
 project3_account_klaargemaakte_gerechten:
     path:     /account/klaargemaakte-gerechten
     defaults: { _controller: Project3WebsiteBundle:Account:klaargemaakteGerechten }
-
-
-
 
 
 #GERECHTEN
@@ -44,9 +35,6 @@ project3_gerecht_detail:
 project3_gerecht_query:
     path:     /gerechten/zoek/
     defaults: { _controller: Project3WebsiteBundle:Gerecht:query}
-
-
-
 
 
 #CONTACT / EMAIL
@@ -70,7 +58,6 @@ project3_contact_delete:
     defaults: { _controller: Project3WebsiteBundle:Contact:delete}
 
 
-
 #SHOPPINGLIJST
 shoppinglist_add:
     path:     /addshoppinglist
@@ -78,15 +65,8 @@ shoppinglist_add:
     methods: [POST]
 
 
-
 #MAIL
 project3_mail:
     path:     /mail/{id}
     defaults: { _controller: Project3WebsiteBundle:Gerecht:mail }
     methods: [GET,POST]
-
-
-#EXTRA
-project3_website_group:
-    path:     /group/{slug}
-    defaults: { _controller: Project3WebsiteBundle:Default:group, slug: null }

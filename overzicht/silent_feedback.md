@@ -24,7 +24,7 @@
 
 4 - Lode
 
-> een homepagina met een kort stappenplan kan je opweg helpen.
+> ~~een homepagina met een kort stappenplan kan je opweg helpen.~~ DONE
 
 > ~~Eenmaal iets ingegeven wijst het zich goed uit. Mooi design!~~ THANKS
 
@@ -32,7 +32,7 @@
 
 > ~~Het is duidelijker als er in het menu: "home" staat in plaats van zoeken, kan voor verwarring zorgen~~ DONE
 
-> zorg voor wat uitleg op de homepagina.
+> ~~zorg voor wat uitleg op de homepagina.~~ DONE
 
 > ~~Voor de rest werkt alles en een strak design!~~ THANKS
 
@@ -72,7 +72,7 @@
 
 > ~~Gebruiksvriendelijk~~ THANKS
 
-> Laadt soms traag
+> ~~Laadt soms traag~~ DEV MODE UIT = 10X SNELLER
 
 11 - Yawuar
 
@@ -116,7 +116,7 @@
 
 > ~~Site ziet er op het eerste zicht mooi uit.~~ THANKS
 
-> Laadtijden zijn wel lang voor de gerechten.
+> ~~Laadtijden zijn wel lang voor de gerechten.~~ DEV MODE UIT = 10X SNELLER
 
 > Bij het recept zou ik de grey out vervangen door doorstreept.
 
@@ -130,7 +130,7 @@
 
 > Hier heb je al onze gerechten"", moet beter kunnen kwa copy denk ik
 
-> Als ik filter op vis moet ik heel lang wachten
+> ~~Als ik filter op vis moet ik heel lang wachten~~ DEV MODE UIT = 10X SNELLER
 
 > Als je maar 1 resultaat krijgt heb je groot wit vlak, kan je die breedte niet mee laten aanpassen?
 

@@ -17,18 +17,4 @@ class DefaultController extends Controller
         return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig');
     }
 
-    public function groupAction(Request $request, $slug = null)
-    {
-        $group = $this->container->get('doctrine')
-            ->getManager()
-            ->getRepository("Project3WebsiteBundle:Group")
-            ->findOneBy(array("slug" => $slug));
-        if (!$group) {
-            throw  new NotFoundHttpException();
-        }
-        return $this->render('Project3WebsiteBundle:Default:group.html.twig',array(
-            "group" => $group,
-        ));
-    }
-
 }
