@@ -5,6 +5,8 @@ $(document).ready(function() {
     var can_activate_global_trigger = true;
     var counter = 0;
 
+// CHECK INGREDIENTS
+
     // Check aantal ingredienten
     var telIngredienten = function() {
 
@@ -13,14 +15,12 @@ $(document).ready(function() {
         // console.log("Ingredienten die ik niet heb = " + hebikniet);
         return hebikniet;
     };
-//
-//
-//
-//
-//
-//
+////////////////
+
+
 // GENERATED LIST TOGGLER
 
+    // Activate the generated list
     var toggler = function () {
         // Check op dat er mag geklikt worden of niet
         if(can_activate_global_trigger && telIngredienten() > 0)
@@ -41,13 +41,9 @@ $(document).ready(function() {
         return global_trigger;
     }
     $("#shoppinglistbind").on("click", toggler);
+////////////////
 
-//
-//
-//
-//
-//
-//
+
 // SHOPPING LIST - SHOW & HIDE VALUES
 
     // Check on change -> log de waarde van de checkbox
@@ -115,12 +111,9 @@ $(document).ready(function() {
         }
 
     });
-//
-//
-//
-//
-//
-//
+////////////////
+
+
 // STAPPEN
 
     // Check op welke inputbox de grijswaarden mogen komen
@@ -134,16 +127,13 @@ $(document).ready(function() {
             $(this).closest(".col-sm-12").removeClass('greybox')
         }
     });
-//
-//
-//
-//
-//
-//
+////////////////
+
+
 // SHOPPINGLIST ARRAY OPSLAG
 
-    $('#addToShoppinglist').click(function()
-    {
+    // Voeg de ingredienten toe die je nog nodig hebt in het gerecht
+    $('#addToShoppinglist').click(function() {
         var shoppingarray = [];
 
             $( ".shoppinglist>li" ).each(function( index ) {
@@ -160,14 +150,12 @@ $(document).ready(function() {
 
         // console.log(shoppingarray + getCurrentDate());
     });
-//
-//
-//
-//
-//
-//
+////////////////
+
+
 // CURRENT DATE
 
+    // Geef de huidige datum terug
     function getCurrentDate() {
         var d = new Date();
         var day = d.getDate();
@@ -175,22 +163,23 @@ $(document).ready(function() {
         var year = d.getFullYear();
         return day + "/" + month + "/" + year;
     }
+////////////////
 
-//
-//
-//
-//
-//
-//
+
 // SHOPPINGLIST TOGGLER
+
+    // Toggle shoppinglist TRIGGER
     $('.shoppinglist-btn').on("click", function(e) {
         e.preventDefault();
         $('.bordered.container-white.shoppinglist-btn-spacing').first().toggleClass('active-color');
         $('.shoppinglist-toggle').trigger('click');
     });
 
+    // Toggle shoppinglist TOGGLER
     $('.shoppinglist-toggle').on('click', function (e) {
         e.preventDefault();
         $('.shoppinglist-content').toggleClass('hide');
     });
+////////////////
+
 });

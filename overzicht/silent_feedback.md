@@ -136,16 +136,16 @@
 
 > ~~Design gerecht is nog niet af gok ik (nu begrijp ik ondertss dat er een vlak bij komt ... zou ik anders oplossen, of er al zetten en opvullen of visueel anders, dat je niet zo'n groot wit vlak hebt)~~ AANGEPAST / DONE
 
-> Als ik op mail duw kom ik op mijn shoppinglijstjes, not sure of er nu iets gebeurd is of niet
+> ~~Als ik op mail duw kom ik op mijn shoppinglijstjes, not sure of er nu iets gebeurd is of niet~~ AANGEPAST / DONE
 
 > ~~is niet echt duidelijk wat toevoegen aan klaargemaakt is~~ AANGEPAST / DONE
 
 > als ik 2x toevoeg aan klaargemaakt krijg ik een sql error
 
-> geen bevestiging bij toevoegen aan klaargemaakt
+> ~~geen bevestiging bij toevoegen aan klaargemaakt~~ AANGEPAST / DONE
 
 > ik kan ingeven wat ik wil bij contact, heel die flow is ook een beetje raar
 
 > Niet al mijn shoppinglijstjes zijn aanklikbaar
 
-> Bij zoeken krijg ik een error bij bogus input
+> ~~Bij zoeken krijg ik een error bij bogus input~~ ~~ TRY AGAIN SAM :-) AANGEPAST / DONE

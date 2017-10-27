@@ -78,8 +78,13 @@ class GerechtController extends Controller
         $finder = $this->container->get('fos_elastica.finder.src.gerecht');
 
         $searchingput = $req->get('searchinput');
-        $gerechten = $finder->find($searchingput);
-        $ingredienten = $searchingput;
+        if(!preg_match('#(?<=<)\w+(?=[^<]*?>)#', $searchingput)) {
+            $gerechten = $finder->find($searchingput);
+        }
+        else {
+            $gerechten = [];
+        }
+            $ingredienten = $searchingput;
 
         $em = $this->getDoctrine()->getManager();
 
