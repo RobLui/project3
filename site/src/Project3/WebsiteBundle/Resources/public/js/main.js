@@ -1,17 +1,36 @@
 $(document).ready(function() {
 
+    var global_trigger = false;
+
+
     // Check aantal ingredienten
     var telIngredienten = function() {
 
         var hebik = $(".jQueryShopping:input").length - $(".jQueryShopping:input:checked").length;
         // $(".shoppinglisttext").text(hebik + (hebik == 1 ? " ingredient" : " ingredienten") + " in shoppinglijst");
-        // console.log("Ingredienten die ik heb = " + hebik);
+        // console.log("Ingredienten die ik niet heb = " + hebik);
+        return hebik;
+    };
+//
+//
+//
+//
+//
+//
+// GENERATED LIST TOGGLER
+
+    var toggler = function () {
 
         $('.generated').show();
         $('.generated').removeClass('hidden');
+        $('.shoppinglist-info-text').addClass('hidden');
 
-    };
-    $("#shoppinglistbind").on("click", telIngredienten);
+        global_trigger = true;
+
+        return global_trigger;
+    }
+    $("#shoppinglistbind").on("click", toggler);
+
 //
 //
 //
@@ -25,15 +44,13 @@ $(document).ready(function() {
 
         // waarde van het geklikte ingredient
         var ingredientvalue = $(this).val();
-        // console.log("ingredient = " + ingredientvalue);
 
+        // console.log("ingredient = " + ingredientvalue);
 
         //loopt over elk item in de shoppinglist array
         $( ".shoppinglist>li" ).each(function( index ) {
 
         var shoppinglistvalue = $( this ).text();
-
-            // console.log( "shoppinglist = " + shoppinglistvalue);
 
             // console.log( index + ": " + $( this).find('.info-ingredient')).text();
             if(shoppinglistvalue.match(ingredientvalue))
@@ -49,6 +66,20 @@ $(document).ready(function() {
             }
             // console.log("hetzelfde op plaats: " + index );
         });
+
+        // Trigger de telIngredienten functie om te zien hoeveel ingredienten je reeds hebt
+        if(global_trigger)
+        {
+            if (telIngredienten() == 0)
+            {
+                $('.generated').addClass('hidden');
+            }
+            if(!telIngredienten() == 0)
+            {
+                $('.generated').removeClass('hidden');
+            }
+        }
+
     });
 //
 //

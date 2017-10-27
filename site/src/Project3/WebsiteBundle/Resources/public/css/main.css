@@ -552,11 +552,14 @@ button a:hover {
 
 .footer p {
     margin-top: 0.5em;
+    color:black;
 }
 
 .margin-bottom {
     margin-top: 19em;
 }
+
+/* AFTER FEEDBACK */
 
 .shoppinglist-info-text {
     display:block;
@@ -565,4 +568,8 @@ button a:hover {
 
 .make-shoppinglist {
     display:block;
+}
+
+.homepage-beschrijving {
+
 }

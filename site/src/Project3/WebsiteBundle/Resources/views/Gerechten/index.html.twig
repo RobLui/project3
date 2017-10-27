@@ -21,7 +21,7 @@
                             <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
                                 <input required name="searchinput" type="text" class="hidden" value="{{ c.naam }}" >
                                 <button class="btnnn size-category" type="submit">
-                                    {{ c.naam }}</a>
+                                    {{ c.naam }}
                                 </button>
                             </form>
                         </div>
@@ -40,6 +40,7 @@
                                 <img src="{{ gerecht.fotoVierkant|default('-') }}" alt="{{ gerecht.naam|default('-') }}">
                             </div>
                         </a>
+
                         <div class="col-sm-8 col-sm-offset-2">
                             <p class="bold margin-bottom-6">{{ gerecht.naam|default('-') }}</p>
                         </div>
@@ -53,6 +54,7 @@
                                 <span class="glyphicon glyphicon-star"></span>
                             {% endfor %}
                         </div>
+
                     </div>
                 {% endfor %}
             </div>
