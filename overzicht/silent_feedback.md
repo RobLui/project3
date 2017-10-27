@@ -2,7 +2,7 @@
 
 1 - Alessandro
 
-> Duidelijk en mooi design!
+> ~~Duidelijk en mooi design!~~ THANKS
 
 > Meer gerechten toevoegen?
 
@@ -12,73 +12,79 @@
 
 > Checklist niet zo duidelijk
 
-> en geen recept aanpasbaar voor aantal personen. Zou Nice zijn.
+> Geen recept aanpasbaar voor aantal personen, zou nice zijn.
 
-> Voor de rest mooi project
+> ~~Voor de rest mooi project~~ THANKS
 
 3 - Arteau
 
-> Werkt blijkbaar goed, geen echte fouten gevonden.
+> ~~Werkt blijkbaar goed, geen echte fouten gevonden.~~ THANKS
 
-> Enkel als je bv op ajuin zoekt vind je gerechten waar ajuin niet tussen de ingredienten staat
+> ~~Enkel als je bv op ajuin zoekt vind je gerechten waar ajuin niet tussen de ingredienten staat~~ DONE
 
 4 - Lode
 
 > een homepagina met een kort stappenplan kan je opweg helpen.
 
-> Eenmaal iets ingegeven wijst het zich goed uit. Mooi design!
+> ~~Eenmaal iets ingegeven wijst het zich goed uit. Mooi design!~~ THANKS
 
 5 - Stijn
 
-> Het is duidelijker als er in het menu: "home" staat in plaats van zoeken, kan voor verwarring zorgen
+> ~~Het is duidelijker als er in het menu: "home" staat in plaats van zoeken, kan voor verwarring zorgen~~ DONE
 
-> - zorg voor wat uitleg op de homepagina.
+> zorg voor wat uitleg op de homepagina.
 
-> Voor de rest werkt alles en een strak design!
+> ~~Voor de rest werkt alles en een strak design!~~ THANKS
 
 6 - Enzo
 
-> Mooie website, zou wel het aantal personen waarvoor je maakt kunnen veranderen
+> ~~Mooie website,~~ THANKS
+
+> zou wel het aantal personen waarvoor je maakt kunnen veranderen
 
 7 - Adriaan
 
-> ziet er mooi uit!
+> ~~ziet er mooi uit!~~ THANKS
 
-> sterretjes bij /gerechten zien eruit alsof ze nog moeten ingevuld worden
+> ~~sterretjes bij /gerechten zien eruit alsof ze nog moeten ingevuld worden~ AANGEPAST / DONE
 
-> Grootte logo is anders op elke pagina
+> ~~Grootte logo is anders op elke pagina~~ DONE
 
 > Niet direct duidelijk waar in te loggen
 
-> Lay-out van header veranderd bij inloggen van 'zoeken account gerechten' naar 'zoeken gerechten account' -> misschien wat raar
+> ~~Lay-out van header veranderd bij inloggen van 'zoeken account gerechten' naar 'zoeken gerechten account' -> misschien wat raar~~ DONE
 
 > shoppinglijst komt er nog te staan wanneer je alles al hebt, misschien de shoppinglijst button disablen wanneer alles is ingevuld"
 
 8 - Andreea
 
-> heel mooie en duidelijke site :)
+> ~~heel mooie en duidelijke site :)~~ THANKS
 
 9 - Nick
 
-> Misschien iets teveel whitespace waardoor de afbeelding van het recept niet direct zichtbaar is. Voor de rest ziet het er top uit
+> Misschien iets teveel whitespace waardoor de afbeelding van het recept niet direct zichtbaar is.
+
+> ~~Voor de rest ziet het er top uit~~ THANKS
 
 10 - Dieter
 
-> "Heel mooie strakke design
+> ~~Heel mooie strakke design~~ THANKS
 
-> Gebruiksvriendelijk
+> ~~Gebruiksvriendelijk~~ THANKS
 
-> Laadt soms traag"
+> Laadt soms traag
 
 11 - Yawuar
 
-> "Dag schatjes van patatjes, De applicatie zit al goed in elkaar toch wel een paar opmerkingen.
+> ~~Dag schatjes van patatjes, De applicatie zit al goed in elkaar toch wel een paar opmerkingen.~~ THANKS & BOO :)
 
-> Als je op het logo drukt dan wordt je niet doorverwezen naar de homepagina.
+> ~~Als je op het logo drukt dan wordt je niet doorverwezen naar de homepagina.~~ AANGEPAST / DONE
 
 > Als ik feedback wil geven over het gerecht dan worden de ratings niet opgeslagen.
 
-> Als laatste heb ik proberen drukken op ""al klaar gemaakt"" maar het doet niets en ik krijg het nergens nog te zien. Ik hoopte op een lijst met al de gerechten die ik al heb klaargemaakt. Het zich toch wel goed in elkaar. Goed bezig!"
+> ~~Als laatste heb ik proberen drukken op "al klaar gemaakt" maar het doet niets en ik krijg het nergens nog te zien. Ik hoopte op een lijst met al de gerechten die ik al heb klaargemaakt.~~ DONE
+
+> ~~Het zich toch wel goed in elkaar. Goed bezig!~~ THANKS
 
 12 - Thomas
 

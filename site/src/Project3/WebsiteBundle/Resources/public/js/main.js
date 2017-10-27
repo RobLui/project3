@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
+    //GLOBALS
     var global_trigger = false;
-
+    var can_activate_global_trigger = true;
 
     // Check aantal ingredienten
     var telIngredienten = function() {
@@ -21,11 +22,15 @@ $(document).ready(function() {
 
     var toggler = function () {
 
-        $('.generated').show();
-        $('.generated').removeClass('hidden');
-        $('.shoppinglist-info-text').addClass('hidden');
+        if(can_activate_global_trigger)
+        {
+            $('.generated').show();
+            $('.generated').removeClass('hidden');
+            $('.shoppinglist-info-text').addClass('hidden');
 
-        global_trigger = true;
+            global_trigger = true;
+            can_activate_global_trigger = false;
+        }
 
         return global_trigger;
     }
@@ -67,15 +72,18 @@ $(document).ready(function() {
             // console.log("hetzelfde op plaats: " + index );
         });
 
-        // Trigger de telIngredienten functie om te zien hoeveel ingredienten je reeds hebt
+        // Check of er op de knop gedrukt is & zich in de true staat bevind
         if(global_trigger)
         {
+            // Als je geen ingredienten nodig hebt moet je niet op "maak shoppinglijst" kunnen drukken
             if (telIngredienten() == 0)
             {
+                can_activate_global_trigger = false;
                 $('.generated').addClass('hidden');
             }
             if(!telIngredienten() == 0)
             {
+                can_activate_global_trigger = true;
                 $('.generated').removeClass('hidden');
             }
         }
