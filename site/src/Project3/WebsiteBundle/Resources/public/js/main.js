@@ -3,13 +3,14 @@ $(document).ready(function() {
     //GLOBALS
     var global_trigger = false;
     var can_activate_global_trigger = true;
+    var counter = 0;
 
     // Check aantal ingredienten
     var telIngredienten = function() {
 
         var hebik = $(".jQueryShopping:input").length - $(".jQueryShopping:input:checked").length;
         // $(".shoppinglisttext").text(hebik + (hebik == 1 ? " ingredient" : " ingredienten") + " in shoppinglijst");
-        // console.log("Ingredienten die ik niet heb = " + hebik);
+        console.log("Ingredienten die ik niet heb = " + hebik);
         return hebik;
     };
 //
@@ -22,7 +23,7 @@ $(document).ready(function() {
 
     var toggler = function () {
 
-        if(can_activate_global_trigger)
+        if(can_activate_global_trigger && telIngredienten() > 0)
         {
             $('.generated').show();
             $('.generated').removeClass('hidden');
@@ -63,14 +64,27 @@ $(document).ready(function() {
                 if(!$(this).hasClass('hide'))
                 {
                     $(this).addClass("hide");
+                    counter++;
                 }
                 else
                 {
                     $(this).removeClass("hide");
+                    counter--;
                 }
             }
             // console.log("hetzelfde op plaats: " + index );
         });
+
+        var ingredients_full_length = $(".jQueryShopping:input").length;
+
+        // Check of dat alles aangevinkt werd door de gebruiker (check doet die niet in het begin, bhv de counter variabele :) )
+        if(counter == ingredients_full_length)
+        {
+            console.log("volledige lengte bereikt, namelijk: " + ingredients_full_length);
+        }
+        console.log(counter);
+        console.log(ingredients_full_length);
+
 
         // Check of er op de knop gedrukt is & zich in de true staat bevind
         if(global_trigger)
@@ -80,8 +94,9 @@ $(document).ready(function() {
             {
                 can_activate_global_trigger = false;
                 $('.generated').addClass('hidden');
+
             }
-            if(!telIngredienten() == 0)
+            if(telIngredienten() != 0)
             {
                 can_activate_global_trigger = true;
                 $('.generated').removeClass('hidden');
