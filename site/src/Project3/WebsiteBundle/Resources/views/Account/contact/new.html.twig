@@ -2,30 +2,30 @@
 
 {% block content %}
 
-    <div class="row">
+<div class="row">
+    <div class="col-sm-12">
         <div class="col-sm-12">
-            <div class="col-sm-12">
-                <a href="{{ path('project3_website_home') }}">
-                    <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
-                </a>
-                <div class="col-sm-8 col-sm-offset-2 text-center">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <h1>Nieuw contact</h1>
-                        {{ form_start(form) }}
-                            <div class="col-sm-12 category">
-                                {{ form_widget(form.email, { "attr":{ "class":"form-control control","required": "true" } }) }}
-                            </div>
-                            <div class="col-sm-12 category">
-                                <button type="submit" class="semibold instellingen aanpassen-button col-sm-4">
-                                    <a>OPSLAAN</a>
-                                </button>
-                            </div>
-                        {{ form_end(form) }}
-                    </div>
+            <a href="{{ path('project3_website_home') }}">
+                <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
+            </a>
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <h1>Nieuw contact</h1>
+                    {{ form_start(form) }}
+                        <div class="col-sm-12 category">
+                            {{ form_widget(form.email, { "attr":{ "class":"form-control control","required": "true" } }) }}
+                        </div>
+                        <div class="col-sm-12 category">
+                            <button type="submit" class="semibold instellingen aanpassen-button col-sm-4">
+                                <a>OPSLAAN</a>
+                            </button>
+                        </div>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 {% endblock content %}
 
