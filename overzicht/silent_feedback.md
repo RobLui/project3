@@ -132,7 +132,7 @@
 
 > ~~Als ik filter op vis moet ik heel lang wachten~~ DEV MODE UIT = 10X SNELLER
 
-> Als je maar 1 resultaat krijgt heb je groot wit vlak, kan je die breedte niet mee laten aanpassen?
+> ~~Als je maar 1 resultaat krijgt heb je groot wit vlak, kan je die breedte niet mee laten aanpassen?~~ AANGEPAST DONE
 
 > ~~Design gerecht is nog niet af gok ik (nu begrijp ik ondertss dat er een vlak bij komt ... zou ik anders oplossen, of er al zetten en opvullen of visueel anders, dat je niet zo'n groot wit vlak hebt)~~ AANGEPAST / DONE
 
@@ -146,7 +146,7 @@
 
 > ~~ik kan ingeven wat ik wil bij contact~~ AANGEPAST - VALIDATIE / DONE
 
-> heel die flow is ook een beetje raar
+> ~~heel die flow is ook een beetje raar~~ AANGEPAST / DONE
 
 > Niet al mijn shoppinglijstjes zijn aanklikbaar
 

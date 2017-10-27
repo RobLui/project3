@@ -10,21 +10,18 @@
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <div class="col-sm-6 col-sm-offset-3">
                     <h1>Email wijzigen </h1>
-                    <div class="col-sm-12">
-
+                    <div class="col-sm-12 category">
                         {{ form_start(edit_form) }}
                         {{ form_widget(edit_form.email, { "attr":{ "class":"form-control control col-sm-12" } }) }}                                    </button>
-                            <div class="col-sm-12 category">
-                            <button type="submit" class="semibold instellingen aanpassen-button col-sm-6 pull-left">
+                            <button type="submit" class="col-sm-6 semibold instellingen aanpassen-button pull-left">
                                 <a>OPSLAAN</a>
                             </button>
                         {{ form_end(edit_form) }}
 
                         {{ form_start(delete_form) }}
                             <button type="submit" class="col-sm-6 semibold instellingen aanpassen-button pull-right">
-                                <a>DELETE</a>
+                                <a>VERWIJDER</a>
                             </button>
-                            </div>
                         {{ form_end(delete_form) }}
                     </div>
                 </div>

@@ -4,13 +4,11 @@ namespace Project3\WebsiteBundle\Controller;
 
 use Project3\WebsiteBundle\Entity\Account;
 use Project3\WebsiteBundle\Entity\Klaargemaakte_gerechten;
-use function session_start;
 use Swift_Mailer;
 use Swift_Message;
 use Swift_SmtpTransport;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class GerechtController extends Controller
 {

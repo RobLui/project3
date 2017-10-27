@@ -31,7 +31,11 @@ class ContactController extends Controller
             $em->persist($contact);
             $em->flush();
 
-            return $this->redirectToRoute('project3_contact_show', array('id' => $contact->getId()));
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'E-mail werd succesvol toegevoegd!')
+            ;
+            return $this->redirectToRoute('project3_account_instellingen');
         }
 
         return $this->render('@Project3Website/Account/contact/new.html.twig', array(
@@ -59,6 +63,11 @@ class ContactController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'E-mail werd succesvol aangepast!')
+            ;
+
             return $this->redirectToRoute('project3_account_instellingen');
         }
 
@@ -78,6 +87,11 @@ class ContactController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($contact);
             $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'E-mail werd succesvol verwijderd!')
+            ;
         }
 
         return $this->redirectToRoute('project3_account_instellingen');
