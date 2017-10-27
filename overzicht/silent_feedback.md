@@ -144,7 +144,9 @@
 
 > ~~geen bevestiging bij toevoegen aan klaargemaakt~~ AANGEPAST / DONE
 
-> ik kan ingeven wat ik wil bij contact, heel die flow is ook een beetje raar
+> ~~ik kan ingeven wat ik wil bij contact~~ AANGEPAST - VALIDATIE / DONE
+
+> heel die flow is ook een beetje raar
 
 > Niet al mijn shoppinglijstjes zijn aanklikbaar
 

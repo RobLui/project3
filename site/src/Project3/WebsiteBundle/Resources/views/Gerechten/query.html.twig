@@ -34,9 +34,10 @@
         </div>
 
         <div class="col-sm-12 text-center">
-            <div class="col-sm-12 container-white padding-top-1em">
-            {% for gerecht in gerechten %}
-                <div class="col-sm-4 text-center quickfix container-white">
+
+            <div class="col-sm-12">
+                {% for gerecht in gerechten %}
+                    <div class="col-sm-4 text-center quickfix container-white padding-top-2em">
 
                     <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
                         <div class="img-responsive">
@@ -53,7 +54,7 @@
 
                     <div class="col-sm-6">
                         {% for i in 0..gerecht.rating|default(4) %}
-                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star"></span>
                         {% endfor %}
                     </div>
                 </div>

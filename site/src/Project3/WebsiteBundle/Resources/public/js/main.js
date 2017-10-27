@@ -185,10 +185,20 @@ $(document).ready(function() {
 
 // EXTRA UITLEG HOMEPAGE TOGGLER
 
-    // UITLEG ACTIVE
+    // Activeer uitleg / disable uitleg
     $('.btn-toggle-extra-uitleg').on("click", function(e) {
         e.preventDefault();
         $('.uitleg-content').toggleClass('hidden');
     });
+////////////////
+
+// TIJDELIJKE SAVE STOP
+
+    // Zet een timeout op het toevoegen van klaargemaakte gerechten (om duplicate errors te vermijden)
+    $('.btn-klaargemaakt').on("click", function() {
+        $('.btn-klaargemaakt').disable(true);
+    });
+////////////////
+
 
 });
