@@ -49,7 +49,7 @@ project3_gerecht_query:
 
 
 
-#CONTACT -> waar e-mail naartoe gestuurd kan worden
+#CONTACT / EMAIL
 project3_contact_show:
     path:     /contact/{id}/
     defaults: { _controller: Project3WebsiteBundle:Contact:show}
@@ -71,17 +71,19 @@ project3_contact_delete:
 
 
 
+#SHOPPINGLIJST
 shoppinglist_add:
     path:     /addshoppinglist
     defaults: { _controller: Project3WebsiteBundle:Shoppinglist:addToShoppinglist }
     methods: [POST]
 
+
+
+#MAIL
 project3_mail:
     path:     /mail/{id}
     defaults: { _controller: Project3WebsiteBundle:Gerecht:mail }
     methods: [GET,POST]
-
-
 
 
 #EXTRA

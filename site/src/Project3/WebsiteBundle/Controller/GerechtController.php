@@ -29,8 +29,7 @@ class GerechtController extends Controller
                 array('bereidingstijd' => 'DESC'),
                 12,
                 null
-            )
-            ;
+            );
 
         return $this->render('Project3WebsiteBundle:Gerechten:index.html.twig',
             array(
@@ -39,7 +38,7 @@ class GerechtController extends Controller
             ));
     }
 
-    // TOON DETAIL GERECHT
+    // TOON DETAIL GERECHT && TOEVOEGEN AAN KLAARGEMAAKTE GERECHTEN
     public function detailAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -47,15 +46,16 @@ class GerechtController extends Controller
         $klaargemaakt_gerecht = new Klaargemaakte_gerechten();
         $form = $this->createForm('Project3\WebsiteBundle\Form\Klaargemaakte_gerechtenType', $klaargemaakt_gerecht);
         $form->handleRequest($request);
-        $notice = [];
-
-//        $session = $this->get('service_container')->get('session');
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($klaargemaakt_gerecht);
             $em->flush();
-//            $session->setFlash('notice', 'Gerecht is succesvol toegevoegd aan jouw gerechten.');
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Dit gerecht werd toegevoegd aan je klaargemaakte gerechten!')
+            ;
         }
 
         $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
@@ -69,7 +69,6 @@ class GerechtController extends Controller
             array(
                 'gerecht' => $gerecht,
                 'form' => $form->createView(),
-//                'session' => $session
             ));
     }
 
@@ -94,18 +93,6 @@ class GerechtController extends Controller
                 'gerechten' => $gerechten,
                 'ingredienten' => $ingredienten
             ));
-    }
-
-    // TOON EEN SURPRISE GERECHT
-    public function surpriseAction()
-    {
-        return $this->render('Project3WebsiteBundle:Gerechten:surprise.html.twig');
-    }
-
-    // SAVE GERECHT
-    public function saveAction($id)
-    {
-        return $this->render('Project3WebsiteBundle:Gerechten:surprise.html.twig');
     }
 
     // VERSTUUR GERECHT IN MAIL
