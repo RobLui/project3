@@ -161,7 +161,7 @@
                         <button class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen">
                             <a href="javascript:window.print()">PRINT</a>
                         </button>
-                        {{ form_start(form,{'method': 'POST'}) }}
+                        {{ form_start(form,{'method': 'POST', 'attr': {'id': 'gerecht_save_form'}}) }}
                             {{ form_widget(form, { 'attr': {'class': 'hidden'} }) }}
                             <label class="hidden" for="project3_websitebundle_klaargemaakte_gerechten_gerechten">Gerechten</label>
                             <select class="hidden" id="project3_websitebundle_klaargemaakte_gerechten_gerechten" name="project3_websitebundle_klaargemaakte_gerechten[gerechten][]" multiple="multiple">

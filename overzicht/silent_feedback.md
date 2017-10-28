@@ -140,7 +140,7 @@
 
 > ~~is niet echt duidelijk wat toevoegen aan klaargemaakt is~~ AANGEPAST / DONE
 
-> als ik 2x toevoeg aan klaargemaakt krijg ik een sql error
+> ~~als ik 2x toevoeg aan klaargemaakt krijg ik een sql error~~ AANGEPAST / DONE / TRY AGAIN :D
 
 > ~~geen bevestiging bij toevoegen aan klaargemaakt~~ AANGEPAST / DONE
 

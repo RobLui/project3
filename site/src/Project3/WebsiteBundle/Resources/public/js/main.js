@@ -192,11 +192,15 @@ $(document).ready(function() {
     });
 ////////////////
 
-// TIJDELIJKE SAVE STOP
+
+// DUPLICATION ERROR VERMIJDER
 
     // Zet een timeout op het toevoegen van klaargemaakte gerechten (om duplicate errors te vermijden)
-    $('.btn-klaargemaakt').on("click", function() {
-        $('.btn-klaargemaakt').disable(true);
+    $('#gerecht_save_form').submit(function(e) {
+        setTimeout(function(){
+            return false;
+        }, 500);
+
     });
 ////////////////
 
