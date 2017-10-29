@@ -20,8 +20,8 @@
 
     <div class="col-sm-12">
         <div class="col-sm-10 col-sm-offset-1 text-center ">
-            <div class="col-sm-4 account">
 
+            <div class="col-sm-4 account">
                 {# SHOPPING CLICK #}
                 <a href="#" class="shoppinglist-btn">
                     <div class="bordered container-white shoppinglist-btn-spacing">
@@ -29,8 +29,41 @@
                         <p class="text-center">02/10/2017</p>
                     </div>
                 </a>
-
                 {# TOGGLED SHOPPING CONTENT #}
+                <div class="bordered col-sm-12 container-white shoppinglist-content">
+                    <ul class="col-sm-12">
+
+                        <li class="col-sm-12 list-unstyled margin-top-1em">
+                            <span class="col-sm-6 text-left">Tomaten</span>
+                            <span class="col-sm-6 pull-right">&euro; 3.15</span>
+                        </li>
+                        <li class="col-sm-12 list-unstyled">
+                            <span class="col-sm-6 text-left">Look</span>
+                            <span class="col-sm-6 pull-right">&euro; 0.30</span>
+                        </li>
+                        <li class="col-sm-12 list-unstyled">
+                            <span class="col-sm-6 text-left">Courgette</span>
+                            <span class="col-sm-6 pull-right">&euro; 2.50</span>
+                        </li>
+                        <li class="col-sm-12 list-unstyled">
+                            <span class="col-sm-6 text-left">Tomaten</span>
+                            <span class="col-sm-6 pull-right">&euro; 2.25</span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-4 account">
+
+                {# SHOPPING CLICK #}
+                <a href="#" class="shoppinglist-btn">
+                    <div class="bordered container-white shoppinglist-btn-spacing">
+                        <p class="text-center">Mexicaanse Taco</p>
+                        <p class="text-center">28/10/2017</p>
+                    </div>
+                </a>
+
                 <div class="bordered col-sm-12 container-white shoppinglist-content shoppinglist-toggle hide">
                     <ul class="col-sm-12">
 
@@ -53,21 +86,6 @@
 
                     </ul>
                 </div>
-
-            </div>
-
-            <div class="col-sm-4 account">
-                <div class="bordered container-white shoppinglist-btn-spacing">
-                    <p>Mexican Wrap</p>
-                    <p>28/09/2017</p>
-                </div>
-            </div>
-
-            <div class="col-sm-4 account">
-                <div class="bordered container-white shoppinglist-btn-spacing">
-                    <p>Pizza Napolitana</p>
-                    <p>26/09/2017</p>
-                </div>
             </div>
 
         </div>
@@ -76,7 +94,7 @@
 {% endblock %}
 
 {% block footer %}
-    <div class="margin-bottom">
+    <div class="margin-top-18em">
         {% include 'Project3WebsiteBundle:Partials:footer.html.twig' %}
     </div>
 {% endblock %}
