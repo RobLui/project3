@@ -1,5 +1,25 @@
 {% extends "@Project3Website/layout.html.twig" %}
 
+{% block seo %}
+    {{ parent() }}
+    <title>FoodGuru zoekt</title>
+    <meta name="title" content="FoodGuru, de site voor verassende gerechten " />
+    <meta name="keywords" content="FoodGuru, Eten, Inspiratie, Lekker" />
+    <meta name="description" content="FoodGuru zorgt voor inspirerende gerechten, geef in wat je thuis hebt liggen en krijg een overzicht van lekkere gerechten die je daar mee kan maken!" />
+
+    <meta name="og:image" content="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" />
+    <meta property="og:title" content="FoodGuru, de site voor verassende gerechten " />
+    <meta property="og:description" content="FoodGuru zorgt voor inspirerende gerechten, geef in wat je thuis hebt liggen en krijg een overzicht van lekkere gerechten die je daar mee kan maken!" />
+    <meta property="og:url" content="{{ app.request.getUri }}" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:title" content="FoodGuru, de site voor verassende gerechten " />
+    <meta name="twitter:description" content="FoodGuru zorgt voor inspirerende gerechten, geef in wat je thuis hebt liggen en krijg een overzicht van lekkere gerechten die je daar mee kan maken!" />
+    <meta name="twitter:image" content="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" />
+    <meta name="twitter:image:src" content="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" />
+
+{% endblock seo %}
+
 {% block cssfiles %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/project3website/css/home.css') }}">
@@ -10,7 +30,7 @@
     {#ZOEKEN#}
       <div class="row">
           <a href="{{ path('project3_website_home') }}">
-            <img src="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" alt="logo" class="img-responsive center-block resize-logo-big padding-15" />
+            <img src="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" alt="logo" title="FoodGuru logo" class="img-responsive center-block resize-logo-big padding-15" />
           </a>
           <div class="col-sm-6 col-sm-offset-3">
               <div class="text-center">
