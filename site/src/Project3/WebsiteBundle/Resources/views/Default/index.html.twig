@@ -34,7 +34,7 @@
           </a>
           <div class="col-sm-6 col-sm-offset-3">
               <div class="text-center">
-                  <h3 class="margin-bottom-20">Geen inspiratie voor het avondeten?</h3>
+                  <h3 class="margin-bottom-1em">Geen inspiratie voor het avondeten?</h3>
 
                   <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
                       <div class="input-group stylish-input-group">
@@ -46,12 +46,14 @@
                       </div>
                   </form>
 
+                  <p class="introtekst">Geef de <b>ingrediënten</b> in die je reeds <b>thuis</b> hebt liggen en je waar mee wilt <b>koken vandaag</b>. Wij geven je dan een <b>hoop gerechten</b> met deze ingrediënten zodat je <b>nieuwe en inspirerende recepten</b> kan ontdekken en klaarmaken!</p>
+
                   {# EXTRA INFO #}
-                  <button class="instellingen aanpassen-button semibold btn-toggle-extra-uitleg margin-top-2em">
+                  <!--<button class="instellingen aanpassen-button semibold btn-toggle-extra-uitleg margin-top-2em">
                       meer uitleg
                   </button>
                   <div class="uitleg-content hidden margin-top-1em">
-                      <p>Geef de ingrediënten in die je thuis voorradig hebt, zo kan je nieuwe en inspirerende gerechten ontdekken waar je misschien eerder niet aan gedacht had!</p>
+                      <p>Geef de ingrediënten in die je thuis voorradig hebt, zo kan je nieuwe en inspirerende gerechten ontdekken waar je misschien eerder niet aan gedacht had!</p>-->
                   </div>
 
               </div>
@@ -61,8 +63,7 @@
 {% endblock content %}
 
 {% block footer %}
-    <div class="margin-top-18em">
+    <div class="margin-top-15-5em">
         {% include 'Project3WebsiteBundle:Partials:footer.html.twig' %}
     </div>
 {% endblock %}
-
