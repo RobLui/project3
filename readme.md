@@ -6,7 +6,7 @@
 
 ### Description
 
-> FoodGuru was made for Web Development during 1 semester @ college
+> FoodGuru was made for Web Project during 1 semester @ college
 
 > The idea is that you type in the ingredients you have laying around at home, and discover new recepies with those ingredients.
 
@@ -21,3 +21,5 @@
 ### Please note
 
 > This project is free to use , under the MIT Licence, but if you want to use it yourself, keep in mind, that us (the authors) like to get a small mention :). Further.. enjoy!
+
+> live demo (without elasticsearch) : <https://www.robbertluit.be>
