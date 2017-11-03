@@ -168,9 +168,12 @@
                                 <option class="hidden" selected value="{{ gerecht.id }}">{{ gerecht.naam }}</option>
                             </select>
                             {{ form_widget(form.datum) }}
-                            <button type="submit" class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen margin-right-1em" id="btn-klaargemaakt">
-                                IK HEB DIT KLAARGEMAAKT
-                            </button>
+
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <button type="submit" class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen margin-right-1em" id="btn-klaargemaakt">
+                                    IK HEB DIT KLAARGEMAAKT
+                                </button>
+                            {% endif %}
                             {{ form_rest(form) }}
                         {{ form_end(form) }}
                     </div>
