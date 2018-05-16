@@ -27,7 +27,7 @@ class AppKernel extends Kernel
             new Trsteel\CkeditorBundle\TrsteelCkeditorBundle(),
             //WEBSITE
             new Project3WebsiteBundle(),
-            new FMElfinderBundle(),
+            new FM\ElfinderBundle\FMElfinderBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
 

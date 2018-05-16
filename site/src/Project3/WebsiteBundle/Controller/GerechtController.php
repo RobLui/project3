@@ -73,16 +73,16 @@ class GerechtController extends Controller
     // TOON ALLE GERECHTEN OP BASIS VAN DE QUERY
     public function queryAction(Request $req)
     {
-        $finder = $this->container->get('fos_elastica.finder.src.gerecht');
+//        $finder = $this->container->get('fos_elastica.finder.src.gerecht');
 
         $searchingput = $req->get('searchinput');
         if(!preg_match('#(?<=<)\w+(?=[^<]*?>)#', $searchingput)) {
-            $gerechten = $finder->find($searchingput);
+            $gerechten = [];
         }
         else {
             $gerechten = [];
         }
-            $ingredienten = $searchingput;
+        $ingredienten = $searchingput;
 
         $em = $this->getDoctrine()->getManager();
 
@@ -90,12 +90,7 @@ class GerechtController extends Controller
             ->findAll()
         ;
 
-        return $this->render('Project3WebsiteBundle:Gerechten:query.html.twig',
-            array(
-                'categories' => $categories,
-                'gerechten' => $gerechten,
-                'ingredienten' => $ingredienten
-            ));
+        return $this->overzichtAction();
     }
 
     // VERSTUUR GERECHT IN MAIL
