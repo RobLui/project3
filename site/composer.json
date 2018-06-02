@@ -63,7 +63,10 @@
     "config": {
         "bin-dir": "bin",
         "sort-packages": true,
-        "component-dir": "web/assets"
+        "component-dir": "web/assets",
+        "platform": {
+            "php": "7.1"
+        }
     },
     "extra": {
         "symfony-app-dir": "app",
