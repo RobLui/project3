@@ -5,87 +5,87 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
+    <div class="row">
 
-    <div class="col-sm-12">
-        <a href="{{ path('project3_website_home') }}">
-            <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
-        </a>
-        <div class="col-sm-6 col-sm-offset-3">
-            <h3 class="text-center title">
-                JOUW SHOPPINGLIJSTJES
-            </h3>
+        <div class="col-sm-12">
+            <a href="{{ path('project3_website_home') }}">
+                <img src="{{ asset(logo_med_img) }}" alt="{{ logo_med_alt }}"
+                     class="img-responsive center-block gerechten resize-logo-medium"/>
+            </a>
+            <div class="col-sm-6 col-sm-offset-3">
+                <h3 class="text-center title">
+                    JOUW SHOPPINGLIJSTJES
+                </h3>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="col-sm-10 col-sm-offset-1 text-center ">
+
+                <div class="col-sm-4 account">
+                    {# SHOPPING CLICK #}
+                    <a href="#" class="shoppinglist-btn">
+                        <div class="bordered container-white shoppinglist-btn-spacing">
+                            <p class="text-center">Spicy Chicken pasta</p>
+                            <p class="text-center">02/10/2017</p>
+                        </div>
+                    </a>
+                    {# TOGGLED SHOPPING CONTENT #}
+                    <div class="bordered col-sm-12 container-white shoppinglist-content">
+                        <ul class="col-sm-12">
+                            <li class="col-sm-12 list-unstyled margin-top-1em">
+                                <span class="col-sm-6 text-left">Tomaten</span>
+                                <span class="col-sm-6 pull-right">&euro; 3.15</span>
+                            </li>
+                            <li class="col-sm-12 list-unstyled">
+                                <span class="col-sm-6 text-left">Look</span>
+                                <span class="col-sm-6 pull-right">&euro; 0.30</span>
+                            </li>
+                            <li class="col-sm-12 list-unstyled">
+                                <span class="col-sm-6 text-left">Courgette</span>
+                                <span class="col-sm-6 pull-right">&euro; 2.50</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-4 account">
+
+                    {# SHOPPING CLICK #}
+                    <a href="#" class="shoppinglist-btn">
+                        <div class="bordered container-white shoppinglist-btn-spacing">
+                            <p class="text-center">Lente Kip</p>
+                            <p class="text-center">28/10/2017</p>
+                        </div>
+                    </a>
+
+                    <div class="bordered col-sm-12 container-white shoppinglist-content shoppinglist-toggle hide">
+                        <ul class="col-sm-12">
+
+                            <li class="col-sm-12 list-unstyled margin-top-1em">
+                                <span class="col-sm-6 text-left">Kip</span>
+                                <span class="col-sm-6 pull-right">&euro; 2</span>
+                            </li>
+                            <li class="col-sm-12 list-unstyled">
+                                <span class="col-sm-6 text-left">Ajuin</span>
+                                <span class="col-sm-6 pull-right">&euro; 1.29</span>
+                            </li>
+                            <li class="col-sm-12 list-unstyled">
+                                <span class="col-sm-6 text-left">Erwtjes</span>
+                                <span class="col-sm-6 pull-right">&euro; 2.49</span>
+                            </li>
+                            <li class="col-sm-12 list-unstyled">
+                                <span class="col-sm-6 text-left">Melk</span>
+                                <span class="col-sm-6 pull-right">&euro; 0.85</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-
-    <div class="col-sm-12">
-        <div class="col-sm-10 col-sm-offset-1 text-center ">
-
-            <div class="col-sm-4 account">
-                {# SHOPPING CLICK #}
-                <a href="#" class="shoppinglist-btn">
-                    <div class="bordered container-white shoppinglist-btn-spacing">
-                        <p class="text-center">Spicy Chicken pasta</p>
-                        <p class="text-center">02/10/2017</p>
-                    </div>
-                </a>
-                {# TOGGLED SHOPPING CONTENT #}
-                <div class="bordered col-sm-12 container-white shoppinglist-content">
-                    <ul class="col-sm-12">
-
-                        <li class="col-sm-12 list-unstyled margin-top-1em">
-                            <span class="col-sm-6 text-left">Tomaten</span>
-                            <span class="col-sm-6 pull-right">&euro; 3.15</span>
-                        </li>
-                        <li class="col-sm-12 list-unstyled">
-                            <span class="col-sm-6 text-left">Look</span>
-                            <span class="col-sm-6 pull-right">&euro; 0.30</span>
-                        </li>
-                        <li class="col-sm-12 list-unstyled">
-                            <span class="col-sm-6 text-left">Courgette</span>
-                            <span class="col-sm-6 pull-right">&euro; 2.50</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-sm-4 account">
-
-                {# SHOPPING CLICK #}
-                <a href="#" class="shoppinglist-btn">
-                    <div class="bordered container-white shoppinglist-btn-spacing">
-                        <p class="text-center">Lente Kip</p>
-                        <p class="text-center">28/10/2017</p>
-                    </div>
-                </a>
-
-                <div class="bordered col-sm-12 container-white shoppinglist-content shoppinglist-toggle hide">
-                    <ul class="col-sm-12">
-
-                        <li class="col-sm-12 list-unstyled margin-top-1em">
-                            <span class="col-sm-6 text-left">Kip</span>
-                            <span class="col-sm-6 pull-right">&euro; 2</span>
-                        </li>
-                        <li class="col-sm-12 list-unstyled">
-                            <span class="col-sm-6 text-left">Ajuin</span>
-                            <span class="col-sm-6 pull-right">&euro; 1.29</span>
-                        </li>
-                        <li class="col-sm-12 list-unstyled">
-                            <span class="col-sm-6 text-left">Erwtjes</span>
-                            <span class="col-sm-6 pull-right">&euro; 2.49</span>
-                        </li>
-                        <li class="col-sm-12 list-unstyled">
-                            <span class="col-sm-6 text-left">Melk</span>
-                            <span class="col-sm-6 pull-right">&euro; 0.85</span>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 {% endblock %}
 
 {% block footer %}

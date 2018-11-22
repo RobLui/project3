@@ -3,7 +3,6 @@ project3_website_home:
     path:     /
     defaults: { _controller: Project3WebsiteBundle:Default:index }
 
-
 #ACCOUNT
 project3_account_instellingen:
     path:     /account/instellingen
@@ -36,7 +35,6 @@ project3_gerecht_query:
     path:     /gerechten/zoek/
     defaults: { _controller: Project3WebsiteBundle:Gerecht:query}
 
-
 #CONTACT / EMAIL
 project3_contact_show:
     path:     /contact/{id}/
@@ -57,13 +55,11 @@ project3_contact_delete:
     path:     /contact/delete/{id}
     defaults: { _controller: Project3WebsiteBundle:Contact:delete}
 
-
 #SHOPPINGLIJST
 shoppinglist_add:
     path:     /addshoppinglist
     defaults: { _controller: Project3WebsiteBundle:Shoppinglist:addToShoppinglist }
     methods: [POST]
-
 
 #MAIL
 project3_mail:

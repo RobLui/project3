@@ -1,28 +1,29 @@
 <?php
 
-
 namespace Project3\WebsiteBundle\Service;
-
 
 use Doctrine\ORM\EntityManager;
 use Project3\WebsiteBundle\Entity\Dummy;
 use Project3\WebsiteBundle\Entity\User;
-use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class Database
 {
-
     /** @var ContainerInterface $container */
     protected $container;
+
     /** @var EntityManager $em */
     protected $em;
+
     /** @var  boolean $loggedIn */
     protected $isloggedIn = false;
+
     /** @var bool $isAdmin */
     protected $isAdmin = false;
+
     /** @var boolean $isDatabaseUser */
     protected $isDatabaseUser = false;
+
     /** @var User|null $user */
     protected $user;
 
@@ -57,5 +58,4 @@ class Database
         //ADMIN
         return $this->em->getRepository("Project3WebsiteBundle:Group")->findAll();
     }
-
 }

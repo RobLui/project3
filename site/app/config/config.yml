@@ -1,16 +1,13 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-    - { resource: services.yml }
-    - { resource: "@Project3WebsiteBundle/Resources/config/services.yml" }
+- { resource: parameters.yml }
+- { resource: security.yml }
+- { resource: services.yml }
+- { resource: "@Project3WebsiteBundle/Resources/config/services.yml" }
 
-# Put parameters here nthat don't need to change on each machine where the app is deployed
-# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: "nl"
 
 framework:
-    #esi: ~
     test: ~
     translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -20,14 +17,12 @@ framework:
     form: ~
     csrf_protection: ~
     validation: { enable_annotations: true }
-    #serializer: { enable_annotations: true }
     templating:
         engines: ['twig']
     default_locale: '%locale%'
     trusted_hosts: ~
     trusted_proxies: ~
     session:
-        # handler_id set to null will use default session handler from php.ini
         handler_id: ~
     fragments: ~
     http_method_override: true
@@ -36,24 +31,22 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        logo_lg_img: 'bundles/project3website/images/food-guru-logo-big.png'
+        logo_lg_alt: 'FoodGuru logo big'
+        logo_med_img: 'bundles/project3website/images/food-guru-logo-medium.png'
+        logo_med_alt: 'FoodGuru logo medium'
 
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver: pdo_mysql
+        driver: 'pdo_mysql'
         host: '%database_host%'
         port: '%database_port%'
         dbname: '%database_name%'
         user: '%database_user%'
         password: '%database_password%'
         charset: UTF8
-        # if using pdo_sqlite as your database driver:
-        #   1. add the path in parameters.yml
-        #     e.g. database_path: '%kernel.root_dir%/data/data.db3'
-        #   2. Uncomment database_path in parameters.yml.dist
-        #   3. Uncomment next line:
-        #path: '%database_path%'
-
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
@@ -68,47 +61,26 @@ sonata_block:
             contexts: [admin]
 
 sonata_admin:
-    title: "FoodGuru"
+    title: 'FoodGuru'
     options:
         title_mode: "single_text"
     persist_filters: true
 
-fos_user:
-    db_driver: "orm"
-    firewall_name: "main"
-    user_class: 'Project3\WebsiteBundle\Entity\User'
-    group:
-        group_class:   'Project3\WebsiteBundle\Entity\Group'
-    service:
-        mailer: fos_user.mailer.noop
-    from_email:
-        address: "test@test.be"
-        sender_name: "test"
-
 fm_elfinder:
-    #assets_path: / # default is /assets, this is where css/js elfinder files are
     instances:
         default:
-            locale: %locale% # defaults to current request locale
-            editor: form # other options are tinymce, tinymce4, fm_tinymce, form, simple, custom
-            #editor_template: custom template for your editor # default null
-            #path_prefix: / # for setting custom assets path prefix, useful for non vhost configurations, i.e. http://127.0.0.1/mysite/
-            #fullscreen: true|false # default is true, applies to simple and ckeditor editors
-            theme: smoothness # jquery theme, default is 'smoothness'
-            include_assets: true # disable if you want to manage loading of javascript and css assets manually
-            #visible_mime_types: ['image/png', 'image/jpg', 'image/jpeg'] # only show these mime types, defaults to show all
+            locale: '%locale%'
+            editor: form
+            theme: smoothness
+            include_assets: true
             connector:
-                #debug: true|false # defaults to false
-                roots:       # at least one root must be defined, defines root filemanager directories
+                roots:
                     uploads:
-                        #show_hidden: true|false # defaults to false, hides dotfiles
                         driver: LocalFileSystem
                         path: uploads
                         upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
                         upload_deny: ['all']
-                        upload_max_size: 8M # also file upload sizes restricted in php.ini
-                        #attributes: example of setting attributes permission
-                        #    - { pattern: '/(.*?)/', read: true, write: false, locked: true }
+                        upload_max_size: 8M
 
 fos_elastica:
     clients:
@@ -144,15 +116,19 @@ fos_elastica:
                             payloads: true
 
                     persistence:
-                        # the driver can be orm, mongodb, phpcr or propel
-                        # listener and finder are not supported by
-                        # propel and should be removed
                         driver: orm
                         model: Project3\WebsiteBundle\Entity\Gerecht
                         provider: ~
                         finder: ~
 
 fos_user:
-    db_driver: orm
-    firewall_name: main
-    user_class: Project3\WebsiteBundle\Entity\User
+    db_driver: 'orm'
+    firewall_name: 'main'
+    user_class: 'Project3\WebsiteBundle\Entity\User'
+    group:
+        group_class: 'Project3\WebsiteBundle\Entity\Group'
+    service:
+        mailer: fos_user.mailer.noop
+    from_email:
+        address: 'robbertluit@hotmail.com'
+        sender_name: 'Robbert'

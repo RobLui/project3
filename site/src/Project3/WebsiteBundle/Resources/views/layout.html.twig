@@ -10,56 +10,52 @@
 <!--<![endif]-->
 
 <head>
-{% block cssfiles %}
+    {% block cssfiles %}
 
-    {# LINKS RELS #}
-    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/project3website/favicon.ico') }}"/>
-    <link rel="apple-touch-icon" href="{{ asset('bundles/project3website/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/project3website/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/project3website/css/bootstrap-theme.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/project3website/css/main.css') }}">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+        {# LINKS RELS #}
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/project3website/favicon.ico') }}"/>
+        <link rel="apple-touch-icon" href="{{ asset('bundles/project3website/favicon.ico') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/project3website/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/project3website/css/bootstrap-theme.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/project3website/css/main.css') }}">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 
-    {#SCRIPTS#}
-    <script src="{{ asset('bundles/project3website/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="{{ asset('bundles/project3website/js/vendor/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bundles/project3website/js/main.js') }}"></script>
+        {#SCRIPTS#}
+        <script src="{{ asset('bundles/project3website/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="{{ asset('bundles/project3website/js/vendor/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bundles/project3website/js/main.js') }}"></script>
 
-{% endblock cssfiles %}
+    {% endblock cssfiles %}
 
-{% block seo %}
-    <title>FoodGuru</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="index,follow">
-    <meta name="googlebot" content="index,follow">
+    {% block seo %}
+        <title>FoodGuru</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index,follow">
+        <meta name="googlebot" content="index,follow">
 
-    <meta name="author" content="Phedra & Robbert">
-    <meta name="publisher" content="FoodGuru">
-{% endblock seo %}
+        <meta name="author" content="Phedra & Robbert">
+        <meta name="publisher" content="FoodGuru">
+    {% endblock seo %}
 
 </head>
 <body>
-    <div class="container">
-        <div class="noprint">
-            {% include 'Project3WebsiteBundle:Partials:nav.html.twig' %}
-        </div>
-
-        {% block content %}
-
-        {% endblock content %}
-
+<div class="container">
+    <div class="noprint">
+        {% include 'Project3WebsiteBundle:Partials:nav.html.twig' %}
     </div>
-    {% block footer %}
+    {% block content %}{% endblock content %}
+</div>
+{% block footer %}
 
-    {% endblock footer %}
-    {% block javascripts %}
+{% endblock footer %}
+{% block javascripts %}
 
-    {% endblock javascripts %}
+{% endblock javascripts %}
 </body>
 
 </html>

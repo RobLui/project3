@@ -8,27 +8,27 @@ services:
         class:     Project3\WebsiteBundle\Twig\Extensions
         arguments: ["@project3_website.service.database"]
         tags:
-            - { name: twig.extension }
+        - { name: twig.extension }
 
-#GROUPS
+    #GROUPS
     project3_website.admin.group:
         class: Project3\WebsiteBundle\Admin\GroupAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Group, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Users, label: Group }
+        - { name: sonata.admin, manager_type: orm, group: 'Users', label: 'Group' }
     #USERS
     project3_website.admin.user:
         class: Project3\WebsiteBundle\Admin\UserAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\User, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Users, label: User }
+        - { name: sonata.admin, manager_type: orm, group: 'Users', label: 'User' }
 
     #PAGINA'S
     project3_website.admin.pagina:
         class: Project3\WebsiteBundle\Admin\PaginaAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Pagina, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Pagina's, label: Pagina }
+        - { name: sonata.admin, manager_type: orm, group: "Pagina's", label: 'Pagina' }
         public: true
 
     #BLOKKEN
@@ -36,7 +36,7 @@ services:
         class: Project3\WebsiteBundle\Admin\BlockAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Block, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Pagina's, label: Blokken }
+        - { name: sonata.admin, manager_type: orm, group: "Pagina's", label: 'Blokken' }
         public: true
 
     #GERECHTEN
@@ -44,7 +44,7 @@ services:
         class: Project3\WebsiteBundle\Admin\GerechtAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Gerecht, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Gerechten, label: Gerecht }
+        - { name: sonata.admin, manager_type: orm, group: 'Gerechten', label: 'Gerecht' }
         public: true
 
     #INGREDIENTEN
@@ -52,7 +52,7 @@ services:
         class: Project3\WebsiteBundle\Admin\IngredientAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Ingredient, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Gerechten, label: Ingredienten }
+        - { name: sonata.admin, manager_type: orm, group: 'Gerechten', label: 'Ingredienten' }
         public: true
 
     #STAPPEN
@@ -60,7 +60,7 @@ services:
         class: Project3\WebsiteBundle\Admin\StapAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Stap, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Gerechten, label: Stappen }
+        - { name: sonata.admin, manager_type: orm, group: 'Gerechten', label: 'Stappen' }
         public: true
 
     #CATEGORIES
@@ -68,7 +68,7 @@ services:
         class: Project3\WebsiteBundle\Admin\CategorieAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Categorie, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Gerechten, label: Categorie }
+        - { name: sonata.admin, manager_type: orm, group: 'Gerechten', label: 'Categorie' }
         public: true
 
     #CONTACT
@@ -76,12 +76,12 @@ services:
         class: Project3\WebsiteBundle\Admin\ContactAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Contact, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Contact, label: Contact }
+        - { name: sonata.admin, manager_type: orm, group: 'Contact', label: 'Contact' }
         public: true
 
     project3_website.admin.account:
         class: Project3\WebsiteBundle\Admin\AccountAdmin
         arguments: [~, Project3\WebsiteBundle\Entity\Account, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Users, label: Account }
+        - { name: sonata.admin, manager_type: orm, group: 'Users', label: 'Account' }
         public: true

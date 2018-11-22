@@ -9,7 +9,7 @@ x{% extends "@Project3Website/layout.html.twig" %}
 
         <div class="col-sm-12 text-center">
             <a href="{{ path('project3_website_home') }}">
-                <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
+                <img src="{{ asset(logo_med_img) }}" alt="{{ logo_med_alt }}" class="img-responsive center-block gerechten resize-logo-medium"/>
             </a>
             <div class="col-sm-6 col-sm-offset-3">
                 <h3 class="text-center title margin-bottom-1-5em">
@@ -21,36 +21,28 @@ x{% extends "@Project3Website/layout.html.twig" %}
                 {# ALLE KLAARGEMAAKTE GERECHTEN #}
                 {% for gerecht in gerechten %}
                     <div class="col-sm-4 background-white padding-favorieten text-center">
-
-                    {# DATUM KLAARGEMAAKT #}
-                    {{ gerecht.datum|date('d-m-Y') }}
-
-                    {% for yap in gerecht.gerechten %}
-
-                        <a href="{{ path('project3_gerecht_detail', {id: yap.id }) }}">
-                            <div class="img-responsive">
-                                <img class="col-sm-12" src="{{ yap.fotoVierkant }}" alt="{{ gerecht.naam|default("-") }}">
+                        {# DATUM KLAARGEMAAKT #}
+                        {{ gerecht.datum|date('d-m-Y') }}
+                        {% for yap in gerecht.gerechten %}
+                            <a href="{{ path('project3_gerecht_detail', {id: yap.id }) }}">
+                                <div class="img-responsive">
+                                    <img class="col-sm-12" src="{{ yap.fotoVierkant }}" alt="{{ gerecht.naam|default("-") }}">
+                                </div>
+                            </a>
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <p>{{ yap.naam|upper }}</p>
                             </div>
-                        </a>
-
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <p>{{ yap.naam|upper }}</p>
-                        </div>
-
-                        <div class="col-sm-8 col-sm-offset-2">
-                            {% for i in 0..yap.rating|default(4) %}
-                                <span class="glyphicon glyphicon-star"></span>
-                            {% endfor %}
-                        </div>
-                    {% endfor %}
-
+                            <div class="col-sm-8 col-sm-offset-2">
+                                {% for i in 0..yap.rating|default(4) %}
+                                    <span class="glyphicon glyphicon-star"></span>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
                     </div>
                 {% endfor %}
                 {# EINDE ALLE KLAARGEMAAKTE GERECHTEN #}
             </div>
-
         </div>
-
     </div>
 
 {% endblock %}

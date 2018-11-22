@@ -3,20 +3,23 @@
 {% block seo %}
     {{ parent() }}
     <title>FoodGuru zoekt</title>
-    <meta name="title" content="FoodGuru, de site voor verassende gerechten " />
-    <meta name="keywords" content="FoodGuru, Eten, Inspiratie, Lekker" />
-    <meta name="description" content="FoodGuru zorgt voor inspirerende gerechten, geef in wat je thuis hebt liggen en krijg een overzicht van lekkere gerechten die je daar mee kan maken!" />
+    <meta name="title" content="FoodGuru, de site voor verassende gerechten "/>
+    <meta name="keywords" content="FoodGuru, Eten, Inspiratie, Lekker"/>
+    <meta name="description"
+          content="FoodGuru zorgt voor inspirerende gerechten, geef in wat je thuis hebt liggen en krijg een overzicht van lekkere gerechten die je daar mee kan maken!"/>
 
-    <meta name="og:image" content="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" />
-    <meta property="og:title" content="FoodGuru, de site voor verassende gerechten " />
-    <meta property="og:description" content="FoodGuru zorgt voor inspirerende gerechten, geef in wat je thuis hebt liggen en krijg een overzicht van lekkere gerechten die je daar mee kan maken!" />
-    <meta property="og:url" content="{{ app.request.getUri }}" />
-    <meta property="og:type" content="website" />
+    <meta name="og:image" content="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}"/>
+    <meta property="og:title" content="FoodGuru, de site voor verassende gerechten "/>
+    <meta property="og:description"
+          content="FoodGuru zorgt voor inspirerende gerechten, geef in wat je thuis hebt liggen en krijg een overzicht van lekkere gerechten die je daar mee kan maken!"/>
+    <meta property="og:url" content="{{ app.request.getUri }}"/>
+    <meta property="og:type" content="website"/>
 
-    <meta name="twitter:title" content="FoodGuru, de site voor verassende gerechten " />
-    <meta name="twitter:description" content="FoodGuru zorgt voor inspirerende gerechten, geef in wat je thuis hebt liggen en krijg een overzicht van lekkere gerechten die je daar mee kan maken!" />
-    <meta name="twitter:image" content="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" />
-    <meta name="twitter:image:src" content="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" />
+    <meta name="twitter:title" content="FoodGuru, de site voor verassende gerechten "/>
+    <meta name="twitter:description"
+          content="FoodGuru zorgt voor inspirerende gerechten, geef in wat je thuis hebt liggen en krijg een overzicht van lekkere gerechten die je daar mee kan maken!"/>
+    <meta name="twitter:image" content="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}"/>
+    <meta name="twitter:image:src" content="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}"/>
 
 {% endblock seo %}
 
@@ -28,38 +31,43 @@
 {% block content %}
 
     {#ZOEKEN#}
-      <div class="row">
-          <a href="{{ path('project3_website_home') }}">
-            <img src="{{ asset('bundles/project3website/images/food-guru-logo-big.png') }}" alt="logo" title="FoodGuru logo" class="img-responsive center-block resize-logo-big padding-15" />
-          </a>
-          <div class="col-sm-6 col-sm-offset-3">
-              <div class="text-center">
-                  <h3 class="margin-bottom-1em">Geen inspiratie voor het avondeten?</h3>
+    <div class="row">
+        <a href="{{ path('project3_website_home') }}">
+            <img src="{{ asset(logo_lg_img) }}" alt="{{ logo_lg_alt }}" title="{{ logo_lg_alt }}"
+                 class="img-responsive center-block resize-logo-big padding-15"/>
+        </a>
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="text-center">
+                <h3 class="margin-bottom-1em">Geen inspiratie voor het avondeten?</h3>
 
-                  <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
-                      <div class="input-group stylish-input-group">
-                          <input required name="searchinput" type="text" class="form-control text-center" placeholder="Geef hier de ingrediënten in die je thuis hebt liggen" >
-                              <span class="input-group-addon">
+                <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
+                    <div class="input-group stylish-input-group">
+                        <input required name="searchinput" type="text" class="form-control text-center"
+                               placeholder="Geef hier de ingrediënten in die je thuis hebt liggen">
+                        <span class="input-group-addon">
                                   <button type="submit" class="glyphicon glyphicon-search"></button>
                               </span>
-                          </span>
-                      </div>
-                  </form>
+                        </span>
+                    </div>
+                </form>
 
-                  <p class="introtekst">Geef de <b>ingrediënten</b> in die je <b>thuis</b> reeds hebt liggen en waar je mee wilt <b>koken vandaag</b>. Wij geven je dan <b> gerechten</b> met deze ingrediënten zodat je <b>nieuwe en inspirerende recepten</b> kan ontdekken en klaarmaken!</p>
+                <p class="introtekst">Geef de <b>ingrediënten</b> in die je <b>thuis</b> reeds hebt liggen en waar je mee wilt <b>koken vandaag</b>.
+                    Wij geven je dan <b> gerechten</b> met deze ingrediënten zodat je <b>nieuwe en inspirerende recepten</b> kan ontdekken en
+                    klaarmaken!
+                </p>
+                {# EXTRA INFO #}
+                {#<button class="instellingen aanpassen-button semibold btn-toggle-extra-uitleg margin-top-2em">#}
+                {#meer uitleg#}
+                {#</button>#}
+                {#<div class="uitleg-content hidden margin-top-1em">#}
+                {#<p>Geef de ingrediënten in die je thuis voorradig hebt, zo kan je nieuwe en inspirerende gerechten ontdekken waar je misschien#}
+                {#eerder niet aan gedacht had!#}
+                {#</p>#}
+                {#</div>#}
+            </div>
 
-                  {# EXTRA INFO #}
-                  <!--<button class="instellingen aanpassen-button semibold btn-toggle-extra-uitleg margin-top-2em">
-                      meer uitleg
-                  </button>
-                  <div class="uitleg-content hidden margin-top-1em">
-                      <p>Geef de ingrediënten in die je thuis voorradig hebt, zo kan je nieuwe en inspirerende gerechten ontdekken waar je misschien eerder niet aan gedacht had!</p>-->
-                  </div>
-
-              </div>
-
-          </div>
-      </div>
+        </div>
+    </div>
 {% endblock content %}
 
 {% block footer %}

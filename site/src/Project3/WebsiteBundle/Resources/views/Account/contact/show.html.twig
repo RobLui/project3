@@ -3,29 +3,30 @@
 {% block content %}
 
     {% if contact %}
-    <div class="row">
-        <div class="col-sm-12">
-            <a href="{{ path('project3_website_home') }}">
-                <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
-            </a>
-             <div class="col-sm-9">
-                 <h2>Contactgegevens</h2>
-                 <table class="table table-striped dataTable">
-                     <tbody>
-                     <th>E-mail</th>
-                     <th>Acties</th>
-                     <tr>
-                         <td>{{ contact.email}}</td>
-                         <td>
-                             <a class="btn btn-default" href="{{ path('project3_contact_show', { 'id': contact.id }) }}">tonen</a>
-                             <a class="btn btn-primary" href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
-                         </td>
-                     </tr>
-                     </tbody>
-                 </table>
-             </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="{{ path('project3_website_home') }}">
+                    <img src="{{ asset(logo_med_img) }}" alt="{{ logo_med_alt }}"
+                         class="img-responsive center-block gerechten resize-logo-medium"/>
+                </a>
+                <div class="col-sm-9">
+                    <h2>Contactgegevens</h2>
+                    <table class="table table-striped dataTable">
+                        <tbody>
+                        <th>E-mail</th>
+                        <th>Acties</th>
+                        <tr>
+                            <td>{{ contact.email }}</td>
+                            <td>
+                                <a class="btn btn-default" href="{{ path('project3_contact_show', { 'id': contact.id }) }}">tonen</a>
+                                <a class="btn btn-primary" href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">aanpassen</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
     {% endif %}
 
 {% endblock content %}

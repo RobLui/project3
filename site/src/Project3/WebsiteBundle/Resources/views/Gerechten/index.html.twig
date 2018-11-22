@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
             <a href="{{ path('project3_website_home') }}">
-                <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
+                <img src="{{ asset(logo_med_img) }}" alt="{{ logo_med_alt }}" class="img-responsive center-block gerechten resize-logo-medium"/>
             </a>
             <div class="col-sm-12 ">
                 <div class="col-sm-8 col-sm-offset-2">
@@ -19,9 +19,9 @@
                     {% for c in categories %}
                         <div class="text-center category col-sm-4">
                             <form action="{{ path('project3_gerecht_query',{limit:'10'}) }}">
-                                <input required name="searchinput" type="text" class="hidden" value="{{ c.naam }}" >
+                                <input required name="searchinput" type="text" class="hidden" value="{{ c.naam|default() }}">
                                 <button class="btnnn size-category" type="submit">
-                                    {{ c.naam }}
+                                    {{ c.naam|default() }}
                                 </button>
                             </form>
                         </div>
@@ -35,7 +35,6 @@
             <div class="col-sm-12">
                 {% for gerecht in gerechten %}
                     <div class="col-sm-4 text-center quickfix container-white padding-top-2em">
-
                         <a href="{{ path('project3_gerecht_detail', {id: gerecht.id }) }}">
                             <div class="img-responsive">
                                 <img src="{{ gerecht.fotoVierkant|default('-') }}" alt="{{ gerecht.naam|default('-') }}">
@@ -55,7 +54,6 @@
                                 <span class="glyphicon glyphicon-star"></span>
                             {% endfor %}
                         </div>
-
                     </div>
                 {% endfor %}
             </div>

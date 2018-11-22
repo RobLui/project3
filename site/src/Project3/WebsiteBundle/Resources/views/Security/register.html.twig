@@ -1,50 +1,51 @@
 {% extends "@Project3Website/layout.html.twig" %}
 
 {% block content %}
-    <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block" />
-        <div class="row">
-            <div class="col-sm-12">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="registerform col-sm-8 col-sm-offset-2">
+<img src="{{ asset(logo_med_img) }}" alt="{{ logo_med_alt }}" class="img-responsive center-block"/>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="registerform col-sm-8 col-sm-offset-2">
 
-                    {{ form_start(form) }}
-                    <div class="form_group">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            {{ form_row(form.username, {'attr': {'class': 'form-control'}}) }}
-                        </div>
+                {{ form_start(form) }}
+                <div class="form_group">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        {{ form_row(form.username, {'attr': {'class': 'form-control'}}) }}
                     </div>
+                </div>
 
-                    <div class="form_group">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
-                        </div>
+                <div class="form_group">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
                     </div>
+                </div>
 
-                    <div class="form_group">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
-                        </div>
+                <div class="form_group">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        {{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
                     </div>
+                </div>
 
-                    <div class="form_group">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
-                        </div>
+                <div class="form_group">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        {{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-8 col-sm-offset-4 category" style="margin-top:5px;">
-                            <button type="submit" class="semibold margin-top-3em aanpassen-button-login">
-                                <i class="fa fa-btn fa-user"></i> registreer
-                            </button>
-                        </div>
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-4 category" style="margin-top:5px;">
+                        <button type="submit" class="semibold margin-top-3em aanpassen-button-login">
+                            <i class="fa fa-btn fa-user"></i> registreer
+                        </button>
                     </div>
-                    {{ form_end(form) }}
+                </div>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>
-{% endblock %}
+    {% endblock %}
 
-{% block footer %}
-    {% include 'Project3WebsiteBundle:Partials:footer.html.twig' %}
-{% endblock %}
+    {% block footer %}
+        {% include 'Project3WebsiteBundle:Partials:footer.html.twig' %}
+    {% endblock %}
+</div>

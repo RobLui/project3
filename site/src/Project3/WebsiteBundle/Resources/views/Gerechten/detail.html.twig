@@ -8,9 +8,7 @@
 
     <div class="row">
         <div class="col-sm-12">
-
             <div class="col-sm-8 col-sm-offset-2 text-center">
-
                 {% if app.session.flashBag.has('success') %}
                     <div class="alert alert-success text-center">
                         {% for msg in app.session.flashBag.get('success') %}
@@ -18,9 +16,8 @@
                         {% endfor %}
                     </div>
                 {% endif %}
-
                 <a href="{{ path('project3_website_home') }}">
-                    <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
+                    <img src="{{ asset(logo_med_img) }}" alt="{{ logo_med_alt }}" class="img-responsive center-block gerechten resize-logo-medium"/>
                 </a>
                 <h3 class="margin-bottom-1em semibold">
                     {{ gerecht.naam|default() }}
@@ -34,23 +31,31 @@
                 </div>
 
                 <div class="col-sm-12 margin-bottom-3em padding-0 ">
-
                     <div class="detail">
                         <div class="col-sm-7 bordered">
-                            <p class="text-left margin-top-0-5em">{{ gerecht.beschrijving|default() }}</p>
+                            <p class="text-left margin-top-0-5em">
+                                {{ gerecht.beschrijving|default() }}
+                            </p>
                         </div>
 
                         <div class="col-sm-2 bordered">
-                            <p class="margin-top-0-5em"><span class="glyphicon glyphicon-time"></span> {{ gerecht.bereidingstijd|default(0) }} min</p>
+                            <p class="margin-top-0-5em">
+                                <span class="glyphicon glyphicon-time"></span>
+                                {{ gerecht.bereidingstijd|default(0) }} min
+                            </p>
                         </div>
-
                         <div class="col-sm-3 bordered rating-padding">
                             <fieldset class="rating">
-                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Awesome - 4 stars"></label>
-                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Awesome - 3 stars"></label>
-                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Awesome - 2 stars"></label>
-                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Awesome - 1 stars"></label>
+                                <input type="radio" id="star5" name="rating" value="5"/>
+                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4"/>
+                                <label class="full" for="star4" title="Awesome - 4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3"/>
+                                <label class="full" for="star3" title="Awesome - 3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2"/>
+                                <label class="full" for="star2" title="Awesome - 2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1"/>
+                                <label class="full" for="star1" title="Awesome - 1 stars"></label>
                             </fieldset>
                         </div>
                     </div>
@@ -70,13 +75,17 @@
                             <li class="col-sm-12 list-unstyled">
                                 <hr>
                                 <span class="col-sm-8">{{ ingredient.naam|default('naam') }}</span>
-                                <span class="col-sm-2 pull-right"><input type="checkbox" class="jQueryShopping" value="{{ ingredient.naam|default('naam') }}"></span>
+                                <span class="col-sm-2 pull-right">
+                                    <input type="checkbox" class="jQueryShopping" value="{{ ingredient.naam|default('naam') }}">
+                                </span>
                             </li>
                         {% endfor %}
                     </ul>
 
                     <div class="category">
-                        <button class="btnnn shoppinglisttext size-buttons-shoppinglijst size-buttons-no-cat semibold" id="shoppinglistbind">MAAK SHOPPINGLIJST</button>
+                        <button class="btnnn shoppinglisttext size-buttons-shoppinglijst size-buttons-no-cat semibold" id="shoppinglistbind">MAAK
+                            SHOPPINGLIJST
+                        </button>
                     </div>
 
                 </div>
@@ -96,10 +105,11 @@
                             </li>
                         {% endfor %}
                     </ul>
-
                     <div class="category">
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <button class="size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em"><a href="{{ path('project3_mail',{ id: gerecht.id }) }}">MAIL</a></button>
+                            <button class="size-buttons-shoppinglijst size-buttons-no-cat semibold margin-top-1em">
+                                <a href="{{ path('project3_mail',{ id: gerecht.id }) }}">MAIL</a>
+                            </button>
                         {% endif %}
                     </div>
                 </div>
@@ -123,8 +133,6 @@
                         </p>
                     </div>
                 </div>
-
-
             </div>
 
             {#-------------RECEPT-------------#}
@@ -139,7 +147,6 @@
                     </div>
                 </div>
             </div>
-
 
             {#-------------STAPPEN-------------#}
             {% if gerecht %}
@@ -162,24 +169,25 @@
                             <a href="javascript:window.print()">PRINT</a>
                         </button>
                         {{ form_start(form,{'method': 'POST', 'attr': {'id': 'gerecht_save_form'}}) }}
-                            {{ form_widget(form, { 'attr': {'class': 'hidden'} }) }}
-                            <label class="hidden" for="project3_websitebundle_klaargemaakte_gerechten_gerechten">Gerechten</label>
-                            <select class="hidden" id="project3_websitebundle_klaargemaakte_gerechten_gerechten" name="project3_websitebundle_klaargemaakte_gerechten[gerechten][]" multiple="multiple">
-                                <option class="hidden" selected value="{{ gerecht.id }}">{{ gerecht.naam }}</option>
-                            </select>
-                            {{ form_widget(form.datum) }}
+                        {{ form_widget(form, { 'attr': {'class': 'hidden'} }) }}
+                        <label class="hidden" for="project3_websitebundle_klaargemaakte_gerechten_gerechten">Gerechten</label>
+                        <select class="hidden" id="project3_websitebundle_klaargemaakte_gerechten_gerechten"
+                                name="project3_websitebundle_klaargemaakte_gerechten[gerechten][]" multiple="multiple">
+                            <option class="hidden" selected value="{{ gerecht.id }}">{{ gerecht.naam }}</option>
+                        </select>
+                        {{ form_widget(form.datum) }}
 
-                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <button type="submit" class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen margin-right-1em" id="btn-klaargemaakt">
-                                    IK HEB DIT KLAARGEMAAKT
-                                </button>
-                            {% endif %}
-                            {{ form_rest(form) }}
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <button type="submit" class="semibold margin-top-3em size-buttons-no-cat pull-right instellingen margin-right-1em"
+                                    id="btn-klaargemaakt">
+                                IK HEB DIT KLAARGEMAAKT
+                            </button>
+                        {% endif %}
+                        {{ form_rest(form) }}
                         {{ form_end(form) }}
                     </div>
                 </div>
             {% endif %}
-
         </div>
     </div>
 

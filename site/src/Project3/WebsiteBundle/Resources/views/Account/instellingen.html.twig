@@ -1,8 +1,6 @@
 {% extends "@Project3Website/layout.html.twig" %}
 
-{% block title %}
-
-{% endblock %}
+{% block title %}{% endblock %}
 
 {% block content %}
     <div class="row">
@@ -18,7 +16,8 @@
                 {% endif %}
 
                 <a href="{{ path('project3_website_home') }}">
-                    <img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />
+                    <img src="{{ asset(logo_med_img) }}" alt="{{ logo_med_alt }}"
+                         class="img-responsive center-block gerechten resize-logo-medium"/>
                 </a>
                 <div class="col-sm-8 col-sm-offset-2 margin-bottom-1-5em">
                     <h3 class="title">
@@ -26,7 +25,7 @@
                     </h3>
                 </div>
                 <div class="col-sm-12 category">
-                    <button class="btnnn semibold pull-right instellingen aanpassen-button semibold" >
+                    <button class="btnnn semibold pull-right instellingen aanpassen-button semibold">
                         <a href="{{ path('project3_contact_new') }}">
                             NIEUWE TOEVOEGEN
                         </a>
@@ -36,21 +35,21 @@
                 <div class="col-sm-12 text-left container-white padding-2em">
                     <p class="margin-bottom-1em">Gerechten en shoppinglijstjes mogen naar deze adressen verstuurd worden:</p>
                     <ul class="list-group margin-bottom-0">
-                    {% for contact in contacts %}
-                        <li class="list-group-item category">
-                            {{ contact.email }}
-                            <button class="btnnn semibold pull-right instellingen aanpassen-button semibold">
-                              <a href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">AANPASSEN</a>
-                            </button>
-                        </li>
-                    {% endfor %}
+                        {% for contact in contacts %}
+                            <li class="list-group-item category">
+                                {{ contact.email }}
+                                <button class="btnnn semibold pull-right instellingen aanpassen-button semibold">
+                                    <a href="{{ path('project3_contact_edit', { 'id': contact.id }) }}">AANPASSEN</a>
+                                </button>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
 
-              </div>
-
             </div>
+
         </div>
+    </div>
     </div>
 
 {% endblock %}

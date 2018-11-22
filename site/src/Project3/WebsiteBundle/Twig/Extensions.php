@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Project3\WebsiteBundle\Twig;
-
 
 use Project3\WebsiteBundle\Service\Database;
 
@@ -46,5 +44,4 @@ class Extensions extends \Twig_Extension
     {
         return $this->database->getGroups();
     }
-
 }

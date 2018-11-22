@@ -19,13 +19,13 @@ class UserType extends AbstractType
         $builder
             ->add('username', \Symfony\Component\Form\Extension\Core\Type\TextType::class)
             ->add('email', EmailType::class)
-            ->add('plainPassword', RepeatedType::class, [
+            ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Confirm Password'],
-            ]);
+                'first_options' => array('label' => 'Password'),
+                'second_options' => array('label' => 'Confirm Password'),
+            ));
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -43,6 +43,4 @@ class UserType extends AbstractType
     {
         return 'project3_websitebundle_user';
     }
-
-
 }

@@ -1,11 +1,10 @@
-
 {% if app.user %}
     <h3>Already logged in!</h3>
 {% endif %}
 
-<img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block" />
+<img src="{{ asset(logo_med_img) }}" alt="{{ logo_med_alt }}" class="img-responsive center-block"/>
 {% if error %}
-        {{ error.messageKey|trans(error.messageData, 'security') }}
+    {{ error.messageKey|trans(error.messageData, 'security') }}
 {% endif %}
 
 <div class="loginform col-sm-8 col-sm-offset-2">

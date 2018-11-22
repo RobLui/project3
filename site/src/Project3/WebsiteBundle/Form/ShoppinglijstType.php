@@ -17,10 +17,9 @@ class ShoppinglijstType extends AbstractType
             ->add('actief')
             ->add('naamGerecht')
             ->add('ingredientitems')
-            ->add('datumAangemaakt')
-        ;
+            ->add('datumAangemaakt');
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -38,6 +37,4 @@ class ShoppinglijstType extends AbstractType
     {
         return 'project3_websitebundle_shoppinglijst';
     }
-
-
 }

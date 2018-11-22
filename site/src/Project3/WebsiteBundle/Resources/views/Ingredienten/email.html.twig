@@ -7,11 +7,12 @@
         body {
             background-color: grey;
         }
+
         ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            width:50%;
+            width: 50%;
         }
 
         li {
@@ -24,19 +25,18 @@
     </style>
 </head>
 <body>
-    {#<img src="{{ asset('bundles/project3website/images/food-guru-logo-medium.png') }}" alt="logo" class="img-responsive center-block gerechten resize-logo-medium" />#}
-    <h1>FoodGuru - shoppinglijstje </h1>
-    <hr>
-    <h2>{{ gerecht.naam }}</h2>
+<h1>FoodGuru - shoppinglijstje </h1>
+<hr>
+<h2>{{ gerecht.naam }}</h2>
 
-    <ul>
-        {% for ingredient in gerecht.ingredienten %}
-            <li>
-                <hr>
-                <p>{{ ingredient.naam }}</p>
-                <p>&euro; {{ ingredient.prijsDelhaize }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for ingredient in gerecht.ingredienten %}
+        <li>
+            <hr>
+            <p>{{ ingredient.naam }}</p>
+            <p>&euro; {{ ingredient.prijsDelhaize }}</p>
+        </li>
+    {% endfor %}
+</ul>
 </body>
 </html>

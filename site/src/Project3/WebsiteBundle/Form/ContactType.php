@@ -38,6 +38,4 @@ class ContactType extends AbstractType
     {
         return 'project3_websitebundle_contact';
     }
-
-
 }

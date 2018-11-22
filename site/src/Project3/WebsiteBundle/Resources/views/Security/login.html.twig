@@ -6,7 +6,7 @@
         <div class="col-sm-12 text-center">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="alert-danger">
-                    {{ error.message }}
+                    {{ error.message|default() }}
                 </div>
             </div>
         </div>

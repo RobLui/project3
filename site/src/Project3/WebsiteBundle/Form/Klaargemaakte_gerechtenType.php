@@ -17,7 +17,7 @@ class Klaargemaakte_gerechtenType extends AbstractType
             ->add('datum')
             ->add('gerechten');
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -35,6 +35,4 @@ class Klaargemaakte_gerechtenType extends AbstractType
     {
         return 'project3_websitebundle_klaargemaakte_gerechten';
     }
-
-
 }
