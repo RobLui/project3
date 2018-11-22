@@ -1,11 +1,10 @@
 <?php
 
-
 namespace Project3\WebsiteBundle\Entity\Traits;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
+use Doctrine\ORM\Mapping as ORM;
 
 trait SluggableTrait
 {
@@ -16,37 +15,8 @@ trait SluggableTrait
      */
     protected $slug;
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return $this
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
     /** @ORM\PrePersist */
     public function prePersistSluggableTrait(LifecycleEventArgs $args)
-    {
-        $this->setSlug($this->slugify($this->getSlug() ?: (string)$this));
-    }
-
-    /** @ORM\PreUpdate */
-    public function preUpdateSluggableTrait(PreUpdateEventArgs $args)
     {
         $this->setSlug($this->slugify($this->getSlug() ?: (string)$this));
     }
@@ -75,4 +45,32 @@ trait SluggableTrait
         return $text;
     }
 
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /** @ORM\PreUpdate */
+    public function preUpdateSluggableTrait(PreUpdateEventArgs $args)
+    {
+        $this->setSlug($this->slugify($this->getSlug() ?: (string)$this));
+    }
 }

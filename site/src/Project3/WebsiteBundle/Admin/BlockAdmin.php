@@ -21,8 +21,7 @@ class BlockAdmin extends AbstractAdmin
             ->add('foto')
             ->add('tekst')
             ->add('sort')
-            ->add('actief')
-        ;
+            ->add('actief');
     }
 
     /**
@@ -44,8 +43,7 @@ class BlockAdmin extends AbstractAdmin
                     'edit' => array(),
                     'delete' => array(),
                 ),
-            ))
-        ;
+            ));
     }
 
     /**
@@ -59,8 +57,7 @@ class BlockAdmin extends AbstractAdmin
             ->add('foto')
             ->add('tekst')
             ->add('sort')
-            ->add('actief')
-        ;
+            ->add('actief');
     }
 
     /**
@@ -74,7 +71,6 @@ class BlockAdmin extends AbstractAdmin
             ->add('foto')
             ->add('tekst')
             ->add('sort')
-            ->add('actief')
-        ;
+            ->add('actief');
     }
 }

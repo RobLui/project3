@@ -19,8 +19,7 @@ class ReceptAdmin extends AbstractAdmin
             ->add('id')
             ->add('benodigdheden')
             ->add('naam')
-            ->add('actief')
-        ;
+            ->add('actief');
     }
 
     /**
@@ -39,8 +38,7 @@ class ReceptAdmin extends AbstractAdmin
                     'edit' => array(),
                     'delete' => array(),
                 ),
-            ))
-        ;
+            ));
     }
 
     /**
@@ -51,8 +49,7 @@ class ReceptAdmin extends AbstractAdmin
         $formMapper
             ->add('naam')
             ->add('benodigdheden')
-            ->add('actief')
-        ;
+            ->add('actief');
     }
 
     /**
@@ -63,7 +60,6 @@ class ReceptAdmin extends AbstractAdmin
         $showMapper
             ->add('naam')
             ->add('benodigdheden')
-            ->add('actief')
-        ;
+            ->add('actief');
     }
 }

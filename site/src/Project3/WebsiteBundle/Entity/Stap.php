@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Stap
 {
-
     /**
      * Many Stappen have One Gerecht.
      * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", inversedBy="stappen")
@@ -45,7 +44,7 @@ class Stap
 
     function __toString()
     {
-        return  "STAP ". (string)($this->stapnummer);
+        return "STAP " . (string)($this->stapnummer);
     }
 
     /**
@@ -56,6 +55,16 @@ class Stap
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get stapnummer
+     *
+     * @return int
+     */
+    public function getStapnummer()
+    {
+        return $this->stapnummer;
     }
 
     /**
@@ -73,13 +82,13 @@ class Stap
     }
 
     /**
-     * Get stapnummer
+     * Get tekst
      *
-     * @return int
+     * @return string
      */
-    public function getStapnummer()
+    public function getTekst()
     {
-        return $this->stapnummer;
+        return $this->tekst;
     }
 
     /**
@@ -94,16 +103,6 @@ class Stap
         $this->tekst = $tekst;
 
         return $this;
-    }
-
-    /**
-     * Get tekst
-     *
-     * @return string
-     */
-    public function getTekst()
-    {
-        return $this->tekst;
     }
 
     /**
@@ -131,6 +130,16 @@ class Stap
     }
 
     /**
+     * Get gerecht
+     *
+     * @return \Project3\WebsiteBundle\Entity\Gerecht
+     */
+    public function getGerecht()
+    {
+        return $this->gerecht;
+    }
+
+    /**
      * Set gerecht
      *
      * @param \Project3\WebsiteBundle\Entity\Gerecht $gerecht
@@ -142,15 +151,5 @@ class Stap
         $this->gerecht = $gerecht;
 
         return $this;
-    }
-
-    /**
-     * Get gerecht
-     *
-     * @return \Project3\WebsiteBundle\Entity\Gerecht
-     */
-    public function getGerecht()
-    {
-        return $this->gerecht;
     }
 }

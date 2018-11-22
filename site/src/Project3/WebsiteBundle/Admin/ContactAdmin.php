@@ -18,8 +18,7 @@ class ContactAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('usercontact')
-            ->add('email')
-        ;
+            ->add('email');
     }
 
     /**
@@ -37,8 +36,7 @@ class ContactAdmin extends AbstractAdmin
                     'edit' => array(),
                     'delete' => array(),
                 ),
-            ))
-        ;
+            ));
     }
 
     /**
@@ -48,8 +46,7 @@ class ContactAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('usercontact')
-            ->add('email')
-        ;
+            ->add('email');
     }
 
     /**
@@ -60,7 +57,6 @@ class ContactAdmin extends AbstractAdmin
         $showMapper
             ->add('id')
             ->add('usercontact')
-            ->add('email')
-        ;
+            ->add('email');
     }
 }

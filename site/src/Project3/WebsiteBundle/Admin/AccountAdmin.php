@@ -18,8 +18,7 @@ class AccountAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('gebruikersnaam')
-            ->add('email')
-        ;
+            ->add('email');
     }
 
     /**
@@ -37,8 +36,7 @@ class AccountAdmin extends AbstractAdmin
                     'edit' => array(),
                     'delete' => array(),
                 ),
-            ))
-        ;
+            ));
     }
 
     /**
@@ -47,10 +45,8 @@ class AccountAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-//            ->add('id')
             ->add('gebruikersnaam')
-            ->add('email')
-        ;
+            ->add('email');
     }
 
     /**
@@ -59,9 +55,7 @@ class AccountAdmin extends AbstractAdmin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-//            ->add('id')
             ->add('gebruikersnaam')
-            ->add('email')
-        ;
+            ->add('email');
     }
 }

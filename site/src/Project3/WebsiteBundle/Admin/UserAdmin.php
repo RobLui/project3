@@ -2,7 +2,6 @@
 
 namespace Project3\WebsiteBundle\Admin;
 
-use FOS\UserBundle\Form\Type\GroupFormType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -29,10 +28,7 @@ class UserAdmin extends AbstractAdmin
             ->add('lastLogin')
             ->add('confirmationToken')
             ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('id')
-//            ->add('contacts')
-        ;
+            ->add('roles');
     }
 
     /**
@@ -44,7 +40,6 @@ class UserAdmin extends AbstractAdmin
             ->add('id')
             ->add('username')
             ->add('email')
-//            ->add('contacts')
             ->add('enabled', null, array(
                 "editable" => true,
             ))
@@ -67,36 +62,34 @@ class UserAdmin extends AbstractAdmin
     {
         $formMapper
             ->tab('Account')
-                ->with('Overzicht')
-                    ->add('username')
-                    ->add('email')
-//                    ->add('contacts')
-                    ->add('plainPassword', RepeatedType::class, array(
-                        "required" => false,
-                        "type" => PasswordType::class,
-                        'first_options' => array('label' => 'Password'),
-                        'second_options' => array('label' => 'Repeat Password'),
-                    ))
-                    ->add('enabled')
-//                    ->add('shoppinglists')
-                ->end()
+            ->with('Overzicht')
+            ->add('username')
+            ->add('email')
+            ->add('plainPassword', RepeatedType::class, array(
+                "required" => false,
+                "type" => PasswordType::class,
+                'first_options' => array('label' => 'Password'),
+                'second_options' => array('label' => 'Repeat Password'),
+            ))
+            ->add('enabled')
+            ->end()
             ->end()
             ->tab('roles')
-                ->with('roles')
-                    ->add('roles', "choice", array(
-                        "multiple" => true,
-                        "expanded" => true,
-                        "choices" => array(
-                            "ROLE_ADMIN" => "ROLE_ADMIN",
-                            "ROLE_USER" => "ROLE_USER",
-                        ),
-                    ))
-                ->end()
+            ->with('roles')
+            ->add('roles', "choice", array(
+                "multiple" => true,
+                "expanded" => true,
+                "choices" => array(
+                    "ROLE_ADMIN" => "ROLE_ADMIN",
+                    "ROLE_USER" => "ROLE_USER",
+                ),
+            ))
+            ->end()
             ->end()
             ->tab('groups')
-                ->with('groups')
-                    ->add('groups')
-                ->end()
+            ->with('groups')
+            ->add('groups')
+            ->end()
             ->end();
     }
 
@@ -117,7 +110,6 @@ class UserAdmin extends AbstractAdmin
             ->add('confirmationToken')
             ->add('passwordRequestedAt')
             ->add('roles')
-//            ->add('contacts')
             ->add('id');
     }
 }

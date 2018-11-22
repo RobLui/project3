@@ -12,15 +12,67 @@ use Symfony\Component\HttpFoundation\Request;
 
 class GerechtController extends Controller
 {
-
     // TOON ALLE GERECHTEN
+    public function detailAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $klaargemaakt_gerecht = new Klaargemaakte_gerechten();
+        $form = $this->createForm('Project3\WebsiteBundle\Form\Klaargemaakte_gerechtenType', $klaargemaakt_gerecht);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($klaargemaakt_gerecht);
+            $em->flush();
+
+            $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'Dit gerecht werd toegevoegd aan je klaargemaakte gerechten!');
+        }
+
+        $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
+            ->findOneBy(
+                array(
+                    "id" => $id,
+                    'actief' => true
+                ), null, null, null);
+
+        return $this->render('Project3WebsiteBundle:Gerechten:detail.html.twig',
+            array(
+                'gerecht' => $gerecht,
+                'form' => $form->createView(),
+            ));
+    }
+
+    // TOON DETAIL GERECHT && TOEVOEGEN AAN KLAARGEMAAKTE GERECHTEN
+
+    public function queryAction(Request $req)
+    {
+        $searchingput = $req->get('searchinput');
+        if (!preg_match('#(?<=<)\w+(?=[^<]*?>)#', $searchingput)) {
+            $gerechten = [];
+        } else {
+            $gerechten = [];
+        }
+        $ingredienten = $searchingput;
+
+        $em = $this->getDoctrine()->getManager();
+
+        $categories = $em->getRepository('Project3WebsiteBundle:Categorie')
+            ->findAll();
+
+        return $this->overzichtAction();
+    }
+
+    // TOON ALLE GERECHTEN OP BASIS VAN DE QUERY
+
     public function overzichtAction()
     {
         $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository('Project3WebsiteBundle:Categorie')
-            ->findAll();
-            ;
+            ->findAll();;
         $gerechten = $em->getRepository('Project3WebsiteBundle:Gerecht')
             ->findBy(
                 array(),
@@ -36,64 +88,8 @@ class GerechtController extends Controller
             ));
     }
 
-    // TOON DETAIL GERECHT && TOEVOEGEN AAN KLAARGEMAAKTE GERECHTEN
-    public function detailAction(Request $request,$id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $klaargemaakt_gerecht = new Klaargemaakte_gerechten();
-        $form = $this->createForm('Project3\WebsiteBundle\Form\Klaargemaakte_gerechtenType', $klaargemaakt_gerecht);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($klaargemaakt_gerecht);
-            $em->flush();
-
-            $request->getSession()
-                ->getFlashBag()
-                ->add('success', 'Dit gerecht werd toegevoegd aan je klaargemaakte gerechten!')
-            ;
-        }
-
-        $gerecht = $em->getRepository('Project3WebsiteBundle:Gerecht')
-            ->findOneBy(
-                array(
-                    "id" => $id,
-                    'actief' => true
-                ), null,null,null );
-
-        return $this->render('Project3WebsiteBundle:Gerechten:detail.html.twig',
-            array(
-                'gerecht' => $gerecht,
-                'form' => $form->createView(),
-            ));
-    }
-
-    // TOON ALLE GERECHTEN OP BASIS VAN DE QUERY
-    public function queryAction(Request $req)
-    {
-//        $finder = $this->container->get('fos_elastica.finder.src.gerecht');
-
-        $searchingput = $req->get('searchinput');
-        if(!preg_match('#(?<=<)\w+(?=[^<]*?>)#', $searchingput)) {
-            $gerechten = [];
-        }
-        else {
-            $gerechten = [];
-        }
-        $ingredienten = $searchingput;
-
-        $em = $this->getDoctrine()->getManager();
-
-        $categories = $em->getRepository('Project3WebsiteBundle:Categorie')
-            ->findAll()
-        ;
-
-        return $this->overzichtAction();
-    }
-
     // VERSTUUR GERECHT IN MAIL
+
     public function mailAction(Request $req, $id)
     {
         $account = $this->getDoctrine()->getRepository(Account::class);
@@ -104,15 +100,14 @@ class GerechtController extends Controller
                 array(
                     "id" => $id,
                     'actief' => true
-                ), null,null,null );
+                ), null, null, null);
 
         $user = $this->get('security.context')->getToken()->getUser();
         $accountname = $user->getEmail();
 
         $transport = (new Swift_SmtpTransport('smtp.mailgun.org', 587))
             ->setUsername('postmaster@sandboxf055f8120319424b9fa2aa3e52cb83c1.mailgun.org')
-            ->setPassword('aea6703953c7416cda54cbcdd3a731f3')
-        ;
+            ->setPassword('aea6703953c7416cda54cbcdd3a731f3');
 
         $mailer = new Swift_Mailer($transport);
 
@@ -128,17 +123,14 @@ class GerechtController extends Controller
                         'gerecht' => $gerecht,
                     )
                 )
-            )
-        ;
+            );
 
         $result = $mailer->send($message);
 
-        if ($result)
-        {
+        if ($result) {
             $req->getSession()
                 ->getFlashBag()
-                ->add('success', 'Het gerecht werd naar je e-mail verstuurd!')
-            ;
+                ->add('success', 'Het gerecht werd naar je e-mail verstuurd!');
         }
 
         $referer = $req->headers->get('referer');

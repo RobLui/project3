@@ -34,17 +34,17 @@ class Categorie
      */
     private $naam;
 
-    function __toString()
-    {
-        return (string)($this->naam);
-    }
-
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->gerechten = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    function __toString()
+    {
+        return (string)($this->naam);
     }
 
     /**
@@ -57,6 +57,15 @@ class Categorie
         return $this->id;
     }
 
+    /**
+     * Get naam
+     *
+     * @return string
+     */
+    public function getNaam()
+    {
+        return $this->naam;
+    }
 
     /**
      * Set naam
@@ -70,16 +79,6 @@ class Categorie
         $this->naam = $naam;
 
         return $this;
-    }
-
-    /**
-     * Get naam
-     *
-     * @return string
-     */
-    public function getNaam()
-    {
-        return $this->naam;
     }
 
     /**

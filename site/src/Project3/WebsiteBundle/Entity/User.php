@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Project3\WebsiteBundle\Entity;
 
-
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * @ORM\Entity
@@ -13,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
-
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -38,15 +35,15 @@ class User extends BaseUser
         $this->roles = array("ROLE_USER" => "ROLE_USER");
     }
 
+    public function isAdmin()
+    {
+        return in_array("ROLE_ADMIN", $this->getRoles());
+    }
+
     public function getRoles()
     {
         $roles = parent::getRoles();
         return array_combine($roles, $roles);
-    }
-
-    public function isAdmin()
-    {
-        return in_array("ROLE_ADMIN", $this->getRoles());
     }
 
 }

@@ -18,8 +18,7 @@ class StapAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('stapnummer')
-            ->add('tekst')
-        ;
+            ->add('tekst');
     }
 
     /**
@@ -37,8 +36,7 @@ class StapAdmin extends AbstractAdmin
                     'edit' => array(),
                     'delete' => array(),
                 ),
-            ))
-        ;
+            ));
     }
 
     /**
@@ -48,8 +46,7 @@ class StapAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('stapnummer')
-            ->add('tekst')
-        ;
+            ->add('tekst');
     }
 
     /**
@@ -59,7 +56,6 @@ class StapAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('stapnummer')
-            ->add('tekst')
-        ;
+            ->add('tekst');
     }
 }

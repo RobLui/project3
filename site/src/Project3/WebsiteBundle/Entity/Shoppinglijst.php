@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Shoppinglijst
 {
-
     /**
      * @var int
      *
@@ -67,6 +66,16 @@ class Shoppinglijst
     }
 
     /**
+     * Get datumAangemaakt
+     *
+     * @return \DateTime
+     */
+    public function getDatumAangemaakt()
+    {
+        return $this->datumAangemaakt;
+    }
+
+    /**
      * Set datumAangemaakt
      *
      * @param \DateTime $datumAangemaakt
@@ -81,13 +90,13 @@ class Shoppinglijst
     }
 
     /**
-     * Get datumAangemaakt
+     * Get actief
      *
-     * @return \DateTime
+     * @return bool
      */
-    public function getDatumAangemaakt()
+    public function getActief()
     {
-        return $this->datumAangemaakt;
+        return $this->actief;
     }
 
     /**
@@ -105,13 +114,13 @@ class Shoppinglijst
     }
 
     /**
-     * Get actief
+     * Get naamGerecht
      *
-     * @return bool
+     * @return string
      */
-    public function getActief()
+    public function getNaamGerecht()
     {
-        return $this->actief;
+        return $this->naamGerecht;
     }
 
     /**
@@ -129,13 +138,13 @@ class Shoppinglijst
     }
 
     /**
-     * Get naamGerecht
+     * Get ingredientitems
      *
      * @return string
      */
-    public function getNaamGerecht()
+    public function getIngredientitems()
     {
-        return $this->naamGerecht;
+        return $this->ingredientitems;
     }
 
     /**
@@ -150,15 +159,5 @@ class Shoppinglijst
         $this->ingredientitems = $ingredientitems;
 
         return $this;
-    }
-
-    /**
-     * Get ingredientitems
-     *
-     * @return string
-     */
-    public function getIngredientitems()
-    {
-        return $this->ingredientitems;
     }
 }

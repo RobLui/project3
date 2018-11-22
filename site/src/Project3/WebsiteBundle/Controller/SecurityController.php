@@ -4,7 +4,6 @@ namespace Project3\WebsiteBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends Controller
 {
@@ -17,7 +16,7 @@ class SecurityController extends Controller
         $lastUsername = $authenticationUtils->getLastUsername();
 
         if ($error) {
-            $error = ["message" => "Helaas zijn de juiste gegevens niet ingegeven, probeer opnieuw"];
+            $error = array("message" => "Helaas zijn de juiste gegevens niet ingegeven, probeer opnieuw");
         }
         return $this->render('@Project3Website/Security/login.html.twig', array(
             'last_username' => $lastUsername,

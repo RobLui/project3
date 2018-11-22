@@ -41,7 +41,6 @@ class Account
         return (string)$this->gebruikersnaam;
     }
 
-
     /**
      * Get id
      *
@@ -50,6 +49,16 @@ class Account
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get gebruikersnaam
+     *
+     * @return string
+     */
+    public function getGebruikersnaam()
+    {
+        return $this->gebruikersnaam;
     }
 
     /**
@@ -67,15 +76,14 @@ class Account
     }
 
     /**
-     * Get gebruikersnaam
+     * Get email
      *
      * @return string
      */
-    public function getGebruikersnaam()
+    public function getEmail()
     {
-        return $this->gebruikersnaam;
+        return $this->email;
     }
-
 
     /**
      * Set email
@@ -89,16 +97,6 @@ class Account
         $this->email = $email;
 
         return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 }
 

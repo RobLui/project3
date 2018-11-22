@@ -13,7 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Ingredient
 {
-
     /**
      * Many Ingredienten have Many Gerechten.
      * @ORM\ManyToMany(targetEntity="Project3\WebsiteBundle\Entity\Gerecht", mappedBy="ingredienten")
@@ -43,13 +42,14 @@ class Ingredient
      */
     private $prijsDelhaize;
 
+    public function __construct()
+    {
+        $this->ingredienten = new ArrayCollection();
+    }
+
     function __toString()
     {
         return (string)($this->naam);
-    }
-
-    public function __construct() {
-        $this->ingredienten = new ArrayCollection();
     }
 
     /**
@@ -60,6 +60,16 @@ class Ingredient
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get naam
+     *
+     * @return string
+     */
+    public function getNaam()
+    {
+        return $this->naam;
     }
 
     /**
@@ -74,16 +84,6 @@ class Ingredient
         $this->naam = $naam;
 
         return $this;
-    }
-
-    /**
-     * Get naam
-     *
-     * @return string
-     */
-    public function getNaam()
-    {
-        return $this->naam;
     }
 
     /**
@@ -121,6 +121,16 @@ class Ingredient
     }
 
     /**
+     * Get prijsDelhaize
+     *
+     * @return float
+     */
+    public function getPrijsDelhaize()
+    {
+        return $this->prijsDelhaize;
+    }
+
+    /**
      * Set prijsDelhaize
      *
      * @param float $prijsDelhaize
@@ -132,15 +142,5 @@ class Ingredient
         $this->prijsDelhaize = $prijsDelhaize;
 
         return $this;
-    }
-
-    /**
-     * Get prijsDelhaize
-     *
-     * @return float
-     */
-    public function getPrijsDelhaize()
-    {
-        return $this->prijsDelhaize;
     }
 }

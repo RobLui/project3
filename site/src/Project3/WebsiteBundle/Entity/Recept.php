@@ -13,7 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Recept
 {
-
     /**
      * @var int
      *
@@ -44,7 +43,8 @@ class Recept
      */
     private $actief;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->stappen = new ArrayCollection();
     }
 
@@ -64,6 +64,16 @@ class Recept
     }
 
     /**
+     * Get benodigdheden
+     *
+     * @return string
+     */
+    public function getBenodigdheden()
+    {
+        return $this->benodigdheden;
+    }
+
+    /**
      * Set benodigdheden
      *
      * @param string $benodigdheden
@@ -78,13 +88,13 @@ class Recept
     }
 
     /**
-     * Get benodigdheden
+     * Get actief
      *
-     * @return string
+     * @return bool
      */
-    public function getBenodigdheden()
+    public function getActief()
     {
-        return $this->benodigdheden;
+        return $this->actief;
     }
 
     /**
@@ -99,16 +109,6 @@ class Recept
         $this->actief = $actief;
 
         return $this;
-    }
-
-    /**
-     * Get actief
-     *
-     * @return bool
-     */
-    public function getActief()
-    {
-        return $this->actief;
     }
 
     /**
@@ -146,6 +146,16 @@ class Recept
     }
 
     /**
+     * Get naam
+     *
+     * @return string
+     */
+    public function getNaam()
+    {
+        return $this->naam;
+    }
+
+    /**
      * Set naam
      *
      * @param string $naam
@@ -157,15 +167,5 @@ class Recept
         $this->naam = $naam;
 
         return $this;
-    }
-
-    /**
-     * Get naam
-     *
-     * @return string
-     */
-    public function getNaam()
-    {
-        return $this->naam;
     }
 }

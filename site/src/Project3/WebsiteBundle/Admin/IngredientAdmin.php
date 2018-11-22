@@ -18,8 +18,7 @@ class IngredientAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('naam')
-            ->add('prijsDelhaize')
-        ;
+            ->add('prijsDelhaize');
     }
 
     /**
@@ -38,8 +37,7 @@ class IngredientAdmin extends AbstractAdmin
                     'edit' => array(),
                     'delete' => array(),
                 ),
-            ))
-        ;
+            ));
     }
 
     /**
@@ -49,8 +47,7 @@ class IngredientAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('naam')
-            ->add('prijsDelhaize')
-        ;
+            ->add('prijsDelhaize');
     }
 
     /**
@@ -61,7 +58,6 @@ class IngredientAdmin extends AbstractAdmin
         $showMapper
             ->add('naam')
             ->add('prijsDelhaize')
-            ->add('gerechten')
-        ;
+            ->add('gerechten');
     }
 }

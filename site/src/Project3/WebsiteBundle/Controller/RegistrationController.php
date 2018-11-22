@@ -5,7 +5,6 @@ namespace Project3\WebsiteBundle\Controller;
 use Project3\WebsiteBundle\Entity\User;
 use Project3\WebsiteBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends Controller
@@ -22,7 +21,7 @@ class RegistrationController extends Controller
             $password = $encoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
 
-            $user->setRoles(["ROLE_USER" => "ROLE_USER"]);
+            $user->setRoles(array("ROLE_USER" => "ROLE_USER"));
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
@@ -31,9 +30,9 @@ class RegistrationController extends Controller
             return $this->redirectToRoute('project3_security_login');
         }
 
-        return $this->render('@Project3Website/Security/register.html.twig', [
+        return $this->render('@Project3Website/Security/register.html.twig', array(
             'form' => $form->createView(),
-        ]);
+        ));
     }
 }
 

@@ -10,6 +10,23 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class PaginaAdmin extends AbstractAdmin
 {
+    public function prePersist($object)
+    {
+        parent::prePersist($object);
+        foreach ($object->getBlokken() as $blokken) {
+            $blokken->setPagina($object);
+        }
+    }
+
+    public function preUpdate($object)
+    {
+        /* @var \Project3\WebsiteBundle\Entity\Pagina $object */
+        parent::preUpdate($object);
+        foreach ($object->getBlokken() as $blokken) {
+            $blokken->setPagina($object);
+        }
+    }
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -24,8 +41,7 @@ class PaginaAdmin extends AbstractAdmin
             ->add('seoTrefwoorden')
             ->add('seoAfbeelding')
             ->add('seoRobots')
-            ->add('actief')
-        ;
+            ->add('actief');
     }
 
     /**
@@ -47,8 +63,7 @@ class PaginaAdmin extends AbstractAdmin
                 'actions' => array(
                     'edit' => array(),
                 ),
-            ))
-        ;
+            ));
     }
 
     /**
@@ -58,29 +73,28 @@ class PaginaAdmin extends AbstractAdmin
     {
         $formMapper
             ->tab('Pagina')
-                ->with("Pagina")
-                    ->add('url')
-                    ->add('naam')
-                    ->add('seoTitel')
-                    ->add('seoOmschrijving')
-                    ->add('seoTrefwoorden')
-                    ->add('seoAfbeelding')
-                    ->add('seoRobots')
-                    ->add('actief')
-                ->end()
+            ->with("Pagina")
+            ->add('url')
+            ->add('naam')
+            ->add('seoTitel')
+            ->add('seoOmschrijving')
+            ->add('seoTrefwoorden')
+            ->add('seoAfbeelding')
+            ->add('seoRobots')
+            ->add('actief')
+            ->end()
             ->end()
             ->tab('Blokken')
-                ->with('Overzicht')
-                ->add('blokken', 'sonata_type_collection', array(
-                    'type_options' => array()
-                ), array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'sortable' => 'sort',
-                ))
-                ->end()
+            ->with('Overzicht')
+            ->add('blokken', 'sonata_type_collection', array(
+                'type_options' => array()
+            ), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable' => 'sort',
+            ))
             ->end()
-        ;
+            ->end();
     }
 
     /**
@@ -97,24 +111,6 @@ class PaginaAdmin extends AbstractAdmin
             ->add('seoTrefwoorden')
             ->add('seoAfbeelding')
             ->add('seoRobots')
-            ->add('actief')
-        ;
-    }
-
-    public function prePersist($object)
-    {
-        parent::prePersist($object);
-        foreach ($object->getBlokken() as $blokken) {
-            $blokken->setPagina($object);
-        }
-    }
-
-    public function preUpdate($object)
-    {
-        /* @var \Project3\WebsiteBundle\Entity\Pagina $object */
-        parent::preUpdate($object);
-        foreach ($object->getBlokken() as $blokken) {
-            $blokken->setPagina($object);
-        }
+            ->add('actief');
     }
 }

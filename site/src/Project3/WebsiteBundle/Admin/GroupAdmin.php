@@ -18,8 +18,7 @@ class GroupAdmin extends AbstractAdmin
         $datagridMapper
             ->add('name')
             ->add('roles')
-            ->add('id')
-        ;
+            ->add('id');
     }
 
     /**
@@ -36,8 +35,7 @@ class GroupAdmin extends AbstractAdmin
                     'edit' => array(),
                     'delete' => array(),
                 ),
-            ))
-        ;
+            ));
     }
 
     /**
@@ -47,8 +45,7 @@ class GroupAdmin extends AbstractAdmin
     {
         $formMapper
             ->add('name')
-            ->add('slug')
-        ;
+            ->add('slug');
     }
 
     /**
@@ -59,7 +56,6 @@ class GroupAdmin extends AbstractAdmin
         $showMapper
             ->add('name')
             ->add('roles')
-            ->add('id')
-        ;
+            ->add('id');
     }
 }

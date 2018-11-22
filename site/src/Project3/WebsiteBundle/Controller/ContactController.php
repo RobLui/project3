@@ -4,18 +4,16 @@ namespace Project3\WebsiteBundle\Controller;
 
 use Project3\WebsiteBundle\Entity\Contact;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 class ContactController extends Controller
 {
-
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
         $contacts = $em->getRepository('Project3WebsiteBundle:Contact')->findAll();
-        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig',array(
+        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig', array(
             "contacts" => $contacts,
         ));
     }
@@ -33,8 +31,7 @@ class ContactController extends Controller
 
             $request->getSession()
                 ->getFlashBag()
-                ->add('success', 'E-mail werd succesvol toegevoegd!')
-            ;
+                ->add('success', 'E-mail werd succesvol toegevoegd!');
             return $this->redirectToRoute('project3_account_instellingen');
         }
 
@@ -54,6 +51,19 @@ class ContactController extends Controller
         ));
     }
 
+    /**
+     * @param Contact $contact The contact entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Contact $contact)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('project3_contact_delete', array('id' => $contact->getId())))
+            ->setMethod('DELETE')
+            ->getForm();
+    }
+
     public function editAction(Request $request, Contact $contact)
     {
         $deleteForm = $this->createDeleteForm($contact);
@@ -65,8 +75,7 @@ class ContactController extends Controller
 
             $request->getSession()
                 ->getFlashBag()
-                ->add('success', 'E-mail werd succesvol aangepast!')
-            ;
+                ->add('success', 'E-mail werd succesvol aangepast!');
 
             return $this->redirectToRoute('project3_account_instellingen');
         }
@@ -90,25 +99,10 @@ class ContactController extends Controller
 
             $request->getSession()
                 ->getFlashBag()
-                ->add('success', 'E-mail werd succesvol verwijderd!')
-            ;
+                ->add('success', 'E-mail werd succesvol verwijderd!');
         }
 
         return $this->redirectToRoute('project3_account_instellingen');
-    }
-
-    /**
-     * @param Contact $contact The contact entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Contact $contact)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('project3_contact_delete', array('id' => $contact->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-            ;
     }
 
 }

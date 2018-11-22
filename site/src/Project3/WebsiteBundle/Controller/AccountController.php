@@ -2,39 +2,39 @@
 
 namespace Project3\WebsiteBundle\Controller;
 
-use Project3\WebsiteBundle\Entity\Contact;
 use Project3\WebsiteBundle\Entity\Klaargemaakte_gerechten;
-use Project3\WebsiteBundle\Repository\Klaargemaakte_gerechtenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class AccountController extends Controller
 {
     // INSTELLINGEN
-    public function instellingenAction() {
+    public function instellingenAction()
+    {
         $em = $this->getDoctrine()->getManager();
 
         $contacts = $em->getRepository('Project3WebsiteBundle:Contact')->findAll();
-        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig',array(
+        return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig', array(
             "contacts" => $contacts,
         ));
     }
 
     // SHOPPINGLIJSTJES
-    public function shoppingLijstjesAction() {
+    public function shoppingLijstjesAction()
+    {
         return $this->render('Project3WebsiteBundle:Account:shoppinglijstjes.html.twig');
     }
 
     // KLAARGEMAAKTE GERECHTEN
-    public function klaargemaakteGerechtenAction(Request $request) {
+    public function klaargemaakteGerechtenAction(Request $request)
+    {
         $em = $this->getDoctrine()->getManager();
-        $alle_klaargem_gerechten =  $em
+        $alle_klaargem_gerechten = $em
             ->getRepository('Project3WebsiteBundle:Klaargemaakte_gerechten')
             ->findBy(
                 array(),
                 array('datum' => 'DESC')
-                )
-                ;
+            );
 
         $klaargemaakt_gerecht = new Klaargemaakte_gerechten();
         $form = $this->createForm('Project3\WebsiteBundle\Form\Klaargemaakte_gerechtenType', $klaargemaakt_gerecht);
@@ -53,9 +53,9 @@ class AccountController extends Controller
 
         return $this->render('Project3WebsiteBundle:Account:klaargemaakte-gerechten.html.twig',
             array(
-            'gerechten' => $alle_klaargem_gerechten,
-            'form' => $form->createView(),
-        ));
+                'gerechten' => $alle_klaargem_gerechten,
+                'form' => $form->createView(),
+            ));
     }
 
 }

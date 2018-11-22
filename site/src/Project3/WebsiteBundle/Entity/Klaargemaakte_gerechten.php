@@ -39,12 +39,11 @@ class Klaargemaakte_gerechten
      */
     private $gerechten;
 
-
-    public function __construct() {
+    public function __construct()
+    {
         $this->datum = new \DateTime('now');
         $this->gerechten = new ArrayCollection();
     }
-
 
     /**
      * Get id
@@ -54,6 +53,16 @@ class Klaargemaakte_gerechten
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get datum
+     *
+     * @return \DateTime
+     */
+    public function getDatum()
+    {
+        return $this->datum;
     }
 
     /**
@@ -68,16 +77,6 @@ class Klaargemaakte_gerechten
         $this->datum = $datum;
 
         return $this;
-    }
-
-    /**
-     * Get datum
-     *
-     * @return \DateTime
-     */
-    public function getDatum()
-    {
-        return $this->datum;
     }
 
     /**

@@ -39,6 +39,16 @@ class Contact
     }
 
     /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
      * Set email
      *
      * @param string $email
@@ -52,18 +62,7 @@ class Contact
         return $this;
     }
 
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-
-    public function  __toString()
+    public function __toString()
     {
         return (string)$this->email;
     }

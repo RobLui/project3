@@ -105,6 +105,15 @@ class Gerecht
      */
     private $bereidingstijd;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->stappen = new ArrayCollection();
+        $this->ingredienten = new ArrayCollection();
+    }
+
     public function getNameSuggest()
     {
         return array(
@@ -116,28 +125,14 @@ class Gerecht
         );
     }
 
-    function __toString()
-    {
-        return (string)($this->naam);
-    }
-
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->stappen = new ArrayCollection();
-        $this->ingredienten = new ArrayCollection();
-    }
-
-    /**
-     * Get id
+     * Get naam
      *
-     * @return integer
+     * @return string
      */
-    public function getId()
+    public function getNaam()
     {
-        return $this->id;
+        return $this->naam;
     }
 
     /**
@@ -155,15 +150,29 @@ class Gerecht
     }
 
     /**
-     * Get naam
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    function __toString()
+    {
+        return (string)($this->naam);
+    }
+
+    /**
+     * Get beschrijving
      *
      * @return string
      */
-    public function getNaam()
+    public function getBeschrijving()
     {
-        return $this->naam;
+        return $this->beschrijving;
     }
-
 
     /**
      * Set beschrijving
@@ -180,13 +189,13 @@ class Gerecht
     }
 
     /**
-     * Get beschrijving
+     * Get rating
      *
-     * @return string
+     * @return integer
      */
-    public function getBeschrijving()
+    public function getRating()
     {
-        return $this->beschrijving;
+        return $this->rating;
     }
 
     /**
@@ -204,13 +213,13 @@ class Gerecht
     }
 
     /**
-     * Get rating
+     * Get actief
      *
-     * @return integer
+     * @return boolean
      */
-    public function getRating()
+    public function getActief()
     {
-        return $this->rating;
+        return $this->actief;
     }
 
     /**
@@ -228,13 +237,13 @@ class Gerecht
     }
 
     /**
-     * Get actief
+     * Get benodigdheden
      *
-     * @return boolean
+     * @return string
      */
-    public function getActief()
+    public function getBenodigdheden()
     {
-        return $this->actief;
+        return $this->benodigdheden;
     }
 
     /**
@@ -252,13 +261,13 @@ class Gerecht
     }
 
     /**
-     * Get benodigdheden
+     * Get categorie
      *
-     * @return string
+     * @return \Project3\WebsiteBundle\Entity\Categorie
      */
-    public function getBenodigdheden()
+    public function getCategorie()
     {
-        return $this->benodigdheden;
+        return $this->categorie;
     }
 
     /**
@@ -273,16 +282,6 @@ class Gerecht
         $this->categorie = $categorie;
 
         return $this;
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return \Project3\WebsiteBundle\Entity\Categorie
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
     }
 
     /**
@@ -354,6 +353,16 @@ class Gerecht
     }
 
     /**
+     * Get bereidingstijd
+     *
+     * @return integer
+     */
+    public function getBereidingstijd()
+    {
+        return $this->bereidingstijd;
+    }
+
+    /**
      * Set bereidingstijd
      *
      * @param integer $bereidingstijd
@@ -368,13 +377,13 @@ class Gerecht
     }
 
     /**
-     * Get bereidingstijd
+     * Get fotoVierkant
      *
-     * @return integer
+     * @return string
      */
-    public function getBereidingstijd()
+    public function getFotoVierkant()
     {
-        return $this->bereidingstijd;
+        return $this->foto_vierkant;
     }
 
     /**
@@ -392,13 +401,13 @@ class Gerecht
     }
 
     /**
-     * Get fotoVierkant
+     * Get fotoRechthoek
      *
      * @return string
      */
-    public function getFotoVierkant()
+    public function getFotoRechthoek()
     {
-        return $this->foto_vierkant;
+        return $this->foto_rechthoek;
     }
 
     /**
@@ -416,13 +425,13 @@ class Gerecht
     }
 
     /**
-     * Get fotoRechthoek
+     * Get foto
      *
      * @return string
      */
-    public function getFotoRechthoek()
+    public function getFoto()
     {
-        return $this->foto_rechthoek;
+        return $this->foto;
     }
 
     /**
@@ -437,15 +446,5 @@ class Gerecht
         $this->foto = $foto;
 
         return $this;
-    }
-
-    /**
-     * Get foto
-     *
-     * @return string
-     */
-    public function getFoto()
-    {
-        return $this->foto;
     }
 }

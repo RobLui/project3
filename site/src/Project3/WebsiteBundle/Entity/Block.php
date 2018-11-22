@@ -12,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Block
 {
-
     /**
      * Many Blokken have One Pagina.
      * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Pagina", inversedBy="blokken")
@@ -51,7 +50,7 @@ class Block
     private $tekst;
 
     /**
-     * @var sort
+     * @var integer
      *
      * @ORM\Column(name="sort", type="integer", nullable=true)
      */
@@ -80,6 +79,16 @@ class Block
     }
 
     /**
+     * Get titel
+     *
+     * @return string
+     */
+    public function getTitel()
+    {
+        return $this->titel;
+    }
+
+    /**
      * Set titel
      *
      * @param string $titel
@@ -94,13 +103,13 @@ class Block
     }
 
     /**
-     * Get titel
+     * Get tekst
      *
      * @return string
      */
-    public function getTitel()
+    public function getTekst()
     {
-        return $this->titel;
+        return $this->tekst;
     }
 
     /**
@@ -118,13 +127,13 @@ class Block
     }
 
     /**
-     * Get tekst
+     * Get actief
      *
-     * @return string
+     * @return bool
      */
-    public function getTekst()
+    public function getActief()
     {
-        return $this->tekst;
+        return $this->actief;
     }
 
     /**
@@ -142,13 +151,13 @@ class Block
     }
 
     /**
-     * Get actief
+     * Get foto
      *
-     * @return bool
+     * @return string
      */
-    public function getActief()
+    public function getFoto()
     {
-        return $this->actief;
+        return $this->foto;
     }
 
     /**
@@ -166,13 +175,13 @@ class Block
     }
 
     /**
-     * Get foto
+     * Get sort
      *
-     * @return string
+     * @return integer
      */
-    public function getFoto()
+    public function getSort()
     {
-        return $this->foto;
+        return $this->sort;
     }
 
     /**
@@ -190,13 +199,13 @@ class Block
     }
 
     /**
-     * Get sort
+     * Get pagina
      *
-     * @return integer
+     * @return \Project3\WebsiteBundle\Entity\Pagina
      */
-    public function getSort()
+    public function getPagina()
     {
-        return $this->sort;
+        return $this->pagina;
     }
 
     /**
@@ -211,15 +220,5 @@ class Block
         $this->pagina = $pagina;
 
         return $this;
-    }
-
-    /**
-     * Get pagina
-     *
-     * @return \Project3\WebsiteBundle\Entity\Pagina
-     */
-    public function getPagina()
-    {
-        return $this->pagina;
     }
 }

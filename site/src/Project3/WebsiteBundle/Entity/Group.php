@@ -3,8 +3,8 @@
 
 namespace Project3\WebsiteBundle\Entity;
 
-use FOS\UserBundle\Model\Group as BaseGroup;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\Group as BaseGroup;
 use Project3\WebsiteBundle\Entity\Traits\SluggableTrait;
 
 /**
@@ -14,7 +14,6 @@ use Project3\WebsiteBundle\Entity\Traits\SluggableTrait;
  */
 class Group extends BaseGroup
 {
-
     use SluggableTrait;
 
     /**

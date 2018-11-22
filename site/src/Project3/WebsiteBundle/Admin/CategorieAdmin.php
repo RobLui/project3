@@ -17,8 +17,7 @@ class CategorieAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('id')
-            ->add('naam')
-        ;
+            ->add('naam');
     }
 
     /**
@@ -35,8 +34,7 @@ class CategorieAdmin extends AbstractAdmin
                     'edit' => array(),
                     'delete' => array(),
                 ),
-            ))
-        ;
+            ));
     }
 
     /**
@@ -45,8 +43,7 @@ class CategorieAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('naam')
-        ;
+            ->add('naam');
     }
 
     /**
@@ -56,7 +53,6 @@ class CategorieAdmin extends AbstractAdmin
     {
         $showMapper
             ->add('id')
-            ->add('naam')
-        ;
+            ->add('naam');
     }
 }

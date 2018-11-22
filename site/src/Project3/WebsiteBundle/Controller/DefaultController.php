@@ -4,7 +4,6 @@ namespace Project3\WebsiteBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
@@ -12,6 +11,7 @@ class DefaultController extends Controller
     {
         return $this->render('Project3WebsiteBundle:Default:index.html.twig');
     }
+
     public function contactAction()
     {
         return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig');

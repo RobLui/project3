@@ -85,6 +85,14 @@ class Pagina
     private $actief;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->blokken = new ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -92,6 +100,16 @@ class Pagina
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 
     /**
@@ -109,13 +127,13 @@ class Pagina
     }
 
     /**
-     * Get url
+     * Get naam
      *
      * @return string
      */
-    public function getUrl()
+    public function getNaam()
     {
-        return $this->url;
+        return $this->naam;
     }
 
     /**
@@ -133,13 +151,13 @@ class Pagina
     }
 
     /**
-     * Get naam
+     * Get seoTitel
      *
      * @return string
      */
-    public function getNaam()
+    public function getSeoTitel()
     {
-        return $this->naam;
+        return $this->seoTitel;
     }
 
     /**
@@ -157,13 +175,13 @@ class Pagina
     }
 
     /**
-     * Get seoTitel
+     * Get seoOmschrijving
      *
      * @return string
      */
-    public function getSeoTitel()
+    public function getSeoOmschrijving()
     {
-        return $this->seoTitel;
+        return $this->seoOmschrijving;
     }
 
     /**
@@ -181,13 +199,13 @@ class Pagina
     }
 
     /**
-     * Get seoOmschrijving
+     * Get seoTrefwoorden
      *
      * @return string
      */
-    public function getSeoOmschrijving()
+    public function getSeoTrefwoorden()
     {
-        return $this->seoOmschrijving;
+        return $this->seoTrefwoorden;
     }
 
     /**
@@ -205,13 +223,13 @@ class Pagina
     }
 
     /**
-     * Get seoTrefwoorden
+     * Get seoAfbeelding
      *
      * @return string
      */
-    public function getSeoTrefwoorden()
+    public function getSeoAfbeelding()
     {
-        return $this->seoTrefwoorden;
+        return $this->seoAfbeelding;
     }
 
     /**
@@ -229,13 +247,13 @@ class Pagina
     }
 
     /**
-     * Get seoAfbeelding
+     * Get seoRobots
      *
      * @return string
      */
-    public function getSeoAfbeelding()
+    public function getSeoRobots()
     {
-        return $this->seoAfbeelding;
+        return $this->seoRobots;
     }
 
     /**
@@ -253,13 +271,13 @@ class Pagina
     }
 
     /**
-     * Get seoRobots
+     * Get actief
      *
-     * @return string
+     * @return bool
      */
-    public function getSeoRobots()
+    public function getActief()
     {
-        return $this->seoRobots;
+        return $this->actief;
     }
 
     /**
@@ -274,23 +292,6 @@ class Pagina
         $this->actief = $actief;
 
         return $this;
-    }
-
-    /**
-     * Get actief
-     *
-     * @return bool
-     */
-    public function getActief()
-    {
-        return $this->actief;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->blokken = new ArrayCollection();
     }
 
     function __toString()
