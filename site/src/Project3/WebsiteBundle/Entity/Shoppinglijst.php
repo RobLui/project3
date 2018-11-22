@@ -51,9 +51,8 @@ class Shoppinglijst
 
     function __toString()
     {
-        return (string)$this->naamGerecht;
+        return (string)$this->naamGerecht ?: 'Nieuwe shoppinglijst';
     }
-
 
     /**
      * Get id

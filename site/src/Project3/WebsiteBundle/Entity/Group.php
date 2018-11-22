@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Project3\WebsiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -31,7 +30,6 @@ class Group extends BaseGroup
 
     function __toString()
     {
-        return $this->getName() ?: "Group Create";
+        return $this->getName() ?: "New Group";
     }
-
 }

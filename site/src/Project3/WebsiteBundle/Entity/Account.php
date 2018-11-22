@@ -35,10 +35,9 @@ class Account
      */
     private $email;
 
-
     function __toString()
     {
-        return (string)$this->gebruikersnaam;
+        return (string)$this->gebruikersnaam ?: 'Nieuw Account';
     }
 
     /**

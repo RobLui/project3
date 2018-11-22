@@ -16,5 +16,4 @@ class DefaultController extends Controller
     {
         return $this->render('Project3WebsiteBundle:Account:instellingen.html.twig');
     }
-
 }

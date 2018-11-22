@@ -13,7 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Gerecht
 {
-
     /**
      * Many Gerechten have One categorie.
      * @ORM\ManyToOne(targetEntity="Project3\WebsiteBundle\Entity\Categorie", inversedBy="gerechten")
@@ -114,6 +113,11 @@ class Gerecht
         $this->ingredienten = new ArrayCollection();
     }
 
+    function __toString()
+    {
+        return (string)$this->naam ?: 'Nieuw Gerecht';
+    }
+
     public function getNameSuggest()
     {
         return array(
@@ -157,11 +161,6 @@ class Gerecht
     public function getId()
     {
         return $this->id;
-    }
-
-    function __toString()
-    {
-        return (string)($this->naam);
     }
 
     /**

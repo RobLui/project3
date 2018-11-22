@@ -296,9 +296,8 @@ class Pagina
 
     function __toString()
     {
-        return (string)($this->naam);
+        return (string)$this->naam ?: 'Nieuwe pagina';
     }
-
 
     /**
      * Add blokken

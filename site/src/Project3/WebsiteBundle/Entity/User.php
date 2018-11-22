@@ -45,5 +45,4 @@ class User extends BaseUser
         $roles = parent::getRoles();
         return array_combine($roles, $roles);
     }
-
 }

@@ -45,6 +45,11 @@ class Klaargemaakte_gerechten
         $this->gerechten = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return (string)$this->id ?: 'Niew klaargemaakt gerecht';
+    }
+
     /**
      * Get id
      *

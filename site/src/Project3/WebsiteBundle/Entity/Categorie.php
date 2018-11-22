@@ -44,7 +44,7 @@ class Categorie
 
     function __toString()
     {
-        return (string)($this->naam);
+        return (string)$this->naam ?: 'Nieuwe categorie';
     }
 
     /**

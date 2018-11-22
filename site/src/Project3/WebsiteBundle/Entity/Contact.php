@@ -28,6 +28,11 @@ class Contact
      */
     private $email;
 
+    public function __toString()
+    {
+        return (string)$this->email ?: 'Nieuw Contact';
+    }
+
     /**
      * Get id
      *
@@ -61,10 +66,4 @@ class Contact
 
         return $this;
     }
-
-    public function __toString()
-    {
-        return (string)$this->email;
-    }
-
 }

@@ -65,7 +65,7 @@ class Block
 
     public function __toString()
     {
-        return (string)($this->titel);
+        return (string)$this->titel ?: 'Nieuwe blok';
     }
 
     /**
